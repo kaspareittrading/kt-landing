@@ -284,6 +284,13 @@ rgba(10,15,16,.74) 70%,rgba(10,15,16,.30) 100%)}
 .vscene{height:200vh}
 .vscene.short{height:150vh}
 .reveal.l,.reveal.r{transform:translateY(48px)}
+.vscene,.vscene.short{height:auto}
+.vsticky{position:relative;height:auto;min-height:0;overflow:visible;display:flex;flex-direction:column;gap:30px;padding:72px 0}
+.vbg{position:relative;inset:auto;width:100%;height:auto;aspect-ratio:16/9;border-radius:14px}
+.vshade{display:none}
+.vtext{padding:0 22px}
+#futures .vsticky{align-items:stretch}
+#futures .vtext{padding-top:0}
 }
 </style>
 </head>
