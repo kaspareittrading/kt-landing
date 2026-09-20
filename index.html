@@ -284,9 +284,11 @@ rgba(10,15,16,.80) 0%,rgba(10,15,16,.87) 46%,rgba(10,15,16,.94) 100%)}
 .vtext .mini{gap:26px 30px;margin-top:26px}
 .hero-scene{height:400vh}
 .hero-grad{background:
-radial-gradient(ellipse at 50% 42%,rgba(64,198,204,.07),transparent 62%),
-linear-gradient(180deg,rgba(10,15,16,.30) 0%,rgba(10,15,16,.74) 34%,
-rgba(10,15,16,.74) 70%,rgba(10,15,16,.30) 100%)}
+radial-gradient(ellipse at 50% 30%,rgba(64,198,204,.07),transparent 62%),
+linear-gradient(180deg,rgba(10,15,16,.66) 0%,rgba(10,15,16,.58) 26%,
+rgba(10,15,16,.20) 58%,rgba(10,15,16,.10) 100%)}
+.board-cap p{font-size:15px;margin-top:10px}
+.board-cap{top:max(4%,20px)}
 .vscene{height:200vh}
 .vscene.short{height:150vh}
 .reveal.l,.reveal.r{transform:translateY(48px)}
@@ -913,7 +915,10 @@ barData.push({o:o,c:c,h:h,l:l}); price=c;
 var mapY=function(v){return baseY-v*plotH;};
 var cX=function(i){return marginX+(i/(N-1))*usableW;};
 function buildTargets(){
-marginX=W*0.09; usableW=W*0.82; baseY=H*0.84; plotH=H*0.58;
+var schmal = W<700;
+marginX=W*0.09; usableW=W*0.82;
+baseY = schmal ? H*0.72 : H*0.84;
+plotH = schmal ? H*0.36 : H*0.58;
 curveT=[];
 for(var i=0;i<COUNT;i++){
 var f=i/(COUNT-1), x=marginX+f*usableW;
@@ -921,8 +926,8 @@ var fp=f*(N-1), i0=Math.floor(fp), i1=Math.min(N-1,i0+1), tt=fp-i0;
 var cval=barData[i0].c*(1-tt)+barData[i1].c*tt;
 curveT.push({x:x,y:mapY(cval)});
 }
-BS=Math.min(W*0.50,H*0.60);
-BY=H*0.53-BS/2;
+BS=Math.min(W*(schmal?0.88:0.50),H*0.60);
+BY=H*(schmal?0.50:0.53)-BS/2;
 var capUnten=boardCap?boardCap.offsetTop+boardCap.offsetHeight+16:0;
 if(BY<capUnten){
 var frei=H-40-capUnten;
@@ -979,12 +984,14 @@ addEventListener('scroll',onScroll,{passive:true});
 var ease=function(t){return t<.5?2*t*t:1-Math.pow(-2*t+2,2)/2;};
 var map=function(v,a,b){return Math.min(1,Math.max(0,(v-a)/(b-a)));};
 function drawBoard(A,now){
+var K = W<700 ? 1.8 : 1;
+var deck = function(v){ return Math.min(1, v*K)*A; };
 var r,c,k;
 for(r=0;r<8;r++){
 var rk=riskOf(r);
 for(c=0;c<8;c++){
 var dark=((r+c)%2)===1;
-ctx.fillStyle='rgba('+rk.rgb+','+((dark?0.15:0.05)*A)+')';
+ctx.fillStyle='rgba('+rk.rgb+','+deck(dark?0.15:0.05)+')';
 ctx.fillRect(BX+c*cell,BY+r*cell,cell,cell);
 }
 }
@@ -1004,17 +1011,17 @@ ctx.textAlign='center'; ctx.textBaseline='middle';
 ctx.font=Math.round(cell*0.5)+'px "Segoe UI Symbol","Apple Symbols",Arial';
 for(r=0;r<8;r++){
 var rk2=riskOf(r);
-ctx.fillStyle='rgba('+rk2.rgb+','+(0.6*A)+')';
+ctx.fillStyle='rgba('+rk2.rgb+','+deck(0.6)+')';
 for(c=0;c<8;c++){
 ctx.fillText(rk2.figs[c%rk2.figs.length],BX+(c+0.5)*cell,BY+(r+0.55)*cell);
 }
 }
-ctx.strokeStyle='rgba(255,255,255,'+(0.09*A)+')'; ctx.lineWidth=1;
+ctx.strokeStyle='rgba(255,255,255,'+deck(0.09)+')'; ctx.lineWidth=1;
 for(k=0;k<=8;k++){
 ctx.beginPath();ctx.moveTo(BX+k*cell,BY);ctx.lineTo(BX+k*cell,BY+BS);ctx.stroke();
 ctx.beginPath();ctx.moveTo(BX,BY+k*cell);ctx.lineTo(BX+BS,BY+k*cell);ctx.stroke();
 }
-ctx.strokeStyle='rgba(64,198,204,'+(0.42*A)+')'; ctx.lineWidth=1.4;
+ctx.strokeStyle='rgba(64,198,204,'+deck(0.42)+')'; ctx.lineWidth=1.4;
 ctx.shadowColor='rgba(64,198,204,.75)'; ctx.shadowBlur=18*A;
 ctx.strokeRect(BX,BY,BS,BS);
 ctx.shadowBlur=0;
