@@ -13,8 +13,8 @@
 --bg:#0a0f10;
 --bg2:#0d1314;
 --ink:#e7eced;
---muted:#8b9698;
---dim:#5f6a6c;
+--muted:#bac4c6;
+--dim:#8f999b;
 --teal:#40C6CC;
 --gold:#D8AE5E;
 --green:#33C46F;
@@ -266,6 +266,12 @@ gap:.55em;flex-wrap:wrap;justify-content:center}
 .faq summary::after{content:"+";position:absolute;right:6px;top:22px;font-size:22px;color:var(--teal);font-weight:200;transition:transform .3s}
 .faq details[open] summary::after{transform:rotate(45deg)}
 .faq .ans{color:var(--muted);font-size:15.5px;padding:0 40px 26px 0}
+.sec-head p,.vtext p{font-size:18.5px}
+.compliance > p,.voice p,.board-cap p,.faq .ans{font-size:16.5px}
+.step p,.q p,.lvl p,.notgrid div,.flow{font-size:16px}
+.price li,.price .claim,.cmp-row > div,.yes,.lock,.claimband p{font-size:15.5px}
+.hero-outro p{font-size:17px}
+.foot-grid a{font-size:15px}
 @media(max-width:900px){
 .chess,.tst{grid-template-columns:1fr}
 section{padding:96px 0}
@@ -626,7 +632,7 @@ daran, die verschiedenen Bots auszuprobieren und für sich zu kombinieren.</p>
 <li>Persönlicher Support per Ticket</li>
 <li>Webinare samstags, Stammtische donnerstags, Masterminds nach Ankündigung</li>
 </ul>
-<a href="#starten" class="btn btn-primary">Premium wählen</a>
+<a href="https://copecart.com/products/2f416c32/checkout" target="_blank" rel="noopener" class="btn btn-primary">Premium wählen</a>
 </div>
 <div class="price reveal sc">
 <h3>Basic</h3>
@@ -641,7 +647,7 @@ daran, die verschiedenen Bots auszuprobieren und für sich zu kombinieren.</p>
 <li>Discord-Community und KI-Chatbot</li>
 <li class="no">All Time High, Webinare und Ticket-Support nicht enthalten</li>
 </ul>
-<a href="#starten" class="btn btn-ghost">Basic wählen</a>
+<a href="https://copecart.com/products/408f1468/checkout" target="_blank" rel="noopener" class="btn btn-ghost">Basic wählen</a>
 </div>
 <div class="price reveal r">
 <h3>Free</h3>
@@ -769,7 +775,7 @@ Broker, wir haben keinen Zugriff darauf.</div>
 <h2>Such dir deine Säule</h2>
 <p>Starte mit den CFD-Portfolios, mit dem Aktienhandel, oder mit beidem.</p>
 <div style="display:flex;gap:15px;justify-content:center;flex-wrap:wrap">
-<a href="#preise" class="btn btn-primary">Premium sichern</a>
+<a href="https://copecart.com/products/2f416c32/checkout" target="_blank" rel="noopener" class="btn btn-primary">Premium sichern</a>
 <a href="https://www.kaspareit-trading.com/member" class="btn btn-ghost">Kostenlos starten</a>
 </div>
 </div>
@@ -819,12 +825,14 @@ return {el:el,dir:dir,i:i};
 var ease=function(t){return t<.5?2*t*t:1-Math.pow(-2*t+2,2)/2;};
 function apply(){
 var vh=innerHeight;
+var restlich=document.documentElement.scrollHeight-(pageYOffset+vh);
 for(var k=0;k<els.length;k++){
 var o=els[k], rect=o.el.getBoundingClientRect();
 var stag=o.i*vh*0.05;
-var start=vh*0.95, end=vh*0.45;
+var start=vh*0.95, end=vh*0.60;
 var p=(start-stag-rect.top)/(start-end);
 p=Math.min(1,Math.max(0,p));
+if(restlich<6) p=1;
 var e=ease(p);
 o.el.style.opacity=e;
 var tx=0,ty=0,sc=1;
