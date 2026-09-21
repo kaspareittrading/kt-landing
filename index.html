@@ -266,6 +266,22 @@ gap:.55em;flex-wrap:wrap;justify-content:center}
 .faq summary::after{content:"+";position:absolute;right:6px;top:22px;font-size:22px;color:var(--teal);font-weight:200;transition:transform .3s}
 .faq details[open] summary::after{transform:rotate(45deg)}
 .faq .ans{color:var(--muted);font-size:15.5px;padding:0 40px 26px 0}
+/* Chatbot: Hoehe waechst mit dem Schirm mit, damit das Fenster auf dem Handy
+   nicht laenger ist als die Anzeige selbst. */
+#chatbot .botbox{max-width:900px;margin:0 auto;border:1px solid var(--line);
+border-radius:16px;overflow:hidden;background:#fff;
+box-shadow:0 18px 50px rgba(0,0,0,.45)}
+#chatbot .botbox iframe{display:block;width:100%;border:0;
+height:clamp(440px,66vh,620px)}
+#chatbot .bothint{max-width:900px;margin:20px auto 0;text-align:center;
+color:var(--dim);font-size:14.5px;line-height:1.65}
+#chatbot .bothint a{color:var(--teal);text-decoration:none;
+border-bottom:1px solid rgba(64,198,204,.4);transition:border-color .25s}
+#chatbot .bothint a:hover{border-bottom-color:var(--teal)}
+@media(max-width:600px){
+#chatbot .botbox{border-radius:12px}
+#chatbot .botbox iframe{height:clamp(420px,72vh,560px)}
+}
 .sec-head p,.vtext p{font-size:18.5px}
 .compliance > p,.voice p,.board-cap p,.faq .ans{font-size:16.5px}
 .step p,.q p,.lvl p,.notgrid div,.flow{font-size:16px}
@@ -747,6 +763,27 @@ und sind in Premium ohne Aufpreis enthalten.</div>
 </div>
 </div>
 </section>
+<section id="chatbot">
+<div class="wrap">
+<div class="sec-head mid reveal">
+<div class="kicker" style="color:var(--teal)">Frag uns alles</div>
+<h2>Chatbot</h2>
+</div>
+<div class="botbox reveal">
+<!-- Chatbase "Alex Bot". loading="lazy" laedt den Bot erst beim Hinscrollen,
+     sonst zieht er schon beim Seitenstart sein komplettes Programmpaket. -->
+<iframe
+src="https://www.chatbase.co/chatbot-iframe/BkBjWGmiWIHOAiNel6kVN"
+title="Alex Bot"
+loading="lazy"
+allow="microphone; autoplay"
+referrerpolicy="strict-origin-when-cross-origin"></iframe>
+</div>
+<p class="bothint reveal">Sollte der Chat-Bot keine ausreichenden Infos für dich haben,
+kannst du uns auch per Mail kontaktieren:
+<a href="mailto:info@kaspareit-trading.de">info@kaspareit-trading.de</a></p>
+</div>
+</section>
 <section>
 <div class="wrap">
 <div class="compliance reveal sc">
@@ -1043,6 +1080,26 @@ ctx.strokeStyle='rgba('+R.rgb+','+(0.32*A)+')'; ctx.lineWidth=1;
 ctx.beginPath();
 ctx.moveTo(BX+BS+12,BY+R.rows[0]*cell+4);
 ctx.lineTo(BX+BS+12,BY+(R.rows[1]+1)*cell-4);
+ctx.stroke();
+}
+}else{
+/* Schmale Schirme: neben dem Brett ist kein Platz, deshalb wandert die
+   Beschriftung nach innen. Vorher fehlte sie unter 900px komplett. */
+ctx.font='600 10px Manrope,Arial';
+ctx.textAlign='left'; ctx.textBaseline='middle';
+for(var s3=0;s3<RISK.length;s3++){
+var R3=RISK[s3];
+var yTop3=BY+R3.rows[0]*cell, yBot3=BY+(R3.rows[1]+1)*cell;
+var yLab=yTop3+Math.min(13,(yBot3-yTop3)/2);
+var tx3=R3.label, tw3=ctx.measureText(tx3).width;
+ctx.fillStyle='rgba(8,10,14,'+(0.62*A)+')';
+ctx.fillRect(BX+3,yLab-8,tw3+14,16);
+ctx.fillStyle='rgba('+R3.rgb+','+(0.95*A)+')';
+ctx.fillText(tx3,BX+9,yLab);
+ctx.strokeStyle='rgba('+R3.rgb+','+(0.5*A)+')'; ctx.lineWidth=2;
+ctx.beginPath();
+ctx.moveTo(BX+1.5,yTop3+3);
+ctx.lineTo(BX+1.5,yBot3-3);
 ctx.stroke();
 }
 }
