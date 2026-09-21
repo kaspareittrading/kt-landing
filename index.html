@@ -39,6 +39,12 @@ b,strong{font-weight:600;color:var(--ink)}
 ::-webkit-scrollbar-thumb{background:rgba(64,198,204,.35);border-radius:10px}
 ::-webkit-scrollbar-thumb:hover{background:rgba(64,198,204,.6)}
 html{scrollbar-width:thin;scrollbar-color:rgba(64,198,204,.4) var(--bg)}
+/* Laeuft die Seite in einem Kasten auf einer anderen Seite (Wix), gibt es dort
+   schon einen Scrollbalken. Der zweite, innere Balken wird dann versteckt.
+   Gescrollt wird weiterhin ganz normal, nur der Strich verschwindet.
+   Frei im Browser bleibt der Balken sichtbar, dort wird er gebraucht. */
+html.im-rahmen{scrollbar-width:none;-ms-overflow-style:none}
+html.im-rahmen::-webkit-scrollbar{width:0;height:0;display:none}
 nav{position:fixed;inset:0 0 auto 0;z-index:100;display:flex;align-items:center;justify-content:space-between;
 padding:20px 28px;border-bottom:1px solid transparent;transition:background .35s,padding .35s,border-color .35s}
 nav.scrolled{background:rgba(10,15,16,.84);backdrop-filter:blur(14px);border-bottom-color:var(--line);padding:13px 28px}
@@ -317,6 +323,16 @@ rgba(10,15,16,.20) 58%,rgba(10,15,16,.10) 100%)}
 #futures .vtext{padding-top:0}
 }
 </style>
+<script>
+/* Sofort feststellen, ob die Seite in einem Kasten auf einer anderen Seite
+   laeuft. Muss vor dem Zeichnen passieren, sonst blitzt der zweite
+   Scrollbalken kurz auf. */
+(function(){
+  var imRahmen;
+  try { imRahmen = (window.self !== window.top); } catch(e) { imRahmen = true; }
+  if (imRahmen) document.documentElement.classList.add('im-rahmen');
+})();
+</script>
 </head>
 <body>
 <div class="hero-scene" id="heroScene">
