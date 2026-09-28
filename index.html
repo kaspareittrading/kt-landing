@@ -346,6 +346,28 @@ html.im-rahmen nav{display:none}
 .story p{color:var(--muted);font-size:15px;line-height:1.7}
 .story p+p{margin-top:12px}
 .story .who{margin-top:18px;font-size:13px;color:var(--ink);font-weight:500}
+/* Nachweis-Galerie in den Erfolgsstorys + Grossansicht (28.09.2026) */
+.storys-kicker{text-align:center;font-size:11.5px;letter-spacing:.4em;text-transform:uppercase;color:var(--dim);margin:40px 0 0}
+.galerie{margin-top:8px}
+.gal-gruppe{margin-top:30px}
+.gal-titel{font-size:15px;color:var(--ink);font-weight:400;margin:0 0 14px;display:flex;align-items:center;gap:10px}
+.gal-titel span{font-size:11.5px;color:var(--teal);border:1px solid rgba(64,198,204,.4);border-radius:40px;padding:1px 9px}
+.gal-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:12px}
+.gal-bild{display:block;aspect-ratio:1/1;background:var(--card);border:1px solid var(--line);border-radius:10px;overflow:hidden;cursor:zoom-in;transition:border-color .25s,box-shadow .25s,transform .25s}
+.gal-bild img{width:100%;height:100%;object-fit:contain;display:block}
+.gal-bild:hover{border-color:var(--teal);box-shadow:0 0 22px rgba(64,198,204,.22);transform:translateY(-2px)}
+@media(max-width:600px){.gal-grid{grid-template-columns:repeat(3,1fr);gap:8px}}
+.story-pdf{display:inline-block;margin-top:14px;font-size:13.5px;color:var(--teal);border-bottom:1px solid rgba(64,198,204,.4)}
+.lb{position:fixed;inset:0;z-index:300;background:rgba(4,6,8,.94);display:none;align-items:center;justify-content:center;padding:56px 64px}
+.lb.offen{display:flex}
+.lb img{max-width:100%;max-height:100%;object-fit:contain;border-radius:8px;box-shadow:0 20px 60px rgba(0,0,0,.6)}
+.lb button{position:absolute;background:rgba(255,255,255,.06);border:1px solid var(--line);color:var(--ink);width:46px;height:46px;border-radius:50%;font-size:22px;line-height:1;cursor:pointer;transition:border-color .25s}
+.lb button:hover{border-color:var(--teal)}
+.lb .lb-zu{top:14px;right:14px}
+.lb .lb-vor{right:12px;top:50%;transform:translateY(-50%)}
+.lb .lb-zur{left:12px;top:50%;transform:translateY(-50%)}
+.lb .lb-info{position:absolute;bottom:16px;left:0;right:0;text-align:center;color:var(--dim);font-size:13px}
+@media(max-width:600px){.lb{padding:60px 8px 70px}.lb .lb-vor,.lb .lb-zur{top:auto;bottom:10px;transform:none}.lb .lb-info{bottom:24px}}
 </style>
 <script>
 /* Sofort feststellen, ob die Seite in einem Kasten auf einer anderen Seite
@@ -683,10 +705,71 @@ Bei uns beginnt an diesem Punkt erst die eigentliche Arbeit.</p>
 
 <details class="storys" id="erfolgsstorys">
 <summary><span class="zu">Alle Erfolgsstorys lesen</span><span class="auf">Erfolgsstorys schließen</span></summary>
-<p class="storys-hinweis">Im Originalwortlaut, so wie uns die Mitglieder geschrieben haben.</p>
+<div class="storys-kicker">Nachweise aus der Community</div>
+<div class="galerie" id="nachweise">
+<div class="gal-gruppe"><div class="gal-titel">Auszahlungen und Rewards<span>7</span></div><div class="gal-grid">
+<a class="gal-bild" href="storys/gross/s09.jpg" data-gruppe="Auszahlungen und Rewards"><img src="storys/klein/s09.jpg" alt="Auszahlung oder Reward einer Prop-Firma" loading="lazy" decoding="async" width="520" height="520"></a>
+<a class="gal-bild" href="storys/gross/s14.jpg" data-gruppe="Auszahlungen und Rewards"><img src="storys/klein/s14.jpg" alt="Auszahlung oder Reward einer Prop-Firma" loading="lazy" decoding="async" width="520" height="520"></a>
+<a class="gal-bild" href="storys/gross/s17.jpg" data-gruppe="Auszahlungen und Rewards"><img src="storys/klein/s17.jpg" alt="Auszahlung oder Reward einer Prop-Firma" loading="lazy" decoding="async" width="520" height="520"></a>
+<a class="gal-bild" href="storys/gross/s23.jpg" data-gruppe="Auszahlungen und Rewards"><img src="storys/klein/s23.jpg" alt="Auszahlung oder Reward einer Prop-Firma" loading="lazy" decoding="async" width="520" height="520"></a>
+<a class="gal-bild" href="storys/gross/s11.jpg" data-gruppe="Auszahlungen und Rewards"><img src="storys/klein/s11.jpg" alt="Auszahlung oder Reward einer Prop-Firma" loading="lazy" decoding="async" width="520" height="520"></a>
+<a class="gal-bild" href="storys/gross/s12.jpg" data-gruppe="Auszahlungen und Rewards"><img src="storys/klein/s12.jpg" alt="Auszahlung oder Reward einer Prop-Firma" loading="lazy" decoding="async" width="520" height="520"></a>
+<a class="gal-bild" href="storys/gross/s31.jpg" data-gruppe="Auszahlungen und Rewards"><img src="storys/klein/s31.jpg" alt="Auszahlung oder Reward einer Prop-Firma" loading="lazy" decoding="async" width="520" height="520"></a>
+</div></div>
+<div class="gal-gruppe"><div class="gal-titel">Bestandene FTMO-Challenges<span>30</span></div><div class="gal-grid">
+<a class="gal-bild" href="storys/gross/s02.jpg" data-gruppe="Bestandene FTMO-Challenges"><img src="storys/klein/s02.jpg" alt="Zertifikat einer bestandenen FTMO-Challenge oder Verification" loading="lazy" decoding="async" width="520" height="520"></a>
+<a class="gal-bild" href="storys/gross/s03.jpg" data-gruppe="Bestandene FTMO-Challenges"><img src="storys/klein/s03.jpg" alt="Zertifikat einer bestandenen FTMO-Challenge oder Verification" loading="lazy" decoding="async" width="520" height="520"></a>
+<a class="gal-bild" href="storys/gross/s04.jpg" data-gruppe="Bestandene FTMO-Challenges"><img src="storys/klein/s04.jpg" alt="Zertifikat einer bestandenen FTMO-Challenge oder Verification" loading="lazy" decoding="async" width="520" height="520"></a>
+<a class="gal-bild" href="storys/gross/s05.jpg" data-gruppe="Bestandene FTMO-Challenges"><img src="storys/klein/s05.jpg" alt="Zertifikat einer bestandenen FTMO-Challenge oder Verification" loading="lazy" decoding="async" width="520" height="520"></a>
+<a class="gal-bild" href="storys/gross/s06.jpg" data-gruppe="Bestandene FTMO-Challenges"><img src="storys/klein/s06.jpg" alt="Zertifikat einer bestandenen FTMO-Challenge oder Verification" loading="lazy" decoding="async" width="520" height="520"></a>
+<a class="gal-bild" href="storys/gross/s07.jpg" data-gruppe="Bestandene FTMO-Challenges"><img src="storys/klein/s07.jpg" alt="Zertifikat einer bestandenen FTMO-Challenge oder Verification" loading="lazy" decoding="async" width="520" height="520"></a>
+<a class="gal-bild" href="storys/gross/s08.jpg" data-gruppe="Bestandene FTMO-Challenges"><img src="storys/klein/s08.jpg" alt="Zertifikat einer bestandenen FTMO-Challenge oder Verification" loading="lazy" decoding="async" width="520" height="520"></a>
+<a class="gal-bild" href="storys/gross/s15.jpg" data-gruppe="Bestandene FTMO-Challenges"><img src="storys/klein/s15.jpg" alt="Zertifikat einer bestandenen FTMO-Challenge oder Verification" loading="lazy" decoding="async" width="520" height="520"></a>
+<a class="gal-bild" href="storys/gross/s16.jpg" data-gruppe="Bestandene FTMO-Challenges"><img src="storys/klein/s16.jpg" alt="Zertifikat einer bestandenen FTMO-Challenge oder Verification" loading="lazy" decoding="async" width="520" height="520"></a>
+<a class="gal-bild" href="storys/gross/s18.jpg" data-gruppe="Bestandene FTMO-Challenges"><img src="storys/klein/s18.jpg" alt="Zertifikat einer bestandenen FTMO-Challenge oder Verification" loading="lazy" decoding="async" width="520" height="520"></a>
+<a class="gal-bild" href="storys/gross/s19.jpg" data-gruppe="Bestandene FTMO-Challenges"><img src="storys/klein/s19.jpg" alt="Zertifikat einer bestandenen FTMO-Challenge oder Verification" loading="lazy" decoding="async" width="520" height="520"></a>
+<a class="gal-bild" href="storys/gross/s24.jpg" data-gruppe="Bestandene FTMO-Challenges"><img src="storys/klein/s24.jpg" alt="Zertifikat einer bestandenen FTMO-Challenge oder Verification" loading="lazy" decoding="async" width="520" height="520"></a>
+<a class="gal-bild" href="storys/gross/s25.jpg" data-gruppe="Bestandene FTMO-Challenges"><img src="storys/klein/s25.jpg" alt="Zertifikat einer bestandenen FTMO-Challenge oder Verification" loading="lazy" decoding="async" width="520" height="520"></a>
+<a class="gal-bild" href="storys/gross/s26.jpg" data-gruppe="Bestandene FTMO-Challenges"><img src="storys/klein/s26.jpg" alt="Zertifikat einer bestandenen FTMO-Challenge oder Verification" loading="lazy" decoding="async" width="520" height="520"></a>
+<a class="gal-bild" href="storys/gross/s28.jpg" data-gruppe="Bestandene FTMO-Challenges"><img src="storys/klein/s28.jpg" alt="Zertifikat einer bestandenen FTMO-Challenge oder Verification" loading="lazy" decoding="async" width="520" height="520"></a>
+<a class="gal-bild" href="storys/gross/s29.jpg" data-gruppe="Bestandene FTMO-Challenges"><img src="storys/klein/s29.jpg" alt="Zertifikat einer bestandenen FTMO-Challenge oder Verification" loading="lazy" decoding="async" width="520" height="520"></a>
+<a class="gal-bild" href="storys/gross/s30.jpg" data-gruppe="Bestandene FTMO-Challenges"><img src="storys/klein/s30.jpg" alt="Zertifikat einer bestandenen FTMO-Challenge oder Verification" loading="lazy" decoding="async" width="520" height="520"></a>
+<a class="gal-bild" href="storys/gross/s32.jpg" data-gruppe="Bestandene FTMO-Challenges"><img src="storys/klein/s32.jpg" alt="Zertifikat einer bestandenen FTMO-Challenge oder Verification" loading="lazy" decoding="async" width="520" height="520"></a>
+<a class="gal-bild" href="storys/gross/s33.jpg" data-gruppe="Bestandene FTMO-Challenges"><img src="storys/klein/s33.jpg" alt="Zertifikat einer bestandenen FTMO-Challenge oder Verification" loading="lazy" decoding="async" width="520" height="520"></a>
+<a class="gal-bild" href="storys/gross/s34.jpg" data-gruppe="Bestandene FTMO-Challenges"><img src="storys/klein/s34.jpg" alt="Zertifikat einer bestandenen FTMO-Challenge oder Verification" loading="lazy" decoding="async" width="520" height="520"></a>
+<a class="gal-bild" href="storys/gross/s35.jpg" data-gruppe="Bestandene FTMO-Challenges"><img src="storys/klein/s35.jpg" alt="Zertifikat einer bestandenen FTMO-Challenge oder Verification" loading="lazy" decoding="async" width="520" height="520"></a>
+<a class="gal-bild" href="storys/gross/s36.jpg" data-gruppe="Bestandene FTMO-Challenges"><img src="storys/klein/s36.jpg" alt="Zertifikat einer bestandenen FTMO-Challenge oder Verification" loading="lazy" decoding="async" width="520" height="520"></a>
+<a class="gal-bild" href="storys/gross/s37.jpg" data-gruppe="Bestandene FTMO-Challenges"><img src="storys/klein/s37.jpg" alt="Zertifikat einer bestandenen FTMO-Challenge oder Verification" loading="lazy" decoding="async" width="520" height="520"></a>
+<a class="gal-bild" href="storys/gross/s38.jpg" data-gruppe="Bestandene FTMO-Challenges"><img src="storys/klein/s38.jpg" alt="Zertifikat einer bestandenen FTMO-Challenge oder Verification" loading="lazy" decoding="async" width="520" height="520"></a>
+<a class="gal-bild" href="storys/gross/s41.jpg" data-gruppe="Bestandene FTMO-Challenges"><img src="storys/klein/s41.jpg" alt="Zertifikat einer bestandenen FTMO-Challenge oder Verification" loading="lazy" decoding="async" width="520" height="520"></a>
+<a class="gal-bild" href="storys/gross/s42.jpg" data-gruppe="Bestandene FTMO-Challenges"><img src="storys/klein/s42.jpg" alt="Zertifikat einer bestandenen FTMO-Challenge oder Verification" loading="lazy" decoding="async" width="520" height="520"></a>
+<a class="gal-bild" href="storys/gross/s43.jpg" data-gruppe="Bestandene FTMO-Challenges"><img src="storys/klein/s43.jpg" alt="Zertifikat einer bestandenen FTMO-Challenge oder Verification" loading="lazy" decoding="async" width="520" height="520"></a>
+<a class="gal-bild" href="storys/gross/s44.jpg" data-gruppe="Bestandene FTMO-Challenges"><img src="storys/klein/s44.jpg" alt="Zertifikat einer bestandenen FTMO-Challenge oder Verification" loading="lazy" decoding="async" width="520" height="520"></a>
+<a class="gal-bild" href="storys/gross/s45.jpg" data-gruppe="Bestandene FTMO-Challenges"><img src="storys/klein/s45.jpg" alt="Zertifikat einer bestandenen FTMO-Challenge oder Verification" loading="lazy" decoding="async" width="520" height="520"></a>
+<a class="gal-bild" href="storys/gross/s46.jpg" data-gruppe="Bestandene FTMO-Challenges"><img src="storys/klein/s46.jpg" alt="Zertifikat einer bestandenen FTMO-Challenge oder Verification" loading="lazy" decoding="async" width="520" height="520"></a>
+</div></div>
+<div class="gal-gruppe"><div class="gal-titel">Weitere Prop-Firmen<span>9</span></div><div class="gal-grid">
+<a class="gal-bild" href="storys/gross/s01.jpg" data-gruppe="Weitere Prop-Firmen"><img src="storys/klein/s01.jpg" alt="Zertifikat einer weiteren Prop-Firma" loading="lazy" decoding="async" width="520" height="361"></a>
+<a class="gal-bild" href="storys/gross/s13.jpg" data-gruppe="Weitere Prop-Firmen"><img src="storys/klein/s13.jpg" alt="Zertifikat einer weiteren Prop-Firma" loading="lazy" decoding="async" width="520" height="520"></a>
+<a class="gal-bild" href="storys/gross/s22.jpg" data-gruppe="Weitere Prop-Firmen"><img src="storys/klein/s22.jpg" alt="Zertifikat einer weiteren Prop-Firma" loading="lazy" decoding="async" width="520" height="520"></a>
+<a class="gal-bild" href="storys/gross/s40.jpg" data-gruppe="Weitere Prop-Firmen"><img src="storys/klein/s40.jpg" alt="Zertifikat einer weiteren Prop-Firma" loading="lazy" decoding="async" width="520" height="520"></a>
+<a class="gal-bild" href="storys/gross/s20.jpg" data-gruppe="Weitere Prop-Firmen"><img src="storys/klein/s20.jpg" alt="Zertifikat einer weiteren Prop-Firma" loading="lazy" decoding="async" width="520" height="520"></a>
+<a class="gal-bild" href="storys/gross/s47.jpg" data-gruppe="Weitere Prop-Firmen"><img src="storys/klein/s47.jpg" alt="Zertifikat einer weiteren Prop-Firma" loading="lazy" decoding="async" width="520" height="520"></a>
+<a class="gal-bild" href="storys/gross/s48.jpg" data-gruppe="Weitere Prop-Firmen"><img src="storys/klein/s48.jpg" alt="Zertifikat einer weiteren Prop-Firma" loading="lazy" decoding="async" width="520" height="520"></a>
+<a class="gal-bild" href="storys/gross/s49.jpg" data-gruppe="Weitere Prop-Firmen"><img src="storys/klein/s49.jpg" alt="Zertifikat einer weiteren Prop-Firma" loading="lazy" decoding="async" width="520" height="520"></a>
+<a class="gal-bild" href="storys/gross/s50.jpg" data-gruppe="Weitere Prop-Firmen"><img src="storys/klein/s50.jpg" alt="Zertifikat einer weiteren Prop-Firma" loading="lazy" decoding="async" width="520" height="520"></a>
+</div></div>
+<div class="gal-gruppe"><div class="gal-titel">Nachrichten und Auswertungen<span>5</span></div><div class="gal-grid">
+<a class="gal-bild" href="storys/gross/s10.jpg" data-gruppe="Nachrichten und Auswertungen"><img src="storys/klein/s10.jpg" alt="Nachricht oder Auswertung eines Mitglieds" loading="lazy" decoding="async" width="520" height="520"></a>
+<a class="gal-bild" href="storys/gross/s27.jpg" data-gruppe="Nachrichten und Auswertungen"><img src="storys/klein/s27.jpg" alt="Nachricht oder Auswertung eines Mitglieds" loading="lazy" decoding="async" width="520" height="520"></a>
+<a class="gal-bild" href="storys/gross/s21.jpg" data-gruppe="Nachrichten und Auswertungen"><img src="storys/klein/s21.jpg" alt="Nachricht oder Auswertung eines Mitglieds" loading="lazy" decoding="async" width="520" height="520"></a>
+<a class="gal-bild" href="storys/gross/s51.jpg" data-gruppe="Nachrichten und Auswertungen"><img src="storys/klein/s51.jpg" alt="Nachricht oder Auswertung eines Mitglieds" loading="lazy" decoding="async" width="520" height="520"></a>
+<a class="gal-bild" href="storys/gross/s52.jpg" data-gruppe="Nachrichten und Auswertungen"><img src="storys/klein/s52.jpg" alt="Nachricht oder Auswertung eines Mitglieds" loading="lazy" decoding="async" width="520" height="520"></a>
+</div></div>
+</div>
+<div class="storys-kicker">Berichte der Mitglieder</div>
 <div class="storys-grid">
 <article class="story">
-<h3>Meine bestandene Proptrading Challenge</h3>
 <p>Ich habe im August 2024 den Workaholic Bot (Strategie 1) von Kaspareit erworben und es war die beste Entscheidung, die hätte treffen können. Nach knapp 5 Monaten habe ich 3 Challanges bei FTMO bestanden und konnte mir bereits mehrere Tausend Euro auszahlen lassen. Abgesehen von der tadellos funktionierenden und transparenten Strategie, ist der Support von Kaspareit, seinem Team und der Community im Discord wirklich Gold wert. Aus diesem Grund habe ich mir nun auch die Vollversion gekauft und freue mich weiterhin gemeinsam profitieren zu können. Durch Kaspareit bin ich in kürze in der Lage die Stunden meines Vollzeitjobs zu reduzieren und mehr Zeit mit Dingen zu verbringen, die mir wirklich Spaß machen.</p>
 <p>Dafür danke ich Alex und seinem Team!</p>
 <div class="who">Niklas J.</div>
@@ -703,6 +786,7 @@ Bei uns beginnt an diesem Punkt erst die eigentliche Arbeit.</p>
 <article class="story">
 <p>Ich hab dem Bot anfangs auch nicht vertraut und permanent eingegriffen. Dann habe ich dem Bot am 10.11.2023 ein kleines 10K Konto überlassen und nicht mehr eingegriffen und es hat sich gelohnt. Angehängt findet Ihr den Report von diesem Konto und es handelt sich um keinen Backtest, sondern wurde (wird immer noch) so in echt gehandelt. Anfangs hatte ich auch noch das M15 Setfile zusätzlich auf einem M15 Chart am Laufen, deshalb sieht das Diagramm (ganz unten im Report) am Anfang nicht so gut aus.</p>
 <p>Ich vertraue daher Bot1 jetzt schon länger und aktuell handelt der Bot bei mir 5 Konten sehr profitabel und ich greife auch nicht mehr ein. Vielleicht hilft es dem ein oder anderen, um Vertrauen zu gewinnen. 😉</p>
+<a class="story-pdf" href="storys/martin-report.pdf" target="_blank" rel="noopener">Report von Martins Konto ansehen (PDF)</a>
 <div class="who">Martin</div>
 </article>
 <article class="story">
@@ -1433,6 +1517,23 @@ var d=document.getElementById('erfolgsstorys'); if(!d) return;
 function oeffnen(){ d.open=true; setTimeout(function(){ d.scrollIntoView({behavior:'smooth',block:'start'}); },60); }
 document.querySelectorAll('a[href="#erfolgsstorys"]').forEach(function(a){ a.addEventListener('click',function(e){ e.preventDefault(); oeffnen(); }); });
 if(location.hash==='#erfolgsstorys') oeffnen();
+})();
+</script>
+<div class="lb" id="lb" role="dialog" aria-modal="true" aria-label="Großansicht"><img alt=""><button class="lb-zu" aria-label="Schließen">×</button><button class="lb-zur" aria-label="Vorheriges Bild">‹</button><button class="lb-vor" aria-label="Nächstes Bild">›</button><div class="lb-info"></div></div>
+<script>
+/* Grossansicht fuer die Nachweis-Galerie (28.09.2026): Klick oeffnet, Pfeile/Wischen blaettern, Esc schliesst */
+(function(){
+var lb=document.getElementById('lb'); if(!lb) return;
+var bild=lb.querySelector('img'), info=lb.querySelector('.lb-info'), links=[].slice.call(document.querySelectorAll('.gal-bild')), i=0;
+function zeige(n){ i=(n+links.length)%links.length; var a=links[i]; bild.src=a.getAttribute('href'); bild.alt=a.querySelector('img').alt; info.textContent=a.dataset.gruppe+' · '+(i+1)+' von '+links.length; }
+function auf(n){ zeige(n); lb.classList.add('offen'); document.documentElement.style.overflow='hidden'; }
+function zu(){ lb.classList.remove('offen'); document.documentElement.style.overflow=''; bild.removeAttribute('src'); }
+links.forEach(function(a,n){ a.addEventListener('click',function(e){ e.preventDefault(); auf(n); }); });
+lb.querySelector('.lb-zu').onclick=zu; lb.querySelector('.lb-vor').onclick=function(e){e.stopPropagation();zeige(i+1);}; lb.querySelector('.lb-zur').onclick=function(e){e.stopPropagation();zeige(i-1);};
+lb.addEventListener('click',function(e){ if(e.target===lb) zu(); });
+addEventListener('keydown',function(e){ if(!lb.classList.contains('offen')) return; if(e.key==='Escape') zu(); if(e.key==='ArrowRight') zeige(i+1); if(e.key==='ArrowLeft') zeige(i-1); });
+var x0=null; lb.addEventListener('touchstart',function(e){x0=e.touches[0].clientX;},{passive:true});
+lb.addEventListener('touchend',function(e){ if(x0===null) return; var dx=e.changedTouches[0].clientX-x0; if(Math.abs(dx)>40) zeige(i+(dx<0?1:-1)); x0=null; });
 })();
 </script>
 </body>
