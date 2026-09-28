@@ -329,6 +329,23 @@ html.im-rahmen nav{display:none}
 .logo{color:var(--ink);text-decoration:none}
 .logo img{width:30px;height:30px;flex:0 0 auto;object-fit:contain}
 .navlinks a{text-decoration:none}
+/* Stimmen im Originalwortlaut + ausklappbare Erfolgsstorys (28.09.2026) */
+.voice .vtag{display:inline-block;font-size:11.5px;letter-spacing:.06em;color:var(--teal);border:1px solid rgba(64,198,204,.45);border-radius:40px;padding:4px 13px;margin-bottom:14px}
+.voice .stars,.story .stars{color:var(--gold);letter-spacing:.18em;font-size:14px;margin-bottom:10px}
+.voice p+p{margin-top:12px}
+.storys{margin:44px auto 0;max-width:1080px}
+.storys>summary{list-style:none;cursor:pointer;display:block;width:max-content;max-width:100%;margin:0 auto;padding:14px 34px;border:1px solid var(--line);border-radius:40px;color:var(--ink);font-size:14px;letter-spacing:.05em;transition:border-color .3s,box-shadow .3s}
+.storys>summary::-webkit-details-marker{display:none}
+.storys>summary:hover{border-color:var(--teal);box-shadow:0 0 22px rgba(64,198,204,.22)}
+.storys .auf,.storys[open] .zu{display:none}
+.storys[open] .auf{display:inline}
+.storys-hinweis{text-align:center;color:var(--dim);font-size:13px;margin:26px auto 0;max-width:640px}
+.storys-grid{columns:2 440px;column-gap:26px;margin-top:26px}
+.story{break-inside:avoid;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:28px 28px 24px;margin:0 0 26px}
+.story h3{font-size:17px;font-weight:400;margin:0 0 12px;color:var(--ink)}
+.story p{color:var(--muted);font-size:15px;line-height:1.7}
+.story p+p{margin-top:12px}
+.story .who{margin-top:18px;font-size:13px;color:var(--ink);font-weight:500}
 </style>
 <script>
 /* Sofort feststellen, ob die Seite in einem Kasten auf einer anderen Seite
@@ -347,7 +364,7 @@ html.im-rahmen nav{display:none}
 <div class="navlinks" id="navlinks">
 <a href="#preise">Trading-Portfolios</a>
 <a href="https://www.kaspareit-trading.com/member">Free Member</a>
-<a href="https://www.kaspareit-trading.com/erfolgsstorys">Erfolgsstorys</a>
+<a href="#erfolgsstorys">Erfolgsstorys</a>
 <a href="https://www.kaspareit-trading.com/blog">Blog</a>
 <a href="#chatbot">Kontakt</a>
 <a href="https://www.kaspareit-trading.com/start-1" class="btn-login">Mitglieder-Login</a>
@@ -636,31 +653,97 @@ Bei uns beginnt an diesem Punkt erst die eigentliche Arbeit.</p>
 <div class="sec-head mid reveal">
 <div class="kicker" style="color:var(--dim)">Aus der Community</div>
 <h2>Was Mitglieder berichten</h2>
-<p>Einzelne Erfahrungen, keine Garantie für dein Ergebnis. Ausführlicher stehen sie
-auf der Seite mit den Erfolgsstorys.</p>
+<p>Echte Mitglieder, ihre eigenen Worte. Einzelne Erfahrungen, keine Garantie für dein Ergebnis.</p>
 </div>
 <div class="tst">
 <div class="voice reveal l">
-<p>Hat innerhalb von fünf Monaten drei FTMO-Challenges bestanden und konnte sich
-mehrere tausend Euro auszahlen lassen. Hebt besonders hervor, dass Kritik am
-Support ernst genommen und abgestellt wurde.</p>
+<div class="vtag">Prop-Trading</div>
+<div class="stars" aria-label="5 von 5 Sternen">★★★★★</div>
+<p>„Nach knapp 5 Monaten habe ich 3 Challenges bei FTMO bestanden und konnte mir bereits mehrere Tausend Euro auszahlen lassen.</p>
+<p>Der Support von Alex, seinem Team und der Community ist Gold wert.“</p>
 <div class="who">Niklas J.</div>
-<div class="role">Premium · Prop-Trading</div>
+<div class="role">Premium-Mitglied</div>
 </div>
 <div class="voice reveal sc">
-<p>Bringt 30 Jahre Börsenerfahrung mit. Der Einstieg war anfangs eine
-Herausforderung, seitdem läuft es aus ihrer Sicht sehr gut, mit höchstens
-fünf Minuten Aufwand am Tag.</p>
+<div class="vtag">Privatkonto</div>
+<div class="stars" aria-label="5 von 5 Sternen">★★★★★</div>
+<p>„Automatisches Trading war für mich etwas völlig Neues, aber nach anfänglichen technischen Herausforderungen bin ich begeistert. Es läuft super und mit max. 5 Minuten Zeitaufwand am Tag ist es genau das, was ich mir vorgestellt habe.“</p>
 <div class="who">Regina Katharina S.</div>
-<div class="role">Privatkonto</div>
+<div class="role">30 Jahre Börsenerfahrung</div>
 </div>
 <div class="voice reveal r">
-<p>Schätzt die Bandbreite von konservativ bis Daytrading und hat sichtlich Freude
-daran, die verschiedenen Bots auszuprobieren und für sich zu kombinieren.</p>
+<div class="vtag">Funded Account</div>
+<div class="stars" aria-label="5 von 5 Sternen">★★★★★</div>
+<p>„Ob konservativ langfristig oder schnelles Daytrading, für jede Situation gibt es Möglichkeiten.</p>
+<p>Es macht richtig Freude die vielen Möglichkeiten mit allen Bots zu entdecken. Ich bin sehr froh an Alex geraten zu sein.“</p>
 <div class="who">Martin T.</div>
-<div class="role">Premium · Funded Account</div>
+<div class="role">Premium-Mitglied</div>
 </div>
 </div>
+
+<details class="storys" id="erfolgsstorys">
+<summary><span class="zu">Alle Erfolgsstorys lesen</span><span class="auf">Erfolgsstorys schließen</span></summary>
+<p class="storys-hinweis">Im Originalwortlaut, so wie uns die Mitglieder geschrieben haben.</p>
+<div class="storys-grid">
+<article class="story">
+<h3>Meine bestandene Proptrading Challenge</h3>
+<p>Ich habe im August 2024 den Workaholic Bot (Strategie 1) von Kaspareit erworben und es war die beste Entscheidung, die hätte treffen können. Nach knapp 5 Monaten habe ich 3 Challanges bei FTMO bestanden und konnte mir bereits mehrere Tausend Euro auszahlen lassen. Abgesehen von der tadellos funktionierenden und transparenten Strategie, ist der Support von Kaspareit, seinem Team und der Community im Discord wirklich Gold wert. Aus diesem Grund habe ich mir nun auch die Vollversion gekauft und freue mich weiterhin gemeinsam profitieren zu können. Durch Kaspareit bin ich in kürze in der Lage die Stunden meines Vollzeitjobs zu reduzieren und mehr Zeit mit Dingen zu verbringen, die mir wirklich Spaß machen.</p>
+<p>Dafür danke ich Alex und seinem Team!</p>
+<div class="who">Niklas J.</div>
+</article>
+<article class="story">
+<p>Vielen Dank Alex,<br>ich habe es endlich geschafft. Nachdem ich mich 3 Jahre mit dem Thema Trading beschäftigt habe, habe ich es endlich geschafft profitabel zu werden.</p>
+<p>Ich bin echt begeistert von dem, was du uns bietest. Alleine wäre ich nie soweit gekommen. (Ich saß schon einige Nächte daran selber Python und MQL5 zu lernen aber das ist ja ein richtig langer Weg).</p>
+<div class="who">Max D.</div>
+</article>
+<article class="story">
+<p>Im zweiten Anlauf hat’s dann geklappt. Die erste Challenge hatte ich durch Zuviel eingreifen und rumexperimentieren verkackt. Und die tolle Seitwärtsphase im März/April hat ihren Rest getan 😊</p>
+<div class="who">Matthias D.</div>
+</article>
+<article class="story">
+<p>Ich hab dem Bot anfangs auch nicht vertraut und permanent eingegriffen. Dann habe ich dem Bot am 10.11.2023 ein kleines 10K Konto überlassen und nicht mehr eingegriffen und es hat sich gelohnt. Angehängt findet Ihr den Report von diesem Konto und es handelt sich um keinen Backtest, sondern wurde (wird immer noch) so in echt gehandelt. Anfangs hatte ich auch noch das M15 Setfile zusätzlich auf einem M15 Chart am Laufen, deshalb sieht das Diagramm (ganz unten im Report) am Anfang nicht so gut aus.</p>
+<p>Ich vertraue daher Bot1 jetzt schon länger und aktuell handelt der Bot bei mir 5 Konten sehr profitabel und ich greife auch nicht mehr ein. Vielleicht hilft es dem ein oder anderen, um Vertrauen zu gewinnen. 😉</p>
+<div class="who">Martin</div>
+</article>
+<article class="story">
+<p>Vielen Dank fürs zusenden der aktivierten Bots und es freut mich auch zu lesen und auch über die Webinare zu hören, dass du laufend an Verbesserungen arbeitest um auch in Range-Phasen erfolgreiche Bots anbieten zu können.</p>
+<p>Ich bin von Bot 3 und seine Möglichkeiten extrem begeistert und allein heute spielte er bei mir sein volles Potential aus. Es macht richtig Freude die vielen Möglichkeiten mit allen drei Bots zu entdecken, ob konservativ langfristig oder schnelles Daytrading, für jede Situation oder Zeit welche man für die Börse zur Verfügung hat, gibt es Möglichkeiten und ich finde du vermittelst uns dies auch sehr gut über die Webinare.</p>
+<p>Danke! Ich bin sehr froh an Dich geraten zu sein ;)!</p>
+<div class="who">Martin T.</div>
+</article>
+<article class="story">
+<p>Ich bin bereits seit 30 Jahren an den Märkten aktiv. Mein Fokus lag dabei auf Aktien und Future Trading. Dies hat mir immer sehr viel Spaß gemacht, hat aber auch sehr viel Zeit gekostet. Jetzt war ich auf der Suche, meine inzwischen etwas größeren Konten, auf komfortable Art weiterhin profitabel weiter laufen zu lassen.</p>
+<p>Alex hatte ich durch seine Videos bei Youtube kennengelernt und so habe ich mich Anfang des Jahres zu seiner Ausbildung angemeldet.</p>
+<p>Automatisches Trading war für mich etwas völlig Neues, aber nach anfänglichen technischen Herausforderungen, bei welchen mir kompetent geholfen wurde, bin ich begeistert. Es läuft super und mit max. 5 Minuten Zeitaufwand am Tag ist es genau das, was ich mir vorgestellt habe.</p>
+<div class="who">Regina Katharina S.</div>
+</article>
+<article class="story">
+<p>Ich möchte mich persönlich nochmal bei dir bedanken. Deine Ausbildung ist genau auf mich zugeschnitten, für Berufstätige genau das richtige Programm. Man kommt immer Stück für Stück weiter ohne sofort unter Stress zu den Cashzeiten am Desk sitzen zu müssen. Meine vorherige Ausbildung zum Volumentrader verlangte natürlich genau diese Zeiten von mir. Als Familienvater und Berufstätiger vom Mindset und zeitlichen Aufwand kaum machbar.</p>
+<p>Ich bin jetzt seit Ende Januar in der Ausbildung und seit März Live, 12% und 8% mit meinen Livekonten im Gewinn. Ich freue mich auf alles was kommt und danke Dir für die tolle Unterstützung und Ausbildung. Danach habe ich schon länger gesucht, ich kann dich absolut weiterempfehlen.</p>
+<div class="who">Mario S.</div>
+</article>
+<article class="story">
+<p>Echt cool gemeinsam und trotzdem jeder für sich die unergründlichen Wege des Handels zu ergründen, macht definitiv mehr Spass und bring uns weiter! Speziell die Handelswege des Herrn Kaspareit, schlicht ein Glückstreffer auf diesen Herrn gestossen zu sein.</p>
+<div class="who">Andreas R.</div>
+</article>
+<article class="story">
+<p>Auf jeden Fall muss ich dir ein Kompliment aussprechen. Abgesehen von deinen zwei tollen, profitablen Trading-Strategien finde ich deine Ausbildung Klasse.</p>
+<p>Du zeigst 100% Transparenz bei dem, was du machst, besonders auch bei der Weiterentwicklung der Bots und Strategien. Du zeigst auch, wie jeder selbst die Strategien backtesten kann und damit hat jeder Teilnehmer die Möglichkeit, Einstellungen und weitere Märkte für sich persönlich herauszufinden und zu erweitern.</p>
+<p>Da wird kein Kursteilnehmer an der Nase herum geführt sondern jeder weiß genau, was er für sein Geld bekommt.</p>
+<p>Und deine Ausbildung ist jeden Cent wert! Ich werde auf jeden Fall verlängern, weil ich jetzt schon gespannt bin, wo die Reise bei deinen Strategien noch hingeht.</p>
+<div class="who">Michael W.</div>
+</article>
+<article class="story">
+<p>Das Coaching gefällt mir wirklich richtig gut. Die Strategien sind eigentlich recht einfach gehalten, so dass sich die laufenden to Do´s in Grenzen halten. Die wöchentlichen Webinare zum Austausch sind interessant und geben die Möglichkeit, seine Fragen loszuwerden. Beide Strategien haben je nach Marktlage ihre Vorteile. Strategie 1 ist eher für längere Trends gedacht und das Risiko ist mit 3 % etwas höher. Strategie 2 deckt auch kürzere Trends ab bei geringerem Risiko (2 %). Der Entscheidungsspielraum ist sehr eng, so dass man nicht Gefahr läuft lange überlegen zu müssen, wie man weiter handelt. Der zeitliche Aufwand ist dadurch sehr überschaubar. Ich habe bislang noch nicht mit einem Handelsroboter gehandelt, aber weiß das bereits jetzt sehr zu schätzen. Man läuft weniger Gefahr emotionale Entscheidungen zu treffen. Außerdem habe ich die Möglichkeit mittels Handelsroboter historische Tests durchzuführen. Wofür ich früher Tage verbracht habe, geht hier in kurzer Zeit. Das ist zwar sicher nicht die Regel, aber ich habe bereits in der ersten Handelswoche den Preis fürs Coaching wieder drin gehabt. Die Gebühr ist zwar mittlerweile höher, aber noch immer angemessen für die erhaltene Leistung. Ich bin zwar erst seit acht Wochen live, aber bereits bei 25 % Rendite. Lieber Alex, vielen Dank für deinen wertvollen Input und dass du deine Strategie mit uns teilst. Es fühlt sich so an, als hätte ich dadurch die nächste Ebene als Trader erreicht und das fühlt sich sehr gut an. Ich kann dich einfach nur wärmstens weiterempfehlen.</p>
+<div class="who">Michael J.</div>
+</article>
+<article class="story">
+<p>Ich bin schon einige Zeit Trader und seit fast 1 1/2 Jahren auch ein relativ aktiver und profitabler. Kurse und Coachings habe ich schon viele absolviert, von teuer bis billig, von hilfreich bis kontraproduktiv war auch alles dabei. Letzteres war leider häufiger der Fall. Ende Januar 22 habe ich mich dann auch für Alex seinen Kurs entschlossen. Der Preis war für mich sehr attraktiv und fair, für diese Art Angebot. Immerhin umfasst es ein Jahr Mitgliedschaft, wöchentliche Live-Calls und man bekommt 2 funktionierende Strategien und diese sind durch die Bots auch noch voll und teilautomatisiert. Ich kannte halt Alex sein Gesicht schon, durch ein vorangegangenes Coaching, wodurch er einen Vertrauensbonus genoss und ich mir sicher sein konnte, dass ich definitiv etwas lernen werde. Ich sollte auch nicht enttäuscht werden. Der Kurs ist einfach und verständlich aufgebaut. Die Strategien sind zu meiner Überraschung simpel und genau deswegen auch sehr robust und profitabel. Die Bots sind hier die absolute Sahne für mich auf der Torte, denn das größte Problem ist es halt, dass man als Trader sonst viel zu lange an dem Bildschirm verweilen muss. Insgesamt hat mich der Kurs auf das nächste Level gehoben, denn es gab für mich diverse Aha-Momente, wodurch sich viele Probleme beim Trading für mich gelöst haben. Dafür möchte ich mich auch hier nochmal herzlich bei dir bedanken</p>
+<div class="who">Sebastian M.</div>
+</article>
+</div>
+<p class="storys-hinweis">Einzelne Erfahrungen, keine Garantie für dein Ergebnis. Frühere Ergebnisse sind kein verlässlicher Hinweis auf künftige Ergebnisse.</p>
+</details>
 </div>
 </section>
 <section id="preise" style="background:var(--bg2);border-top:1px solid var(--line);border-bottom:1px solid var(--line)">
@@ -1341,6 +1424,15 @@ burger.addEventListener('click',function(){setOpen(!nav.classList.contains('menu
 links.addEventListener('click',function(e){if(e.target.closest('a')) setOpen(false);});
 addEventListener('keydown',function(e){if(e.key==='Escape') setOpen(false);});
 addEventListener('resize',function(){if(innerWidth>900) setOpen(false);});
+})();
+</script>
+<script>
+/* Link „Erfolgsstorys“ öffnet die ausklappbaren Berichte direkt auf dieser Seite (28.09.2026) */
+(function(){
+var d=document.getElementById('erfolgsstorys'); if(!d) return;
+function oeffnen(){ d.open=true; setTimeout(function(){ d.scrollIntoView({behavior:'smooth',block:'start'}); },60); }
+document.querySelectorAll('a[href="#erfolgsstorys"]').forEach(function(a){ a.addEventListener('click',function(e){ e.preventDefault(); oeffnen(); }); });
+if(location.hash==='#erfolgsstorys') oeffnen();
 })();
 </script>
 </body>
