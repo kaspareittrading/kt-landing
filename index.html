@@ -368,6 +368,9 @@ html.im-rahmen nav{display:none}
 .lb .lb-zur{left:12px;top:50%;transform:translateY(-50%)}
 .lb .lb-info{position:absolute;bottom:16px;left:0;right:0;text-align:center;color:var(--dim);font-size:13px}
 @media(max-width:600px){.lb{padding:60px 8px 70px}.lb .lb-vor,.lb .lb-zur{top:auto;bottom:10px;transform:none}.lb .lb-info{bottom:24px}}
+/* Schliessen-Knopf am Ende der Erfolgsstorys (28.09.2026) */
+.storys-zu{display:block;margin:34px auto 0;padding:14px 34px;background:transparent;border:1px solid var(--line);border-radius:40px;color:var(--ink);font:inherit;font-size:14px;letter-spacing:.05em;cursor:pointer;transition:border-color .3s,box-shadow .3s}
+.storys-zu:hover{border-color:var(--teal);box-shadow:0 0 22px rgba(64,198,204,.22)}
 </style>
 <script>
 /* Sofort feststellen, ob die Seite in einem Kasten auf einer anderen Seite
@@ -826,7 +829,7 @@ Bei uns beginnt an diesem Punkt erst die eigentliche Arbeit.</p>
 <div class="who">Sebastian M.</div>
 </article>
 </div>
-<p class="storys-hinweis">Einzelne Erfahrungen, keine Garantie für dein Ergebnis. Frühere Ergebnisse sind kein verlässlicher Hinweis auf künftige Ergebnisse.</p>
+<button type="button" class="storys-zu" id="storysZu">Erfolgsstorys schließen</button>
 </details>
 </div>
 </section>
@@ -1534,6 +1537,13 @@ lb.addEventListener('click',function(e){ if(e.target===lb) zu(); });
 addEventListener('keydown',function(e){ if(!lb.classList.contains('offen')) return; if(e.key==='Escape') zu(); if(e.key==='ArrowRight') zeige(i+1); if(e.key==='ArrowLeft') zeige(i-1); });
 var x0=null; lb.addEventListener('touchstart',function(e){x0=e.touches[0].clientX;},{passive:true});
 lb.addEventListener('touchend',function(e){ if(x0===null) return; var dx=e.changedTouches[0].clientX-x0; if(Math.abs(dx)>40) zeige(i+(dx<0?1:-1)); x0=null; });
+})();
+</script>
+<script>
+/* Unten zuklappen und zurueck zu den drei Karten springen (28.09.2026) */
+(function(){
+var k=document.getElementById('storysZu'), d=document.getElementById('erfolgsstorys'), s=document.getElementById('stimmen'); if(!k||!d) return;
+k.addEventListener('click',function(){ d.open=false; (s||d).scrollIntoView({behavior:'smooth',block:'start'}); });
 })();
 </script>
 </body>
