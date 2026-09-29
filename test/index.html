@@ -382,6 +382,11 @@ html.landing .nav-preise{display:inline-block;color:var(--ink)}
 background:linear-gradient(90deg,rgba(10,15,16,.92) 0%,rgba(10,15,16,.72) 30%,rgba(10,15,16,.15) 58%,rgba(10,15,16,0) 70%)}
 #heroCanvas{z-index:2}
 .hero-grad{z-index:3}
+@media(orientation:portrait){
+.alex-schleier{background:linear-gradient(0deg,rgba(10,15,16,.97) 0%,rgba(10,15,16,.85) 34%,rgba(10,15,16,.2) 58%,rgba(10,15,16,0) 72%)}
+.hero-sticky{align-items:flex-end}
+.hero-content{padding-bottom:84px}
+}
 @media(max-width:760px){
 .hero-scene{height:560vh}
 .alex-schleier{background:linear-gradient(0deg,rgba(10,15,16,.97) 0%,rgba(10,15,16,.85) 34%,rgba(10,15,16,.2) 58%,rgba(10,15,16,0) 72%)}
@@ -1594,7 +1599,7 @@ function zeichne(i,alpha){
   else{
     /* Querformat: an der Fensterhoehe ausrichten, damit der Kopf nie abgeschnitten wird (Rueckmeldung Alex 29.09.) */
     var s2=h*0.94/b.naturalHeight; bw=b.naturalWidth*s2; bh=b.naturalHeight*s2; y=h-bh;
-    x=w*0.72-bw*0.67; if(x+bw<w) x=w-bw; if(x>w*0.35) x=w*0.35;
+    var ziel=(w/h<1.75)?0.79:0.73; x=w*ziel-bw*0.67; if(x+bw<w*0.97) x=w*0.97-bw;
   }
   ctx.clearRect(0,0,w,h); ctx.globalAlpha=alpha; ctx.drawImage(b,x,y,bw,bh);
   if(!hoch()){
