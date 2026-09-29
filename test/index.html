@@ -1589,8 +1589,8 @@ function groesse(){ var d=Math.min(devicePixelRatio||1,2); cv.width=cv.clientWid
 function zeichne(i,alpha){
   var b=bilder[i]; if(!b||!b.complete||!b.naturalWidth){ for(var k=i;k>=0;k--){ if(bilder[k]&&bilder[k].complete&&bilder[k].naturalWidth){ b=bilder[k]; break; } } }
   if(!b||!b.naturalWidth) return false;
-  var w=cv.width,h=cv.height,s=Math.max(w/b.naturalWidth,h/b.naturalHeight),bw=b.naturalWidth*s,bh=b.naturalHeight*s;
-  var x=hoch()?(w-bw)/2:(w-bw)*0.55, y=hoch()?0:(h-bh)*0.2;
+  var w=cv.width,h=cv.height,s=Math.max(w/b.naturalWidth,h/b.naturalHeight)*(hoch()?1:0.93),bw=b.naturalWidth*s,bh=b.naturalHeight*s;
+  var x=hoch()?(w-bw)/2:Math.min(w-bw*0.98,(w-bw)*0.55), y=hoch()?0:h-bh;
   ctx.clearRect(0,0,w,h); ctx.globalAlpha=alpha; ctx.drawImage(b,x,y,bw,bh); ctx.globalAlpha=1; return true;
 }
 var ruhig=matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -1601,7 +1601,7 @@ function takt(){
   var aus=Math.min(1,Math.max(0,(SR-ANTEIL*0.95)/0.07));
   var alpha=1-aus;
   document.documentElement.classList.toggle('alex-weg',aus>0.5);
-  document.getElementById('alexSchleier').style.opacity=alpha;
+  document.getElementById('alexSchleier').style.opacity=alpha; var hc=document.getElementById('heroCanvas'); if(hc) hc.style.opacity=(0.4+0.6*aus).toFixed(3);
   var i=Math.round(aktuell);
   if(i!==gezeigt||Math.abs(alpha-alphaAlt)>0.01){ if(alpha<=0.005){ ctx.clearRect(0,0,cv.width,cv.height); gezeigt=i; alphaAlt=alpha; } else if(zeichne(i,alpha)){ gezeigt=i; alphaAlt=alpha; } }
   requestAnimationFrame(takt);
