@@ -1584,7 +1584,7 @@ k.addEventListener('click',function(){ d.open=false; (s||d).scrollIntoView({beha
 /* TEST 29.09.2026: Scroll-Drehung von Alex im Hero (143 Bilder, PC quer / Handy hoch) */
 (function(){
 var cv=document.getElementById('alexCanvas'), scene=document.getElementById('heroScene'); if(!cv||!scene) return;
-var ctx=cv.getContext('2d'), ANZ=120 /* 01.10.: letzte 23 Bilder abgeschnitten, Ende wirkte zu faltig (Alex); 108 war zu viel, 132 zu wenig */, ANTEIL=0.26, bilder=[], satz='', gezeigt=-1, alphaAlt=-1, aktuell=0;
+var ctx=cv.getContext('2d'), ANZ=116 /* 01.10.: letzte 27 Bilder abgeschnitten (Ende wirkte zu faltig, Alex), Bilder 101-116 ansteigend nachgeschaerft; Originale in outputs\alex-backup-2026-10-01-anz132 */, ANTEIL=0.26, bilder=[], satz='', gezeigt=-1, alphaAlt=-1, aktuell=0;
 function hoch(){ return cv.clientWidth < cv.clientHeight*0.9; }
 function laden(){
   var s=hoch()?'handy':'pc'; if(s===satz) return; satz=s; bilder=[];
