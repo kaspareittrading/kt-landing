@@ -375,6 +375,26 @@ html.im-rahmen nav{display:none}
 .nav-preise{display:none}
 html.landing .navlinks,html.landing .burger{display:none!important}
 html.landing .nav-preise{display:inline-block;color:var(--ink)}
+/* TEST 29.09.2026: Alex dreht sich im Hero zur Kamera */
+.hero-scene{height:760vh}
+#alexCanvas{position:absolute;inset:0;width:100%;height:100%;display:block;z-index:0}
+.alex-schleier{position:absolute;inset:0;z-index:1;pointer-events:none;
+background:linear-gradient(90deg,rgba(10,15,16,.92) 0%,rgba(10,15,16,.72) 30%,rgba(10,15,16,.15) 58%,rgba(10,15,16,0) 70%)}
+#heroCanvas{z-index:2}
+.hero-grad{z-index:3}
+@media(orientation:portrait){
+.alex-schleier{background:linear-gradient(0deg,rgba(10,15,16,.97) 0%,rgba(10,15,16,.85) 34%,rgba(10,15,16,.2) 58%,rgba(10,15,16,0) 72%)}
+.hero-sticky{align-items:flex-end}
+.hero-content{padding-bottom:84px}
+}
+@media(max-width:760px){
+.hero-scene{height:560vh}
+.alex-schleier{background:linear-gradient(0deg,rgba(10,15,16,.97) 0%,rgba(10,15,16,.85) 34%,rgba(10,15,16,.2) 58%,rgba(10,15,16,0) 72%)}
+.hero-sticky{align-items:flex-end}
+.hero-content{padding-bottom:84px}
+.hero-content h1{font-size:clamp(38px,11vw,56px)}
+.hero-content p.sub{margin:18px 0 26px;font-size:15.5px}
+}
 </style>
 <script>
 /* Sofort feststellen, ob die Seite in einem Kasten auf einer anderen Seite
@@ -408,6 +428,8 @@ html.landing .nav-preise{display:inline-block;color:var(--ink)}
 </nav>
 <div class="hero-scene" id="heroScene">
 <div class="hero-sticky">
+<canvas id="alexCanvas" aria-hidden="true"></canvas>
+<div class="alex-schleier" id="alexSchleier"></div>
 <canvas id="heroCanvas"></canvas>
 <div class="hero-grad"></div>
 <div class="wrap">
@@ -1128,6 +1150,7 @@ var cv=document.getElementById('heroCanvas'); if(!cv) return;
 var ctx=cv.getContext('2d');
 var scene=document.getElementById('heroScene');
 var heroContent=document.getElementById('heroContent');
+var ALEX_ANTEIL=0.26;
 var boardCap=document.getElementById('boardCap');
 var heroOutro=document.getElementById('heroOutro');
 var scrollInd=document.getElementById('scrollInd');
@@ -1218,11 +1241,11 @@ r:Math.random()*1.7+1.1
 var S=0;
 function onScroll(){
 var total=scene.offsetHeight-innerHeight;
-S=Math.min(1,Math.max(0,(-scene.getBoundingClientRect().top)/total));
+var SR=Math.min(1,Math.max(0,(-scene.getBoundingClientRect().top)/total)); window.__heroSR=SR; S=Math.max(0,(SR-ALEX_ANTEIL)/(1-ALEX_ANTEIL));
 var fo=Math.min(1,Math.max(0,(S-0.03)/0.09));
 heroContent.style.opacity=1-fo;
 heroContent.style.transform='translateY('+(-fo*50)+'px)';
-scrollInd.style.opacity=S>0.03?0:1;
+scrollInd.style.opacity=SR>0.02?0:1;
 var bi=Math.min(1,Math.max(0,(S-0.19)/0.09));
 var bo=Math.min(1,Math.max(0,(S-0.42)/0.09));
 boardCap.style.opacity=bi*(1-bo);
@@ -1554,6 +1577,54 @@ lb.addEventListener('touchend',function(e){ if(x0===null) return; var dx=e.chang
 (function(){
 var k=document.getElementById('storysZu'), d=document.getElementById('erfolgsstorys'), s=document.getElementById('stimmen'); if(!k||!d) return;
 k.addEventListener('click',function(){ d.open=false; (s||d).scrollIntoView({behavior:'smooth',block:'start'}); });
+})();
+</script>
+<script>
+/* TEST 29.09.2026: Scroll-Drehung von Alex im Hero (143 Bilder, PC quer / Handy hoch) */
+(function(){
+var cv=document.getElementById('alexCanvas'), scene=document.getElementById('heroScene'); if(!cv||!scene) return;
+var ctx=cv.getContext('2d'), ANZ=116 /* 01.10.: letzte 27 Bilder abgeschnitten (Ende wirkte zu faltig, Alex), Bilder 101-116 ansteigend nachgeschaerft; Originale in outputs\alex-backup-2026-10-01-anz132 */, ANTEIL=0.26, bilder=[], satz='', gezeigt=-1, alphaAlt=-1, aktuell=0;
+function hoch(){ return cv.clientWidth < cv.clientHeight*0.9; }
+function laden(){
+  var s=hoch()?'handy':'pc'; if(s===satz) return; satz=s; bilder=[];
+  for(var i=0;i<ANZ;i++){ var b=new Image(); b.decoding='async'; b.src='../alex/'+s+'/a_'+String(i+1).padStart(3,'0')+'.webp'; bilder.push(b); if(i===0) b.onload=function(){gezeigt=-1;}; }
+}
+function groesse(){ var d=Math.min(devicePixelRatio||1,2); cv.width=cv.clientWidth*d; cv.height=cv.clientHeight*d; gezeigt=-1; laden(); }
+function zeichne(i,alpha){
+  var b=bilder[i]; if(!b||!b.complete||!b.naturalWidth){ for(var k=i;k>=0;k--){ if(bilder[k]&&bilder[k].complete&&bilder[k].naturalWidth){ b=bilder[k]; break; } } }
+  if(!b||!b.naturalWidth) return false;
+  var w=cv.width,h=cv.height,bw,bh,x,y;
+  if(hoch()){ var s=Math.max(w/b.naturalWidth,h/b.naturalHeight); bw=b.naturalWidth*s; bh=b.naturalHeight*s; x=(w-bw)/2; y=0; }
+  else{
+    /* Querformat: an der Fensterhoehe ausrichten, damit der Kopf nie abgeschnitten wird (Rueckmeldung Alex 29.09.) */
+    var s2=h*0.94/b.naturalHeight; bw=b.naturalWidth*s2; bh=b.naturalHeight*s2; y=h-bh;
+    var ziel=(w/h<1.75)?0.79:0.73; x=w*ziel-bw*0.67; if(x+bw<w*0.97) x=w*0.97-bw;
+  }
+  ctx.clearRect(0,0,w,h); ctx.globalAlpha=alpha; ctx.drawImage(b,x,y,bw,bh);
+  if(!hoch()){
+    /* Bildkanten weich in den Seitenhintergrund ueberblenden */
+    var BG='10,15,16', f=bw*0.14, g;
+    if(x>-1){ g=ctx.createLinearGradient(x,0,x+f,0); g.addColorStop(0,'rgba('+BG+',1)'); g.addColorStop(1,'rgba('+BG+',0)'); ctx.fillStyle=g; ctx.fillRect(x-1,y,f+1,bh); }
+    if(x+bw<w+1){ g=ctx.createLinearGradient(x+bw-f,0,x+bw,0); g.addColorStop(0,'rgba('+BG+',0)'); g.addColorStop(1,'rgba('+BG+',1)'); ctx.fillStyle=g; ctx.fillRect(x+bw-f,y,f+1,bh); }
+    if(y>0){ g=ctx.createLinearGradient(0,y,0,y+bh*0.12); g.addColorStop(0,'rgba('+BG+',1)'); g.addColorStop(1,'rgba('+BG+',0)'); ctx.fillStyle=g; ctx.fillRect(x,y-1,bw,bh*0.12+1); }
+  }
+  ctx.globalAlpha=1; return true;
+}
+var ruhig=matchMedia('(prefers-reduced-motion: reduce)').matches;
+function takt(){
+  var SR=window.__heroSR||0;
+  var ziel=Math.min(1,SR/(ANTEIL*0.9))*(ANZ-1);
+  aktuell+= (ziel-aktuell)*(ruhig?1:0.14); if(Math.abs(ziel-aktuell)<0.05) aktuell=ziel;
+  var aus=Math.min(1,Math.max(0,(SR-ANTEIL*0.95)/0.07));
+  var alpha=1-aus;
+  document.documentElement.classList.toggle('alex-weg',aus>0.5);
+  document.getElementById('alexSchleier').style.opacity=alpha; var hc=document.getElementById('heroCanvas'); if(hc) hc.style.opacity=(0.4+0.6*aus).toFixed(3);
+  var i=Math.round(aktuell);
+  if(i!==gezeigt||Math.abs(alpha-alphaAlt)>0.01){ if(alpha<=0.005){ ctx.clearRect(0,0,cv.width,cv.height); gezeigt=i; alphaAlt=alpha; } else if(zeichne(i,alpha)){ gezeigt=i; alphaAlt=alpha; } }
+  requestAnimationFrame(takt);
+}
+addEventListener('resize',groesse);
+groesse(); requestAnimationFrame(takt);
 })();
 </script>
 </body>
