@@ -383,6 +383,16 @@ html.landing .nav-preise{display:inline-block;color:var(--ink)}
 .hero-content h1 .l2{display:inline-block;font-size:.56em;margin-top:.3em;white-space:normal}
 .hero-content p.sub{max-width:470px;font-size:clamp(15.5px,1.25vw,18px)}
 }
+.hero-content p.sub.sub-kurz{margin:26px 0 14px}
+.saeulen-liste{list-style:none;margin:0 0 22px;padding:0}
+.saeulen-liste li{display:flex;align-items:baseline;gap:14px;padding:9px 0 9px 16px;border-left:2px solid var(--f);margin-bottom:8px;
+background:linear-gradient(90deg,rgba(255,255,255,.035),transparent 75%);border-radius:0 10px 10px 0}
+.saeulen-liste b{flex:0 0 74px;font-weight:500;color:var(--f);font-size:15.5px;letter-spacing:.02em}
+.saeulen-liste span{color:var(--muted);font-size:15px}
+.vertrauen{display:flex;align-items:center;gap:10px;color:var(--ink);font-size:14.5px;margin:0 0 32px}
+.vertrauen i{font-style:normal;width:22px;height:22px;flex:0 0 22px;border-radius:50%;display:grid;place-items:center;font-size:11px;
+color:var(--green);background:rgba(51,196,111,.14);border:1px solid rgba(51,196,111,.35)}
+@media(max-width:760px){.saeulen-liste li{gap:10px;padding:7px 0 7px 12px}.saeulen-liste b{flex-basis:62px;font-size:14.5px}.saeulen-liste span{font-size:14px}.vertrauen{font-size:13.5px;margin-bottom:24px}}
 #blickziel{position:absolute;z-index:4;left:0;top:0;width:360px;opacity:0;pointer-events:none;will-change:opacity,transform;display:none}
 #blickziel .bz{display:none}
 #blickziel.v1 .bz1,#blickziel.v2 .bz2,#blickziel.v3 .bz3{display:block}
@@ -475,41 +485,27 @@ background:linear-gradient(90deg,rgba(10,15,16,.92) 0%,rgba(10,15,16,.72) 30%,rg
 <div class="hero-sticky">
 <canvas id="alexCanvas" aria-hidden="true"></canvas>
 <div class="alex-schleier" id="alexSchleier"></div>
-<div id="blickziel" class="v1" aria-hidden="true">
- <div class="bz bz1 glas">
-  <div class="bz-kopf"><span>Aktienbot · Plan 1</span><span class="live"><i></i>Läuft</span></div>
-  <canvas id="bzKurve"></canvas>
-  <div class="feed">
-   <div><span class="ic" style="background:rgba(64,198,204,.15);color:var(--teal)">↗</span><span><b>Einstieg erkannt</b> · Kauf mit 2 % des Topfes</span></div>
-   <div><span class="ic" style="background:rgba(216,174,94,.15);color:var(--gold)">◆</span><span><b>Stop-Order</b> direkt beim Broker gesetzt</span></div>
-   <div><span class="ic" style="background:rgba(51,196,111,.15);color:var(--green)">✓</span><span><b>Kontoschutz</b> überwacht dein Konto</span></div>
-   <div><span class="ic" style="background:rgba(255,255,255,.07);color:var(--ink)">☾</span><span><b>Alles im Blick</b>, ohne selbst zu klicken</span></div>
-  </div>
- </div>
+<div id="blickziel" class="v2" aria-hidden="true">
  <div class="bz bz2">
   <div class="karte glas" style="--f:var(--teal)"><div class="k-oben"><span class="k-name">CFDs</span><span class="k-pf">MetaTrader 5</span></div><canvas data-farbe="teal"></canvas><div class="k-txt">Fertige Portfolio-Bots, ein Bot pro Portfolio</div></div>
   <div class="karte glas" style="--f:var(--gold)"><div class="k-oben"><span class="k-name">Aktien</span><span class="k-pf">Interactive Brokers</span></div><canvas data-farbe="gold"></canvas><div class="k-txt">Eigene App All Time High, echte Stops beim Broker</div></div>
   <div class="karte glas" style="--f:var(--green)"><div class="k-oben"><span class="k-name">Futures</span><span class="k-pf">in Entwicklung</span></div><canvas data-farbe="green" data-bald="1"></canvas><div class="k-txt">Die dritte Säule entsteht gerade</div></div>
  </div>
- <div class="bz bz3 glas">
-  <div class="bz-kopf"><span>So arbeitet der Bot</span><span class="live"><i></i>Automatisch</span></div>
-  <div class="ablauf">
-   <div class="sch"><span class="pt"></span><div><b>Signal</b><small>Der Bot erkennt einen Einstieg nach seinen Regeln</small></div></div>
-   <div class="sch"><span class="pt"></span><div><b>Order</b><small>Kauf auf deinem Konto, Größe nach deinem Risiko</small></div></div>
-   <div class="sch"><span class="pt"></span><div><b>Stop beim Broker</b><small>Liegt bei deinem Broker, wirkt auch bei ausgeschaltetem Rechner</small></div></div>
-   <div class="sch"><span class="pt"></span><div><b>Kontoschutz</b><small>Fällt das Konto unter deine Schwelle, wird alles geschlossen</small></div></div>
-  </div>
- </div>
 </div>
-<div id="bzWahl" aria-label="Version wählen"><span>Version</span><a data-v="1">1</a><a data-v="2">2</a><a data-v="3">3</a></div>
+
 <canvas id="heroCanvas"></canvas>
 <div class="hero-grad"></div>
 <div class="wrap">
 <div class="hero-content" id="heroContent">
-<div class="kicker" style="color:var(--teal)">CFDs · Aktien · Futures</div>
+<div class="kicker" style="color:var(--teal)">Automatisierter Handel</div>
 <h1>Automatisch handeln.<br><span class="l2">Ohne vor dem Chart zu sitzen.</span></h1>
-<p class="sub">Trading-Bots für CFDs über MetaTrader 5 und für Aktien über Interactive Brokers, Futures folgen.
-Dein Geld bleibt auf deinem eigenen Konto bei deinem Broker.</p>
+<p class="sub sub-kurz">Fertige Trading-Bots für drei Märkte:</p>
+<ul class="saeulen-liste">
+<li style="--f:var(--teal)"><b>CFDs</b><span>Portfolio-Bots für MetaTrader 5</span></li>
+<li style="--f:var(--gold)"><b>Aktien</b><span>eigene App All Time High für Interactive Brokers</span></li>
+<li style="--f:var(--green)"><b>Futures</b><span>in Entwicklung</span></li>
+</ul>
+<p class="vertrauen"><i>✓</i>Dein Geld bleibt auf deinem eigenen Konto bei deinem Broker.</p>
 <div class="hero-cta">
 <a href="#cfd" class="btn btn-primary">Die drei Säulen</a>
 <a href="#preise" class="btn btn-ghost">Preise</a>
@@ -1705,9 +1701,9 @@ groesse(); requestAnimationFrame(takt);
 (function(){
 var box=document.getElementById('blickziel'), hc=document.getElementById('heroContent'), wahl=document.getElementById('bzWahl');
 if(!box||!hc) return;
-var v=(new URLSearchParams(location.search).get('hero'))||'1';
-function setze(n){ v=String(n); box.className='v'+v; [].forEach.call(wahl.querySelectorAll('a'),function(a){a.classList.toggle('an',a.dataset.v===v);}); start=performance.now(); }
-[].forEach.call(wahl.querySelectorAll('a'),function(a){ a.addEventListener('click',function(){ setze(a.dataset.v); }); });
+var v='2'; /* 02.10.: Alex hat Version 2 (drei Saeulen-Karten) gewaehlt */
+function setze(n){ v=String(n); box.className='v'+v; start=performance.now(); }
+
 var css=getComputedStyle(document.documentElement), F={teal:css.getPropertyValue('--teal').trim(),gold:css.getPropertyValue('--gold').trim(),green:css.getPropertyValue('--green').trim()};
 function rgba(hex,a){ var n=parseInt(hex.replace('#',''),16); return 'rgba('+(n>>16&255)+','+(n>>8&255)+','+(n&255)+','+a+')'; }
 /* ruhige Zufallskurve mit Aufwaertsneigung, fest (kein echter Kurs, reine Illustration) */
