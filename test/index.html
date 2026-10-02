@@ -375,6 +375,50 @@ html.im-rahmen nav{display:none}
 .nav-preise{display:none}
 html.landing .navlinks,html.landing .burger{display:none!important}
 html.landing .nav-preise{display:inline-block;color:var(--ink)}
+/* TEST 02.10.2026: schmalere Textspalte links, Blickziel zwischen Text und Alex (3 Versionen) */
+@media(min-width:1100px) and (orientation:landscape){
+.hero-sticky .wrap{max-width:1440px;width:100%}
+.hero-content{max-width:520px}
+.hero-content h1{font-size:clamp(38px,3.3vw,60px);white-space:nowrap}
+.hero-content h1 .l2{display:inline-block;font-size:.56em;margin-top:.3em;white-space:normal}
+.hero-content p.sub{max-width:470px;font-size:clamp(15.5px,1.25vw,18px)}
+}
+#blickziel{position:absolute;z-index:4;left:0;top:0;width:360px;opacity:0;pointer-events:none;will-change:opacity,transform;display:none}
+#blickziel .bz{display:none}
+#blickziel.v1 .bz1,#blickziel.v2 .bz2,#blickziel.v3 .bz3{display:block}
+.glas{background:linear-gradient(160deg,rgba(255,255,255,.065),rgba(255,255,255,.012) 60%);border:1px solid rgba(255,255,255,.10);
+border-radius:18px;backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);
+box-shadow:0 30px 80px rgba(0,0,0,.5),inset 0 1px 0 rgba(255,255,255,.07);padding:18px 20px}
+.bz-kopf{display:flex;justify-content:space-between;align-items:center;font-size:10.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);font-weight:500}
+.live{display:inline-flex;align-items:center;gap:7px;color:var(--green)}
+.live i{width:7px;height:7px;border-radius:50%;background:var(--green);box-shadow:0 0 10px var(--green);animation:bzPuls 1.6s infinite}
+@keyframes bzPuls{50%{opacity:.3}}
+#bzKurve{width:100%;height:118px;display:block;margin:14px 0 4px}
+.feed>div{display:flex;gap:11px;align-items:center;font-size:13px;color:var(--muted);padding:9px 0;border-top:1px solid var(--line);
+opacity:0;transform:translateY(10px);transition:opacity .55s,transform .55s}
+.feed>div.an{opacity:1;transform:none}
+.feed b{font-weight:500;color:var(--ink)}
+.feed .ic{flex:0 0 22px;height:22px;border-radius:50%;display:grid;place-items:center;font-size:11px}
+.bz2 .karte{margin-bottom:12px;padding:14px 18px;opacity:0;transform:translateX(-26px);transition:opacity .6s,transform .6s;border-left:2px solid var(--f)}
+.bz2 .karte.an{opacity:1;transform:none}
+.k-oben{display:flex;justify-content:space-between;align-items:baseline}
+.k-name{font-size:21px;font-weight:200;color:var(--f)}
+.k-pf{font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--dim);font-weight:500}
+.bz2 canvas{width:100%;height:38px;display:block;margin:8px 0 6px}
+.k-txt{font-size:12.5px;color:var(--muted)}
+.ablauf{position:relative;margin-top:16px;padding-left:4px}
+.ablauf:before{content:'';position:absolute;left:9px;top:10px;bottom:16px;width:1px;background:var(--line)}
+.ablauf .sch{position:relative;display:flex;gap:16px;padding:9px 0;opacity:.28;transition:opacity .6s}
+.ablauf .sch.an{opacity:1}
+.ablauf .pt{flex:0 0 11px;height:11px;margin-top:5px;border-radius:50%;border:1px solid var(--teal);background:var(--bg);position:relative;z-index:1;transition:background .5s,box-shadow .5s}
+.ablauf .sch.an .pt{background:var(--teal);box-shadow:0 0 14px var(--teal)}
+.ablauf b{display:block;font-weight:400;font-size:15px;color:var(--ink)}
+.ablauf small{display:block;font-size:12.5px;color:var(--muted);line-height:1.45;margin-top:2px}
+.ablauf .lauf{position:absolute;left:7px;width:5px;height:24px;border-radius:4px;background:linear-gradient(transparent,var(--teal),transparent);z-index:2;opacity:.9}
+#bzWahl{position:fixed;left:18px;bottom:18px;z-index:200;display:flex;gap:6px;align-items:center;padding:6px 8px 6px 14px;border-radius:30px;
+background:rgba(10,15,16,.85);border:1px solid var(--line);backdrop-filter:blur(10px);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--dim)}
+#bzWahl a{cursor:pointer;width:30px;height:30px;border-radius:50%;display:grid;place-items:center;color:var(--ink);border:1px solid var(--line);letter-spacing:0;font-size:13px}
+#bzWahl a.an{background:var(--teal);color:#04181a;border-color:var(--teal)}
 /* TEST 29.09.2026: Alex dreht sich im Hero zur Kamera */
 .hero-scene{height:760vh}
 #alexCanvas{position:absolute;inset:0;width:100%;height:100%;display:block;z-index:0}
@@ -431,15 +475,41 @@ background:linear-gradient(90deg,rgba(10,15,16,.92) 0%,rgba(10,15,16,.72) 30%,rg
 <div class="hero-sticky">
 <canvas id="alexCanvas" aria-hidden="true"></canvas>
 <div class="alex-schleier" id="alexSchleier"></div>
-<canvas id="saeulenCanvas" aria-hidden="true" style="position:absolute;inset:0;width:100%;height:100%;display:block;z-index:1;pointer-events:none"></canvas>
+<div id="blickziel" class="v1" aria-hidden="true">
+ <div class="bz bz1 glas">
+  <div class="bz-kopf"><span>Aktienbot · Plan 1</span><span class="live"><i></i>Läuft</span></div>
+  <canvas id="bzKurve"></canvas>
+  <div class="feed">
+   <div><span class="ic" style="background:rgba(64,198,204,.15);color:var(--teal)">↗</span><span><b>Einstieg erkannt</b> · Kauf mit 2 % des Topfes</span></div>
+   <div><span class="ic" style="background:rgba(216,174,94,.15);color:var(--gold)">◆</span><span><b>Stop-Order</b> direkt beim Broker gesetzt</span></div>
+   <div><span class="ic" style="background:rgba(51,196,111,.15);color:var(--green)">✓</span><span><b>Kontoschutz</b> überwacht dein Konto</span></div>
+   <div><span class="ic" style="background:rgba(255,255,255,.07);color:var(--ink)">☾</span><span><b>Alles im Blick</b>, ohne selbst zu klicken</span></div>
+  </div>
+ </div>
+ <div class="bz bz2">
+  <div class="karte glas" style="--f:var(--teal)"><div class="k-oben"><span class="k-name">CFDs</span><span class="k-pf">MetaTrader 5</span></div><canvas data-farbe="teal"></canvas><div class="k-txt">Fertige Portfolio-Bots, ein Bot pro Portfolio</div></div>
+  <div class="karte glas" style="--f:var(--gold)"><div class="k-oben"><span class="k-name">Aktien</span><span class="k-pf">Interactive Brokers</span></div><canvas data-farbe="gold"></canvas><div class="k-txt">Eigene App All Time High, echte Stops beim Broker</div></div>
+  <div class="karte glas" style="--f:var(--green)"><div class="k-oben"><span class="k-name">Futures</span><span class="k-pf">in Entwicklung</span></div><canvas data-farbe="green" data-bald="1"></canvas><div class="k-txt">Die dritte Säule entsteht gerade</div></div>
+ </div>
+ <div class="bz bz3 glas">
+  <div class="bz-kopf"><span>So arbeitet der Bot</span><span class="live"><i></i>Automatisch</span></div>
+  <div class="ablauf">
+   <div class="sch"><span class="pt"></span><div><b>Signal</b><small>Der Bot erkennt einen Einstieg nach seinen Regeln</small></div></div>
+   <div class="sch"><span class="pt"></span><div><b>Order</b><small>Kauf auf deinem Konto, Größe nach deinem Risiko</small></div></div>
+   <div class="sch"><span class="pt"></span><div><b>Stop beim Broker</b><small>Liegt bei deinem Broker, wirkt auch bei ausgeschaltetem Rechner</small></div></div>
+   <div class="sch"><span class="pt"></span><div><b>Kontoschutz</b><small>Fällt das Konto unter deine Schwelle, wird alles geschlossen</small></div></div>
+  </div>
+ </div>
+</div>
+<div id="bzWahl" aria-label="Version wählen"><span>Version</span><a data-v="1">1</a><a data-v="2">2</a><a data-v="3">3</a></div>
 <canvas id="heroCanvas"></canvas>
 <div class="hero-grad"></div>
 <div class="wrap">
 <div class="hero-content" id="heroContent">
-<div class="kicker" style="color:var(--teal)">Automatisierter Handel</div>
-<h1>Drei Märkte.<br><span class="l2">Ein Haus.</span></h1>
-<p class="sub">Für jeden Markt die passende Plattform, entwickelt und betreut von einem Team.
-Du wählst, was zu dir passt, und lässt es auf deinem eigenen Konto arbeiten.</p>
+<div class="kicker" style="color:var(--teal)">CFDs · Aktien · Futures</div>
+<h1>Automatisch handeln.<br><span class="l2">Ohne vor dem Chart zu sitzen.</span></h1>
+<p class="sub">Trading-Bots für CFDs über MetaTrader 5 und für Aktien über Interactive Brokers, Futures folgen.
+Dein Geld bleibt auf deinem eigenen Konto bei deinem Broker.</p>
 <div class="hero-cta">
 <a href="#cfd" class="btn btn-primary">Die drei Säulen</a>
 <a href="#preise" class="btn btn-ghost">Preise</a>
@@ -1630,71 +1700,72 @@ groesse(); requestAnimationFrame(takt);
 })();
 </script>
 <script>
-/* TEST 02.10.2026: Drei Saeulen-Linien im Hero. Alex blickt im Profil nach links;
-   aus seiner Blickrichtung wachsen drei feine Linien (CFDs teal, Aktien gold, Futures gruen)
-   ueber den Text nach links oben. Gekoppelt an die Scrollposition wie der Clip, nur Querformat. */
+/* TEST 02.10.2026: Blickziel im Hero. Ein Glas-Element mit Abstand vor Alex, auf Augenhoehe,
+   zwischen Text und Gesicht. 3 Versionen (?hero=1|2|3 oder Knopf unten links). Nur PC-Querformat. */
 (function(){
-var cv=document.getElementById('saeulenCanvas'), kick=document.querySelector('#heroContent .kicker'); if(!cv||!kick) return;
-var ctx=cv.getContext('2d'), d=1, fort=0;
-var css=getComputedStyle(document.documentElement);
-var L=[
-  {farbe:css.getPropertyValue('--teal').trim()||'#40C6CC', name:'CFDs',    dy:0,  bogen:-0.04, w:[0.9,2.3], gestrichelt:false},
-  {farbe:css.getPropertyValue('--gold').trim()||'#D8AE5E', name:'Aktien',  dy:1,  bogen:-0.055, w:[1.4,3.1], gestrichelt:false},
-  {farbe:css.getPropertyValue('--green').trim()||'#33C46F',name:'Futures', dy:2,  bogen:-0.075, w:[1.1,2.7], gestrichelt:true}
-];
-function hoch(){ return cv.clientWidth < cv.clientHeight*0.9; }
-function groesse(){ d=Math.min(devicePixelRatio||1,2); cv.width=cv.clientWidth*d; cv.height=cv.clientHeight*d; }
-function rgba(hex,a){ hex=hex.replace('#',''); var n=parseInt(hex,16); return 'rgba('+(n>>16&255)+','+(n>>8&255)+','+(n&255)+','+a+')'; }
-/* Punkt auf einer Linie: von Alex' Blick (o) zum Ziel (e), leicht gebogen, mit ruhigem Kursrauschen */
-function punkt(l,o,e,t){
-  var x=o.x+(e.x-o.x)*t, y=o.y+(e.y-o.y)*t;
-  var b=Math.sin(Math.PI*t)*l.bogen*Math.abs(e.x-o.x);
-  var r=(Math.sin(t*l.w[0]*14+l.dy)*0.6+Math.sin(t*l.w[1]*17+l.dy*2)*0.4)*4*d*Math.sin(Math.PI*t);
-  return {x:x, y:y+b+r};
+var box=document.getElementById('blickziel'), hc=document.getElementById('heroContent'), wahl=document.getElementById('bzWahl');
+if(!box||!hc) return;
+var v=(new URLSearchParams(location.search).get('hero'))||'1';
+function setze(n){ v=String(n); box.className='v'+v; [].forEach.call(wahl.querySelectorAll('a'),function(a){a.classList.toggle('an',a.dataset.v===v);}); start=performance.now(); }
+[].forEach.call(wahl.querySelectorAll('a'),function(a){ a.addEventListener('click',function(){ setze(a.dataset.v); }); });
+var css=getComputedStyle(document.documentElement), F={teal:css.getPropertyValue('--teal').trim(),gold:css.getPropertyValue('--gold').trim(),green:css.getPropertyValue('--green').trim()};
+function rgba(hex,a){ var n=parseInt(hex.replace('#',''),16); return 'rgba('+(n>>16&255)+','+(n>>8&255)+','+(n&255)+','+a+')'; }
+/* ruhige Zufallskurve mit Aufwaertsneigung, fest (kein echter Kurs, reine Illustration) */
+function reihe(n,seed,trend){ var a=[],y=0,s=seed; for(var i=0;i<n;i++){ s=(s*9301+49297)%233280; var r=s/233280-0.5; y+=r*0.9+trend; a.push(y);} var mn=Math.min.apply(0,a),mx=Math.max.apply(0,a); return a.map(function(x){return (x-mn)/(mx-mn||1);}); }
+var R1=reihe(160,7,0.09), R2={teal:reihe(90,3,0.07),gold:reihe(90,11,0.06),green:reihe(90,5,0.03)};
+function linie(cv,daten,farbe,anteil,zeit,flaeche,gestr){
+  var d=Math.min(devicePixelRatio||1,2), w=cv.clientWidth*d, h=cv.clientHeight*d; if(!w||!h) return; if(cv.width!==w){cv.width=w;cv.height=h;}
+  var c=cv.getContext('2d'); c.clearRect(0,0,w,h);
+  var n=Math.max(2,Math.min(daten.length,Math.floor(daten.length*anteil))), pad=5*d;
+  function P(i){ var wob=(i===n-1)?Math.sin(zeit/380)*0.025:0; return {x:pad+(w-2*pad)*i/(daten.length-1), y:h-pad-(h-2*pad)*Math.min(1,Math.max(0,daten[i]+wob))}; }
+  if(flaeche){ var g=c.createLinearGradient(0,0,0,h); g.addColorStop(0,rgba(farbe,.28)); g.addColorStop(1,rgba(farbe,0));
+    c.beginPath(); c.moveTo(P(0).x,h); for(var i=0;i<n;i++){var p=P(i); c.lineTo(p.x,p.y);} c.lineTo(P(n-1).x,h); c.closePath(); c.fillStyle=g; c.fill(); }
+  c.beginPath(); for(var j=0;j<n;j++){var q=P(j); if(j)c.lineTo(q.x,q.y); else c.moveTo(q.x,q.y);}
+  c.setLineDash(gestr?[4*d,5*d]:[]); c.strokeStyle=farbe; c.lineWidth=1.6*d; c.shadowColor=farbe; c.shadowBlur=8*d; c.stroke(); c.setLineDash([]); c.shadowBlur=0;
+  var e=P(n-1), pu=(Math.sin(zeit/300)+1)/2;
+  c.beginPath(); c.arc(e.x,e.y,(3+pu*3)*d,0,7); c.fillStyle=rgba(farbe,.25*(1-pu)+.08); c.fill();
+  c.beginPath(); c.arc(e.x,e.y,2.6*d,0,7); c.fillStyle=farbe; c.fill();
 }
-function takt(){
-  var w=cv.width,h=cv.height; ctx.clearRect(0,0,w,h);
+var start=performance.now(), alpha=0;
+function querPc(){ return innerWidth>=1100 && innerWidth>innerHeight*1.2; }
+function takt(now){
   var SR=window.__heroSR||0;
-  if(!hoch()){
-    var ziel=Math.min(1,Math.max(0,(SR+0.012)/0.10)); /* fertig solange Alex noch im Profil nach links blickt */
-    fort+=(ziel-fort)*0.14; if(Math.abs(ziel-fort)<0.001) fort=ziel;
-    var aus=Math.min(1,Math.max(0,(SR-0.26*0.95)/0.07)), alpha=1-aus;
-    if(fort>0.001 && alpha>0.005){
-      /* Augenposition wie im Alex-Clip berechnet (Bildanteil 0.565 / 0.25, kurz vor der Nase auf Augenhoehe) */
-      var bh=h*0.94, bw=bh*16/9, by=h-bh, zx=(w/h<1.75)?0.79:0.73, bx=w*zx-bw*0.67; if(bx+bw<w*0.97) bx=w*0.97-bw;
-      var o={x:bx+bw*0.565, y:by+bh*0.25};
-      var kr=kick.getBoundingClientRect(), ex=kr.left*d, nav=84*d, ky=kr.top*d-14*d;
-      var platz=Math.max(40*d, ky-nav), schritt=platz/3;
-      ctx.globalAlpha=alpha; ctx.lineCap='round';
-      for(var i=0;i<L.length;i++){
-        var l=L[i], start=i*0.12, p=Math.min(1,Math.max(0,(fort-start)/(1-0.24)));
-        if(p<=0) continue;
-        var e={x:ex, y:nav+schritt*(i+0.5)};
-        var n=Math.max(2,Math.round(90*p));
-        ctx.beginPath();
-        for(var k=0;k<=n;k++){ var q=punkt(l,o,e,p*k/n); if(k===0) ctx.moveTo(q.x,q.y); else ctx.lineTo(q.x,q.y); }
-        ctx.setLineDash(l.gestrichelt?[5*d,7*d]:[]);
-        ctx.strokeStyle=rgba(l.farbe,0.85); ctx.lineWidth=1.2*d; ctx.shadowColor=l.farbe; ctx.shadowBlur=10*d; ctx.stroke();
-        ctx.setLineDash([]); ctx.shadowBlur=0;
-        var s=punkt(l,o,e,p);
-        ctx.beginPath(); ctx.arc(s.x,s.y,2.6*d,0,Math.PI*2); ctx.fillStyle=l.farbe; ctx.shadowColor=l.farbe; ctx.shadowBlur=14*d; ctx.fill(); ctx.shadowBlur=0;
-        if(p>0.92){
-          ctx.globalAlpha=alpha*Math.min(1,(p-0.92)/0.08);
-          ctx.font='300 '+(11*d)+'px Manrope, system-ui, sans-serif'; ctx.fillStyle=rgba(l.farbe,0.95);
-          ctx.textBaseline='middle'; ctx.textAlign='right';
-          if(ctx.letterSpacing!==undefined) ctx.letterSpacing=(3*d)+'px';
-          ctx.fillText(l.name.toUpperCase(), s.x-14*d, s.y);
-          if(ctx.letterSpacing!==undefined) ctx.letterSpacing='0px';
-          ctx.globalAlpha=alpha;
-        }
-      }
-      ctx.globalAlpha=1;
-    }
+  if(!querPc()){ box.style.display='none'; requestAnimationFrame(takt); return; }
+  box.style.display='block';
+  var w=innerWidth, h=Math.max(innerHeight,640);
+  var bh=h*0.94,bw=bh*16/9,by=h-bh,zx=(w/h<1.75)?0.79:0.73,bx=w*zx-bw*0.67; if(bx+bw<w*0.97) bx=w*0.97-bw;
+  var nase=bx+bw*0.58, auge=by+bh*0.26;
+  var rg=document.createRange(); rg.selectNodeContents(hc); var tr=rg.getBoundingClientRect().right;
+  var rechts=nase-w*0.035, links=tr+36, B=Math.min(370,rechts-links);
+  if(B<255){ box.style.opacity=0; requestAnimationFrame(takt); return; }
+  box.style.width=B+'px';
+  var H=box.offsetHeight, top=Math.max(96,Math.min(h-H-40,auge-H*0.42));
+  /* Einblenden nach dem Laden, Ausblenden zusammen mit Alex */
+  var ein=Math.min(1,(now-start)/900), aus=Math.min(1,Math.max(0,(SR-0.26*0.95)/0.07)), zielA=ein*(1-aus);
+  alpha+=(zielA-alpha)*0.15;
+  var sch=(1-ein)*18+SR*-60;
+  box.style.opacity=alpha.toFixed(3); box.style.transform='translate('+(rechts-B)+'px,'+(top+sch)+'px)';
+  /* Fortschritt: Zeit fuer den ersten Eindruck, Scrollen treibt den Rest */
+  var t=(now-start)/1000, prog=Math.min(1,Math.max(Math.min(t/3.2,0.45),SR/0.2));
+  if(v==='1'){
+    linie(document.getElementById('bzKurve'),R1,F.teal,0.25+0.75*prog,now,true,false);
+    [].forEach.call(box.querySelectorAll('.feed>div'),function(el,i){ el.classList.toggle('an',prog>0.12+i*0.2); });
+  } else if(v==='2'){
+    [].forEach.call(box.querySelectorAll('.bz2 .karte'),function(el,i){
+      el.classList.toggle('an',prog>i*0.22);
+      var cv=el.querySelector('canvas'), f=cv.dataset.farbe; linie(cv,R2[f],F[f],Math.min(1,Math.max(0.05,0.3+prog*0.9-i*0.1)),now,true,!!cv.dataset.bald);
+    });
+  } else {
+    var s=box.querySelectorAll('.ablauf .sch'); [].forEach.call(s,function(el,i){ el.classList.toggle('an',prog>i*0.24); });
+    var ab=box.querySelector('.ablauf'), l=ab.querySelector('.lauf'); if(!l){ l=document.createElement('span'); l.className='lauf'; ab.appendChild(l); }
+    var hoehe=ab.clientHeight-30, an=Math.max(0,Math.min(s.length,Math.floor(prog/0.24)+1)), bis=hoehe*Math.min(1,an/s.length);
+    l.style.top=(6+((now/12)%Math.max(bis,1)))+'px';
   }
   requestAnimationFrame(takt);
 }
-addEventListener('resize',groesse); groesse(); requestAnimationFrame(takt);
+setze(v); requestAnimationFrame(takt);
 })();
 </script>
+
 </body>
 </html>
