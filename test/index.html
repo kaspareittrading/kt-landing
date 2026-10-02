@@ -431,6 +431,7 @@ background:linear-gradient(90deg,rgba(10,15,16,.92) 0%,rgba(10,15,16,.72) 30%,rg
 <div class="hero-sticky">
 <canvas id="alexCanvas" aria-hidden="true"></canvas>
 <div class="alex-schleier" id="alexSchleier"></div>
+<canvas id="saeulenCanvas" aria-hidden="true" style="position:absolute;inset:0;width:100%;height:100%;display:block;z-index:1;pointer-events:none"></canvas>
 <canvas id="heroCanvas"></canvas>
 <div class="hero-grad"></div>
 <div class="wrap">
@@ -1626,6 +1627,73 @@ function takt(){
 }
 addEventListener('resize',groesse);
 groesse(); requestAnimationFrame(takt);
+})();
+</script>
+<script>
+/* TEST 02.10.2026: Drei Saeulen-Linien im Hero. Alex blickt im Profil nach links;
+   aus seiner Blickrichtung wachsen drei feine Linien (CFDs teal, Aktien gold, Futures gruen)
+   ueber den Text nach links oben. Gekoppelt an die Scrollposition wie der Clip, nur Querformat. */
+(function(){
+var cv=document.getElementById('saeulenCanvas'), kick=document.querySelector('#heroContent .kicker'); if(!cv||!kick) return;
+var ctx=cv.getContext('2d'), d=1, fort=0;
+var css=getComputedStyle(document.documentElement);
+var L=[
+  {farbe:css.getPropertyValue('--teal').trim()||'#40C6CC', name:'CFDs',    dy:0,  bogen:-0.10, w:[0.9,2.3], gestrichelt:false},
+  {farbe:css.getPropertyValue('--gold').trim()||'#D8AE5E', name:'Aktien',  dy:1,  bogen:0.04,  w:[1.4,3.1], gestrichelt:false},
+  {farbe:css.getPropertyValue('--green').trim()||'#33C46F',name:'Futures', dy:2,  bogen:0.16,  w:[1.1,2.7], gestrichelt:true}
+];
+function hoch(){ return cv.clientWidth < cv.clientHeight*0.9; }
+function groesse(){ d=Math.min(devicePixelRatio||1,2); cv.width=cv.clientWidth*d; cv.height=cv.clientHeight*d; }
+function rgba(hex,a){ hex=hex.replace('#',''); var n=parseInt(hex,16); return 'rgba('+(n>>16&255)+','+(n>>8&255)+','+(n&255)+','+a+')'; }
+/* Punkt auf einer Linie: von Alex' Blick (o) zum Ziel (e), leicht gebogen, mit ruhigem Kursrauschen */
+function punkt(l,o,e,t){
+  var x=o.x+(e.x-o.x)*t, y=o.y+(e.y-o.y)*t;
+  var b=Math.sin(Math.PI*t)*l.bogen*Math.abs(e.x-o.x);
+  var r=(Math.sin(t*l.w[0]*14+l.dy)*0.6+Math.sin(t*l.w[1]*17+l.dy*2)*0.4)*6*d*Math.sin(Math.PI*t);
+  return {x:x, y:y+b+r};
+}
+function takt(){
+  var w=cv.width,h=cv.height; ctx.clearRect(0,0,w,h);
+  var SR=window.__heroSR||0;
+  if(!hoch()){
+    var ziel=Math.min(1,Math.max(0,(SR-0.01)/(0.26*0.82)));
+    fort+=(ziel-fort)*0.14; if(Math.abs(ziel-fort)<0.001) fort=ziel;
+    var aus=Math.min(1,Math.max(0,(SR-0.26*0.95)/0.07)), alpha=1-aus;
+    if(fort>0.001 && alpha>0.005){
+      /* Augenposition wie im Alex-Clip berechnet (Bildanteil 0.545 / 0.215) */
+      var bh=h*0.94, bw=bh*16/9, by=h-bh, zx=(w/h<1.75)?0.79:0.73, bx=w*zx-bw*0.67; if(bx+bw<w*0.97) bx=w*0.97-bw;
+      var o={x:bx+bw*0.545, y:by+bh*0.215};
+      var kr=kick.getBoundingClientRect(), ex=kr.left*d, nav=70*d, ky=kr.top*d-18*d;
+      var platz=Math.max(40*d, ky-nav), schritt=platz/3;
+      ctx.globalAlpha=alpha; ctx.lineCap='round';
+      for(var i=0;i<L.length;i++){
+        var l=L[i], start=i*0.12, p=Math.min(1,Math.max(0,(fort-start)/(1-0.24)));
+        if(p<=0) continue;
+        var e={x:ex, y:nav+schritt*(i+0.5)};
+        var n=Math.max(2,Math.round(90*p));
+        ctx.beginPath();
+        for(var k=0;k<=n;k++){ var q=punkt(l,o,e,p*k/n); if(k===0) ctx.moveTo(q.x,q.y); else ctx.lineTo(q.x,q.y); }
+        ctx.setLineDash(l.gestrichelt?[5*d,7*d]:[]);
+        ctx.strokeStyle=rgba(l.farbe,0.85); ctx.lineWidth=1.2*d; ctx.shadowColor=l.farbe; ctx.shadowBlur=10*d; ctx.stroke();
+        ctx.setLineDash([]); ctx.shadowBlur=0;
+        var s=punkt(l,o,e,p);
+        ctx.beginPath(); ctx.arc(s.x,s.y,2.6*d,0,Math.PI*2); ctx.fillStyle=l.farbe; ctx.shadowColor=l.farbe; ctx.shadowBlur=14*d; ctx.fill(); ctx.shadowBlur=0;
+        if(p>0.92){
+          ctx.globalAlpha=alpha*Math.min(1,(p-0.92)/0.08);
+          ctx.font='300 '+(11*d)+'px Manrope, system-ui, sans-serif'; ctx.fillStyle=rgba(l.farbe,0.95);
+          ctx.textBaseline='middle'; ctx.textAlign='right';
+          if(ctx.letterSpacing!==undefined) ctx.letterSpacing=(3*d)+'px';
+          ctx.fillText(l.name.toUpperCase(), s.x-14*d, s.y);
+          if(ctx.letterSpacing!==undefined) ctx.letterSpacing='0px';
+          ctx.globalAlpha=alpha;
+        }
+      }
+      ctx.globalAlpha=1;
+    }
+  }
+  requestAnimationFrame(takt);
+}
+addEventListener('resize',groesse); groesse(); requestAnimationFrame(takt);
 })();
 </script>
 </body>
