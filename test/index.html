@@ -475,7 +475,99 @@ h1,h2,h3{font-weight:300}
 .k-pf{font-size:10.5px;color:var(--muted)}
 .hero-content h1 .l2{color:#c3cccd}
 .hl{font-weight:600;color:#fff}.ht{font-weight:600;color:var(--teal)}.hg{font-weight:600;color:var(--gold)}.hn{font-weight:600;color:var(--green)}
-</style>
+/* TEST 02.10.2026: Ablauf in 5 Schritten (CFD) */
+.ablauf-szene{position:relative;height:420vh;background:var(--bg)}
+.ab-sticky{position:sticky;top:0;height:100vh;min-height:620px;display:flex;align-items:center;overflow:hidden}
+.ab-raster{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.05fr);gap:64px;align-items:center;width:100%}
+.ab-links h2{font-size:clamp(28px,3.4vw,46px);margin-bottom:30px}
+.ab-liste{list-style:none;margin:0;padding:0;position:relative}
+.ab-liste:before{content:'';position:absolute;left:17px;top:18px;bottom:18px;width:1px;background:var(--line)}
+.ab-liste li{display:flex;gap:20px;padding:10px 0;opacity:.38;transition:opacity .5s}
+.ab-liste li.an{opacity:1}
+.ab-liste li.fertig{opacity:.62}
+.ab-liste .nr{flex:0 0 35px;height:35px;border-radius:50%;display:grid;place-items:center;font-size:14px;font-weight:600;position:relative;z-index:1;
+background:var(--bg);border:1px solid rgba(64,198,204,.35);color:var(--teal);transition:background .4s,color .4s,box-shadow .4s}
+.ab-liste li.an .nr{background:var(--teal);color:#04181a;box-shadow:0 0 22px rgba(64,198,204,.55)}
+.ab-liste li.fertig .nr{background:rgba(64,198,204,.15)}
+.ab-liste li>div>b{font-size:17px;font-weight:600;color:var(--ink);display:block;margin-top:5px}
+.ab-liste li p{font-size:15px;color:var(--muted);max-height:0;overflow:hidden;opacity:0;transition:max-height .5s,opacity .5s,margin .5s;margin:0}
+.ab-liste li.an p{max-height:120px;opacity:1;margin-top:6px}
+.ab-fenster{padding:0;overflow:hidden}
+.ab-kopf{display:flex;align-items:center;gap:7px;padding:13px 18px;border-bottom:1px solid var(--line);font-size:12px;color:var(--muted);letter-spacing:.06em}
+.ab-kopf i{width:9px;height:9px;border-radius:50%;background:rgba(255,255,255,.14)}
+.ab-kopf span{margin-left:10px;font-weight:600;color:var(--ink)}
+.ab-kopf em{margin-left:auto;font-style:normal;color:var(--teal);font-weight:600}
+.ab-buehne{position:relative;height:330px}
+.ab-buehne .bild{position:absolute;inset:0;padding:30px 30px;opacity:0;transform:translateY(14px);transition:opacity .5s,transform .5s;pointer-events:none}
+.ab-buehne .bild.an{opacity:1;transform:none}
+.ab-punkte{display:flex;gap:8px;justify-content:center;padding:0 0 18px}
+.ab-punkte i{width:7px;height:7px;border-radius:50%;background:rgba(255,255,255,.18);transition:background .4s,width .4s}
+.ab-punkte i.an{background:var(--teal);width:22px;border-radius:5px}
+/* 1 Installieren */
+.b1 .zeile{display:grid;grid-template-columns:110px 1fr 110px;gap:16px;align-items:center;padding:16px 0;border-bottom:1px solid var(--line);font-size:14.5px}
+.b1 .zeile span{color:var(--ink);font-weight:500}
+.b1 .balken{height:6px;border-radius:4px;background:rgba(255,255,255,.08);overflow:hidden}
+.b1 .balken s{display:block;height:100%;width:0;background:var(--teal);box-shadow:0 0 12px var(--teal)}
+.b1 em{font-style:normal;color:var(--green);font-weight:600;opacity:0;font-size:13.5px}
+.b1.an .balken s{animation:abFuell 1.1s ease-out forwards}.b1.an .z2 .balken s{animation-delay:.6s}.b1.an .z3 .balken s{animation-delay:1.2s}
+.b1.an em{animation:abEin .3s forwards 1.1s}.b1.an .z2 em{animation-delay:1.7s}.b1.an .z3 em{animation-delay:2.3s}
+@keyframes abFuell{to{width:100%}}
+@keyframes abEin{to{opacity:1}}
+/* 2 Chart */
+.b2 .chart{position:absolute;right:30px;top:30px;bottom:30px;left:44%;border:1px solid var(--line);border-radius:12px;display:flex;align-items:stretch;gap:9px;padding:16px 16px;background:rgba(255,255,255,.02)}
+.b2 .chart i{flex:1;position:relative}
+.b2 .chart i:before{content:'';position:absolute;left:30%;right:30%;top:var(--y);height:var(--h);background:var(--green);border-radius:2px;opacity:.75}
+.b2 .chart i.r:before{background:#d9645b}
+.b2 .aktiv{position:absolute;bottom:10px;right:12px;font-size:12px;font-weight:600;color:var(--green);opacity:0}
+.b2 .ea{position:absolute;left:30px;top:50%;transform:translateY(-50%);padding:12px 16px;border-radius:10px;border:1px solid var(--teal);color:var(--teal);font-weight:600;font-size:14px;background:rgba(64,198,204,.1);box-shadow:0 0 22px rgba(64,198,204,.25)}
+.b2.an .ea{animation:abZieh 1.6s cubic-bezier(.5,0,.2,1) forwards .4s}
+.b2.an .aktiv{animation:abEin .4s forwards 2s}
+@keyframes abZieh{0%{left:30px;top:50%}70%{left:52%;top:46%}100%{left:calc(44% + 18px);top:16%;transform:translateY(0) scale(.82);transform-origin:left top}}
+/* 3 Risiko */
+.b3 .schalter{position:relative;margin:50px auto 0;max-width:380px;display:grid;grid-template-columns:repeat(3,1fr);border:1px solid var(--line);border-radius:40px;padding:6px}
+.b3 .schalter span{position:relative;z-index:1;text-align:center;padding:12px 0;font-size:14.5px;font-weight:600;color:var(--muted)}
+.b3 .knopf{position:absolute;top:6px;bottom:6px;left:6px;width:calc((100% - 12px)/3);border-radius:34px;background:var(--teal);box-shadow:0 0 24px rgba(64,198,204,.5);opacity:.85}
+.b3.an .knopf{animation:abSchalter 3.2s ease-in-out forwards .3s}
+@keyframes abSchalter{0%{transform:translateX(0)}35%{transform:translateX(200%)}70%,100%{transform:translateX(100%)}}
+.b3 .hinweis{text-align:center;margin-top:34px;color:var(--ink);font-size:15.5px}
+/* 4 Handeln */
+.b4 .spuren{position:relative}
+.b4 .spuren>div{display:grid;grid-template-columns:130px 1fr;align-items:center;gap:14px;padding:11px 0;border-bottom:1px solid var(--line)}
+.b4 .spuren span{font-size:13.5px;color:var(--ink);font-weight:500}
+.b4 .spuren p{position:relative;height:16px;margin:0}
+.b4 .spuren p:before{content:'';position:absolute;left:0;right:0;top:50%;height:1px;background:rgba(255,255,255,.1)}
+.b4 .spuren p i{position:absolute;left:var(--x);top:50%;width:10px;height:10px;margin:-5px 0 0 -5px;border-radius:50%;background:var(--teal);box-shadow:0 0 12px var(--teal);opacity:0;transform:scale(.3)}
+.b4.an .spuren p i{animation:abPunkt .4s forwards;animation-delay:calc(var(--x) * 0 + .2s)}
+.b4.an .spuren>div:nth-child(1) p i:nth-child(1){animation-delay:.6s}.b4.an .spuren>div:nth-child(1) p i:nth-child(2){animation-delay:2.2s}
+.b4.an .spuren>div:nth-child(2) p i:nth-child(1){animation-delay:1.1s}.b4.an .spuren>div:nth-child(2) p i:nth-child(2){animation-delay:2.8s}
+.b4.an .spuren>div:nth-child(3) p i:nth-child(1){animation-delay:1.6s}
+.b4.an .spuren>div:nth-child(4) p i:nth-child(1){animation-delay:.9s}.b4.an .spuren>div:nth-child(4) p i:nth-child(2){animation-delay:2.5s}
+@keyframes abPunkt{to{opacity:1;transform:none}}
+.b4 .zeit{position:absolute;top:0;bottom:0;left:144px;width:2px;background:linear-gradient(transparent,var(--teal),transparent);opacity:.7}
+.b4.an .zeit{animation:abZeit 3.4s linear forwards}
+@keyframes abZeit{to{left:100%}}
+.b4 .maerkte{display:flex;gap:10px;flex-wrap:wrap;margin-top:22px}
+.b4 .maerkte span{padding:6px 14px;border-radius:20px;border:1px solid rgba(64,198,204,.35);font-size:13px;font-weight:500;color:var(--teal)}
+/* 5 Mitschauen */
+.b5 .liste5>div{display:flex;justify-content:space-between;padding:15px 0;border-bottom:1px solid var(--line);font-size:15px}
+.b5 .liste5 span{color:var(--ink);font-weight:500}
+.b5 .liste5 em{font-style:normal;color:var(--green);font-weight:600}
+.b5 .toast{position:absolute;right:30px;bottom:26px;padding:12px 18px;border-radius:12px;background:rgba(51,196,111,.12);border:1px solid rgba(51,196,111,.4);color:var(--ink);font-size:14px;font-weight:500;opacity:0;transform:translateY(12px)}
+.b5.an .toast{animation:abToast .5s forwards .8s}
+@keyframes abToast{to{opacity:1;transform:none}}
+@media(max-width:900px){
+.ablauf-szene{height:460vh}
+.ab-raster{grid-template-columns:1fr;gap:22px}
+.ab-rechts{order:-1}
+.ab-links h2{font-size:26px;margin-bottom:14px}
+.ab-liste li{padding:6px 0}
+.ab-liste li:not(.an){display:none}
+.ab-buehne{height:250px}.ab-kopf{font-size:11px;padding:11px 14px}.ab-kopf i{display:none}.ab-kopf span{margin-left:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.ab-kopf em{white-space:nowrap;padding-left:8px}
+.ab-buehne .bild{padding:18px}
+.b1 .zeile{grid-template-columns:90px 1fr 90px;gap:10px;padding:11px 0;font-size:13px}
+.b4 .spuren>div{grid-template-columns:104px 1fr}.b4 .zeit{left:118px}
+.b2 .chart{left:48%}
+}</style>
 <script>
 /* Sofort feststellen, ob die Seite in einem Kasten auf einer anderen Seite
    laeuft. Muss vor dem Zeichnen passieren, sonst blitzt der zweite
@@ -587,6 +679,37 @@ Freitagsschluss.</p>
 </div>
 </div>
 <div class="vhint">Scrollen bewegt das Bild</div>
+</div>
+</div>
+<!-- TEST 02.10.2026: So funktioniert das CFD-Portfolio in 5 Schritten (scrollgekoppelt, ein Schritt nach dem anderen) -->
+<div class="ablauf-szene" id="cfdAblauf" style="--f:var(--teal)">
+<div class="ab-sticky">
+<div class="wrap ab-raster">
+<div class="ab-links">
+<div class="kicker" style="color:var(--teal)">Säule 01 · So funktioniert es</div>
+<h2>Vom Download bis zum<br>laufenden Portfolio</h2>
+<ol class="ab-liste">
+<li><span class="nr">1</span><div><b>Terminal installieren</b><p>Als Mitglied bekommst du das <b class="hl">Customer Terminal</b>. Darüber installierst du den Bot mit wenigen Klicks.</p></div></li>
+<li><span class="nr">2</span><div><b>Bot auf den Chart ziehen</b><p>In <b class="ht">MetaTrader 5</b> ziehst du den Bot auf einen beliebigen Chart. Instrument und Zeiteinheit sind egal.</p></div></li>
+<li><span class="nr">3</span><div><b>Risiko wählen</b><p>Einstellen musst du nur eines: <b class="ht">das Risiko</b>, über einen zentralen Schalter.</p></div></li>
+<li><span class="nr">4</span><div><b>Der Bot handelt</b><p><b class="ht">Vier Strategietypen</b> auf vorkonfigurierten Märkten wie Nasdaq, S&amp;P 500, Gold und Forex. Auf deinem Rechner oder einem <b class="hl">Windows-VPS</b>.</p></div></li>
+<li><span class="nr">5</span><div><b>Mitschauen, aktuell bleiben</b><p>Im Terminal siehst du die <b class="hl">Live-Performance</b> der Portfolios. <b class="hl">Updates kommen automatisch.</b></p></div></li>
+</ol>
+</div>
+<div class="ab-rechts">
+<div class="ab-fenster glas">
+ <div class="ab-kopf"><i></i><i></i><i></i><span id="abTitel">Customer Terminal</span><em id="abZaehler">Schritt 1 von 5</em></div>
+ <div class="ab-buehne">
+  <div class="bild b1"><div class="zeile"><span>Portfolio S</span><div class="balken"><s></s></div><em>✓ installiert</em></div><div class="zeile z2"><span>Portfolio L</span><div class="balken"><s></s></div><em>✓ installiert</em></div><div class="zeile z3"><span>Setfiles</span><div class="balken"><s></s></div><em>✓ geladen</em></div></div>
+  <div class="bild b2"><div class="chart"><i style="--h:38%;--y:40%"></i><i style="--h:30%;--y:46%" class="r"></i><i style="--h:44%;--y:32%"></i><i style="--h:26%;--y:38%" class="r"></i><i style="--h:50%;--y:24%"></i><i style="--h:34%;--y:30%"></i><i style="--h:28%;--y:36%" class="r"></i><i style="--h:46%;--y:20%"></i><i style="--h:30%;--y:26%" class="r"></i><i style="--h:40%;--y:18%"></i><div class="aktiv">● Bot aktiv</div></div><div class="ea">Kaspareit Portfolio</div></div>
+  <div class="bild b3"><div class="schalter"><span>Niedrig</span><span>Mittel</span><span>Hoch</span><i class="knopf"></i></div><div class="hinweis">Ein Schalter für das ganze Portfolio</div></div>
+  <div class="bild b4"><div class="spuren"><div><span>Trendfolge</span><p><i style="--x:18%"></i><i style="--x:62%"></i></p></div><div><span>Mean Reversion</span><p><i style="--x:34%"></i><i style="--x:80%"></i></p></div><div><span>Saisonalität</span><p><i style="--x:48%"></i></p></div><div><span>Volatilität</span><p><i style="--x:26%"></i><i style="--x:70%"></i></p></div><b class="zeit"></b></div><div class="maerkte"><span>Nasdaq</span><span>S&amp;P 500</span><span>Gold</span><span>Forex</span></div></div>
+  <div class="bild b5"><div class="liste5"><div><span>Portfolio S</span><em>● läuft</em></div><div><span>Portfolio L</span><em>● läuft</em></div><div><span>Version</span><em>✓ aktuell</em></div></div><div class="toast">Update automatisch installiert</div></div>
+ </div>
+ <div class="ab-punkte"><i></i><i></i><i></i><i></i><i></i></div>
+</div>
+</div>
+</div>
 </div>
 </div>
 <section id="schachbrett">
@@ -1789,5 +1912,19 @@ setze(v); requestAnimationFrame(takt);
 })();
 </script>
 
-</body>
+<script>
+/* TEST 02.10.2026: Ablauf in 5 Schritten, Schritt folgt der Scrollposition */
+(function(){
+var sz=document.getElementById('cfdAblauf'); if(!sz) return;
+var li=sz.querySelectorAll('.ab-liste li'), bi=sz.querySelectorAll('.ab-buehne .bild'), pu=sz.querySelectorAll('.ab-punkte i');
+var titel=['Customer Terminal','MetaTrader 5','MetaTrader 5 · Einstellungen','MetaTrader 5 · läuft automatisch','Customer Terminal'];
+var tEl=document.getElementById('abTitel'), zEl=document.getElementById('abZaehler'), akt=-1;
+function setze(n){ if(n===akt) return; akt=n;
+  for(var i=0;i<li.length;i++){ li[i].classList.toggle('an',i===n); li[i].classList.toggle('fertig',i<n); bi[i].classList.toggle('an',i===n); pu[i].classList.toggle('an',i===n); }
+  tEl.textContent=titel[n]; zEl.textContent='Schritt '+(n+1)+' von 5'; }
+function lauf(){ var r=sz.getBoundingClientRect(), weg=sz.offsetHeight-innerHeight, p=Math.min(1,Math.max(0,-r.top/Math.max(1,weg)));
+  setze(Math.min(4,Math.floor(p*5))); }
+addEventListener('scroll',lauf,{passive:true}); addEventListener('resize',lauf); lauf();
+})();
+</script></body>
 </html>
