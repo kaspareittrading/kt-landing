@@ -567,7 +567,15 @@ background:var(--bg);border:1px solid rgba(64,198,204,.35);color:var(--teal);tra
 .b1 .zeile{grid-template-columns:90px 1fr 90px;gap:10px;padding:11px 0;font-size:13px}
 .b4 .spuren>div{grid-template-columns:104px 1fr}.b4 .zeit{left:118px}
 .b2 .chart{left:48%}
-}</style>
+}/* 02.10.2026 ATH-Abschnitt: Leitsatz + Nutzenpunkte statt Fliesstext */
+.vtext p.leit{font-size:18.5px;line-height:1.55}
+.vorteile{list-style:none;margin:22px 0 0;padding:0}
+.vorteile li{position:relative;padding:11px 0 11px 34px;border-top:1px solid rgba(255,255,255,.07)}
+.vorteile li:first-child{border-top:0}
+.vorteile li:before{content:'✓';position:absolute;left:0;top:13px;width:21px;height:21px;border-radius:50%;display:grid;place-items:center;font-size:11px;
+color:var(--gold);background:rgba(216,174,94,.13);border:1px solid rgba(216,174,94,.45)}
+.vorteile b{display:block;font-weight:600;color:#fff;font-size:16.5px}
+.vorteile span{display:block;color:var(--muted);font-size:15px;margin-top:2px;line-height:1.5}</style>
 <script>
 /* Sofort feststellen, ob die Seite in einem Kasten auf einer anderen Seite
    laeuft. Muss vor dem Zeichnen passieren, sonst blitzt der zweite
@@ -672,7 +680,7 @@ einzigen Marktphase abhängt: Trendfolge, Mean Reversion, Saisonalitäten und
 Volatilität. Zu jedem Portfolio gibt es eine <b class="ht">Prop-Variante mit Newsfilter</b> und
 Freitagsschluss.</p>
 <div class="mini">
-<div><b>2</b><span>Portfolios, S und L</span></div>
+<div><b>Mehrere</b><span>Strategieportfolios</span></div>
 <div><b>4</b><span>Strategietypen</span></div>
 <div><b>MT5</b><span>Dein eigener Broker</span></div>
 </div>
@@ -700,11 +708,11 @@ Freitagsschluss.</p>
 <div class="ab-fenster glas">
  <div class="ab-kopf"><i></i><i></i><i></i><span id="abTitel">Customer Terminal</span><em id="abZaehler">Schritt 1 von 5</em></div>
  <div class="ab-buehne">
-  <div class="bild b1"><div class="zeile"><span>Portfolio S</span><div class="balken"><s></s></div><em>✓ installiert</em></div><div class="zeile z2"><span>Portfolio L</span><div class="balken"><s></s></div><em>✓ installiert</em></div><div class="zeile z3"><span>Setfiles</span><div class="balken"><s></s></div><em>✓ geladen</em></div></div>
+  <div class="bild b1"><div class="zeile"><span>Portfolio A</span><div class="balken"><s></s></div><em>✓ installiert</em></div><div class="zeile z2"><span>Portfolio B</span><div class="balken"><s></s></div><em>✓ installiert</em></div><div class="zeile z3"><span>Setfiles</span><div class="balken"><s></s></div><em>✓ geladen</em></div></div>
   <div class="bild b2"><div class="chart"><i style="--h:38%;--y:40%"></i><i style="--h:30%;--y:46%" class="r"></i><i style="--h:44%;--y:32%"></i><i style="--h:26%;--y:38%" class="r"></i><i style="--h:50%;--y:24%"></i><i style="--h:34%;--y:30%"></i><i style="--h:28%;--y:36%" class="r"></i><i style="--h:46%;--y:20%"></i><i style="--h:30%;--y:26%" class="r"></i><i style="--h:40%;--y:18%"></i><div class="aktiv">● Bot aktiv</div></div><div class="ea">Kaspareit Portfolio</div></div>
   <div class="bild b3"><div class="schalter"><span>Niedrig</span><span>Mittel</span><span>Hoch</span><i class="knopf"></i></div><div class="hinweis">Ein Schalter für das ganze Portfolio</div></div>
   <div class="bild b4"><div class="spuren"><div><span>Trendfolge</span><p><i style="--x:18%"></i><i style="--x:62%"></i></p></div><div><span>Mean Reversion</span><p><i style="--x:34%"></i><i style="--x:80%"></i></p></div><div><span>Saisonalität</span><p><i style="--x:48%"></i></p></div><div><span>Volatilität</span><p><i style="--x:26%"></i><i style="--x:70%"></i></p></div><b class="zeit"></b></div><div class="maerkte"><span>Nasdaq</span><span>S&amp;P 500</span><span>Gold</span><span>Forex</span></div></div>
-  <div class="bild b5"><div class="liste5"><div><span>Portfolio S</span><em>● läuft</em></div><div><span>Portfolio L</span><em>● läuft</em></div><div><span>Version</span><em>✓ aktuell</em></div></div><div class="toast">Update automatisch installiert</div></div>
+  <div class="bild b5"><div class="liste5"><div><span>Portfolio A</span><em>● läuft</em></div><div><span>Portfolio B</span><em>● läuft</em></div><div><span>Portfolio C</span><em>● läuft</em></div><div><span>Version</span><em>✓ aktuell</em></div></div><div class="toast">Update automatisch installiert</div></div>
  </div>
  <div class="ab-punkte"><i></i><i></i><i></i><i></i><i></i></div>
 </div>
@@ -782,18 +790,16 @@ Wer will, bucht den <b class="hl">Einrichtungsservice für 99 Euro</b> dazu.</p>
 <div class="inner reveal r">
 <span class="tag t-gold">Säule 02 · Neu</span>
 <h2>All Time High</h2>
-<p><b class="hg">Unsere eigene Windows-Anwendung</b> für den automatisierten Handel mit echten Aktien,
-<b class="hg">direkt an Interactive Brokers</b>. <b class="hl">Ohne TradingView, ohne Bridge, ohne Zusatzsoftware.</b>
-Gekauft wird am Kassamarkt, die Papiere liegen <b class="hl">in deinem eigenen Depot</b>, gehandelt
-wird ausschließlich long. Handelbar ist alles, was Interactive Brokers anbietet,
-<b class="hg">weltweit und ohne Einschränkung durch uns</b>. Die Grenze setzt allein, wofür du bei
-deinem Broker freigeschaltet bist.</p>
-<p><b class="hg">Zwei automatisierte Ansätze</b> stehen bereit: einer über Ausbrüche, einer mit
-gestaffelten Einstiegen. Dazu Handelspläne, mit denen du dein Konto in mehrere
-Töpfe teilst, <b class="hg">echte Stop-Orders direkt bei Interactive Brokers</b> und ein Wächter,
-der den Kontowert überwacht und bei deiner Schwelle alles schließt.</p>
+<p class="leit"><b class="hl">Automatisierter Aktienhandel aus einer einzigen Software.</b>
+Direkt mit deinem Konto bei <b class="hg">Interactive Brokers</b> verbunden, ohne TradingView und ohne Zusatzprogramme.</p>
+<ul class="vorteile">
+<li><b>Alle Aktien, die dein Broker anbietet</b><span>US-Werte, Xetra und weltweit alles, was Interactive Brokers im Angebot hat.</span></li>
+<li><b>Zwei fertige Strategien</b><span>Eine folgt Trends und Ausbrüchen, die andere kauft in Stufen.</span></li>
+<li><b>Dein Konto in Töpfe aufteilen</b><span>Jeder Handelsplan bekommt eigenes Kapital und eigene Aktien.</span></li>
+<li><b>Abgesichert direkt beim Broker</b><span>Jede Position hat eine echte Stop-Order bei Interactive Brokers. Fällt dein Konto unter deine Schwelle, schließt der Kontoschutz alles.</span></li>
+</ul>
 <div class="mini">
-<div><b>2</b><span>Handelsansätze</span></div>
+<div><b>2</b><span>Fertige Strategien</span></div>
 <div><b>Weltweit</b><span>Alles, was IB anbietet</span></div>
 <div><b>Premium</b><span>Ohne Aufpreis</span></div>
 </div>
@@ -820,7 +826,7 @@ für alles, sondern <b class="hl">drei getrennte Systeme</b>.</p>
 <div class="cmp-row reveal" style="--i:1">
 <div>Gehandelt wird</div>
 <div>Indizes, Währungen und Rohstoffe als Hebelprodukte, zum Beispiel Nasdaq, S&amp;P 500, Gold und Forex</div>
-<div>Echte Aktien im eigenen Depot, weltweit alles was Interactive Brokers anbietet, ohne Hebel und ausschließlich long</div>
+<div>Echte Aktien weltweit, alles was Interactive Brokers anbietet</div>
 <div>Futures</div>
 </div>
 <div class="cmp-row reveal" style="--i:2">
@@ -837,7 +843,7 @@ für alles, sondern <b class="hl">drei getrennte Systeme</b>.</p>
 </div>
 <div class="cmp-row reveal" style="--i:4">
 <div>Was läuft</div>
-<div>Portfolio S und Portfolio L, je auch als Prop-Variante, dazu 5 Kernstrategien und die Community-Strategien</div>
+<div>Verschiedene Strategieportfolios, je auch als Prop-Variante, dazu 5 Kernstrategien und die Community-Strategien</div>
 <div>Zwei Handelsansätze, Ausbruch und gestaffelter Einstieg</div>
 <div>Wird bekanntgegeben</div>
 </div>
@@ -1097,7 +1103,7 @@ wahrscheinlich eine Challenge zu bestehen ist, bevor du einen Euro riskierst.</p
 <div class="claim">Alle Säulen, alle Strategien, voller Zugang. Heute und in Zukunft.</div>
 <div class="dots"><span class="dot t"></span><span class="dot g"></span><span class="dot"></span><span class="lbl">CFDs · Aktien · Futures folgt</span></div>
 <ul>
-<li>Portfolio S und Portfolio L, jeweils auch als Prop-Variante</li>
+<li>Alle Strategieportfolios, jeweils auch als Prop-Variante</li>
 <li>Alle 5 Kernstrategien und alle Community-Strategien</li>
 <li>All Time High für den Aktienhandel, ohne Aufpreis</li>
 <li>Jede künftige Strategie und jedes künftige Portfolio automatisch inklusive</li>
@@ -1112,7 +1118,7 @@ wahrscheinlich eine Challenge zu bestehen ist, bevor du einen Euro riskierst.</p
 <div class="claim">Dein Einstieg ins automatisierte Portfolio-Trading.</div>
 <div class="dots"><span class="dot t"></span><span class="dot"></span><span class="dot"></span><span class="lbl">Nur CFDs</span></div>
 <ul>
-<li>Portfolio S, fertig konfiguriert, auch als Prop-Variante</li>
+<li>Ein Strategieportfolio, fertig konfiguriert, auch als Prop-Variante</li>
 <li>Kernstrategie 1 plus zwei Community-Strategien</li>
 <li>Customer Terminal als Installationstool mit automatischen Updates</li>
 <li>Einrichtungsanleitung von A bis Z, als Video und als PDF</li>
@@ -1183,7 +1189,7 @@ Damit läuft alles rund um die Uhr, auch wenn dein Rechner aus ist.</div>
 </details>
 <details>
 <summary>Eignen sich die Portfolios für Prop-Challenges?</summary>
-<div class="ans">Ja. Zu Portfolio S und Portfolio L gibt es jeweils eine
+<div class="ans">Ja. Zu jedem Strategieportfolio gibt es eine
 Prop-Variante mit Newsfilter und Freitagsschluss. Mit dem kostenlosen
 Prop-Challenge-Simulator kannst du vorher prüfen, wie wahrscheinlich das
 Bestehen ist, bevor du Geld einsetzt.</div>
