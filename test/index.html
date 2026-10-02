@@ -476,13 +476,13 @@ h1,h2,h3{font-weight:300}
 .hero-content h1 .l2{color:#c3cccd}
 .hl{font-weight:600;color:#fff}.ht{font-weight:600;color:var(--teal)}.hg{font-weight:600;color:var(--gold)}.hn{font-weight:600;color:var(--green)}
 /* TEST 02.10.2026: Ablauf in 5 Schritten (CFD) */
-.ablauf-szene{position:relative;height:420vh;background:var(--bg)}
+.ablauf-szene{position:relative;height:250vh;background:var(--bg)}
 .ab-sticky{position:sticky;top:0;height:100vh;min-height:620px;display:flex;align-items:center;overflow:hidden}
 .ab-raster{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.05fr);gap:64px;align-items:center;width:100%}
 .ab-links h2{font-size:clamp(28px,3.4vw,46px);margin-bottom:30px}
 .ab-liste{list-style:none;margin:0;padding:0;position:relative}
 .ab-liste:before{content:'';position:absolute;left:17px;top:18px;bottom:18px;width:1px;background:var(--line)}
-.ab-liste li{display:flex;gap:20px;padding:10px 0;opacity:.38;transition:opacity .5s}
+.ab-liste li{display:flex;gap:20px;padding:10px 0;opacity:.38;transition:opacity .5s;cursor:pointer}.ab-liste li:hover{opacity:.8}.ab-punkte i{cursor:pointer}
 .ab-liste li.an{opacity:1}
 .ab-liste li.fertig{opacity:.62}
 .ab-liste .nr{flex:0 0 35px;height:35px;border-radius:50%;display:grid;place-items:center;font-size:14px;font-weight:600;position:relative;z-index:1;
@@ -556,7 +556,7 @@ background:var(--bg);border:1px solid rgba(64,198,204,.35);color:var(--teal);tra
 .b5.an .toast{animation:abToast .5s forwards .8s}
 @keyframes abToast{to{opacity:1;transform:none}}
 @media(max-width:900px){
-.ablauf-szene{height:460vh}
+.ablauf-szene{height:270vh}
 .ab-raster{grid-template-columns:1fr;gap:22px}
 .ab-rechts{order:-1}
 .ab-links h2{font-size:26px;margin-bottom:14px}
@@ -576,7 +576,7 @@ background:var(--bg);border:1px solid rgba(64,198,204,.35);color:var(--teal);tra
 color:var(--gold);background:rgba(216,174,94,.13);border:1px solid rgba(216,174,94,.45)}
 .vorteile b{display:block;font-weight:600;color:#fff;font-size:16.5px}
 .vorteile span{display:block;color:var(--muted);font-size:15px;margin-top:2px;line-height:1.5}/* 02.10.2026 Pruefprozess-Szene */
-.ablauf-szene.pruef{height:520vh;border-top:1px solid var(--line)}
+.ablauf-szene.pruef{height:310vh;border-top:1px solid var(--line)}
 .pruef .ab-links h2{font-size:clamp(26px,3vw,40px);margin-bottom:12px}
 .ab-intro{color:var(--muted);font-size:15.5px;margin:0 0 18px;max-width:520px}
 .pruef .ab-liste li{padding:6px 0}
@@ -639,7 +639,7 @@ color:var(--gold);background:rgba(216,174,94,.13);border:1px solid rgba(216,174,
 .p7.an .stempel{animation:pStempel .45s cubic-bezier(.3,1.6,.5,1) forwards 1s}
 @keyframes pStempel{to{opacity:1;transform:scale(1) rotate(-4deg)}}
 @media(max-width:900px){
-.ablauf-szene.pruef{height:600vh}
+.ablauf-szene.pruef{height:340vh}
 .ab-intro{display:none}
 .mc{height:160px}
 .ideen{gap:7px}
@@ -2015,6 +2015,9 @@ function setze(k){ if(k===akt) return; akt=k;
   if(tEl) tEl.textContent=li[k].dataset.titel||''; if(zEl) zEl.textContent='Schritt '+(k+1)+' von '+n; }
 function lauf(){ var r=sz.getBoundingClientRect(), weg=sz.offsetHeight-innerHeight, p=Math.min(1,Math.max(0,-r.top/Math.max(1,weg)));
   setze(Math.min(n-1,Math.floor(p*n))); }
+function springe(k){ var top=sz.getBoundingClientRect().top+scrollY, weg=sz.offsetHeight-innerHeight; scrollTo({top:top+weg*(k+0.5)/n,behavior:'smooth'}); }
+[].forEach.call(li,function(el,i){ el.addEventListener('click',function(){ springe(i); }); });
+[].forEach.call(pu,function(el,i){ el.addEventListener('click',function(){ springe(i); }); });
 addEventListener('scroll',lauf,{passive:true}); addEventListener('resize',lauf); lauf();
 });
 })();</script><script>
