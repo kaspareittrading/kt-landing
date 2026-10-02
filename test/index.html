@@ -1663,7 +1663,7 @@ function takt(){
       /* Augenposition wie im Alex-Clip berechnet (Bildanteil 0.565 / 0.25, kurz vor der Nase auf Augenhoehe) */
       var bh=h*0.94, bw=bh*16/9, by=h-bh, zx=(w/h<1.75)?0.79:0.73, bx=w*zx-bw*0.67; if(bx+bw<w*0.97) bx=w*0.97-bw;
       var o={x:bx+bw*0.565, y:by+bh*0.25};
-      var kr=kick.getBoundingClientRect(), ex=kr.left*d, nav=70*d, ky=kr.top*d-18*d;
+      var kr=kick.getBoundingClientRect(), ex=kr.left*d, nav=84*d, ky=kr.top*d-14*d;
       var platz=Math.max(40*d, ky-nav), schritt=platz/3;
       ctx.globalAlpha=alpha; ctx.lineCap='round';
       for(var i=0;i<L.length;i++){
