@@ -1833,10 +1833,11 @@ if(!imKasten) return;
 document.querySelectorAll('a[href]').forEach(function(a){
 var h=a.getAttribute('href')||'';
 if(!h || h.charAt(0)==='#') return;
-if(!a.getAttribute('target')){
-a.setAttribute('target','_blank');
-a.setAttribute('rel','noopener');
-}
+if(a.getAttribute('target')) return;
+/* 02.10.2026: Eingebettet in die Wix-Startseite. Links auf die eigene Wix-Domain wechseln das ganze
+   Fenster (Login bleibt erhalten), fremde Seiten (z. B. Copecart) oeffnen einen neuen Tab. */
+if(/^https?:\/\/(www\.)?kaspareit-trading\.com/i.test(h)){ a.setAttribute('target','_top'); }
+else { a.setAttribute('target','_blank'); a.setAttribute('rel','noopener'); }
 });
 })();
 </script>
