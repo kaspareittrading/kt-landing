@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Impressum | Kaspareit Trading</title>
+<meta name="description" content="Impressum der Kaspareit-Trading LLC">
+<meta name="robots" content="index,follow">
+<link rel="icon" type="image/png" sizes="32x32" href="../favicon-32.png">
+<link rel="apple-touch-icon" href="../apple-touch-icon.png">
+<link rel="stylesheet" href="../schrift/schrift.css">
+<style>
+:root{
+--bg:#0a0f10;
+--bg2:#0d1314;
+--ink:#e7eced;
+--muted:#bac4c6;
+--dim:#8f999b;
+--teal:#40C6CC;
+--gold:#D8AE5E;
+--green:#33C46F;
+--line:rgba(255,255,255,.08);
+--card:rgba(255,255,255,.025);
+}
+:root{--muted:#d6dddf;--dim:#b1bbbd}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:'Manrope',-apple-system,'Helvetica Neue',Arial,sans-serif;
+font-weight:400;line-height:1.7;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+b,strong{font-weight:600;color:var(--ink)}
+::-webkit-scrollbar{width:10px}
+::-webkit-scrollbar-track{background:var(--bg)}
+::-webkit-scrollbar-thumb{background:rgba(64,198,204,.35);border-radius:10px}
+html{scrollbar-width:thin;scrollbar-color:rgba(64,198,204,.4) var(--bg)}
+html.im-rahmen{scrollbar-width:none;-ms-overflow-style:none}
+html.im-rahmen::-webkit-scrollbar{width:0;height:0;display:none}
+/* Menü wie auf der Landingpage */
+nav{position:fixed;inset:0 0 auto 0;z-index:100;display:flex;align-items:center;justify-content:space-between;
+padding:16px 28px;background:rgba(10,15,16,.92);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+nav.menu-open{background:var(--bg)}
+.logo{display:flex;align-items:center;gap:11px;font-family:'Anton',sans-serif;font-size:16px;letter-spacing:.22em;
+text-transform:uppercase;color:var(--ink)}
+.logo img{width:30px;height:30px;flex:0 0 auto;object-fit:contain}
+.navlinks{display:flex;gap:32px;align-items:center}
+.navlinks a{color:var(--muted);font-size:14px;letter-spacing:.04em}
+.navlinks a:hover{color:var(--ink)}
+.btn-login{padding:9px 22px;border:1px solid var(--line);border-radius:40px;font-size:13.5px}
+.btn-login:hover{border-color:var(--teal)}
+.burger{display:none;width:42px;height:42px;flex:0 0 auto;position:relative;cursor:pointer;
+background:transparent;border:1px solid var(--line);border-radius:12px}
+.burger:hover{border-color:var(--teal)}
+.burger span{position:absolute;left:11px;width:18px;height:1.5px;background:var(--ink);border-radius:2px}
+.burger span:nth-child(1){top:14px}
+.burger span:nth-child(2){top:19.5px}
+.burger span:nth-child(3){top:25px}
+nav.menu-open .burger span:nth-child(1){transform:translateY(5.5px) rotate(45deg)}
+nav.menu-open .burger span:nth-child(2){opacity:0}
+nav.menu-open .burger span:nth-child(3){transform:translateY(-5.5px) rotate(-45deg)}
+@media(max-width:900px){
+.burger{display:block}
+.navlinks{position:absolute;left:0;right:0;top:100%;flex-direction:column;align-items:stretch;gap:0;
+background:var(--bg);box-shadow:0 22px 40px rgba(0,0,0,.55);border-bottom:1px solid var(--line);padding:6px 24px 28px;display:none}
+nav.menu-open .navlinks{display:flex}
+.navlinks a{padding:17px 2px;font-size:16px;letter-spacing:.01em;border-bottom:1px solid var(--line)}
+.navlinks a.btn-login{margin-top:20px;text-align:center;border:1px solid var(--line);border-radius:40px;padding:15px 22px;font-size:15px}
+}
+html.im-rahmen nav{display:none}
+html.im-rahmen main{padding-top:48px}
+/* Lesetext */
+main{max-width:760px;margin:0 auto;padding:128px 24px 72px;font-size:17px;color:var(--ink)}
+main h1{font-size:clamp(32px,5vw,46px);font-weight:300;line-height:1.15;letter-spacing:.01em;margin:0 0 36px;
+overflow-wrap:break-word;hyphens:manual}
+main h2{font-size:clamp(23px,3vw,28px);font-weight:400;line-height:1.3;margin:52px 0 16px;color:var(--ink)}
+main h3{font-size:19.5px;font-weight:500;line-height:1.4;margin:34px 0 10px;color:var(--ink)}
+main h4{font-size:17px;font-weight:600;line-height:1.45;margin:24px 0 6px;color:var(--ink)}
+main h1+h2{margin-top:0}
+main h2+h3{margin-top:18px}
+main p{color:var(--muted);margin:0 0 16px}
+main ul{color:var(--muted);margin:0 0 18px;padding-left:22px}
+main li{margin:0 0 10px}
+main li::marker{color:var(--teal)}
+main em{font-style:italic;color:var(--ink)}
+main a{color:var(--teal);text-decoration:underline;text-decoration-color:rgba(64,198,204,.45);text-underline-offset:3px;
+overflow-wrap:anywhere}
+main a:hover{text-decoration-color:var(--teal)}
+main hr{border:0;border-top:1px solid var(--line);margin:44px 0}
+.adresse p{margin:0}
+.adresse{margin:0 0 16px}
+/* Fußzeile */
+footer{border-top:1px solid var(--line);background:var(--bg2);padding:40px 24px 48px}
+footer .inner{max-width:712px;margin:0 auto}
+footer .links{display:flex;flex-wrap:wrap;gap:8px 28px;margin-bottom:20px;font-size:15px}
+footer .links a{color:var(--teal)}
+footer .links a:hover{text-decoration:underline}
+footer .links a[aria-current]{color:var(--ink)}
+footer p{color:var(--dim);font-size:14px;line-height:1.65}
+footer .cpy{margin-top:14px}
+@media(max-width:600px){main{padding:104px 20px 56px;font-size:16px}main h1{margin-bottom:28px}nav{padding:14px 18px}}
+.stand{margin-top:48px;font-size:14px;color:var(--dim,#b1bbbd)}
+</style>
+<script>
+/* Läuft die Seite in einem Kasten auf einer anderen Seite (Wix), Menü ausblenden (wie Landingpage). */
+(function(){
+  var imRahmen;
+  try { imRahmen = (window.self !== window.top); } catch(e) { imRahmen = true; }
+  if (imRahmen) document.documentElement.classList.add('im-rahmen');
+})();
+</script>
+</head>
+<body>
+<nav id="nav">
+<a class="logo" href="https://start.kaspareit-trading.com/" aria-label="Zur Startseite"><img src="../apple-touch-icon.png" alt="">Kaspareit Trading</a>
+<div class="navlinks" id="navlinks">
+<a href="https://start.kaspareit-trading.com/#preise">Trading-Portfolios</a>
+<a href="https://www.kaspareit-trading.com/member">Free Member</a>
+<a href="https://start.kaspareit-trading.com/#erfolgsstorys">Erfolgsstorys</a>
+<a href="https://www.kaspareit-trading.com/blog">Blog</a>
+<a href="https://start.kaspareit-trading.com/#chatbot">Kontakt</a>
+<a href="https://www.kaspareit-trading.com/start-1" class="btn-login">Mitglieder-Login</a>
+</div>
+<button class="burger" id="burger" aria-label="Menü öffnen" aria-expanded="false" aria-controls="navlinks"><span></span><span></span><span></span></button>
+</nav>
+<main id="inhalt">
+<h1>IMPRESSUM</h1>
+<div class="adresse">
+<p>Kaspareit-Trading LLC</p>
+<p>7901 4TH ST N - STE 300</p>
+<p>St. Petersburg Florida US 33702</p>
+<p>USA</p>
+</div>
+<h2>KONTAKT</h2>
+<p><a href="mailto:info@kaspareit-trading.de">info@kaspareit-trading.de</a></p>
+<h2>Urheberrecht</h2>
+<p>Copyright © Kaspareit-Trading LLC</p>
+<p>Alle Rechte vorbehalten. Alle Texte, Graphiken, Bilder, sowie sämtliche interaktive Elemente unterliegen dem Urheberrecht und anderen Gesetzen, die dem Schutz geistigen Eigentums dienen. Unerlaubte Vervielfältigung, Weitergabe an Dritte, Veröffentlichung auf anderen Webseiten oder sonstige Verwendung ist ohne schriftliche Genehmigung von Kaspareit-Trading untersagt.</p>
+<p>Namentlich gekennzeichnete Beiträge stellen alleinig die Meinung des Autors/ der Autoren dar und nicht die Meinung von Kaspareit-Trading.</p>
+<p>Das Copyright für veröffentlichte und von den Autoren selbst erstellte Objekte bleibt allein beim Autor. Eine Vervielfältigung oder Verwendung solcher Grafiken, Textdokumenten, Videosequenzen und Texten in anderen elektronischen oder gedruckten Publikationen, ist ohne ausdrückliche Zustimmung des Autors nicht gestattet. Bei Zuwiderhandlung wird ggf. ein Strafverfahren eingeleitet.</p>
+<p>Sollten Inhalte oder graphische Elemente einzelner Seiten oder Seiten dieses Internetangebots die Rechte Dritter oder gesetzliche Bestimmungen verletzen oder in irgendeiner Form wettbewerbliche Probleme hervorbringen, so bitten wir unter Berufung auf §8 Abs. 4 UWG, um eine angemessene, hinreichend erläuternde und umgehende Benachrichtigung ohne Kostennote.</p>
+<p>Wir versichern, dass zu Recht beanstandete Passagen in angemessener Frist entfernt bzw. den rechtlichen Maßgaben entsprechend angepasst werden, ohne dass von Ihrer Seite die Einschaltung eines Rechtsbeistands erforderlich ist.</p>
+<p>Die Einschaltung eines Rechtsbeistands zur kostenpflichtigen Abmahnung entspricht nicht dessen eigentlichem Willen und würde damit einen Verstoß gegen §13 Abs. 5 UWG, wegen der Verfolgung sachfremder Ziele als beherrschendes Motiv der Verfahrenseinleitung, insbesondere einer Kostenerzielungsabsicht als eigentliche Triebfeder, sowie einen Verstoß gegen die Schadensminderungspflicht darstellen.</p>
+<p class="stand">Stand: 03.10.2026</p></main>
+<footer>
+<div class="inner">
+<div class="links" role="navigation" aria-label="Rechtliches">
+<a href="/impressum/" aria-current="page">Impressum</a>
+<a href="/datenschutz/">Datenschutz</a>
+<a href="/agb/">AGB</a>
+</div>
+<p><b>Risikohinweis:</b> CFDs sind komplexe Finanzinstrumente und bergen aufgrund des Hebels ein hohes Risiko, schnell Geld zu verlieren. 77 % der Kleinanlegerkonten verlieren Geld beim CFD-Handel. Überlege sorgfältig, ob du die Funktionsweise von CFDs verstehst und ob du das hohe Risiko eines Geldverlusts tragen kannst.</p>
+<p class="cpy">© 2026 Kaspareit Trading</p>
+</div>
+</footer>
+<script>
+/* Menü: Handy-Klappmenü (aus der Landingpage übernommen) */
+(function(){
+var nav=document.getElementById('nav'); if(!nav) return;
+var burger=document.getElementById('burger'), links=document.getElementById('navlinks');
+function setOpen(open){nav.classList.toggle('menu-open',open);burger.setAttribute('aria-expanded',open?'true':'false');burger.setAttribute('aria-label',open?'Menü schließen':'Menü öffnen');}
+burger.addEventListener('click',function(){setOpen(!nav.classList.contains('menu-open'));});
+links.addEventListener('click',function(e){if(e.target.closest('a')) setOpen(false);});
+addEventListener('keydown',function(e){if(e.key==='Escape') setOpen(false);});
+addEventListener('resize',function(){if(innerWidth>900) setOpen(false);});
+})();
+/* Im Wix-Kasten: eigene Domain im ganzen Fenster öffnen */
+(function(){
+if(!document.documentElement.classList.contains('im-rahmen')) return;
+document.querySelectorAll('a[href]').forEach(function(a){
+var h=a.getAttribute('href'); if(a.getAttribute('target')||/^mailto:/.test(h)) return;
+a.setAttribute('target','_top');
+});
+})();
+</script>
+</body>
+</html>
