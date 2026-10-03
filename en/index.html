@@ -1,0 +1,2043 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kaspareit Trading | Three markets. One house.</title>
+<meta name="description" content="Automated trading from one house: CFD portfolios on MetaTrader 5, real stock trading with All Time High, and futures in development.">
+<link rel="icon" type="image/png" sizes="32x32" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAguSURBVFhH7ZZZUFNZGsczD9Pz0A9T1a8zVWP1oCxOICzBsIQlJDcLW0ISCIREEhKzkMUQJKBI2HRAFEQWQVDsoK3DiD3d2uqACzbqOBJlUxCC2jOKUy7dY1dPlbv/qXttKU1Zlt3Vj/2r+lduzj3n+3/nO0tdGu0X3pPMzMwlEokkQyqVOBSK7DqFQlEnV8htarVaKJPJfuff/+fi16mpqcrMzLRBkYj/vVBIgC/ggcdPAY9IgVDEhzgrE7Ic2bf5K1UHlUplqn+AnwxBEDyNRuNVKnPBTohD8PJghEaEIy4xATyBAFwBH9GxMQhhhCI0KgJpMjG0FgN0ZuNQmkDA9I/3o9DpdBW1tdWw2y2IiYuBWJqFba1tGDlzBj6fD7dv36Y0PTODL48cRUWlG8l8HuL5KbCtd8FVU/lQq9Ma/eO+Fw6HfWt3dydsdgvS0kTweDz47sF3eMWLFy/w7NkzSuTzK27evImGTQ3gpYtQuqEK23q7UWS1lvvHfydG46qKXbt6YLMVQaXOx8zMDBWcNHv06BEePnz4VpHvXiVz6uRJSHNzUNfWjN7+/dDpdGo/m9/SaLQP/dpoNIlEwmlq2gyXy4mCAjVVYhJ/s3eJTITEOzqKfG0Buvr3Ylt31/fJsbF/JD0yM1PrrKWOfzd1dsw7y0ptr/t/4HCsnqiuroRcnoXp6ekfbf66SA4dOgS9zYK//P0IKtxuT3x8fKlmlQaFFgOOnhuB50A/pNIcIeVOEEReSUkxpJIM7OnrowK8q+Sv6+nTp1T/58+fL7Y9fvyYaqvduAGVWxrQsXvXc4PJ+MTpXovSmvVwVpShsmEjLDZbI5WAKFV0IlsuhaZAjW+++ZZac3+jt4k0vXv3Lk6dHsb8/PziBiXfkYyPjcOw2oqG1mZU1dWi1bMTm3a0I4lIgsm8ChaLpYAWGBi4hMNJeshiMdGxvWNxNiTvSoTs8+DBA9iL7VBo1SirrsTAF5/j/v371FiyMuT46rpapBBcVG7aiPq2rXC41sBgNsBaVNQXEBDwGxqLxZKw2bFYERONs2fPUoMXFhYwMjJCzY7kyZMnb5iT/8kEaupqkKNRobSqAiXry+CsLIe7vg6nvjqNRz9UYWBgABrzKljLS7DGteaWQaNTm0ymyMXdl5SU4GLFRIHLS8Hdu/eo80ye/zDGcshkEhw+fJiaCQlp/mqnd3d3QZInR/E6F1YQAgi0Rojz86AyaJCrL0BDSxOODQ7C7LRDWpAHvWkVjHp93qLxKxIS4hsjo0Ihlctw69YCVKo8BAcHICw0GPTlAWAwlsNqs2BqaooyJhkaGgQh4mOlXoPkLDnSS6vQMuaDvn032Dn5YBNcCNKFyJBLIFXKwYhkIIXLgd5o1Pr70xIT2ZuZ0QxkK3KoC4hOX0YNYOeuRCSXQBg9COGMYHC4Sfikrw9jE+PQmgxIIZLBYCdi7d+Ow7hzP5q90+i9fgdN3hko6poQyeUjkhmOkOXBWBoYAKlcDLPZ7PD3p4lEgnWJSXGIjIpARAQdkRF0JObr0DW3gE3/mILQ5kJ4XCwysjKgMuhgdjrAJbhYFhYOu2cAu/91H5qO3dg6Oo32CR86L9/Armt3UD10DqqmHSCKq8CIYiArKwM2m22lvz9NJOJnp6QkIJRBR0jQUjBFmagdmUDHla+x/coN9Fy7A8f+Q4iV5SI9V4EkLgdLgkOg2tSO3hv30DF1HYVde7DVO4P2yXm0j/vQNj6HtqkbaLxyG4rGToSFBiE7Owt2uz3B35+8hAI4nITH7IRYLI1gQt/7GRonvsYW7yxaxmbROjaHnvn/QNu1BwXNnUhzlMG8cx92zC2gfdKH7VPXoe/+9GUCE/OUOTmmcXQG605PQWSwgRkejIIC1b3CQsdH/v4kvxIIiDOcxFhk2dbAcfQC1p+6hIYLV7H10iy2jc1RMnsOomdugSrvTt9ttE3MUyXfPnUN+u79PyTgo8ybvLOoOz8D0/5jiONwIOQlwm61HPA3XkQoFOqEQh7S5HLoev4K57ELqB6ZRKP3KlrG5tA67oPRM4DWsVm0TfooI1LU8+Xr0PXsQ/PoFWwb82Gz9yrqzl1G2fAkZC43mOEh0KxUwm53vrz33wYvlPdhWrpoTiAikOtYA2P/cZQOjqL27BQaR8kkfDD3HaRm10HN/OXsO0hNXaMSaDh/hepbc2YS5cOTKNy+Fyk8DkT8ZKy2W0fISvv7voFYLE5LF6eDEBHIr6iBaWAYpYNeuEcmUH9hBsZPBtByafblOlN6uTQt49eg6dqL6q/GUXl6HK6T49Q+SpfnII4VDpOh8ElRUVGUv99bkcmy6gVpAiSmJEJqc6Jwz5dwHBtF+YmL0HTtQ/35y9jivYotF69Svw0XZvDnf05D2doL59HzcA56oWn3QCSVYkUkHVqNCsXFxUX+Pu9EocjuIQRcREcxwJVIoahvh+nAScjrO1E2dBHrh8cpVQyPofzEJZSdmkBGdTO0uz5DZvFaxMbHICIsGGpVHpxOZ5V//PciPz9/g0gkQHRUKHU5JWfJkJyvRUF7HwyfHoHpwHEY+4eg83wBVUsvkhRqRLHjEbTsD4hhRZBH7rHT6Xzji+dHo9frhTk52Zd43CSEhwaB/qdA0Bl0MJMSEMMXgkXwERkXh+CQQIQEfQxmJB1icToslqLh0tK1LP94Pwm3u/8Dq9WqUipzh1JThf/jcNiIi2GCxWSAFc0AO24FBAIu5NnS/5rNps8rKirE/jF+NsrK3B9bLBaxXq8v0Wq1G0mZTKYSl8uV7nbX/96//y+8L/8HmwmV0mdqyDgAAAAASUVORK5CYII=">
+<link rel="apple-touch-icon" href="../apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Manrope:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+--bg:#0a0f10;
+--bg2:#0d1314;
+--ink:#e7eced;
+--muted:#bac4c6;
+--dim:#8f999b;
+--teal:#40C6CC;
+--gold:#D8AE5E;
+--green:#33C46F;
+--line:rgba(255,255,255,.08);
+--card:rgba(255,255,255,.025);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+background:var(--bg);color:var(--ink);
+font-family:'Manrope',-apple-system,'Helvetica Neue',Arial,sans-serif;
+font-weight:300;line-height:1.62;-webkit-font-smoothing:antialiased;overflow-x:hidden;
+}
+a{color:inherit;text-decoration:none}
+h1,h2,h3{font-weight:200;letter-spacing:.005em;line-height:1.08}
+b,strong{font-weight:600;color:var(--ink)}
+.wrap{max-width:1180px;margin:0 auto;padding:0 28px}
+.kicker{font-size:11.5px;letter-spacing:.4em;text-transform:uppercase;margin-bottom:20px;font-weight:500}
+.muted{color:var(--muted)}
+::-webkit-scrollbar{width:10px}
+::-webkit-scrollbar-track{background:var(--bg)}
+::-webkit-scrollbar-thumb{background:rgba(64,198,204,.35);border-radius:10px}
+::-webkit-scrollbar-thumb:hover{background:rgba(64,198,204,.6)}
+html{scrollbar-width:thin;scrollbar-color:rgba(64,198,204,.4) var(--bg)}
+/* Laeuft die Seite in einem Kasten auf einer anderen Seite (Wix), gibt es dort
+   schon einen Scrollbalken. Der zweite, innere Balken wird dann versteckt.
+   Gescrollt wird weiterhin ganz normal, nur der Strich verschwindet.
+   Frei im Browser bleibt der Balken sichtbar, dort wird er gebraucht. */
+html.im-rahmen{scrollbar-width:none;-ms-overflow-style:none}
+html.im-rahmen::-webkit-scrollbar{width:0;height:0;display:none}
+nav{position:fixed;inset:0 0 auto 0;z-index:100;display:flex;align-items:center;justify-content:space-between;
+padding:20px 28px;border-bottom:1px solid transparent;transition:background .35s,padding .35s,border-color .35s}
+nav.scrolled{background:rgba(10,15,16,.84);backdrop-filter:blur(14px);border-bottom-color:var(--line);padding:13px 28px}
+nav.menu-open{background:var(--bg);border-bottom-color:transparent}
+.logo{display:flex;align-items:center;gap:11px;font-family:'Anton',sans-serif;font-size:16px;letter-spacing:.22em;text-transform:uppercase}
+.logo svg{width:26px;height:26px;flex:0 0 auto}
+.navlinks{display:flex;gap:32px;align-items:center}
+.navlinks a{color:var(--muted);font-size:13.5px;letter-spacing:.04em;transition:color .25s}
+.navlinks a:hover{color:var(--ink)}
+.btn{display:inline-block;padding:13px 30px;border-radius:40px;font-size:13.5px;letter-spacing:.05em;
+font-weight:500;cursor:pointer;border:1px solid transparent;transition:all .3s}
+.btn-primary{background:var(--teal);color:#04181a}
+.btn-primary:hover{box-shadow:0 0 30px rgba(64,198,204,.5);transform:translateY(-1px)}
+.btn-ghost{border-color:var(--line);color:var(--ink)}
+.btn-ghost:hover{border-color:var(--teal);box-shadow:0 0 22px rgba(64,198,204,.22)}
+.btn-login{padding:9px 22px;border:1px solid var(--line);border-radius:40px;font-size:13.5px}
+.btn-login:hover{border-color:var(--teal);box-shadow:0 0 22px rgba(64,198,204,.35)}
+.burger{display:none;width:42px;height:42px;flex:0 0 auto;position:relative;cursor:pointer;
+background:transparent;border:1px solid var(--line);border-radius:12px;transition:border-color .25s}
+.burger:hover{border-color:var(--teal)}
+.burger span{position:absolute;left:11px;width:18px;height:1.5px;background:var(--ink);border-radius:2px;
+transition:transform .32s cubic-bezier(.4,0,.2,1),opacity .2s}
+.burger span:nth-child(1){top:14px}
+.burger span:nth-child(2){top:19.5px}
+.burger span:nth-child(3){top:25px}
+nav.menu-open .burger span:nth-child(1){transform:translateY(5.5px) rotate(45deg)}
+nav.menu-open .burger span:nth-child(2){opacity:0}
+nav.menu-open .burger span:nth-child(3){transform:translateY(-5.5px) rotate(-45deg)}
+@media(max-width:900px){
+.burger{display:block}
+.navlinks{
+position:absolute;left:0;right:0;top:100%;
+flex-direction:column;align-items:stretch;gap:0;
+background:var(--bg);box-shadow:0 22px 40px rgba(0,0,0,.55);
+border-bottom:1px solid var(--line);padding:6px 24px 28px;
+opacity:0;visibility:hidden;transform:translateY(-12px);
+transition:opacity .3s,transform .3s,visibility .3s}
+nav.menu-open .navlinks{opacity:1;visibility:visible;transform:none}
+.navlinks a{padding:17px 2px;font-size:16px;letter-spacing:.01em;border-bottom:1px solid var(--line)}
+.navlinks a.btn-login{margin-top:20px;text-align:center;border:1px solid var(--line);
+border-radius:40px;padding:15px 22px;font-size:15px}
+}
+@media(min-width:901px){.burger{display:none}}
+.hero-scene{position:relative;height:560vh}
+.hero-sticky{position:sticky;top:0;height:100vh;min-height:640px;display:flex;align-items:center;overflow:hidden}
+#heroCanvas{position:absolute;inset:0;width:100%;height:100%;display:block;z-index:1}
+.hero-grad{position:absolute;inset:0;z-index:2;pointer-events:none;
+background:radial-gradient(ellipse at 50% 42%,rgba(64,198,204,.07),transparent 62%)}
+.hero-content{position:relative;z-index:5;max-width:880px;will-change:opacity,transform}
+.hero-content h1{font-size:clamp(42px,7.6vw,92px);margin:14px 0 0}
+.hero-content h1 .l2{color:var(--dim)}
+.hero-content p.sub{font-size:clamp(16px,1.9vw,20px);color:var(--muted);margin:28px 0 40px;max-width:620px}
+.hero-cta{display:flex;gap:15px;flex-wrap:wrap}
+.scroll-ind{position:absolute;bottom:30px;left:50%;transform:translateX(-50%);z-index:5;
+font-size:10.5px;letter-spacing:.32em;text-transform:uppercase;color:var(--dim);transition:opacity .4s}
+.hero-outro{position:absolute;z-index:5;inset:auto 0 auto 0;top:20%;text-align:center;padding:0 28px;
+pointer-events:none;opacity:0;will-change:opacity,transform}
+.hero-outro h2{font-size:clamp(28px,4.6vw,58px)}
+.board-cap{position:absolute;z-index:5;inset:auto 0 auto 0;top:max(7%,108px);text-align:center;padding:0 28px;
+pointer-events:none;opacity:0;will-change:opacity,transform}
+.board-cap h2{font-size:clamp(24px,3.6vw,44px)}
+.board-cap p{color:var(--muted);margin-top:14px;font-size:15.5px;max-width:560px;margin-left:auto;margin-right:auto}
+.hero-outro .a{color:var(--teal)}.hero-outro .b{color:var(--gold)}.hero-outro .c{color:var(--green)}
+.hero-outro p{color:var(--muted);margin-top:16px;font-size:16px}
+.stats{border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:var(--bg2)}
+.stats .wrap{display:grid;grid-template-columns:repeat(4,1fr);gap:26px;padding:52px 28px}
+.stat{text-align:center}
+.stat .num{font-size:clamp(30px,4vw,48px);font-weight:200}
+.stat:nth-child(1) .num{color:var(--teal)}
+.stat:nth-child(2) .num{color:var(--gold)}
+.stat:nth-child(3) .num{color:var(--green)}
+.stat:nth-child(4) .num{color:var(--ink)}
+.stat .lbl{font-size:12.5px;color:var(--dim);letter-spacing:.09em;margin-top:8px}
+section{padding:130px 0;position:relative}
+.sec-head{max-width:700px;margin-bottom:64px}
+.sec-head.mid{margin-left:auto;margin-right:auto;text-align:center}
+.sec-head h2{font-size:clamp(30px,4.5vw,52px)}
+.sec-head p{color:var(--muted);margin-top:20px;font-size:17px}
+.reveal{opacity:0;will-change:opacity,transform,filter}
+.vscene{position:relative;height:220vh}
+.vscene.short{height:170vh}
+.vsticky{position:sticky;top:0;height:100vh;min-height:560px;overflow:hidden;display:flex;align-items:center}
+.vbg{position:absolute;inset:0;width:100%;height:100%;display:block;z-index:1;background:#000}
+.vshade{position:absolute;inset:0;z-index:2;pointer-events:none}
+.vshade.left{background:linear-gradient(90deg,rgba(10,15,16,.97) 0%,rgba(10,15,16,.82) 38%,rgba(10,15,16,.42) 72%,rgba(10,15,16,.10) 100%)}
+.vshade.right{background:linear-gradient(90deg,rgba(10,15,16,.12) 0%,rgba(10,15,16,.6) 54%,rgba(10,15,16,.94) 100%)}
+.vtext{position:relative;z-index:3;width:100%;max-width:1180px;margin:0 auto;padding:0 28px}
+.vtext .inner{max-width:520px;text-shadow:0 2px 20px rgba(0,0,0,.55)}
+.vtext.r .inner{margin-left:auto}
+.vtext h2{font-size:clamp(30px,4.6vw,56px)}
+.vtext p{color:var(--muted);margin-top:20px;font-size:17px}
+.vtext .mini{margin-top:32px;display:flex;gap:36px;flex-wrap:wrap}
+.vtext .mini b{font-size:25px;font-weight:200;display:block;margin-bottom:2px}
+.vtext .mini span{font-size:12.5px;color:var(--dim);letter-spacing:.05em}
+.vtext .tag{display:inline-block;font-size:10.5px;letter-spacing:.24em;text-transform:uppercase;
+padding:5px 14px;border-radius:30px;margin-bottom:20px;font-weight:600}
+.t-teal{color:var(--teal);border:1px solid rgba(64,198,204,.4);background:rgba(64,198,204,.08)}
+.t-gold{color:var(--gold);border:1px solid rgba(216,174,94,.4);background:rgba(216,174,94,.08)}
+.t-green{color:var(--green);border:1px solid rgba(51,196,111,.4);background:rgba(51,196,111,.08)}
+.s-teal .mini b{color:var(--teal)}
+.s-gold .mini b{color:var(--gold)}
+.s-green .mini b{color:var(--green)}
+#futures .vsticky{align-items:flex-start}
+#futures .vtext{padding-top:clamp(64px,11vh,140px)}
+#futures .vtext .inner{max-width:680px;margin:0 auto;text-align:center}
+#futures .vtext .mini{justify-content:center}
+.vshade.top{background:linear-gradient(180deg,rgba(10,15,16,.92) 0%,rgba(10,15,16,.74) 30%,rgba(10,15,16,.30) 56%,rgba(10,15,16,.04) 80%,rgba(10,15,16,.34) 100%)}
+.vhint{position:absolute;bottom:26px;left:50%;transform:translateX(-50%);z-index:3;
+font-size:10.5px;letter-spacing:.26em;text-transform:uppercase;color:var(--dim);opacity:.65}
+.cmp{border-top:1px solid var(--line)}
+.cmp-row{display:grid;grid-template-columns:180px repeat(3,1fr);gap:0;border-bottom:1px solid var(--line)}
+.cmp-row > div{padding:22px 20px;font-size:14.5px;color:var(--muted)}
+.cmp-row > div:first-child{color:var(--dim);font-size:12px;letter-spacing:.14em;text-transform:uppercase}
+.cmp-head > div{padding-top:0;padding-bottom:26px}
+.cmp-head .h{font-size:21px;font-weight:200;color:var(--ink)}
+.cmp-head .s{font-size:12px;letter-spacing:.14em;text-transform:uppercase;margin-top:6px}
+.c1 .s{color:var(--teal)}.c2 .s{color:var(--gold)}.c3 .s{color:var(--green)}
+@media(max-width:900px){
+.cmp-row{grid-template-columns:1fr;border-bottom:none}
+.cmp-row > div{border-bottom:1px solid var(--line)}
+.cmp-row > div:first-child{background:var(--bg2)}
+}
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:26px}
+.step{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:36px 30px;
+transition:transform .35s,border-color .35s,box-shadow .35s}
+.step:hover{transform:translateY(-6px);border-color:rgba(64,198,204,.35);box-shadow:0 0 34px rgba(64,198,204,.10)}
+.step .n{font-size:12px;letter-spacing:.22em;color:var(--teal);margin-bottom:20px}
+.step h3{font-size:21px;margin-bottom:12px}
+.step p{color:var(--muted);font-size:15px}
+.qlist{border-top:1px solid var(--line)}
+.q{display:grid;grid-template-columns:70px 260px 1fr;gap:24px;padding:28px 0;border-bottom:1px solid var(--line);align-items:baseline}
+.q .n{color:var(--teal);font-size:13px;letter-spacing:.16em}
+.q h3{font-size:19px}
+.q p{color:var(--muted);font-size:15px}
+@media(max-width:820px){.q{grid-template-columns:1fr;gap:8px}}
+.prices{display:grid;grid-template-columns:1.1fr 1fr 1fr;gap:26px;align-items:start}
+.price{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:42px 34px;position:relative;transition:.4s}
+.price.feat{border-color:rgba(64,198,204,.45);box-shadow:0 0 60px rgba(64,198,204,.08)}
+.price .badge{position:absolute;top:-12px;left:34px;background:var(--teal);color:#04181a;font-size:10.5px;
+letter-spacing:.16em;text-transform:uppercase;padding:5px 14px;border-radius:30px;font-weight:600}
+.price h3{font-size:22px;letter-spacing:.08em;text-transform:uppercase}
+.price .amt{font-size:50px;font-weight:200;margin:16px 0 4px}
+.price .amt small{font-size:15px;color:var(--dim);font-weight:400}
+.price .claim{color:var(--muted);font-size:14.5px;margin:6px 0 26px;min-height:46px}
+.dots{display:flex;gap:8px;align-items:center;margin-bottom:24px}
+.dot{width:9px;height:9px;border-radius:50%;background:rgba(255,255,255,.12)}
+.dot.t{background:var(--teal);box-shadow:0 0 12px rgba(64,198,204,.6)}
+.dot.g{background:var(--gold);box-shadow:0 0 12px rgba(216,174,94,.6)}
+.dot.n{background:var(--green);box-shadow:0 0 12px rgba(51,196,111,.6)}
+.dots span.lbl{font-size:11.5px;color:var(--dim);letter-spacing:.1em;margin-left:6px}
+.price ul{list-style:none;margin-bottom:32px;display:grid;gap:11px}
+.price li{color:var(--muted);font-size:14.5px;display:flex;gap:11px}
+.price li::before{content:"✓";color:var(--teal);flex:0 0 auto}
+.price li.no{color:var(--dim)}
+.price li.no::before{content:"✕";color:var(--dim)}
+.price .btn{width:100%;text-align:center}
+.lock{text-align:center;color:var(--muted);font-size:14.5px;margin-top:38px}
+.lock b{color:var(--teal);font-weight:500}
+.compliance{background:var(--bg2);border:1px solid var(--line);border-radius:18px;padding:48px 44px}
+.compliance h3{font-size:23px;margin-bottom:12px}
+.compliance > p{color:var(--muted);font-size:15.5px;max-width:820px}
+.notgrid{display:grid;grid-template-columns:1fr 1fr;gap:13px 44px;margin-top:30px}
+.notgrid div{color:var(--muted);font-size:15px;display:flex;gap:11px}
+.notgrid div::before{content:"✕";color:#e0556b;flex:0 0 auto}
+.yes{margin-top:32px;padding:20px 24px;border:1px dashed rgba(64,198,204,.35);border-radius:12px;color:var(--muted);font-size:14.5px}
+.yes b{color:var(--teal);font-weight:500}
+@media(max-width:820px){.notgrid{grid-template-columns:1fr}.compliance{padding:32px 26px}}
+.cta-band{text-align:center;padding:140px 0;background:radial-gradient(ellipse at center,rgba(64,198,204,.07),transparent 70%)}
+.cta-band h2{font-size:clamp(30px,5vw,58px);margin-bottom:20px}
+.cta-band p{color:var(--muted);margin-bottom:38px;font-size:17.5px}
+footer{border-top:1px solid var(--line);padding:64px 0 38px;background:var(--bg2)}
+.foot-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:32px;margin-bottom:42px}
+.foot-grid h4{font-size:12px;letter-spacing:.16em;text-transform:uppercase;margin-bottom:17px;font-weight:500}
+.foot-grid a{display:block;color:var(--muted);font-size:14px;padding:5px 0;transition:color .25s}
+.foot-grid a:hover{color:var(--teal)}
+.disclaimer{border-top:1px solid var(--line);padding-top:28px;color:var(--dim);font-size:12.5px;line-height:1.75}
+.legal{border-top:1px solid var(--line);background:var(--bg2);padding:38px 0 34px}
+.legal p{color:var(--dim);font-size:12.5px;line-height:1.75;max-width:980px}
+.legal p+p{margin-top:14px}
+.legal b{color:#cdd6da}
+.legal .cpy{margin-top:18px;font-size:12px}
+.legal .cpy a{color:var(--muted);transition:color .25s}
+.legal .cpy a:hover{color:var(--teal)}
+.disclaimer b{color:var(--muted);font-weight:500}
+.flag{position:fixed;bottom:14px;right:14px;z-index:200;background:rgba(216,174,94,.1);
+border:1px solid rgba(216,174,94,.4);color:var(--gold);font-size:10.5px;letter-spacing:.12em;
+padding:7px 14px;border-radius:30px;text-transform:uppercase}
+.claimband{border-bottom:1px solid var(--line);background:var(--bg);text-align:center;padding:78px 28px}
+.claimband .c{font-size:clamp(20px,3.4vw,38px);font-weight:200;letter-spacing:.02em;display:inline-flex;
+gap:.55em;flex-wrap:wrap;justify-content:center}
+.claimband .c span:nth-child(1){color:var(--teal)}
+.claimband .c span:nth-child(2){color:var(--gold)}
+.claimband .c span:nth-child(3){color:var(--green)}
+.claimband p{color:var(--dim);margin-top:18px;font-size:14.5px;letter-spacing:.05em}
+.chess{display:grid;grid-template-columns:repeat(3,1fr);gap:26px;margin-bottom:44px}
+.lvl{border:1px solid var(--line);border-radius:16px;padding:32px 28px;background:var(--card);transition:.4s}
+.lvl:hover{transform:translateY(-6px)}
+.lvl .figs{font-size:34px;line-height:1;margin-bottom:20px;letter-spacing:.08em}
+.lvl .rk{font-size:11px;letter-spacing:.24em;text-transform:uppercase;font-weight:600;margin-bottom:10px}
+.lvl h3{font-size:20px;margin-bottom:10px}
+.lvl p{color:var(--muted);font-size:15px}
+.lvl.kons{border-color:rgba(64,198,204,.3)}
+.lvl.kons .figs,.lvl.kons .rk{color:var(--teal)}
+.lvl.kons:hover{box-shadow:0 0 34px rgba(64,198,204,.10)}
+.lvl.mod{border-color:rgba(51,196,111,.3)}
+.lvl.mod .figs,.lvl.mod .rk{color:var(--green)}
+.lvl.mod:hover{box-shadow:0 0 34px rgba(51,196,111,.10)}
+.lvl.off{border-color:rgba(216,174,94,.3)}
+.lvl.off .figs,.lvl.off .rk{color:var(--gold)}
+.lvl.off:hover{box-shadow:0 0 34px rgba(216,174,94,.10)}
+.flow{text-align:center;border:1px dashed rgba(64,198,204,.3);border-radius:14px;padding:26px 24px;color:var(--muted);font-size:16px}
+.flow b{color:var(--teal);font-weight:500}
+.tst{display:grid;grid-template-columns:repeat(3,1fr);gap:26px}
+.voice{border-left:2px solid var(--teal);background:var(--card);padding:30px 28px;border-radius:0 14px 14px 0}
+.voice:nth-child(2){border-left-color:var(--gold)}
+.voice:nth-child(3){border-left-color:var(--green)}
+.voice p{color:var(--muted);font-size:15.5px}
+.voice .who{margin-top:22px;font-size:13px;color:var(--ink);font-weight:500}
+.voice .role{font-size:12px;color:var(--dim);letter-spacing:.06em;margin-top:3px}
+.faq{border-top:1px solid var(--line);max-width:900px;margin:0 auto}
+.faq details{border-bottom:1px solid var(--line)}
+.faq summary{cursor:pointer;padding:24px 40px 24px 0;font-size:17px;font-weight:300;position:relative;list-style:none;transition:color .25s}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary:hover{color:var(--teal)}
+.faq summary::after{content:"+";position:absolute;right:6px;top:22px;font-size:22px;color:var(--teal);font-weight:200;transition:transform .3s}
+.faq details[open] summary::after{transform:rotate(45deg)}
+.faq .ans{color:var(--muted);font-size:15.5px;padding:0 40px 26px 0}
+/* Chatbot: Hoehe waechst mit dem Schirm mit, damit das Fenster auf dem Handy
+   nicht laenger ist als die Anzeige selbst. */
+#chatbot .botbox{max-width:900px;margin:0 auto;border:1px solid var(--line);
+border-radius:16px;overflow:hidden;background:#fff;
+box-shadow:0 18px 50px rgba(0,0,0,.45)}
+#chatbot .botbox iframe{display:block;width:100%;border:0;
+height:clamp(440px,66vh,620px)}
+#chatbot .bothint{max-width:900px;margin:20px auto 0;text-align:center;
+color:var(--dim);font-size:14.5px;line-height:1.65}
+#chatbot .bothint a{color:var(--teal);text-decoration:none;
+border-bottom:1px solid rgba(64,198,204,.4);transition:border-color .25s}
+#chatbot .bothint a:hover{border-bottom-color:var(--teal)}
+@media(max-width:600px){
+#chatbot .botbox{border-radius:12px}
+#chatbot .botbox iframe{height:clamp(420px,72vh,560px)}
+}
+.sec-head p,.vtext p{font-size:18.5px}
+.compliance > p,.voice p,.board-cap p,.faq .ans{font-size:16.5px}
+.step p,.q p,.lvl p,.notgrid div,.flow{font-size:16px}
+.price li,.price .claim,.cmp-row > div,.yes,.lock,.claimband p{font-size:15.5px}
+.hero-outro p{font-size:17px}
+.foot-grid a{font-size:15px}
+@media(max-width:900px){
+.chess,.tst{grid-template-columns:1fr}
+section{padding:96px 0}
+.stats .wrap{grid-template-columns:1fr 1fr}
+.steps,.prices,.foot-grid{grid-template-columns:1fr}
+.vtext .inner{max-width:none}
+.vshade.left,.vshade.right{background:linear-gradient(180deg,
+rgba(10,15,16,.80) 0%,rgba(10,15,16,.87) 46%,rgba(10,15,16,.94) 100%)}
+.vhint{display:none}
+.vtext .mini{gap:26px 30px;margin-top:26px}
+.hero-scene{height:400vh}
+.hero-grad{background:
+radial-gradient(ellipse at 50% 30%,rgba(64,198,204,.07),transparent 62%),
+linear-gradient(180deg,rgba(10,15,16,.66) 0%,rgba(10,15,16,.58) 26%,
+rgba(10,15,16,.20) 58%,rgba(10,15,16,.10) 100%)}
+.board-cap p{font-size:15px;margin-top:10px}
+.board-cap{top:max(4%,20px)}
+.vscene{height:200vh}
+.vscene.short{height:150vh}
+.reveal.l,.reveal.r{transform:translateY(48px)}
+.vscene,.vscene.short{height:auto}
+.vsticky{position:relative;height:auto;min-height:0;overflow:visible;display:flex;flex-direction:column;gap:30px;padding:72px 0}
+.vbg{position:relative;inset:auto;width:100%;height:auto;aspect-ratio:16/9;border-radius:14px}
+.vshade{display:none}
+.vtext{padding:0 22px}
+#futures .vsticky{align-items:stretch}
+#futures .vtext{padding-top:0}
+}
+/* Menü (28.09.2026): nur wenn die Seite frei läuft, im Wix-Kasten bringt Wix sein eigenes */
+html.im-rahmen nav{display:none}
+.logo{color:var(--ink);text-decoration:none}
+.logo img{width:30px;height:30px;flex:0 0 auto;object-fit:contain}
+.navlinks a{text-decoration:none}
+/* Stimmen im Originalwortlaut + ausklappbare Erfolgsstorys (28.09.2026) */
+.voice .vtag{display:inline-block;font-size:11.5px;letter-spacing:.06em;color:var(--teal);border:1px solid rgba(64,198,204,.45);border-radius:40px;padding:4px 13px;margin-bottom:14px}
+.voice .stars,.story .stars{color:var(--gold);letter-spacing:.18em;font-size:14px;margin-bottom:10px}
+.voice p+p{margin-top:12px}
+.storys{margin:44px auto 0;max-width:1080px}
+.storys>summary{list-style:none;cursor:pointer;display:block;width:max-content;max-width:100%;margin:0 auto;padding:14px 34px;border:1px solid var(--line);border-radius:40px;color:var(--ink);font-size:14px;letter-spacing:.05em;transition:border-color .3s,box-shadow .3s}
+.storys>summary::-webkit-details-marker{display:none}
+.storys>summary:hover{border-color:var(--teal);box-shadow:0 0 22px rgba(64,198,204,.22)}
+.storys .auf,.storys[open] .zu{display:none}
+.storys[open] .auf{display:inline}
+.storys-hinweis{text-align:center;color:var(--dim);font-size:13px;margin:26px auto 0;max-width:640px}
+.storys-grid{columns:2 440px;column-gap:26px;margin-top:26px}
+.story{break-inside:avoid;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:28px 28px 24px;margin:0 0 26px}
+.story h3{font-size:17px;font-weight:400;margin:0 0 12px;color:var(--ink)}
+.story p{color:var(--muted);font-size:15px;line-height:1.7}
+.story p+p{margin-top:12px}
+.story .who{margin-top:18px;font-size:13px;color:var(--ink);font-weight:500}
+/* Nachweis-Galerie in den Erfolgsstorys + Grossansicht (28.09.2026) */
+.storys-kicker{text-align:center;font-size:11.5px;letter-spacing:.4em;text-transform:uppercase;color:var(--dim);margin:40px 0 0}
+.galerie{margin-top:8px}
+.gal-gruppe{margin-top:30px}
+.gal-titel{font-size:15px;color:var(--ink);font-weight:400;margin:0 0 14px;display:flex;align-items:center;gap:10px}
+.gal-titel span{font-size:11.5px;color:var(--teal);border:1px solid rgba(64,198,204,.4);border-radius:40px;padding:1px 9px}
+.gal-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:12px}
+.gal-bild{display:block;aspect-ratio:1/1;background:var(--card);border:1px solid var(--line);border-radius:10px;overflow:hidden;cursor:zoom-in;transition:border-color .25s,box-shadow .25s,transform .25s}
+.gal-bild img{width:100%;height:100%;object-fit:contain;display:block}
+.gal-bild:hover{border-color:var(--teal);box-shadow:0 0 22px rgba(64,198,204,.22);transform:translateY(-2px)}
+@media(max-width:600px){.gal-grid{grid-template-columns:repeat(3,1fr);gap:8px}}
+.story-pdf{display:inline-block;margin-top:14px;font-size:13.5px;color:var(--teal);border-bottom:1px solid rgba(64,198,204,.4)}
+.lb{position:fixed;inset:0;z-index:300;background:rgba(4,6,8,.94);display:none;align-items:center;justify-content:center;padding:56px 64px}
+.lb.offen{display:flex}
+.lb img{max-width:100%;max-height:100%;object-fit:contain;border-radius:8px;box-shadow:0 20px 60px rgba(0,0,0,.6)}
+.lb button{position:absolute;background:rgba(255,255,255,.06);border:1px solid var(--line);color:var(--ink);width:46px;height:46px;border-radius:50%;font-size:22px;line-height:1;cursor:pointer;transition:border-color .25s}
+.lb button:hover{border-color:var(--teal)}
+.lb .lb-zu{top:14px;right:14px}
+.lb .lb-vor{right:12px;top:50%;transform:translateY(-50%)}
+.lb .lb-zur{left:12px;top:50%;transform:translateY(-50%)}
+.lb .lb-info{position:absolute;bottom:16px;left:0;right:0;text-align:center;color:var(--dim);font-size:13px}
+@media(max-width:600px){.lb{padding:60px 8px 70px}.lb .lb-vor,.lb .lb-zur{top:auto;bottom:10px;transform:none}.lb .lb-info{bottom:24px}}
+/* Schliessen-Knopf am Ende der Erfolgsstorys (28.09.2026) */
+.storys-zu{display:block;margin:34px auto 0;padding:14px 34px;background:transparent;border:1px solid var(--line);border-radius:40px;color:var(--ink);font:inherit;font-size:14px;letter-spacing:.05em;cursor:pointer;transition:border-color .3s,box-shadow .3s}
+.storys-zu:hover{border-color:var(--teal);box-shadow:0 0 22px rgba(64,198,204,.22)}
+/* Landingpage-Fassung: Menue aus, nur Preise-Knopf (28.09.2026) */
+.nav-preise{display:none}
+html.landing .navlinks,html.landing .burger{display:none!important}
+html.landing .nav-preise{display:inline-block;color:var(--ink)}
+/* TEST 02.10.2026: schmalere Textspalte links, Blickziel zwischen Text und Alex (3 Versionen) */
+@media(min-width:1100px) and (orientation:landscape){
+.hero-sticky .wrap{max-width:1440px;width:100%}
+.hero-content{max-width:520px}
+.hero-content h1{font-size:clamp(38px,3.3vw,60px);white-space:nowrap}
+.hero-content h1 .l2{display:inline-block;font-size:.56em;margin-top:.3em;white-space:normal}
+.hero-content p.sub{max-width:470px;font-size:clamp(15.5px,1.25vw,18px)}
+}
+.hero-content p.sub.sub-kurz{margin:26px 0 14px}
+.saeulen-liste{list-style:none;margin:0 0 22px;padding:0}
+.saeulen-liste li{display:flex;align-items:baseline;gap:14px;padding:9px 0 9px 16px;border-left:2px solid var(--f);margin-bottom:8px;
+background:linear-gradient(90deg,rgba(255,255,255,.035),transparent 75%);border-radius:0 10px 10px 0}
+.saeulen-liste b{flex:0 0 74px;font-weight:500;color:var(--f);font-size:15.5px;letter-spacing:.02em}
+.saeulen-liste span{color:var(--muted);font-size:15px}
+.vertrauen{display:flex;align-items:center;gap:10px;color:var(--ink);font-size:14.5px;margin:0 0 32px}
+.vertrauen i{font-style:normal;width:22px;height:22px;flex:0 0 22px;border-radius:50%;display:grid;place-items:center;font-size:11px;
+color:var(--green);background:rgba(51,196,111,.14);border:1px solid rgba(51,196,111,.35)}
+@media(max-width:760px){.saeulen-liste li{gap:10px;padding:7px 0 7px 12px}.saeulen-liste b{flex-basis:62px;font-size:14.5px}.saeulen-liste span{font-size:14px}.vertrauen{font-size:13.5px;margin-bottom:24px}}
+#blickziel{position:absolute;z-index:4;left:0;top:0;width:360px;opacity:0;pointer-events:none;will-change:opacity,transform;display:none}
+#blickziel .bz{display:none}
+#blickziel.v1 .bz1,#blickziel.v2 .bz2,#blickziel.v3 .bz3{display:block}
+.glas{background:linear-gradient(160deg,rgba(255,255,255,.065),rgba(255,255,255,.012) 60%);border:1px solid rgba(255,255,255,.10);
+border-radius:18px;backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);
+box-shadow:0 30px 80px rgba(0,0,0,.5),inset 0 1px 0 rgba(255,255,255,.07);padding:18px 20px}
+.bz-kopf{display:flex;justify-content:space-between;align-items:center;font-size:10.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);font-weight:500}
+.live{display:inline-flex;align-items:center;gap:7px;color:var(--green)}
+.live i{width:7px;height:7px;border-radius:50%;background:var(--green);box-shadow:0 0 10px var(--green);animation:bzPuls 1.6s infinite}
+@keyframes bzPuls{50%{opacity:.3}}
+#bzKurve{width:100%;height:118px;display:block;margin:14px 0 4px}
+.feed>div{display:flex;gap:11px;align-items:center;font-size:13px;color:var(--muted);padding:9px 0;border-top:1px solid var(--line);
+opacity:0;transform:translateY(10px);transition:opacity .55s,transform .55s}
+.feed>div.an{opacity:1;transform:none}
+.feed b{font-weight:500;color:var(--ink)}
+.feed .ic{flex:0 0 22px;height:22px;border-radius:50%;display:grid;place-items:center;font-size:11px}
+.bz2 .karte{margin-bottom:12px;padding:14px 18px;opacity:0;transform:translateX(-26px);transition:opacity .6s,transform .6s;border-left:2px solid var(--f)}
+.bz2 .karte.an{opacity:1;transform:none}
+.k-oben{display:flex;justify-content:space-between;align-items:baseline}
+.k-name{font-size:21px;font-weight:200;color:var(--f)}
+.k-pf{font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--dim);font-weight:500}
+.bz2 canvas{width:100%;height:38px;display:block;margin:8px 0 6px}
+.k-txt{font-size:12.5px;color:var(--muted)}
+.ablauf{position:relative;margin-top:16px;padding-left:4px}
+.ablauf:before{content:'';position:absolute;left:9px;top:10px;bottom:16px;width:1px;background:var(--line)}
+.ablauf .sch{position:relative;display:flex;gap:16px;padding:9px 0;opacity:.28;transition:opacity .6s}
+.ablauf .sch.an{opacity:1}
+.ablauf .pt{flex:0 0 11px;height:11px;margin-top:5px;border-radius:50%;border:1px solid var(--teal);background:var(--bg);position:relative;z-index:1;transition:background .5s,box-shadow .5s}
+.ablauf .sch.an .pt{background:var(--teal);box-shadow:0 0 14px var(--teal)}
+.ablauf b{display:block;font-weight:400;font-size:15px;color:var(--ink)}
+.ablauf small{display:block;font-size:12.5px;color:var(--muted);line-height:1.45;margin-top:2px}
+.ablauf .lauf{position:absolute;left:7px;width:5px;height:24px;border-radius:4px;background:linear-gradient(transparent,var(--teal),transparent);z-index:2;opacity:.9}
+#bzWahl{position:fixed;left:18px;bottom:18px;z-index:200;display:flex;gap:6px;align-items:center;padding:6px 8px 6px 14px;border-radius:30px;
+background:rgba(10,15,16,.85);border:1px solid var(--line);backdrop-filter:blur(10px);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--dim)}
+#bzWahl a{cursor:pointer;width:30px;height:30px;border-radius:50%;display:grid;place-items:center;color:var(--ink);border:1px solid var(--line);letter-spacing:0;font-size:13px}
+#bzWahl a.an{background:var(--teal);color:#04181a;border-color:var(--teal)}
+/* TEST 29.09.2026: Alex dreht sich im Hero zur Kamera */
+.hero-scene{height:760vh}
+#alexCanvas{position:absolute;inset:0;width:100%;height:100%;display:block;z-index:0}
+.alex-schleier{position:absolute;inset:0;z-index:1;pointer-events:none;
+background:linear-gradient(90deg,rgba(10,15,16,.92) 0%,rgba(10,15,16,.72) 30%,rgba(10,15,16,.15) 58%,rgba(10,15,16,0) 70%)}
+#heroCanvas{z-index:2}
+.hero-grad{z-index:3}
+@media(orientation:portrait){
+.alex-schleier{background:linear-gradient(0deg,rgba(10,15,16,.97) 0%,rgba(10,15,16,.85) 34%,rgba(10,15,16,.2) 58%,rgba(10,15,16,0) 72%)}
+.hero-sticky{align-items:flex-end}
+.hero-content{padding-bottom:84px}
+}
+@media(max-width:760px){
+.hero-scene{height:560vh}
+.alex-schleier{background:linear-gradient(0deg,rgba(10,15,16,.97) 0%,rgba(10,15,16,.85) 34%,rgba(10,15,16,.2) 58%,rgba(10,15,16,0) 72%)}
+.hero-sticky{align-items:flex-end}
+.hero-content{padding-bottom:84px}
+.hero-content h1{font-size:clamp(38px,11vw,56px)}
+.hero-content p.sub{margin:18px 0 26px;font-size:15.5px}
+}
+/* 02.10.2026 Lesbarkeit (Alex: Kontrast auf der ganzen Seite zu schwach, Verkaufsseite muss gut lesbar sein).
+   Hellere Grautoene, Fliesstext 400 statt 300, Ueberschriften 300 statt 200, kleine Beschriftungen groesser. */
+:root{--muted:#d6dddf;--dim:#b1bbbd}
+body{font-weight:400}
+h1,h2,h3{font-weight:300}
+.stat .num,.vtext .mini b,.cmp-head .h,.price .amt,.claimband .c,.k-name{font-weight:300}
+.kicker{font-size:12.5px;font-weight:600}
+.navlinks a{font-size:14px}
+.stat .lbl{font-size:14.5px;color:#c9d2d4;letter-spacing:.05em;margin-top:10px}
+.vtext .mini span{font-size:14px}
+.cmp-row > div{font-size:15px}
+.cmp-row > div:first-child{font-size:12.5px;font-weight:500}
+.dots span.lbl{font-size:12.5px}
+.voice .role{font-size:13px}
+.claimband p{font-size:15.5px;color:var(--muted)}
+.storys-hinweis,.lb .lb-info{font-size:14px}
+.storys-kicker{font-size:12.5px;font-weight:500}
+.disclaimer,.legal p{font-size:13.5px}
+.scroll-ind{font-size:11.5px}
+.faq summary{font-weight:400}
+.saeulen-liste span{font-size:15.5px}
+.saeulen-liste b{font-weight:600}
+.k-txt{font-size:13.5px}
+.k-pf{font-size:10.5px;color:var(--muted)}
+.hero-content h1 .l2{color:#c3cccd}
+.hl{font-weight:600;color:#fff}.ht{font-weight:600;color:var(--teal)}.hg{font-weight:600;color:var(--gold)}.hn{font-weight:600;color:var(--green)}
+/* TEST 02.10.2026: Ablauf in 5 Schritten (CFD) */
+.ablauf-szene{position:relative;height:250vh;background:var(--bg)}
+.ab-sticky{position:sticky;top:0;height:100vh;min-height:620px;display:flex;align-items:center;overflow:hidden}
+.ab-raster{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.05fr);gap:64px;align-items:center;width:100%}
+.ab-links h2{font-size:clamp(28px,3.4vw,46px);margin-bottom:30px}
+.ab-liste{list-style:none;margin:0;padding:0;position:relative}
+.ab-liste:before{content:'';position:absolute;left:17px;top:18px;bottom:18px;width:1px;background:var(--line)}
+.ab-liste li{display:flex;gap:20px;padding:10px 0;opacity:.38;transition:opacity .5s;cursor:pointer}.ab-liste li:hover{opacity:.8}.ab-punkte i{cursor:pointer}
+.ab-liste li.an{opacity:1}
+.ab-liste li.fertig{opacity:.62}
+.ab-liste .nr{flex:0 0 35px;height:35px;border-radius:50%;display:grid;place-items:center;font-size:14px;font-weight:600;position:relative;z-index:1;
+background:var(--bg);border:1px solid rgba(64,198,204,.35);color:var(--teal);transition:background .4s,color .4s,box-shadow .4s}
+.ab-liste li.an .nr{background:var(--teal);color:#04181a;box-shadow:0 0 22px rgba(64,198,204,.55)}
+.ab-liste li.fertig .nr{background:rgba(64,198,204,.15)}
+.ab-liste li>div>b{font-size:17px;font-weight:600;color:var(--ink);display:block;margin-top:5px}
+.ab-liste li p{font-size:15px;color:var(--muted);max-height:0;overflow:hidden;opacity:0;transition:max-height .5s,opacity .5s,margin .5s;margin:0}
+.ab-liste li.an p{max-height:120px;opacity:1;margin-top:6px}
+.ab-fenster{padding:0;overflow:hidden}
+.ab-kopf{display:flex;align-items:center;gap:7px;padding:13px 18px;border-bottom:1px solid var(--line);font-size:12px;color:var(--muted);letter-spacing:.06em}
+.ab-kopf i{width:9px;height:9px;border-radius:50%;background:rgba(255,255,255,.14)}
+.ab-kopf span{margin-left:10px;font-weight:600;color:var(--ink)}
+.ab-kopf em{margin-left:auto;font-style:normal;color:var(--teal);font-weight:600}
+.ab-buehne{position:relative;height:330px}
+.ab-buehne .bild{position:absolute;inset:0;padding:30px 30px;opacity:0;transform:translateY(14px);transition:opacity .5s,transform .5s;pointer-events:none}
+.ab-buehne .bild.an{opacity:1;transform:none}
+.ab-punkte{display:flex;gap:8px;justify-content:center;padding:0 0 18px}
+.ab-punkte i{width:7px;height:7px;border-radius:50%;background:rgba(255,255,255,.18);transition:background .4s,width .4s}
+.ab-punkte i.an{background:var(--teal);width:22px;border-radius:5px}
+/* 1 Installieren */
+.b1 .zeile{display:grid;grid-template-columns:110px 1fr 110px;gap:16px;align-items:center;padding:16px 0;border-bottom:1px solid var(--line);font-size:14.5px}
+.b1 .zeile span{color:var(--ink);font-weight:500}
+.b1 .balken{height:6px;border-radius:4px;background:rgba(255,255,255,.08);overflow:hidden}
+.b1 .balken s{display:block;height:100%;width:0;background:var(--teal);box-shadow:0 0 12px var(--teal)}
+.b1 em{font-style:normal;color:var(--green);font-weight:600;opacity:0;font-size:13.5px}
+.b1.an .balken s{animation:abFuell 1.1s ease-out forwards}.b1.an .z2 .balken s{animation-delay:.6s}.b1.an .z3 .balken s{animation-delay:1.2s}
+.b1.an em{animation:abEin .3s forwards 1.1s}.b1.an .z2 em{animation-delay:1.7s}.b1.an .z3 em{animation-delay:2.3s}
+@keyframes abFuell{to{width:100%}}
+@keyframes abEin{to{opacity:1}}
+/* 2 Chart */
+.b2 .chart{position:absolute;right:30px;top:30px;bottom:30px;left:44%;border:1px solid var(--line);border-radius:12px;display:flex;align-items:stretch;gap:9px;padding:16px 16px;background:rgba(255,255,255,.02)}
+.b2 .chart i{flex:1;position:relative}
+.b2 .chart i:before{content:'';position:absolute;left:30%;right:30%;top:var(--y);height:var(--h);background:var(--green);border-radius:2px;opacity:.75}
+.b2 .chart i.r:before{background:#d9645b}
+.b2 .aktiv{position:absolute;bottom:10px;right:12px;font-size:12px;font-weight:600;color:var(--green);opacity:0}
+.b2 .ea{position:absolute;left:30px;top:50%;transform:translateY(-50%);padding:12px 16px;border-radius:10px;border:1px solid var(--teal);color:var(--teal);font-weight:600;font-size:14px;background:rgba(64,198,204,.1);box-shadow:0 0 22px rgba(64,198,204,.25)}
+.b2.an .ea{animation:abZieh 1.6s cubic-bezier(.5,0,.2,1) forwards .4s}
+.b2.an .aktiv{animation:abEin .4s forwards 2s}
+@keyframes abZieh{0%{left:30px;top:50%}70%{left:52%;top:46%}100%{left:calc(44% + 18px);top:16%;transform:translateY(0) scale(.82);transform-origin:left top}}
+/* 3 Risiko */
+.b3 .schalter{position:relative;margin:50px auto 0;max-width:380px;display:grid;grid-template-columns:repeat(3,1fr);border:1px solid var(--line);border-radius:40px;padding:6px}
+.b3 .schalter span{position:relative;z-index:1;text-align:center;padding:12px 0;font-size:14.5px;font-weight:600;color:var(--muted)}
+.b3 .knopf{position:absolute;top:6px;bottom:6px;left:6px;width:calc((100% - 12px)/3);border-radius:34px;background:var(--teal);box-shadow:0 0 24px rgba(64,198,204,.5);opacity:.85}
+.b3.an .knopf{animation:abSchalter 3.2s ease-in-out forwards .3s}
+@keyframes abSchalter{0%{transform:translateX(0)}35%{transform:translateX(200%)}70%,100%{transform:translateX(100%)}}
+.b3 .hinweis{text-align:center;margin-top:34px;color:var(--ink);font-size:15.5px}
+/* 4 Handeln */
+.b4 .spuren{position:relative}
+.b4 .spuren>div{display:grid;grid-template-columns:130px 1fr;align-items:center;gap:14px;padding:11px 0;border-bottom:1px solid var(--line)}
+.b4 .spuren span{font-size:13.5px;color:var(--ink);font-weight:500}
+.b4 .spuren p{position:relative;height:16px;margin:0}
+.b4 .spuren p:before{content:'';position:absolute;left:0;right:0;top:50%;height:1px;background:rgba(255,255,255,.1)}
+.b4 .spuren p i{position:absolute;left:var(--x);top:50%;width:10px;height:10px;margin:-5px 0 0 -5px;border-radius:50%;background:var(--teal);box-shadow:0 0 12px var(--teal);opacity:0;transform:scale(.3)}
+.b4.an .spuren p i{animation:abPunkt .4s forwards;animation-delay:calc(var(--x) * 0 + .2s)}
+.b4.an .spuren>div:nth-child(1) p i:nth-child(1){animation-delay:.6s}.b4.an .spuren>div:nth-child(1) p i:nth-child(2){animation-delay:2.2s}
+.b4.an .spuren>div:nth-child(2) p i:nth-child(1){animation-delay:1.1s}.b4.an .spuren>div:nth-child(2) p i:nth-child(2){animation-delay:2.8s}
+.b4.an .spuren>div:nth-child(3) p i:nth-child(1){animation-delay:1.6s}
+.b4.an .spuren>div:nth-child(4) p i:nth-child(1){animation-delay:.9s}.b4.an .spuren>div:nth-child(4) p i:nth-child(2){animation-delay:2.5s}
+@keyframes abPunkt{to{opacity:1;transform:none}}
+.b4 .zeit{position:absolute;top:0;bottom:0;left:144px;width:2px;background:linear-gradient(transparent,var(--teal),transparent);opacity:.7}
+.b4.an .zeit{animation:abZeit 3.4s linear forwards}
+@keyframes abZeit{to{left:100%}}
+.b4 .maerkte{display:flex;gap:10px;flex-wrap:wrap;margin-top:22px}
+.b4 .maerkte span{padding:6px 14px;border-radius:20px;border:1px solid rgba(64,198,204,.35);font-size:13px;font-weight:500;color:var(--teal)}
+/* 5 Mitschauen */
+.b5 .liste5>div{display:flex;justify-content:space-between;padding:15px 0;border-bottom:1px solid var(--line);font-size:15px}
+.b5 .liste5 span{color:var(--ink);font-weight:500}
+.b5 .liste5 em{font-style:normal;color:var(--green);font-weight:600}
+.b5 .toast{position:absolute;right:30px;bottom:26px;padding:12px 18px;border-radius:12px;background:rgba(51,196,111,.12);border:1px solid rgba(51,196,111,.4);color:var(--ink);font-size:14px;font-weight:500;opacity:0;transform:translateY(12px)}
+.b5.an .toast{animation:abToast .5s forwards .8s}
+@keyframes abToast{to{opacity:1;transform:none}}
+@media(max-width:900px){
+.ablauf-szene{height:270vh}
+.ab-raster{grid-template-columns:1fr;gap:22px}
+.ab-rechts{order:-1}
+.ab-links h2{font-size:26px;margin-bottom:14px}
+.ab-liste li{padding:6px 0}
+.ab-liste li:not(.an){display:none}
+.ab-buehne{height:250px}.ab-kopf{font-size:11px;padding:11px 14px}.ab-kopf i{display:none}.ab-kopf span{margin-left:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.ab-kopf em{white-space:nowrap;padding-left:8px}
+.ab-buehne .bild{padding:18px}
+.b1 .zeile{grid-template-columns:90px 1fr 90px;gap:10px;padding:11px 0;font-size:13px}
+.b4 .spuren>div{grid-template-columns:104px 1fr}.b4 .zeit{left:118px}
+.b2 .chart{left:48%}
+}/* 02.10.2026 ATH-Abschnitt: Leitsatz + Nutzenpunkte statt Fliesstext */
+.vtext p.leit{font-size:18.5px;line-height:1.55}
+.vorteile{list-style:none;margin:22px 0 0;padding:0}
+.vorteile li{position:relative;padding:11px 0 11px 34px;border-top:1px solid rgba(255,255,255,.07)}
+.vorteile li:first-child{border-top:0}
+.vorteile li:before{content:'✓';position:absolute;left:0;top:13px;width:21px;height:21px;border-radius:50%;display:grid;place-items:center;font-size:11px;
+color:var(--gold);background:rgba(216,174,94,.13);border:1px solid rgba(216,174,94,.45)}
+.vorteile b{display:block;font-weight:600;color:#fff;font-size:16.5px}
+.vorteile span{display:block;color:var(--muted);font-size:15px;margin-top:2px;line-height:1.5}/* 02.10.2026 Pruefprozess-Szene */
+.ablauf-szene.pruef{height:310vh;border-top:1px solid var(--line)}
+.pruef .ab-links h2{font-size:clamp(26px,3vw,40px);margin-bottom:12px}
+.ab-intro{color:var(--muted);font-size:15.5px;margin:0 0 18px;max-width:520px}
+.pruef .ab-liste li{padding:6px 0}
+.pruef .ab-liste .nr{flex-basis:31px;height:31px;font-size:13px}
+.pruef .ab-liste:before{left:15px}
+.pruef .ab-liste li>div>b{font-size:15.5px;margin-top:4px}
+.pruef .unten{position:absolute;left:30px;right:30px;bottom:22px;text-align:center;color:var(--ink);font-size:14.5px;font-weight:500}
+/* p1 Ideen-Raster */
+.ideen{display:grid;grid-template-columns:repeat(12,1fr);gap:11px;padding:6px 6px 0}
+.ideen i{aspect-ratio:1;border-radius:50%;background:rgba(255,255,255,.22);transition:opacity .6s,background .6s,box-shadow .6s,transform .6s}
+.p1.an .ideen i{animation:pAus .7s forwards;animation-delay:calc(var(--d) * 1s)}
+.p1.an .ideen i.gut{animation:pGut .7s forwards;animation-delay:calc(var(--d) * 1s)}
+@keyframes pAus{to{opacity:.12;transform:scale(.6)}}
+@keyframes pGut{to{background:var(--teal);box-shadow:0 0 14px var(--teal);transform:scale(1.15)}}
+/* p2 Daten */
+.jahre span{font-size:13px;color:var(--muted);font-weight:500}
+.leiste{height:10px;border-radius:6px;background:rgba(255,255,255,.07);margin:10px 0 6px;overflow:hidden}
+.leiste s{display:block;height:100%;width:0;background:linear-gradient(90deg,rgba(64,198,204,.3),var(--teal));box-shadow:0 0 14px var(--teal)}
+.p2.an .leiste s{animation:abFuell 2s ease-out forwards}
+.skala{display:flex;justify-content:space-between}.skala em{font-style:normal;font-size:12.5px;color:var(--dim)}
+.reihen{margin-top:20px;display:grid;gap:9px}
+.reihen i{display:block;height:6px;border-radius:4px;background:rgba(64,198,204,.18);transform:scaleX(0);transform-origin:left}
+.p2.an .reihen i{animation:pReihe 1.2s ease-out forwards}
+.p2.an .reihen i:nth-child(2){animation-delay:.25s}.p2.an .reihen i:nth-child(3){animation-delay:.5s}.p2.an .reihen i:nth-child(4){animation-delay:.75s}.p2.an .reihen i:nth-child(5){animation-delay:1s}
+@keyframes pReihe{to{transform:scaleX(1)}}
+/* p3 Walk-Forward */
+.wf{display:grid;gap:12px;padding-top:6px}
+.wfz{display:flex;gap:6px;opacity:0;transform:translateX(-14px)}
+.wfz:nth-child(2){padding-left:12%}.wfz:nth-child(3){padding-left:24%}.wfz:nth-child(4){padding-left:36%}
+.wfz b{font-size:12px;font-weight:600;padding:9px 0;border-radius:8px;text-align:center}
+.wfz .o{flex:0 0 38%;background:rgba(64,198,204,.16);color:var(--teal);border:1px solid rgba(64,198,204,.35)}
+.wfz .t{flex:0 0 22%;border:1px dashed rgba(51,196,111,.6);color:var(--green)}
+.p3.an .wfz{animation:pWf .5s forwards}
+.p3.an .wfz:nth-child(2){animation-delay:.5s}.p3.an .wfz:nth-child(3){animation-delay:1s}.p3.an .wfz:nth-child(4){animation-delay:1.5s}
+@keyframes pWf{to{opacity:1;transform:none}}
+/* p4 Monte Carlo */
+.mc{width:100%;height:220px;display:block}
+/* p5 Ueberwachung */
+.vergleich>div{display:grid;grid-template-columns:100px 1fr;align-items:center;gap:14px;padding:18px 0;border-bottom:1px solid var(--line)}
+.vergleich span{font-size:14px;color:var(--ink);font-weight:500}
+.vergleich p{position:relative;height:3px;margin:0;background:rgba(255,255,255,.08);border-radius:3px}
+.vergleich p i{position:absolute;left:0;top:0;bottom:0;width:0;border-radius:3px}
+.vergleich .sim{background:rgba(255,255,255,.55)}.vergleich .live{background:var(--teal);box-shadow:0 0 10px var(--teal)}
+.p5.an .sim{animation:pBreite 2.4s linear forwards}.p5.an .live{animation:pBreite 2.4s linear forwards .15s}
+@keyframes pBreite{to{width:100%}}
+.flag{margin:26px auto 0;width:max-content;padding:11px 18px;border-radius:12px;border:1px solid rgba(216,174,94,.5);background:rgba(216,174,94,.1);color:var(--ink);font-size:14px;font-weight:500;opacity:0}
+.p5.an .flag{animation:abEin .5s forwards 2.4s}
+/* p6 Engine */
+.engine{display:flex;flex-direction:column;align-items:center;gap:22px;padding-top:6px}
+.kern{padding:16px 26px;border-radius:14px;border:1px solid var(--teal);color:var(--teal);font-weight:600;font-size:15px;box-shadow:0 0 30px rgba(64,198,204,.25)}
+.lasten{display:flex;gap:8px;align-items:flex-end;height:70px}
+.lasten i{width:16px;border-radius:4px 4px 0 0;background:rgba(64,198,204,.5);height:20%}
+.p6.an .lasten i{animation:pLast 1.1s ease-in-out infinite alternate}
+.p6.an .lasten i:nth-child(2n){animation-delay:.3s}.p6.an .lasten i:nth-child(3n){animation-delay:.55s}
+@keyframes pLast{to{height:100%}}
+/* p7 Abschlusstest */
+.final{display:flex;flex-direction:column;align-items:center;gap:22px;padding-top:16px}
+.final .block{width:80%;padding:26px 0;text-align:center;border-radius:12px;border:1px dashed rgba(255,255,255,.25);color:var(--muted);font-size:14.5px}
+.stempel{padding:12px 26px;border-radius:30px;border:2px solid var(--green);color:var(--green);font-weight:700;font-size:16px;opacity:0;transform:scale(1.6) rotate(-6deg)}
+.p7.an .stempel{animation:pStempel .45s cubic-bezier(.3,1.6,.5,1) forwards 1s}
+@keyframes pStempel{to{opacity:1;transform:scale(1) rotate(-4deg)}}
+@media(max-width:900px){
+.ablauf-szene.pruef{height:340vh}
+.ab-intro{display:none}
+.mc{height:160px}
+.ideen{gap:7px}
+.vergleich>div{grid-template-columns:80px 1fr}
+}</style>
+<script>
+/* Sofort feststellen, ob die Seite in einem Kasten auf einer anderen Seite
+   laeuft. Muss vor dem Zeichnen passieren, sonst blitzt der zweite
+   Scrollbalken kurz auf. */
+(function(){
+  var imRahmen;
+  try { imRahmen = (window.self !== window.top); } catch(e) { imRahmen = true; }
+  if (imRahmen) document.documentElement.classList.add('im-rahmen');
+})();
+</script>
+<script>
+/* Landingpage-Fassung (28.09.2026): unter /angebot kein Menue, nur Logo + Preise-Knopf.
+   Dieselbe Datei, das Veroeffentlichungs-Skript legt sie zusaetzlich nach /angebot/. */
+(function(){ if(/\/angebot\/?$/.test(location.pathname)) document.documentElement.classList.add('landing'); })();
+</script>
+</head>
+<body>
+<nav id="nav">
+<a class="logo" href="#" aria-label="Back to top"><img src="../apple-touch-icon.png" alt="">Kaspareit Trading</a>
+<div class="navlinks" id="navlinks">
+<a href="#preise">Trading Portfolios</a>
+<a href="https://www.kaspareit-trading.com/member">Free Member</a>
+<a href="#erfolgsstorys">Success Stories</a>
+<a href="https://www.kaspareit-trading.com/blog">Blog</a>
+<a href="#chatbot">Contact</a>
+<a href="https://www.kaspareit-trading.com/start-1" class="btn-login">Member Login</a>
+</div>
+<a href="#preise" class="nav-preise btn-login">Pricing</a>
+<button class="burger" id="burger" aria-label="Open menu" aria-expanded="false" aria-controls="navlinks"><span></span><span></span><span></span></button>
+</nav>
+<div class="hero-scene" id="heroScene">
+<div class="hero-sticky">
+<canvas id="alexCanvas" aria-hidden="true"></canvas>
+<div class="alex-schleier" id="alexSchleier"></div>
+<div id="blickziel" class="v2" aria-hidden="true">
+ <div class="bz bz2">
+  <div class="karte glas" style="--f:var(--teal)"><div class="k-oben"><span class="k-name">CFDs</span><span class="k-pf">MetaTrader 5</span></div><canvas data-farbe="teal"></canvas><div class="k-txt">Ready-made portfolio bots, one bot per portfolio</div></div>
+  <div class="karte glas" style="--f:var(--gold)"><div class="k-oben"><span class="k-name">Stocks</span><span class="k-pf">Interactive Brokers</span></div><canvas data-farbe="gold"></canvas><div class="k-txt">Our own app All Time High, real stops at the broker</div></div>
+  <div class="karte glas" style="--f:var(--green)"><div class="k-oben"><span class="k-name">Futures</span><span class="k-pf">in development</span></div><canvas data-farbe="green" data-bald="1"></canvas><div class="k-txt">The third pillar is being built right now</div></div>
+ </div>
+</div>
+
+<canvas id="heroCanvas"></canvas>
+<div class="hero-grad"></div>
+<div class="wrap">
+<div class="hero-content" id="heroContent">
+<div class="kicker" style="color:var(--teal)">Automated trading</div>
+<h1>Trade automatically.<br><span class="l2">Without sitting in front of the chart.</span></h1>
+<p class="sub sub-kurz">Ready-made trading bots for three markets:</p>
+<ul class="saeulen-liste">
+<li style="--f:var(--teal)"><b>CFDs</b><span>Portfolio bots for MetaTrader 5</span></li>
+<li style="--f:var(--gold)"><b>Stocks</b><span>our own app All Time High for Interactive Brokers</span></li>
+<li style="--f:var(--green)"><b>Futures</b><span>in development</span></li>
+</ul>
+<p class="vertrauen"><i>✓</i>Your money stays in your own account with your broker.</p>
+<div class="hero-cta">
+<a href="#cfd" class="btn btn-primary">The three pillars</a>
+<a href="#preise" class="btn btn-ghost">Pricing</a>
+</div>
+</div>
+</div>
+<div class="board-cap" id="boardCap">
+<h2>The chessboard</h2>
+<p>Your capital is spread across risk levels. Profits flow from the bottom up,
+the core stays protected.</p>
+</div>
+<div class="hero-outro" id="heroOutro">
+<h2><span class="a">CFDs</span> · <span class="b">Stocks</span> · <span class="c">Futures</span></h2>
+<p>Three separate systems, developed and supported by one team.</p>
+</div>
+<div class="scroll-ind" id="scrollInd">Scroll</div>
+</div>
+</div>
+<div class="stats">
+<div class="wrap">
+<div class="stat reveal up-pop" style="--i:0"><div class="num" data-target="5" data-suffix="">0</div><div class="lbl">Core strategies</div></div>
+<div class="stat reveal up-pop" style="--i:1"><div class="num" data-target="2026" data-suffix="">0</div><div class="lbl">Strategy portfolios live since June</div></div>
+<div class="stat reveal up-pop" style="--i:2"><div class="num" data-target="25" data-suffix="">0</div><div class="lbl">Years of test history</div></div>
+<div class="stat reveal up-pop" style="--i:3"><div class="num" data-target="100" data-suffix=" %">0</div><div class="lbl">Your account, your control</div></div>
+</div>
+</div>
+<div class="claimband">
+<div class="c reveal sc"><span>Automated.</span><span>Diversified.</span><span>Proven.</span></div>
+<p class="reveal">You don't get a loose bundle of bots, you get a <b class="hl">fully configured system</b>.</p>
+</div>
+<div class="vscene s-teal" id="cfd" data-sheets="cfd" data-count="61" data-tint="#40C6CC" data-recolor="1">
+<div class="vsticky">
+<canvas class="vbg"></canvas>
+<div class="vshade left"></div>
+<div class="vtext">
+<div class="inner reveal l">
+<span class="tag t-teal">Pillar 01</span>
+<h2>One portfolio is<br>one single bot</h2>
+<p>Not a bundle of loose individual bots, but a <b class="ht">fully configured Expert Advisor</b>
+for MetaTrader 5. You drag it onto any chart, and it trades
+the predefined strategies on preconfigured markets such as Nasdaq,
+S&amp;P 500, Gold and Forex. <b class="hl">You only have to set one thing:</b> the risk, via
+one central switch.</p>
+<p>The portfolio combines <b class="ht">four strategy types</b>, so it does not depend on a
+single market phase: trend following, mean reversion, seasonality and
+volatility. Every portfolio also comes in a <b class="ht">prop version with news filter</b> and
+Friday close.</p>
+<div class="mini">
+<div><b>Multiple</b><span>Strategy portfolios</span></div>
+<div><b>4</b><span>Strategy types</span></div>
+<div><b>MT5</b><span>Your own broker</span></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- TEST 02.10.2026: So funktioniert das CFD-Portfolio in 5 Schritten (scrollgekoppelt, ein Schritt nach dem anderen) -->
+<div class="ablauf-szene" id="cfdAblauf" style="--f:var(--teal)">
+<div class="ab-sticky">
+<div class="wrap ab-raster">
+<div class="ab-links">
+<div class="kicker" style="color:var(--teal)">Pillar 01 · How it works</div>
+<h2>From download to a<br>running portfolio</h2>
+<ol class="ab-liste">
+<li data-titel="Customer Terminal"><span class="nr">1</span><div><b>Install the terminal</b><p>As a member you get the <b class="hl">Customer Terminal</b>. You use it to install the bot in a few clicks.</p></div></li>
+<li data-titel="MetaTrader 5"><span class="nr">2</span><div><b>Drag the bot onto a chart</b><p>In <b class="ht">MetaTrader 5</b> you drag the bot onto any chart. Instrument and timeframe don't matter.</p></div></li>
+<li data-titel="MetaTrader 5 · Settings"><span class="nr">3</span><div><b>Choose your risk</b><p>You only have to set one thing: <b class="ht">the risk</b>, via one central switch.</p></div></li>
+<li data-titel="MetaTrader 5 · running automatically"><span class="nr">4</span><div><b>The bot trades</b><p><b class="ht">Four strategy types</b> on preconfigured markets such as Nasdaq, S&amp;P 500, Gold and Forex. On your own computer or a <b class="hl">Windows VPS</b>.</p></div></li>
+<li data-titel="Customer Terminal"><span class="nr">5</span><div><b>Watch along, stay up to date</b><p>In the terminal you see the <b class="hl">live performance</b> of the portfolios. <b class="hl">Updates are installed automatically.</b></p></div></li>
+</ol>
+</div>
+<div class="ab-rechts">
+<div class="ab-fenster glas">
+ <div class="ab-kopf"><i></i><i></i><i></i><span class="ab-titel">Customer Terminal</span><em class="ab-zaehler">Step 1 of 5</em></div>
+ <div class="ab-buehne">
+  <div class="bild b1"><div class="zeile"><span>Portfolio A</span><div class="balken"><s></s></div><em>✓ installed</em></div><div class="zeile z2"><span>Portfolio B</span><div class="balken"><s></s></div><em>✓ installed</em></div><div class="zeile z3"><span>Setfiles</span><div class="balken"><s></s></div><em>✓ loaded</em></div></div>
+  <div class="bild b2"><div class="chart"><i style="--h:38%;--y:40%"></i><i style="--h:30%;--y:46%" class="r"></i><i style="--h:44%;--y:32%"></i><i style="--h:26%;--y:38%" class="r"></i><i style="--h:50%;--y:24%"></i><i style="--h:34%;--y:30%"></i><i style="--h:28%;--y:36%" class="r"></i><i style="--h:46%;--y:20%"></i><i style="--h:30%;--y:26%" class="r"></i><i style="--h:40%;--y:18%"></i><div class="aktiv">● Bot active</div></div><div class="ea">Kaspareit Portfolio</div></div>
+  <div class="bild b3"><div class="schalter"><span>Low</span><span>Medium</span><span>High</span><i class="knopf"></i></div><div class="hinweis">One switch for the whole portfolio</div></div>
+  <div class="bild b4"><div class="spuren"><div><span>Trend following</span><p><i style="--x:18%"></i><i style="--x:62%"></i></p></div><div><span>Mean Reversion</span><p><i style="--x:34%"></i><i style="--x:80%"></i></p></div><div><span>Seasonality</span><p><i style="--x:48%"></i></p></div><div><span>Volatility</span><p><i style="--x:26%"></i><i style="--x:70%"></i></p></div><b class="zeit"></b></div><div class="maerkte"><span>Nasdaq</span><span>S&amp;P 500</span><span>Gold</span><span>Forex</span></div></div>
+  <div class="bild b5"><div class="liste5"><div><span>Portfolio A</span><em>● running</em></div><div><span>Portfolio B</span><em>● running</em></div><div><span>Portfolio C</span><em>● running</em></div><div><span>Version</span><em>✓ up to date</em></div></div><div class="toast">Update installed automatically</div></div>
+ </div>
+ <div class="ab-punkte"><i></i><i></i><i></i><i></i><i></i></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<section id="schachbrett">
+<div class="wrap">
+<div class="sec-head mid reveal">
+<div class="kicker" style="color:var(--teal)">The chessboard</div>
+<h2>Your capital,<br>sorted by risk</h2>
+<p>Not all money works equally hard. We place it like pieces on a
+chessboard: up front are the ones that attack, in the back the ones that hold. That way
+an offensive level can have a weak phase <b class="hl">without putting the core at risk</b>.</p>
+</div>
+<div class="chess">
+<div class="lvl kons reveal l">
+<div class="figs">♚ ♛</div>
+<div class="rk">Conservative</div>
+<h3>King and queen</h3>
+<p><b class="hl">The core.</b> Low risk, built for capital preservation. Especially suited
+for larger accounts and for <b class="ht">prop trading and funded accounts</b>, where a
+loss limit must not be breached.</p>
+</div>
+<div class="lvl mod reveal sc">
+<div class="figs">♜ ♞ ♝</div>
+<div class="rk">Moderate</div>
+<h3>Rook, knight and bishop</h3>
+<p><b class="hl">The middle ground.</b> A balanced ratio of risk and return. These levels
+provide steady growth without the swings becoming uncomfortable.</p>
+</div>
+<div class="lvl off reveal r">
+<div class="figs">♟ ♟ ♟</div>
+<div class="rk">Offensive</div>
+<h3>The pawns</h3>
+<p><b class="hl">The attackers.</b> They run with offensive risk and generate the cash flow.
+Many small units, some of which may fall without the
+position collapsing.</p>
+</div>
+</div>
+<div class="flow reveal">
+<b>Profits flow from the bottom up.</b> What the offensive levels earn
+strengthens the conservative ones. The core stays protected.
+</div>
+</div>
+</section>
+<section style="background:var(--bg2);border-top:1px solid var(--line);border-bottom:1px solid var(--line)">
+<div class="wrap">
+<div class="sec-head mid reveal">
+<div class="kicker" style="color:var(--teal)">How it works</div>
+<h2>Three steps, then it runs</h2>
+<p>Under the hood it keeps getting more sophisticated. For you it should feel like
+a modern car: you enjoy the drive, the technology stays out of sight.</p>
+</div>
+<div class="steps">
+<div class="step reveal" style="--i:0"><div class="n">STEP 01</div><h3>Become a member</h3>
+<p><b class="hl">Instant access</b> to the member area, the Discord community and the
+<b class="hl">setup guide from A to Z</b>, as a video and as a PDF.</p></div>
+<div class="step reveal" style="--i:1"><div class="n">STEP 02</div><h3>Choose your pillar</h3>
+<p><b class="hl">Portfolios on MetaTrader 5</b>, <b class="hl">All Time High for stocks</b>, or both. You drag
+the bot onto any chart, instrument and timeframe don't matter.
+If you like, you can add the <b class="hl">setup service for €99</b>.</p></div>
+<div class="step reveal" style="--i:2"><div class="n">STEP 03</div><h3>Let it run</h3>
+<p>On your own computer or on a <b class="hl">Windows VPS</b> for continuous operation.
+<b class="hl">Updates arrive automatically</b> through the terminal. You scale at your own pace.</p></div>
+</div>
+</div>
+</section>
+<div class="vscene s-gold" id="aktien" data-sheets="aktien" data-count="61" data-tint="#D8AE5E" data-recolor="1">
+<div class="vsticky">
+<canvas class="vbg"></canvas>
+<div class="vshade right"></div>
+<div class="vtext r">
+<div class="inner reveal r">
+<span class="tag t-gold">Pillar 02 · New</span>
+<h2>All Time High</h2>
+<p class="leit"><b class="hl">Automated stock trading from one single piece of software.</b>
+Connected directly to your <b class="hg">Interactive Brokers</b> account, no TradingView and no add-on programs.</p>
+<ul class="vorteile">
+<li><b>Every stock your broker offers</b><span>US stocks, Xetra and everything else worldwide that Interactive Brokers has on offer.</span></li>
+<li><b>Two ready-made strategies</b><span>One follows trends and breakouts, the other buys in stages.</span></li>
+<li><b>Split your account into pots</b><span>Each trading plan gets its own capital and its own stocks.</span></li>
+<li><b>Protected directly at the broker</b><span>Every position has a real stop order at Interactive Brokers. If your account falls below your threshold, the account protection closes everything.</span></li>
+</ul>
+<div class="mini">
+<div><b>2</b><span>Ready-made strategies</span></div>
+<div><b>Worldwide</b><span>Everything IB offers</span></div>
+<div><b>Premium</b><span>No extra charge</span></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<section id="vergleich">
+<div class="wrap">
+<div class="sec-head mid reveal">
+<div class="kicker" style="color:var(--dim)">The overview</div>
+<h2>Clearly separated, on purpose</h2>
+<p>Every market needs different tools. That's why we don't offer one product
+for everything, but <b class="hl">three separate systems</b>.</p>
+</div>
+<div class="cmp">
+<div class="cmp-row cmp-head reveal" style="--i:0">
+<div></div>
+<div class="c1"><div class="h">CFDs</div><div class="s">Pillar 01</div></div>
+<div class="c2"><div class="h">Stocks</div><div class="s">Pillar 02</div></div>
+<div class="c3"><div class="h">Futures</div><div class="s">Pillar 03</div></div>
+</div>
+<div class="cmp-row reveal" style="--i:1">
+<div>What is traded</div>
+<div>Indices, currencies and commodities as leveraged products, for example Nasdaq, S&amp;P 500, Gold and Forex</div>
+<div>Real stocks worldwide, everything Interactive Brokers offers</div>
+<div>Futures</div>
+</div>
+<div class="cmp-row reveal" style="--i:2">
+<div>Platform</div>
+<div>MetaTrader 5, plus the Customer Terminal. MetaTrader 4 is not supported</div>
+<div>All Time High, our own Windows app with a direct connection</div>
+<div>To be announced</div>
+</div>
+<div class="cmp-row reveal" style="--i:3">
+<div>Broker</div>
+<div>Your own MT5 broker, free choice</div>
+<div>Interactive Brokers, also via CapTrader or LYNX</div>
+<div>To be announced</div>
+</div>
+<div class="cmp-row reveal" style="--i:4">
+<div>What runs</div>
+<div>Various strategy portfolios, each also as a prop version, plus 5 core strategies and the community strategies</div>
+<div>Two trading approaches, breakout and staged entry</div>
+<div>To be announced</div>
+</div>
+<div class="cmp-row reveal" style="--i:5">
+<div>Recommended capital</div>
+<div>€2,000 to €5,000 for a portfolio, single strategies from €500</div>
+<div>No fixed minimum, the position size is based on your account</div>
+<div>To be announced</div>
+</div>
+<div class="cmp-row reveal" style="--i:6">
+<div>Included in</div>
+<div>Basic and Premium</div>
+<div><b class="hl">Premium only, no extra charge</b></div>
+<div>For members, as soon as available</div>
+</div>
+<div class="cmp-row reveal" style="--i:7">
+<div>Status</div>
+<div><b class="ht">Portfolios live since June 8, 2026</b></div>
+<div>Alpha since late August 2026</div>
+<div>In development</div>
+</div>
+</div>
+</div>
+</section>
+<div class="vscene short s-green" id="futures" data-sheets="futures" data-count="96" data-tint="#33C46F">
+<div class="vsticky">
+<canvas class="vbg"></canvas>
+<div class="vshade top"></div>
+<div class="vtext">
+<div class="inner reveal l">
+<span class="tag t-green">Pillar 03 · Coming soon</span>
+<h2>The third pillar<br>is being built right now</h2>
+<p>After the CFD portfolios and stock trading, <b class="hn">we are working on futures</b>.
+What exactly it will include and when it will be ready, we will tell you once it is settled.
+We don't announce anything we can't deliver. <b class="hn">Members hear about it first.</b></p>
+<div class="mini">
+<div><b>In progress</b><span>Our own development</span></div>
+<div><b>First</b><span>For members</span></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<section id="terminal" style="background:var(--bg2);border-top:1px solid var(--line);border-bottom:1px solid var(--line)">
+<div class="wrap">
+<div class="sec-head mid reveal">
+<div class="kicker" style="color:var(--teal)">The control room</div>
+<h2>The Customer Terminal</h2>
+<p>One Windows program where everything comes together. You already get it as a
+<b class="hl">Free Member, at no cost</b> and without needing a trading account.</p>
+</div>
+<div class="steps">
+<div class="step reveal" style="--i:0"><div class="n">SET UP</div><h3>Install and stay up to date</h3>
+<p><b class="hl">Installers for all bots, automatic updates</b>, setfiles to download and the
+full explanation of every parameter, all in one place.</p></div>
+<div class="step reveal" style="--i:1"><div class="n">CHECK</div><h3>Test first instead of hoping</h3>
+<p><b class="ht">Free backtests</b> for portfolios and single strategies. Plus the
+<b class="ht">Prop Challenge simulator</b> based on Monte Carlo: it shows you how
+likely you are to pass a challenge before you risk a single euro.</p></div>
+<div class="step reveal" style="--i:2"><div class="n">WATCH</div><h3>View the live performance</h3>
+<p>The ongoing performance of the portfolios is available in the terminal, since
+June 8, 2026. <b class="hl">Visible even with the free membership.</b></p></div>
+</div>
+</div>
+</section>
+<!-- 02.10.2026: Pruefprozess als scrollgekoppelte Ablauf-Szene (vorher Textliste .qlist) -->
+<div class="ablauf-szene pruef" id="pruefAblauf" style="--f:var(--teal)">
+<div class="ab-sticky">
+<div class="wrap ab-raster">
+<div class="ab-links">
+<div class="kicker" style="color:var(--teal)">Applies to every pillar</div>
+<h2>Test first,<br>then deliver</h2>
+<p class="ab-intro">Most providers show a nice equity curve and say: it works. <b class="hl">For us, that is where the work begins.</b></p>
+<ol class="ab-liste">
+<li data-titel="Edge analysis"><span class="nr">1</span><div><b>Edge analysis</b><p>First the market mechanics have to make sense. Without a <b class="ht">statistically provable edge</b>, no strategy moves on.</p></div></li>
+<li data-titel="Price data"><span class="nr">2</span><div><b>Purchased price data</b><p>High-quality data sets covering <b class="ht">15 to 25 years</b> instead of standard broker data.</p></div></li>
+<li data-titel="Walk-Forward analysis"><span class="nr">3</span><div><b>Walk-Forward analysis</b><p>Optimized on one period, tested on months the strategy <b class="ht">has never seen</b>.</p></div></li>
+<li data-titel="Monte Carlo simulation"><span class="nr">4</span><div><b>Monte Carlo simulation</b><p>Thousands of runs show <b class="ht">which drawdown is realistically</b> possible.</p></div></li>
+<li data-titel="Ongoing monitoring"><span class="nr">5</span><div><b>Ongoing monitoring</b><p>Live versus simulation. If the values diverge, the portfolio is <b class="ht">reweighted</b>.</p></div></li>
+<li data-titel="Our own backtesting engine"><span class="nr">6</span><div><b>Our own backtesting engine</b><p>Standard programs were not enough, so we built <b class="ht">our own software</b>.</p></div></li>
+<li data-titel="Final test"><span class="nr">7</span><div><b>Final test</b><p>Finally, several years of <b class="ht">completely unseen data</b>. Only then is it delivered.</p></div></li>
+</ol>
+</div>
+<div class="ab-rechts">
+<div class="ab-fenster glas">
+ <div class="ab-kopf"><i></i><i></i><i></i><span class="ab-titel">Edge analysis</span><em class="ab-zaehler">Step 1 of 7</em></div>
+ <div class="ab-buehne">
+  <div class="bild p1"><div class="ideen"></div><div class="unten">Only ideas with a real edge move on</div></div>
+  <div class="bild p2"><div class="jahre"><span>Price data</span><div class="leiste"><s></s></div><div class="skala"><em>25 years back</em><em>today</em></div></div><div class="reihen"><i></i><i></i><i></i><i></i><i></i></div><div class="unten">Verified data instead of standard broker data</div></div>
+  <div class="bild p3"><div class="wf"><div class="wfz"><b class="o">optimize</b><b class="t">test</b></div><div class="wfz"><b class="o">optimize</b><b class="t">test</b></div><div class="wfz"><b class="o">optimize</b><b class="t">test</b></div><div class="wfz"><b class="o">optimize</b><b class="t">test</b></div></div><div class="unten">It has to pass on every unseen segment</div></div>
+  <div class="bild p4"><canvas class="mc"></canvas><div class="unten">Thousands of runs, one realistic range</div></div>
+  <div class="bild p5"><div class="vergleich"><div><span>Simulation</span><p><i class="sim"></i></p></div><div><span>Live</span><p><i class="live"></i></p></div></div><div class="flag">Deviation detected · reweight</div></div>
+  <div class="bild p6"><div class="engine"><div class="kern">Backtesting engine</div><div class="lasten"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div></div><div class="unten">Our own high-performance software</div></div>
+  <div class="bild p7"><div class="final"><div class="block">Unseen years</div><div class="stempel">✓ passed</div></div><div class="unten">Only then is it delivered</div></div>
+ </div>
+ <div class="ab-punkte"><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<section id="stimmen" style="background:var(--bg2);border-top:1px solid var(--line)">
+<div class="wrap">
+<div class="sec-head mid reveal">
+<div class="kicker" style="color:var(--dim)">From the community</div>
+<h2>What members report</h2>
+<p>Real members, in their own words. Individual experiences, no guarantee of your result.</p>
+</div>
+<div class="tst">
+<div class="voice reveal l">
+<div class="vtag">Prop trading</div>
+<div class="stars" aria-label="5 out of 5 stars">★★★★★</div>
+<p>"After almost 5 months I have passed 3 challenges at FTMO and have already been able to withdraw several thousand euros.</p>
+<p>The support from Alex, his team and the community is worth its weight in gold."</p>
+<div class="who">Niklas J.</div>
+<div class="role">Premium member</div>
+</div>
+<div class="voice reveal sc">
+<div class="vtag">Private account</div>
+<div class="stars" aria-label="5 out of 5 stars">★★★★★</div>
+<p>"Automated trading was something completely new for me, but after some technical challenges at the start I am thrilled. It runs great, and with at most 5 minutes a day it is exactly what I had in mind."</p>
+<div class="who">Regina Katharina S.</div>
+<div class="role">30 years of stock market experience</div>
+</div>
+<div class="voice reveal r">
+<div class="vtag">Funded Account</div>
+<div class="stars" aria-label="5 out of 5 stars">★★★★★</div>
+<p>"Whether conservative and long term or fast day trading, there are options for every situation.</p>
+<p>It is a real joy to discover all the possibilities with all the bots. I am very glad I found Alex."</p>
+<div class="who">Martin T.</div>
+<div class="role">Premium member</div>
+</div>
+</div>
+
+<details class="storys" id="erfolgsstorys">
+<summary><span class="zu">Read all success stories</span><span class="auf">Close success stories</span></summary>
+<div class="storys-kicker">Proof from the community</div>
+<div class="galerie" id="nachweise">
+<div class="gal-gruppe"><div class="gal-titel">Payouts and rewards<span>7</span></div><div class="gal-grid">
+<a class="gal-bild" href="../storys/gross/s09.jpg" data-gruppe="Payouts and rewards"><img src="../storys/klein/s09.jpg" alt="Payout or reward from a prop firm" loading="lazy" decoding="async" width="520" height="520"></a>
+<a class="gal-bild" href="../storys/gross/s14.jpg" data-gruppe="Payouts and rewards"><img src="../storys/klein/s14.jpg" alt="Payout or reward from a prop firm" loading="lazy" decoding="async" width="520" height="520"></a>
+<a class="gal-bild" href="../storys/gross/s17.jpg" data-gruppe="Payouts and rewards"><img src="../storys/klein/s17.jpg" alt="Payout or reward from a prop firm" loading="lazy" decoding="async" width="520" height="520"></a>
+<a class="gal-bild" href="../storys/gross/s23.jpg" data-gruppe="Payouts and rewards"><img src="../storys/klein/s23.jpg" alt="Payout or reward from a prop firm" loading="lazy" decoding="async" width="520" height="520"></a>
+<a class="gal-bild" href="../storys/gross/s11.jpg" data-gruppe="Payouts and rewards"><img src="../storys/klein/s11.jpg" alt="Payout or reward from a prop firm" loading="lazy" decoding="async" width="520" height="520"></a>
+<a class="gal-bild" href="../storys/gross/s12.jpg" data-gruppe="Payouts and rewards"><img src="../storys/klein/s12.jpg" alt="Payout or reward from a prop firm" loading="lazy" decoding="async" width="520" height="520"></a>
+<a class="gal-bild" href="../storys/gross/s31.jpg" data-gruppe="Payouts and rewards"><img src="../storys/klein/s31.jpg" alt="Payout or reward from a prop firm" loading="lazy" decoding="async" width="520" height="520"></a>
+</div></div>
+<div class="gal-gruppe"><div class="gal-titel">Passed FTMO challenges<span>30</span></div><div class="gal-grid">
+<a class="gal-bild" href="../storys/gross/s02.jpg" data-gruppe="Passed FTMO challenges"><img src="../storys/klein/s02.jpg" alt="Certificate of a passed FTMO challenge or verification" loading="lazy" decoding="async" width="520" height="520"></a>
+<a class="gal-bild" href="../storys/gross/s03.jpg" data-gruppe="Passed FTMO challenges"><img src="../storys/klein/s03.jpg" alt="Certificate of a passed FTMO challenge or verification" loading="lazy" decoding="async" width="520" height="520"></a>
+<a class="gal-bild" href="../storys/gross/s04.jpg" data-gruppe="Passed FTMO challenges"><img src="../storys/klein/s04.jpg" alt="Certificate of a passed FTMO challenge or verification" loading="lazy" decoding="async" width="520" height="520"></a>
+<a class="gal-bild" href="../storys/gross/s05.jpg" data-gruppe="Passed FTMO challenges"><img src="../storys/klein/s05.jpg" alt="Certificate of a passed FTMO challenge or verification" loading="lazy" decoding="async" width="520" height="520"></a>
+<a class="gal-bild" href="../storys/gross/s06.jpg" data-gruppe="Passed FTMO challenges"><img src="../storys/klein/s06.jpg" alt="Certificate of a passed FTMO challenge or verification" loading="lazy" decoding="async" width="520" height="520"></a>
+<a class="gal-bild" href="../storys/gross/s07.jpg" data-gruppe="Passed FTMO challenges"><img src="../storys/klein/s07.jpg" alt="Certificate of a passed FTMO challenge or verification" loading="lazy" decoding="async" width="520" height="520"></a>
+<a class="gal-bild" href="../storys/gross/s08.jpg" data-gruppe="Passed FTMO challenges"><img src="../storys/klein/s08.jpg" alt="Certificate of a passed FTMO challenge or verification" loading="lazy" decoding="async" width="520" height="520"></a>
+<a class="gal-bild" href="../storys/gross/s15.jpg" data-gruppe="Passed FTMO challenges"><img src="../storys/klein/s15.jpg" alt="Certificate of a passed FTMO challenge or verification" loading="lazy" decoding="async" width="520" height="520"></a>
+<a class="gal-bild" href="../storys/gross/s16.jpg" data-gruppe="Passed FTMO challenges"><img src="../storys/klein/s16.jpg" alt="Certificate of a passed FTMO challenge or verification" loading="lazy" decoding="async" width="520" height="520"></a>
+<a class="gal-bild" href="../storys/gross/s18.jpg" data-gruppe="Passed FTMO challenges"><img src="../storys/klein/s18.jpg" alt="Certificate of a passed FTMO challenge or verification" loading="lazy" decoding="async" width="520" height="520"></a>
+<a class="gal-bild" href="../storys/gross/s19.jpg" data-gruppe="Passed FTMO challenges"><img src="../storys/klein/s19.jpg" alt="Certificate of a passed FTMO challenge or verification" loading="lazy" decoding="async" width="520" height="520"></a>
+<a class="gal-bild" href="../storys/gross/s24.jpg" data-gruppe="Passed FTMO challenges"><img src="../storys/klein/s24.jpg" alt="Certificate of a passed FTMO challenge or verification" loading="lazy" decoding="async" width="520" height="520"></a>
+<a class="gal-bild" href="../storys/gross/s25.jpg" data-gruppe="Passed FTMO challenges"><img src="../storys/klein/s25.jpg" alt="Certificate of a passed FTMO challenge or verification" loading="lazy" decoding="async" width="520" height="520"></a>
+<a class="gal-bild" href="../storys/gross/s26.jpg" data-gruppe="Passed FTMO challenges"><img src="../storys/klein/s26.jpg" alt="Certificate of a passed FTMO challenge or verification" loading="lazy" decoding="async" width="520" height="520"></a>
+<a class="gal-bild" href="../storys/gross/s28.jpg" data-gruppe="Passed FTMO challenges"><img src="../storys/klein/s28.jpg" alt="Certificate of a passed FTMO challenge or verification" loading="lazy" decoding="async" width="520" height="520"></a>
+<a class="gal-bild" href="../storys/gross/s29.jpg" data-gruppe="Passed FTMO challenges"><img src="../storys/klein/s29.jpg" alt="Certificate of a passed FTMO challenge or verification" loading="lazy" decoding="async" width="520" height="520"></a>
+<a class="gal-bild" href="../storys/gross/s30.jpg" data-gruppe="Passed FTMO challenges"><img src="../storys/klein/s30.jpg" alt="Certificate of a passed FTMO challenge or verification" loading="lazy" decoding="async" width="520" height="520"></a>
+<a class="gal-bild" href="../storys/gross/s32.jpg" data-gruppe="Passed FTMO challenges"><img src="../storys/klein/s32.jpg" alt="Certificate of a passed FTMO challenge or verification" loading="lazy" decoding="async" width="520" height="520"></a>
+<a class="gal-bild" href="../storys/gross/s33.jpg" data-gruppe="Passed FTMO challenges"><img src="../storys/klein/s33.jpg" alt="Certificate of a passed FTMO challenge or verification" loading="lazy" decoding="async" width="520" height="520"></a>
+<a class="gal-bild" href="../storys/gross/s34.jpg" data-gruppe="Passed FTMO challenges"><img src="../storys/klein/s34.jpg" alt="Certificate of a passed FTMO challenge or verification" loading="lazy" decoding="async" width="520" height="520"></a>
+<a class="gal-bild" href="../storys/gross/s35.jpg" data-gruppe="Passed FTMO challenges"><img src="../storys/klein/s35.jpg" alt="Certificate of a passed FTMO challenge or verification" loading="lazy" decoding="async" width="520" height="520"></a>
+<a class="gal-bild" href="../storys/gross/s36.jpg" data-gruppe="Passed FTMO challenges"><img src="../storys/klein/s36.jpg" alt="Certificate of a passed FTMO challenge or verification" loading="lazy" decoding="async" width="520" height="520"></a>
+<a class="gal-bild" href="../storys/gross/s37.jpg" data-gruppe="Passed FTMO challenges"><img src="../storys/klein/s37.jpg" alt="Certificate of a passed FTMO challenge or verification" loading="lazy" decoding="async" width="520" height="520"></a>
+<a class="gal-bild" href="../storys/gross/s38.jpg" data-gruppe="Passed FTMO challenges"><img src="../storys/klein/s38.jpg" alt="Certificate of a passed FTMO challenge or verification" loading="lazy" decoding="async" width="520" height="520"></a>
+<a class="gal-bild" href="../storys/gross/s41.jpg" data-gruppe="Passed FTMO challenges"><img src="../storys/klein/s41.jpg" alt="Certificate of a passed FTMO challenge or verification" loading="lazy" decoding="async" width="520" height="520"></a>
+<a class="gal-bild" href="../storys/gross/s42.jpg" data-gruppe="Passed FTMO challenges"><img src="../storys/klein/s42.jpg" alt="Certificate of a passed FTMO challenge or verification" loading="lazy" decoding="async" width="520" height="520"></a>
+<a class="gal-bild" href="../storys/gross/s43.jpg" data-gruppe="Passed FTMO challenges"><img src="../storys/klein/s43.jpg" alt="Certificate of a passed FTMO challenge or verification" loading="lazy" decoding="async" width="520" height="520"></a>
+<a class="gal-bild" href="../storys/gross/s44.jpg" data-gruppe="Passed FTMO challenges"><img src="../storys/klein/s44.jpg" alt="Certificate of a passed FTMO challenge or verification" loading="lazy" decoding="async" width="520" height="520"></a>
+<a class="gal-bild" href="../storys/gross/s45.jpg" data-gruppe="Passed FTMO challenges"><img src="../storys/klein/s45.jpg" alt="Certificate of a passed FTMO challenge or verification" loading="lazy" decoding="async" width="520" height="520"></a>
+<a class="gal-bild" href="../storys/gross/s46.jpg" data-gruppe="Passed FTMO challenges"><img src="../storys/klein/s46.jpg" alt="Certificate of a passed FTMO challenge or verification" loading="lazy" decoding="async" width="520" height="520"></a>
+</div></div>
+<div class="gal-gruppe"><div class="gal-titel">Other prop firms<span>9</span></div><div class="gal-grid">
+<a class="gal-bild" href="../storys/gross/s01.jpg" data-gruppe="Other prop firms"><img src="../storys/klein/s01.jpg" alt="Certificate from another prop firm" loading="lazy" decoding="async" width="520" height="361"></a>
+<a class="gal-bild" href="../storys/gross/s13.jpg" data-gruppe="Other prop firms"><img src="../storys/klein/s13.jpg" alt="Certificate from another prop firm" loading="lazy" decoding="async" width="520" height="520"></a>
+<a class="gal-bild" href="../storys/gross/s22.jpg" data-gruppe="Other prop firms"><img src="../storys/klein/s22.jpg" alt="Certificate from another prop firm" loading="lazy" decoding="async" width="520" height="520"></a>
+<a class="gal-bild" href="../storys/gross/s40.jpg" data-gruppe="Other prop firms"><img src="../storys/klein/s40.jpg" alt="Certificate from another prop firm" loading="lazy" decoding="async" width="520" height="520"></a>
+<a class="gal-bild" href="../storys/gross/s20.jpg" data-gruppe="Other prop firms"><img src="../storys/klein/s20.jpg" alt="Certificate from another prop firm" loading="lazy" decoding="async" width="520" height="520"></a>
+<a class="gal-bild" href="../storys/gross/s47.jpg" data-gruppe="Other prop firms"><img src="../storys/klein/s47.jpg" alt="Certificate from another prop firm" loading="lazy" decoding="async" width="520" height="520"></a>
+<a class="gal-bild" href="../storys/gross/s48.jpg" data-gruppe="Other prop firms"><img src="../storys/klein/s48.jpg" alt="Certificate from another prop firm" loading="lazy" decoding="async" width="520" height="520"></a>
+<a class="gal-bild" href="../storys/gross/s49.jpg" data-gruppe="Other prop firms"><img src="../storys/klein/s49.jpg" alt="Certificate from another prop firm" loading="lazy" decoding="async" width="520" height="520"></a>
+<a class="gal-bild" href="../storys/gross/s50.jpg" data-gruppe="Other prop firms"><img src="../storys/klein/s50.jpg" alt="Certificate from another prop firm" loading="lazy" decoding="async" width="520" height="520"></a>
+</div></div>
+<div class="gal-gruppe"><div class="gal-titel">Messages and reports<span>5</span></div><div class="gal-grid">
+<a class="gal-bild" href="../storys/gross/s10.jpg" data-gruppe="Messages and reports"><img src="../storys/klein/s10.jpg" alt="Message or report from a member" loading="lazy" decoding="async" width="520" height="520"></a>
+<a class="gal-bild" href="../storys/gross/s27.jpg" data-gruppe="Messages and reports"><img src="../storys/klein/s27.jpg" alt="Message or report from a member" loading="lazy" decoding="async" width="520" height="520"></a>
+<a class="gal-bild" href="../storys/gross/s21.jpg" data-gruppe="Messages and reports"><img src="../storys/klein/s21.jpg" alt="Message or report from a member" loading="lazy" decoding="async" width="520" height="520"></a>
+<a class="gal-bild" href="../storys/gross/s51.jpg" data-gruppe="Messages and reports"><img src="../storys/klein/s51.jpg" alt="Message or report from a member" loading="lazy" decoding="async" width="520" height="520"></a>
+<a class="gal-bild" href="../storys/gross/s52.jpg" data-gruppe="Messages and reports"><img src="../storys/klein/s52.jpg" alt="Message or report from a member" loading="lazy" decoding="async" width="520" height="520"></a>
+</div></div>
+</div>
+<div class="storys-kicker">Member reports</div>
+<div class="storys-grid">
+<article class="story">
+<p>In August 2024 I bought the Workaholic Bot (Strategy 1) from Kaspareit, and it was the best decision I could have made. After almost 5 months I have passed 3 challenges at FTMO and have already been able to withdraw several thousand euros. Apart from the flawlessly working and transparent strategy, the support from Kaspareit, his team and the community on Discord is truly worth its weight in gold. That's why I have now also bought the full version, and I look forward to continuing to profit together. Thanks to Kaspareit I will soon be able to cut back the hours of my full-time job and spend more time on things I really enjoy.</p>
+<p>For that I thank Alex and his team!</p>
+<div class="who">Niklas J.</div>
+</article>
+<article class="story">
+<p>Thank you so much, Alex,<br>I finally made it. After spending 3 years on trading, I have finally managed to become profitable.</p>
+<p>I am really impressed by what you offer us. On my own I would never have come this far. (I already spent quite a few nights trying to learn Python and MQL5 myself, but that is a really long road.)</p>
+<div class="who">Max D.</div>
+</article>
+<article class="story">
+<p>On the second attempt it worked out. I had blown the first challenge by interfering too much and experimenting around. And the lovely sideways phase in March/April did the rest 😊</p>
+<div class="who">Matthias D.</div>
+</article>
+<article class="story">
+<p>At first I didn't trust the bot either and kept interfering. Then on 11/10/2023 I left a small 10K account to the bot, stopped interfering, and it paid off. Attached you'll find the report from this account, and it is not a backtest: it was (and still is) traded like this for real. At the beginning I also had the M15 setfile running on an additional M15 chart, which is why the chart (at the very bottom of the report) doesn't look so good at the start.</p>
+<p>So I have trusted Bot1 for quite a while now, the bot currently trades 5 of my accounts very profitably, and I no longer interfere. Maybe this helps one or two of you to build trust. 😉</p>
+<a class="story-pdf" href="../storys/martin-report.pdf" target="_blank" rel="noopener">View the report from Martin's account (PDF)</a>
+<div class="who">Martin</div>
+</article>
+<article class="story">
+<p>Thank you very much for sending the activated bots. I am also glad to read, and to hear in the webinars, that you keep working on improvements so you can offer successful bots in range phases too.</p>
+<p>I am extremely impressed by Bot 3 and its possibilities, and today alone it showed its full potential for me. It is a real joy to discover all the possibilities with all three bots. Whether conservative and long term or fast day trading, there are options for every situation and for however much time you have for the markets, and I think you also explain this to us very well in the webinars.</p>
+<p>Thank you! I am very glad I found you ;)!</p>
+<div class="who">Martin T.</div>
+</article>
+<article class="story">
+<p>I have been active in the markets for 30 years. My focus was on stocks and futures trading. I always enjoyed it a lot, but it also took a lot of time. Now I was looking for a comfortable way to keep my accounts, which have grown somewhat larger by now, running profitably.</p>
+<p>I had come across Alex through his videos on YouTube, and so at the beginning of the year I signed up for his training.</p>
+<p>Automated trading was something completely new for me, but after some technical challenges at the start, with which I received competent help, I am thrilled. It runs great, and with at most 5 minutes a day it is exactly what I had in mind.</p>
+<div class="who">Regina Katharina S.</div>
+</article>
+<article class="story">
+<p>I would like to personally thank you once again. Your training is tailored exactly to me, exactly the right program for people with a job. You keep making progress step by step without having to sit at the desk under stress during the cash hours. My previous training as a volume trader of course demanded exactly those hours from me. As a father and working person, that was hardly doable in terms of mindset and time.</p>
+<p>I have been in the training since the end of January and live since March, with my live accounts up 12% and 8%. I look forward to everything still to come and thank you for the great support and training. I had been looking for this for a long time, and I can absolutely recommend you.</p>
+<div class="who">Mario S.</div>
+</article>
+<article class="story">
+<p>Really cool to explore the unfathomable ways of trading together and yet each on our own, it is definitely more fun and moves us forward! Especially Mr. Kaspareit's ways of trading, it was simply a stroke of luck to come across this gentleman.</p>
+<div class="who">Andreas R.</div>
+</article>
+<article class="story">
+<p>I definitely have to pay you a compliment. Apart from your two great, profitable trading strategies, I think your training is excellent.</p>
+<p>You show 100% transparency in what you do, especially in the further development of the bots and strategies. You also show how everyone can backtest the strategies themselves, so every participant has the chance to work out and expand settings and additional markets for themselves.</p>
+<p>No participant is being led around by the nose here, everyone knows exactly what they get for their money.</p>
+<p>And your training is worth every cent! I will definitely renew, because I am already curious where the journey with your strategies will go.</p>
+<div class="who">Michael W.</div>
+</article>
+<article class="story">
+<p>I really, really like the coaching. The strategies are actually kept quite simple, so the ongoing to-dos stay manageable. The weekly webinars for exchanging ideas are interesting and give you the chance to ask your questions. Both strategies have their advantages depending on the market situation. Strategy 1 is meant more for longer trends, and its risk is somewhat higher at 3%. Strategy 2 also covers shorter trends with lower risk (2%). The room for decisions is very narrow, so you don't risk having to think for a long time about how to trade next. That keeps the time required very manageable. I had never traded with a trading robot before, but I already appreciate it a lot. You are less at risk of making emotional decisions. In addition, the trading robot lets me run historical tests. What used to take me days now takes a short time. This is certainly not the rule, but I had already earned back the price of the coaching in the first trading week. The fee is higher by now, but still reasonable for what you get. I have only been live for eight weeks, but I am already at a 25% return. Dear Alex, thank you very much for your valuable input and for sharing your strategy with us. It feels as if I have reached the next level as a trader, and that feels very good. I can only recommend you most warmly.</p>
+<div class="who">Michael J.</div>
+</article>
+<article class="story">
+<p>I have been a trader for some time, and for almost 1 1/2 years a relatively active and profitable one. I have completed many courses and coachings, from expensive to cheap, from helpful to counterproductive, there was everything. Unfortunately, the latter was more often the case. At the end of January '22 I decided on Alex's course as well. For me the price was very attractive and fair for this kind of offer. After all, it includes one year of membership, weekly live calls, and you get 2 working strategies, which are even fully and partially automated by the bots. I already knew Alex's face from a previous coaching, so he enjoyed a bonus of trust and I could be sure that I would definitely learn something. And I was not disappointed. The course is structured simply and clearly. To my surprise, the strategies are simple, and that is exactly why they are very robust and profitable. For me the bots are the absolute icing on the cake, because the biggest problem is that as a trader you otherwise have to spend far too long in front of the screen. Overall, the course took me to the next level, because I had various aha moments that solved many of my trading problems. For that I would like to thank you warmly once again here</p>
+<div class="who">Sebastian M.</div>
+</article>
+</div>
+<button type="button" class="storys-zu" id="storysZu">Close success stories</button>
+</details>
+</div>
+</section>
+<section id="preise" style="background:var(--bg2);border-top:1px solid var(--line);border-bottom:1px solid var(--line)">
+<div class="wrap">
+<div class="sec-head mid reveal">
+<div class="kicker" style="color:var(--teal)">Pricing</div>
+<h2>One access, all pillars</h2>
+<p>The dots show you at a glance which pillar is included in which plan.</p>
+</div>
+<div class="prices">
+<div class="price feat reveal l">
+<div class="badge">Most popular</div>
+<h3>Premium</h3>
+<div class="amt">€799<small> / 12 months</small></div>
+<div class="claim">All pillars, all strategies, full access. Today and in the future.</div>
+<div class="dots"><span class="dot t"></span><span class="dot g"></span><span class="dot"></span><span class="lbl">CFDs · Stocks · Futures to follow</span></div>
+<ul>
+<li>All strategy portfolios, each also as a prop version</li>
+<li>All 5 core strategies and all community strategies</li>
+<li>All Time High for stock trading, at no extra charge</li>
+<li>Every future strategy and every future portfolio automatically included</li>
+<li>Personal support via ticket</li>
+<li>Webinars on Saturdays, meetups on Thursdays, masterminds as announced</li>
+</ul>
+<a href="https://copecart.com/products/2f416c32/checkout" target="_blank" rel="noopener" class="btn btn-primary">Choose Premium</a>
+</div>
+<div class="price reveal sc">
+<h3>Basic</h3>
+<div class="amt">€299<small> / 12 months</small></div>
+<div class="claim">Your entry into automated portfolio trading.</div>
+<div class="dots"><span class="dot t"></span><span class="dot"></span><span class="dot"></span><span class="lbl">CFDs only</span></div>
+<ul>
+<li>One strategy portfolio, fully configured, also as a prop version</li>
+<li>Core strategy 1 plus two community strategies</li>
+<li>Customer Terminal as an installation tool with automatic updates</li>
+<li>Setup guide from A to Z, as a video and as a PDF</li>
+<li>Discord community and AI chatbot</li>
+<li>Human support via ticket for technical questions</li>
+<li class="no">Additional strategy portfolios, All Time High and live webinars not included</li>
+</ul>
+<a href="https://copecart.com/products/408f1468/checkout" target="_blank" rel="noopener" class="btn btn-ghost">Choose Basic</a>
+</div>
+<div class="price reveal r">
+<h3>Free</h3>
+<div class="amt">€0</div>
+<div class="claim">Learn the basics and find out whether trading is right for you.</div>
+<div class="dots"><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="lbl">Education</span></div>
+<ul>
+<li>Basic trading education with a foundation course and trading psychology</li>
+<li>TradingView indicators including source code</li>
+<li>Customer Terminal with free backtests</li>
+<li>Prop Challenge simulator based on Monte Carlo</li>
+<li>AI chatbot, PDFs and checklists</li>
+<li class="no">No trading, no bots, no Discord</li>
+</ul>
+<a href="https://www.kaspareit-trading.com/member" class="btn btn-ghost">Start for free</a>
+</div>
+</div>
+<p class="lock reveal">Annual renewal, cancel anytime. As long as your subscription
+keeps running, you <b>keep your entry price permanently</b>. One license covers
+up to 10 personal and 10 prop accounts. Optional setup service for €99.</p>
+</div>
+</section>
+<section id="faq">
+<div class="wrap">
+<div class="sec-head mid reveal">
+<div class="kicker" style="color:var(--dim)">Frequently asked questions</div>
+<h2>What people ask most</h2>
+</div>
+<div class="faq reveal">
+<details>
+<summary>How much time do I need to invest each day?</summary>
+<div class="ans">Very little. One or two quick checks a day are enough.
+The systems trade on their own, you don't interfere with running trades.</div>
+</details>
+<details>
+<summary>Do I need prior knowledge or programming skills?</summary>
+<div class="ans">No. You drag the portfolio onto a chart, instrument and
+timeframe don't matter. There are setup guides from A to Z as
+video and PDF, plus community and support. If you want it completely effortless, you can book
+the setup service for €99.</div>
+</details>
+<details>
+<summary>How much capital do I need?</summary>
+<div class="ans">For a portfolio we recommend €2,000 to €5,000, so that the
+diversification inside can actually take effect. Single strategies are
+possible from about €500, provided your broker supports micro lots. The
+planned futures portfolios will require more.</div>
+</details>
+<details>
+<summary>Which platform and which broker do I need?</summary>
+<div class="ans">For the portfolios and core strategies you need MetaTrader 5, and you
+choose the broker freely. MetaTrader 4 is not supported. For stock trading
+with All Time High you need an account with Interactive Brokers, also via
+CapTrader or LYNX.</div>
+</details>
+<details>
+<summary>Does my computer have to run all the time?</summary>
+<div class="ans">The software has to be running for trades to be placed. You can do that on your
+own PC, but a Windows VPS for around €10 to €30 per month is more convenient.
+That way everything runs around the clock, even when your computer is off.</div>
+</details>
+<details>
+<summary>Are the portfolios suitable for prop challenges?</summary>
+<div class="ans">Yes. Every strategy portfolio comes with a
+prop version with news filter and Friday close. With the free
+Prop Challenge simulator you can check in advance how likely you are
+to pass before you put any money in.</div>
+</details>
+<details>
+<summary>On how many accounts can I use it?</summary>
+<div class="ans">One license allows up to 10 private and up to 10 prop accounts,
+all in your name. The account numbers can be swapped at any time.
+Other people need their own membership.</div>
+</details>
+<details>
+<summary>Does the membership renew automatically?</summary>
+<div class="ans">Yes, for twelve months at a time, and you can cancel anytime.
+As long as your subscription runs without interruption, you keep your
+entry price permanently, even if prices for new customers go up.</div>
+</details>
+<details>
+<summary>Do you manage my money?</summary>
+<div class="ans">No. We do not provide portfolio management or
+asset management within the meaning of MiFID II. You get software, install
+it yourself on your own account and keep full control.
+We have no access to your account, login details or capital.</div>
+</details>
+<details>
+<summary>Will this still work in a few years?</summary>
+<div class="ans">That's why the quality process keeps running, even after launch. We
+continuously compare live behavior with the simulation and reweight
+when the values diverge. New strategies and portfolios are added regularly
+and are included in Premium at no extra charge.</div>
+</details>
+</div>
+</div>
+</section>
+<section id="chatbot">
+<div class="wrap">
+<div class="sec-head mid reveal">
+<div class="kicker" style="color:var(--teal)">Ask us anything</div>
+<h2>Chatbot</h2>
+</div>
+<div class="botbox reveal">
+<!-- Chatbase "Alex Bot". loading="lazy" laedt den Bot erst beim Hinscrollen,
+     sonst zieht er schon beim Seitenstart sein komplettes Programmpaket. -->
+<iframe
+src="https://www.chatbase.co/chatbot-iframe/BkBjWGmiWIHOAiNel6kVN"
+title="Alex Bot"
+loading="lazy"
+allow="microphone; autoplay"
+referrerpolicy="strict-origin-when-cross-origin"></iframe>
+</div>
+<p class="bothint reveal">If the chatbot doesn't have enough information for you,
+you can also contact us by email:
+<a href="mailto:info@kaspareit-trading.de">info@kaspareit-trading.de</a></p>
+</div>
+</section>
+<section>
+<div class="wrap">
+<div class="compliance reveal sc">
+<h3>What we offer and what we don't</h3>
+<p>Kaspareit-Trading LLC does not provide portfolio management or asset management
+in the regulatory sense under MiFID II. We develop and sell algorithmic
+trading software for your own use: Expert Advisors for MetaTrader 5 and the
+All Time High Trading Platform for Interactive Brokers. You run both on
+your own account with your own broker.</p>
+<div class="notgrid">
+<div>We do not manage client money</div>
+<div>We have no access to your account or login details</div>
+<div>We do not place trades on your behalf</div>
+<div>We do not give investment advice</div>
+<div>We do not give tax advice</div>
+<div>We do not promise profits</div>
+</div>
+<div class="yes"><b>What you get:</b> software, guides and support. You
+install it yourself, choose your broker and risk yourself, and keep full
+control over your money. Every system can be stopped,
+deactivated or uninstalled at any time. Your trading data stays with you and your
+broker, we have no access to it.</div>
+</div>
+</div>
+</section>
+<div class="cta-band" id="starten">
+<div class="wrap reveal">
+<h2>Pick your pillar</h2>
+<p>Start with the CFD portfolios, with stock trading, or with both.</p>
+<div style="display:flex;gap:15px;justify-content:center;flex-wrap:wrap">
+<a href="https://copecart.com/products/2f416c32/checkout" target="_blank" rel="noopener" class="btn btn-primary">Get Premium</a>
+<a href="https://www.kaspareit-trading.com/member" class="btn btn-ghost">Start for free</a>
+</div>
+</div>
+</div>
+<div class="legal">
+<div class="wrap">
+<p id="risikohinweis">
+<b>Risk warning:</b> CFDs are complex instruments and come with a high risk of losing money rapidly due to leverage. 77% of retail investor accounts lose money when trading CFDs with this provider. You should consider whether you understand how CFDs work and whether you can afford to take the high risk of losing your money.
+</p>
+<p>
+Trading financial instruments can result in the complete loss of the capital
+invested. Past results, backtests and simulations are not a
+reliable indicator of future results. Hypothetical results
+are by nature subject to limitations, since they were created in hindsight.
+Kaspareit-Trading LLC does not provide investment advice, investment brokerage or
+asset management. Contact: info@kaspareit-trading.de
+</p>
+<p class="cpy">
+© 2026 Kaspareit-Trading LLC &nbsp;·&nbsp;
+<a href="https://www.kaspareit-trading.com/impressum">Legal notice (Imprint)</a> &nbsp;·&nbsp;
+<a href="https://www.kaspareit-trading.com/datenschutz">Privacy policy</a> &nbsp;·&nbsp;
+<a href="https://www.kaspareit-trading.com/agb">Terms and conditions</a>
+</p>
+</div>
+</div>
+<script>
+var SHEETS={
+cfd:     [],
+aktien:  [],
+futures: []
+};
+var BLATT_SPALTEN=4, BLATT_ZEILEN=6, KACHEL_B=1024, KACHEL_H=576;
+(function(){
+var els=[].slice.call(document.querySelectorAll('.reveal')).map(function(el){
+var dir='up';
+if(el.classList.contains('l'))dir='left';
+else if(el.classList.contains('r'))dir='right';
+else if(el.classList.contains('sc'))dir='scale';
+else if(el.classList.contains('up-pop'))dir='pop';
+var i=parseFloat(getComputedStyle(el).getPropertyValue('--i'))||0;
+return {el:el,dir:dir,i:i};
+});
+var ease=function(t){return t<.5?2*t*t:1-Math.pow(-2*t+2,2)/2;};
+function apply(){
+var vh=innerHeight;
+var restlich=document.documentElement.scrollHeight-(pageYOffset+vh);
+for(var k=0;k<els.length;k++){
+var o=els[k], rect=o.el.getBoundingClientRect();
+var stag=o.i*vh*0.05;
+var start=vh*0.95, end=vh*0.60;
+var p=(start-stag-rect.top)/(start-end);
+p=Math.min(1,Math.max(0,p));
+if(restlich<6) p=1;
+var e=ease(p);
+o.el.style.opacity=e;
+var tx=0,ty=0,sc=1;
+var xoff=innerWidth<900?0:90;
+if(o.dir==='up')        ty=(1-e)*60;
+else if(o.dir==='left') { tx=(1-e)*-xoff; if(!xoff) ty=(1-e)*48; }
+else if(o.dir==='right'){ tx=(1-e)*xoff;  if(!xoff) ty=(1-e)*48; }
+else if(o.dir==='scale')sc=0.85+e*0.15;
+else if(o.dir==='pop'){ ty=(1-e)*60; sc=0.96+e*0.04; }
+o.el.style.transform='translate('+tx+'px,'+ty+'px) scale('+sc+')';
+o.el.style.filter='blur('+((1-e)*6)+'px)';
+}
+}
+var ticking=false;
+addEventListener('scroll',function(){
+if(!ticking){requestAnimationFrame(function(){apply();ticking=false;});ticking=true;}
+},{passive:true});
+addEventListener('resize',apply);
+apply();
+})();
+(function(){
+if(!('IntersectionObserver' in window))return;
+var cio=new IntersectionObserver(function(entries){
+entries.forEach(function(e){
+if(!e.isIntersecting)return;
+var el=e.target, target=+el.dataset.target, suf=el.dataset.suffix||'';
+var v=0, step=target/60;
+var run=function(){
+v+=step;
+if(v<target){el.textContent=Math.floor(v)+suf;requestAnimationFrame(run);}
+else el.textContent=target+suf;
+};
+run(); cio.unobserve(el);
+});
+},{threshold:.5});
+document.querySelectorAll('[data-target]').forEach(function(c){cio.observe(c);});
+})();
+(function(){
+var cv=document.getElementById('heroCanvas'); if(!cv) return;
+var ctx=cv.getContext('2d');
+var scene=document.getElementById('heroScene');
+var heroContent=document.getElementById('heroContent');
+var ALEX_ANTEIL=0.26;
+var boardCap=document.getElementById('boardCap');
+var heroOutro=document.getElementById('heroOutro');
+var scrollInd=document.getElementById('scrollInd');
+var W=0,H=0,DPR=Math.min(devicePixelRatio||1,2);
+var GRP=[
+{rgb:'64,198,204', hex:'#40C6CC'},
+{rgb:'216,174,94', hex:'#D8AE5E'},
+{rgb:'51,196,111', hex:'#33C46F'}
+];
+var RISK=[
+{rows:[0,1], rgb:'64,198,204', label:'CONSERVATIVE', figs:['♚','♛']},
+{rows:[2,4], rgb:'51,196,111', label:'MODERATE',     figs:['♜','♞','♝']},
+{rows:[5,7], rgb:'216,174,94', label:'OFFENSIVE',    figs:['♟']}
+];
+function riskOf(r){
+for(var i=0;i<RISK.length;i++){ if(r>=RISK[i].rows[0]&&r<=RISK[i].rows[1]) return RISK[i]; }
+return RISK[0];
+}
+var GRID=13, COUNT=GRID*GRID, N=46;
+var parts=[], boardT=[], curveT=[], barData=[];
+var marginX=0, usableW=0, baseY=0, plotH=0;
+var LINKR=110, LINKR2=12100;
+var BS=0, BX=0, BY=0, cell=0;
+(function genBars(){
+var s=1337;
+var rnd=function(){s=s+0x6D2B79F5|0;var t=Math.imul(s^s>>>15,1|s);t=t+Math.imul(t^t>>>7,61|t)^t;return((t^t>>>14)>>>0)/4294967296;};
+var price=0.16;
+for(var i=0;i<N;i++){
+var o=price;
+var c=o+0.013+(rnd()-0.44)*0.085; c=Math.max(0.05,Math.min(0.96,c));
+var h=Math.min(1,Math.max(o,c)+rnd()*0.045);
+var l=Math.max(0,Math.min(o,c)-rnd()*0.045);
+barData.push({o:o,c:c,h:h,l:l}); price=c;
+}
+})();
+var mapY=function(v){return baseY-v*plotH;};
+var cX=function(i){return marginX+(i/(N-1))*usableW;};
+function buildTargets(){
+var schmal = W<700;
+marginX=W*0.09; usableW=W*0.82;
+baseY = schmal ? H*0.72 : H*0.84;
+plotH = schmal ? H*0.36 : H*0.58;
+curveT=[];
+for(var i=0;i<COUNT;i++){
+var f=i/(COUNT-1), x=marginX+f*usableW;
+var fp=f*(N-1), i0=Math.floor(fp), i1=Math.min(N-1,i0+1), tt=fp-i0;
+var cval=barData[i0].c*(1-tt)+barData[i1].c*tt;
+curveT.push({x:x,y:mapY(cval)});
+}
+BS=Math.min(W*(schmal?0.88:0.50),H*0.60);
+BY=H*(schmal?0.50:0.53)-BS/2;
+var capUnten=boardCap?boardCap.offsetTop+boardCap.offsetHeight+16:0;
+if(BY<capUnten){
+var frei=H-40-capUnten;
+BS=Math.max(0,Math.min(BS,frei));
+BY=capUnten+(frei-BS)/2;
+}
+BX=W*0.5-BS/2; cell=BS/8;
+boardT=[];
+var step=BS/(GRID-1);
+for(var r=0;r<GRID;r++) for(var c=0;c<GRID;c++) boardT.push({x:BX+c*step,y:BY+r*step});
+}
+function resize(){
+var oW=W, oH=H;
+W=cv.clientWidth;H=cv.clientHeight;
+cv.width=W*DPR;cv.height=H*DPR;
+ctx.setTransform(DPR,0,0,DPR,0,0);
+if(oW>0&&oH>0&&parts.length){
+var sx=W/oW, sy=H/oH;
+for(var pi=0;pi<parts.length;pi++){ parts[pi].x*=sx; parts[pi].y*=sy; }
+}
+LINKR=Math.max(66,Math.min(110,Math.sqrt(W*H)/9)); LINKR2=LINKR*LINKR;
+buildTargets();
+}
+function init(){
+parts=[];
+for(var i=0;i<COUNT;i++){
+parts.push({
+g:i%3,
+x:Math.random()*W,
+y:Math.random()*H,
+vx:(Math.random()-0.5)*0.5,
+vy:(Math.random()-0.5)*0.5,
+r:Math.random()*1.7+1.1
+});
+}
+}
+var S=0;
+function onScroll(){
+var total=scene.offsetHeight-innerHeight;
+var SR=Math.min(1,Math.max(0,(-scene.getBoundingClientRect().top)/total)); window.__heroSR=SR; S=Math.max(0,(SR-ALEX_ANTEIL)/(1-ALEX_ANTEIL));
+var fo=Math.min(1,Math.max(0,(S-0.03)/0.09));
+heroContent.style.opacity=1-fo;
+heroContent.style.transform='translateY('+(-fo*50)+'px)';
+scrollInd.style.opacity=SR>0.02?0:1;
+var bi=Math.min(1,Math.max(0,(S-0.19)/0.09));
+var bo=Math.min(1,Math.max(0,(S-0.42)/0.09));
+boardCap.style.opacity=bi*(1-bo);
+boardCap.style.transform='translateY('+((1-bi)*24-bo*24)+'px)';
+var oi=Math.min(1,Math.max(0,(S-0.88)/0.09));
+heroOutro.style.opacity=oi;
+heroOutro.style.transform='translateY('+((1-oi)*28)+'px)';
+}
+addEventListener('scroll',onScroll,{passive:true});
+var ease=function(t){return t<.5?2*t*t:1-Math.pow(-2*t+2,2)/2;};
+var map=function(v,a,b){return Math.min(1,Math.max(0,(v-a)/(b-a)));};
+function drawBoard(A,now){
+var K = W<700 ? 1.8 : 1;
+var deck = function(v){ return Math.min(1, v*K)*A; };
+var r,c,k;
+for(r=0;r<8;r++){
+var rk=riskOf(r);
+for(c=0;c<8;c++){
+var dark=((r+c)%2)===1;
+ctx.fillStyle='rgba('+rk.rgb+','+deck(dark?0.15:0.05)+')';
+ctx.fillRect(BX+c*cell,BY+r*cell,cell,cell);
+}
+}
+var t=now*0.00012;
+for(c=0;c<8;c++){
+var ph=(t+c*0.125)%1;
+var yy=BY+BS-ph*BS;
+var al=Math.sin(ph*Math.PI)*0.55*A;
+if(al<=0.012) continue;
+var gr=ctx.createLinearGradient(0,yy,0,yy+cell*1.5);
+gr.addColorStop(0,'rgba(255,255,255,'+(al*0.5)+')');
+gr.addColorStop(1,'rgba(255,255,255,0)');
+ctx.fillStyle=gr;
+ctx.fillRect(BX+c*cell+cell*0.30,yy,cell*0.40,cell*1.5);
+}
+ctx.textAlign='center'; ctx.textBaseline='middle';
+ctx.font=Math.round(cell*0.5)+'px "Segoe UI Symbol","Apple Symbols",Arial';
+for(r=0;r<8;r++){
+var rk2=riskOf(r);
+ctx.fillStyle='rgba('+rk2.rgb+','+deck(0.6)+')';
+for(c=0;c<8;c++){
+ctx.fillText(rk2.figs[c%rk2.figs.length],BX+(c+0.5)*cell,BY+(r+0.55)*cell);
+}
+}
+ctx.strokeStyle='rgba(255,255,255,'+deck(0.09)+')'; ctx.lineWidth=1;
+for(k=0;k<=8;k++){
+ctx.beginPath();ctx.moveTo(BX+k*cell,BY);ctx.lineTo(BX+k*cell,BY+BS);ctx.stroke();
+ctx.beginPath();ctx.moveTo(BX,BY+k*cell);ctx.lineTo(BX+BS,BY+k*cell);ctx.stroke();
+}
+ctx.strokeStyle='rgba(64,198,204,'+deck(0.42)+')'; ctx.lineWidth=1.4;
+ctx.shadowColor='rgba(64,198,204,.75)'; ctx.shadowBlur=18*A;
+ctx.strokeRect(BX,BY,BS,BS);
+ctx.shadowBlur=0;
+if(W>900){
+ctx.font='500 11px Manrope,Arial';
+for(var s2=0;s2<RISK.length;s2++){
+var R=RISK[s2];
+var yMid=BY+((R.rows[0]+R.rows[1]+1)/2)*cell;
+ctx.textBaseline='middle';
+ctx.textAlign='left';
+ctx.fillStyle='rgba('+R.rgb+','+(0.92*A)+')';
+ctx.fillText(R.label,BX+BS+24,yMid);
+ctx.textAlign='right';
+ctx.fillStyle='rgba(139,151,160,'+(0.8*A)+')';
+ctx.font=Math.round(Math.min(20,cell*0.42))+'px "Segoe UI Symbol","Apple Symbols",Arial';
+ctx.fillText(R.figs.join(' '),BX-24,yMid);
+ctx.font='500 11px Manrope,Arial';
+ctx.strokeStyle='rgba('+R.rgb+','+(0.32*A)+')'; ctx.lineWidth=1;
+ctx.beginPath();
+ctx.moveTo(BX+BS+12,BY+R.rows[0]*cell+4);
+ctx.lineTo(BX+BS+12,BY+(R.rows[1]+1)*cell-4);
+ctx.stroke();
+}
+}else{
+/* Schmale Schirme: neben dem Brett ist kein Platz, deshalb wandert die
+   Beschriftung nach innen. Vorher fehlte sie unter 900px komplett. */
+ctx.font='600 10px Manrope,Arial';
+ctx.textAlign='left'; ctx.textBaseline='middle';
+for(var s3=0;s3<RISK.length;s3++){
+var R3=RISK[s3];
+var yTop3=BY+R3.rows[0]*cell, yBot3=BY+(R3.rows[1]+1)*cell;
+var yLab=yTop3+Math.min(13,(yBot3-yTop3)/2);
+var tx3=R3.label, tw3=ctx.measureText(tx3).width;
+ctx.fillStyle='rgba(8,10,14,'+(0.62*A)+')';
+ctx.fillRect(BX+3,yLab-8,tw3+14,16);
+ctx.fillStyle='rgba('+R3.rgb+','+(0.95*A)+')';
+ctx.fillText(tx3,BX+9,yLab);
+ctx.strokeStyle='rgba('+R3.rgb+','+(0.5*A)+')'; ctx.lineWidth=2;
+ctx.beginPath();
+ctx.moveTo(BX+1.5,yTop3+3);
+ctx.lineTo(BX+1.5,yBot3-3);
+ctx.stroke();
+}
+}
+ctx.textAlign='left'; ctx.textBaseline='alphabetic';
+}
+function frame(now){
+now=now||0;
+ctx.clearRect(0,0,W,H);
+var formB=ease(map(S,0.10,0.34));
+var melt =ease(map(S,0.48,0.68));
+var draw =ease(map(S,0.64,0.90));
+var boardA=Math.min(formB,1-melt);
+var visX=marginX+draw*usableW;
+for(var i=0;i<COUNT;i++){
+var a=parts[i], b=boardT[i], q=curveT[i];
+var tx=b.x+(q.x-b.x)*melt, ty=b.y+(q.y-b.y)*melt;
+if(formB>0.02){ a.x+=(tx-a.x)*0.09*formB; a.y+=(ty-a.y)*0.09*formB; }
+a.x+=a.vx*(1-formB); a.y+=a.vy*(1-formB);
+if(a.x<0||a.x>W)a.vx*=-1;
+if(a.y<0||a.y>H)a.vy*=-1;
+}
+var netA=Math.max(0,1-formB*1.5);
+if(netA>0.01){
+for(var p=0;p<COUNT;p++){
+var A1=parts[p];
+for(var q2=p+1;q2<COUNT;q2++){
+var B1=parts[q2];
+var dx=A1.x-B1.x, dy=A1.y-B1.y;
+var d2=dx*dx+dy*dy;
+if(d2>=LINKR2) continue;
+var d=Math.sqrt(d2), near=1-d/LINKR;
+var same=A1.g===B1.g;
+var al=(same?near*0.26:near*0.13)*netA;
+if(al<=0.005) continue;
+ctx.strokeStyle=same?'rgba('+GRP[A1.g].rgb+','+al+')':'rgba(231,236,237,'+al+')';
+ctx.lineWidth=1;
+ctx.beginPath();ctx.moveTo(A1.x,A1.y);ctx.lineTo(B1.x,B1.y);ctx.stroke();
+}
+}
+}
+if(boardA>0.01) drawBoard(boardA,now);
+if(draw>0.005){
+var gA=map(S,0.64,0.74);
+if(gA>0.01){
+ctx.lineWidth=1; ctx.font='11px Manrope,Arial';
+ctx.textAlign='left'; ctx.textBaseline='alphabetic';
+for(var g2=0;g2<=4;g2++){
+var gy=baseY-plotH*(g2/4);
+ctx.strokeStyle='rgba(120,150,160,'+(0.12*gA)+')';
+ctx.beginPath();ctx.moveTo(marginX,gy);ctx.lineTo(marginX+usableW,gy);ctx.stroke();
+}
+ctx.strokeStyle='rgba(120,150,160,'+(0.22*gA)+')';
+ctx.beginPath();ctx.moveTo(marginX,baseY);ctx.lineTo(marginX+usableW,baseY);ctx.stroke();
+}
+ctx.beginPath();ctx.moveTo(marginX,baseY);
+var lx=marginX;
+for(var i2=0;i2<COUNT;i2++){var t2=curveT[i2];if(t2.x>visX)break;ctx.lineTo(t2.x,t2.y);lx=t2.x;}
+ctx.lineTo(lx,baseY);ctx.closePath();
+var grd=ctx.createLinearGradient(0,H*0.22,0,baseY);
+grd.addColorStop(0,'rgba(64,198,204,.20)');
+grd.addColorStop(1,'rgba(64,198,204,0)');
+ctx.fillStyle=grd;ctx.fill();
+var bw=Math.max(3,usableW/N*0.55);
+for(var i3=0;i3<N;i3++){
+var x=cX(i3); if(x>visX)break;
+var bd=barData[i3],oy=mapY(bd.o),cy=mapY(bd.c),hy=mapY(bd.h),ly=mapY(bd.l);
+var col=bd.c>=bd.o?'64,198,204':'224,85,107';
+ctx.strokeStyle='rgba('+col+',.9)';ctx.lineWidth=1.3;
+ctx.beginPath();ctx.moveTo(x,hy);ctx.lineTo(x,ly);ctx.stroke();
+ctx.fillStyle='rgba('+col+',.85)';
+ctx.fillRect(x-bw/2,Math.min(oy,cy),bw,Math.max(2,Math.abs(cy-oy)));
+}
+ctx.beginPath();
+var st=false, endT=curveT[0];
+for(var i4=0;i4<COUNT;i4++){
+var t4=curveT[i4]; if(t4.x>visX)break;
+if(st)ctx.lineTo(t4.x,t4.y); else {ctx.moveTo(t4.x,t4.y);st=true;}
+endT=t4;
+}
+var lg=ctx.createLinearGradient(marginX,0,marginX+usableW,0);
+lg.addColorStop(0,'#40C6CC');lg.addColorStop(0.5,'#D8AE5E');lg.addColorStop(1,'#33C46F');
+ctx.strokeStyle=lg;ctx.lineWidth=2;
+ctx.shadowColor='rgba(64,198,204,.9)';ctx.shadowBlur=10;ctx.stroke();ctx.shadowBlur=0;
+var endHex=draw<0.4?GRP[0].hex:(draw<0.75?GRP[1].hex:GRP[2].hex);
+ctx.beginPath();ctx.arc(endT.x,endT.y,4,0,6.2832);
+ctx.fillStyle='#ffffff';ctx.shadowColor=endHex;ctx.shadowBlur=18;ctx.fill();ctx.shadowBlur=0;
+}
+var dotA=1-draw*0.65;
+if(dotA>0.02){
+for(var i5=0;i5<COUNT;i5++){
+var a5=parts[i5];
+ctx.beginPath();ctx.arc(a5.x,a5.y,a5.r,0,6.2832);
+ctx.fillStyle='rgba('+GRP[a5.g].rgb+','+dotA+')';
+ctx.shadowColor=GRP[a5.g].hex;ctx.shadowBlur=7;ctx.fill();ctx.shadowBlur=0;
+}
+}
+requestAnimationFrame(frame);
+}
+addEventListener('resize',function(){resize();onScroll();});
+resize();init();onScroll();requestAnimationFrame(frame);
+})();
+function setupScrub(scene){
+var canvas=scene.querySelector('.vbg'); if(!canvas) return;
+var ctx=canvas.getContext('2d');
+var name=scene.dataset.sheets;
+var count=parseInt(scene.dataset.count,10)||0;
+var tint=scene.dataset.tint;
+var recolor=scene.dataset.recolor==='1';
+var proBlatt=BLATT_SPALTEN*BLATT_ZEILEN;
+var blaetter=name?Math.ceil(count/proBlatt):0;
+var liste=SHEETS[name]||[];
+var imgs=new Array(blaetter), failed=0, ready=false;
+for(var i=0;i<blaetter;i++){
+(function(i){
+var im=new Image();
+im.onload=function(){ if(!ready){ready=true;draw(0);} };
+im.onerror=function(){ failed++; };
+im.src=liste[i]||('../sheets/'+name+'_'+String(i+1).padStart(2,'0')+'.jpg');
+imgs[i]=im;
+})(i);
+}
+var target=0,current=0,last=-1;
+function resize(){
+var d=Math.min(devicePixelRatio||1,2);
+canvas.width=canvas.clientWidth*d;
+canvas.height=canvas.clientHeight*d;
+last=-1;
+}
+function fallback(p){
+var w=canvas.width,h=canvas.height;
+var g=ctx.createRadialGradient(w*(0.35+p*0.3),h*0.5,10,w*0.5,h*0.5,Math.max(w,h)*0.75);
+g.addColorStop(0,tint+'44');g.addColorStop(0.45,tint+'12');g.addColorStop(1,'#000000');
+ctx.fillStyle='#000';ctx.fillRect(0,0,w,h);
+ctx.fillStyle=g;ctx.fillRect(0,0,w,h);
+ctx.strokeStyle=tint;ctx.lineWidth=1.2;
+for(var k=0;k<7;k++){
+ctx.beginPath();
+for(var x=0;x<=w;x+=14){
+var y=h*0.5+Math.sin(x/w*5+k*0.8+p*5)*h*0.10*(1-k/9);
+if(x===0)ctx.moveTo(x,y); else ctx.lineTo(x,y);
+}
+ctx.globalAlpha=0.10-k*0.011;ctx.stroke();
+}
+ctx.globalAlpha=1;
+}
+function draw(idx){
+var w=canvas.width,h=canvas.height;
+var blatt=Math.floor(idx/proBlatt), pos=idx%proBlatt;
+var img=imgs[blatt];
+if(!name||!img||!img.complete||!img.naturalWidth){
+if(!name||failed>=blaetter) fallback(current);
+return;
+}
+var sx=(pos%BLATT_SPALTEN)*KACHEL_B, sy=Math.floor(pos/BLATT_SPALTEN)*KACHEL_H;
+var sc=Math.max(w/KACHEL_B,h/KACHEL_H);
+var dw=KACHEL_B*sc, dh=KACHEL_H*sc;
+ctx.globalCompositeOperation='source-over';
+ctx.drawImage(img,sx,sy,KACHEL_B,KACHEL_H,(w-dw)/2,(h-dh)/2,dw,dh);
+if(tint&&recolor){
+ctx.globalCompositeOperation='color';
+ctx.fillStyle=tint;ctx.fillRect(0,0,w,h);
+ctx.globalCompositeOperation='source-over';
+}
+}
+function onScroll(){
+var r=scene.getBoundingClientRect();
+var start=innerHeight*0.75;
+var end=-(scene.offsetHeight-innerHeight);
+target=Math.min(1,Math.max(0,(start-r.top)/(start-end)));
+}
+addEventListener('scroll',onScroll,{passive:true});
+addEventListener('resize',function(){resize();onScroll();});
+resize();onScroll();
+(function tick(){
+current+=(target-current)*0.2;
+var idx=Math.min(count-1,Math.max(0,Math.round(current*(count-1))));
+if(idx!==last){draw(idx);last=idx;}
+else if(!name||failed>=blaetter){fallback(current);}
+requestAnimationFrame(tick);
+})();
+}
+document.querySelectorAll('.vscene').forEach(setupScrub);
+(function(){
+var imKasten=false;
+try{ imKasten = (window.self !== window.top); }catch(e){ imKasten = true; }
+if(!imKasten) return;
+document.querySelectorAll('a[href]').forEach(function(a){
+var h=a.getAttribute('href')||'';
+if(!h || h.charAt(0)==='#') return;
+if(a.getAttribute('target')) return;
+/* 02.10.2026: Eingebettet in die Wix-Startseite. Links auf die eigene Wix-Domain wechseln das ganze
+   Fenster (Login bleibt erhalten), fremde Seiten (z. B. Copecart) oeffnen einen neuen Tab. */
+if(/^https?:\/\/(www\.)?kaspareit-trading\.com/i.test(h)){ a.setAttribute('target','_top'); }
+else { a.setAttribute('target','_blank'); a.setAttribute('rel','noopener'); }
+});
+})();
+</script>
+<script>
+/* Menü: Scroll-Zustand und Handy-Klappmenü (28.09.2026, aus der Originalfassung übernommen) */
+(function(){
+var nav=document.getElementById('nav'); if(!nav) return;
+addEventListener('scroll',function(){nav.classList.toggle('scrolled',scrollY>30);},{passive:true});
+var burger=document.getElementById('burger'), links=document.getElementById('navlinks');
+function setOpen(open){nav.classList.toggle('menu-open',open);burger.setAttribute('aria-expanded',open?'true':'false');burger.setAttribute('aria-label',open?'Close menu':'Open menu');}
+burger.addEventListener('click',function(){setOpen(!nav.classList.contains('menu-open'));});
+links.addEventListener('click',function(e){if(e.target.closest('a')) setOpen(false);});
+addEventListener('keydown',function(e){if(e.key==='Escape') setOpen(false);});
+addEventListener('resize',function(){if(innerWidth>900) setOpen(false);});
+})();
+</script>
+<script>
+/* Link „Erfolgsstorys“ öffnet die ausklappbaren Berichte direkt auf dieser Seite (28.09.2026) */
+(function(){
+var d=document.getElementById('erfolgsstorys'); if(!d) return;
+function oeffnen(){ d.open=true; setTimeout(function(){ d.scrollIntoView({behavior:'smooth',block:'start'}); },60); }
+document.querySelectorAll('a[href="#erfolgsstorys"]').forEach(function(a){ a.addEventListener('click',function(e){ e.preventDefault(); oeffnen(); }); });
+if(location.hash==='#erfolgsstorys') oeffnen();
+})();
+</script>
+<div class="lb" id="lb" role="dialog" aria-modal="true" aria-label="Enlarged view"><img alt=""><button class="lb-zu" aria-label="Close">×</button><button class="lb-zur" aria-label="Previous image">‹</button><button class="lb-vor" aria-label="Next image">›</button><div class="lb-info"></div></div>
+<script>
+/* Grossansicht fuer die Nachweis-Galerie (28.09.2026): Klick oeffnet, Pfeile/Wischen blaettern, Esc schliesst */
+(function(){
+var lb=document.getElementById('lb'); if(!lb) return;
+var bild=lb.querySelector('img'), info=lb.querySelector('.lb-info'), links=[].slice.call(document.querySelectorAll('.gal-bild')), i=0;
+function zeige(n){ i=(n+links.length)%links.length; var a=links[i]; bild.src=a.getAttribute('href'); bild.alt=a.querySelector('img').alt; info.textContent=a.dataset.gruppe+' · '+(i+1)+' of '+links.length; }
+function auf(n){ zeige(n); lb.classList.add('offen'); document.documentElement.style.overflow='hidden'; }
+function zu(){ lb.classList.remove('offen'); document.documentElement.style.overflow=''; bild.removeAttribute('src'); }
+links.forEach(function(a,n){ a.addEventListener('click',function(e){ e.preventDefault(); auf(n); }); });
+lb.querySelector('.lb-zu').onclick=zu; lb.querySelector('.lb-vor').onclick=function(e){e.stopPropagation();zeige(i+1);}; lb.querySelector('.lb-zur').onclick=function(e){e.stopPropagation();zeige(i-1);};
+lb.addEventListener('click',function(e){ if(e.target===lb) zu(); });
+addEventListener('keydown',function(e){ if(!lb.classList.contains('offen')) return; if(e.key==='Escape') zu(); if(e.key==='ArrowRight') zeige(i+1); if(e.key==='ArrowLeft') zeige(i-1); });
+var x0=null; lb.addEventListener('touchstart',function(e){x0=e.touches[0].clientX;},{passive:true});
+lb.addEventListener('touchend',function(e){ if(x0===null) return; var dx=e.changedTouches[0].clientX-x0; if(Math.abs(dx)>40) zeige(i+(dx<0?1:-1)); x0=null; });
+})();
+</script>
+<script>
+/* Unten zuklappen und zurueck zu den drei Karten springen (28.09.2026) */
+(function(){
+var k=document.getElementById('storysZu'), d=document.getElementById('erfolgsstorys'), s=document.getElementById('stimmen'); if(!k||!d) return;
+k.addEventListener('click',function(){ d.open=false; (s||d).scrollIntoView({behavior:'smooth',block:'start'}); });
+})();
+</script>
+<script>
+/* TEST 29.09.2026: Scroll-Drehung von Alex im Hero (143 Bilder, PC quer / Handy hoch) */
+(function(){
+var cv=document.getElementById('alexCanvas'), scene=document.getElementById('heroScene'); if(!cv||!scene) return;
+var ctx=cv.getContext('2d'), ANZ=116 /* 01.10.: letzte 27 Bilder abgeschnitten (Ende wirkte zu faltig, Alex), Bilder 101-116 ansteigend nachgeschaerft; Originale in outputs\alex-backup-2026-10-01-anz132 */, ANTEIL=0.26, bilder=[], satz='', gezeigt=-1, alphaAlt=-1, aktuell=0;
+function hoch(){ return cv.clientWidth < cv.clientHeight*0.9; }
+function laden(){
+  var s=hoch()?'handy':'pc'; if(s===satz) return; satz=s; bilder=[];
+  for(var i=0;i<ANZ;i++){ var b=new Image(); b.decoding='async'; b.src='../alex/'+s+'/a_'+String(i+1).padStart(3,'0')+'.webp'; bilder.push(b); if(i===0) b.onload=function(){gezeigt=-1;}; }
+}
+function groesse(){ var d=Math.min(devicePixelRatio||1,2); cv.width=cv.clientWidth*d; cv.height=cv.clientHeight*d; gezeigt=-1; laden(); }
+function zeichne(i,alpha){
+  var b=bilder[i]; if(!b||!b.complete||!b.naturalWidth){ for(var k=i;k>=0;k--){ if(bilder[k]&&bilder[k].complete&&bilder[k].naturalWidth){ b=bilder[k]; break; } } }
+  if(!b||!b.naturalWidth) return false;
+  var w=cv.width,h=cv.height,bw,bh,x,y;
+  if(hoch()){ var s=Math.max(w/b.naturalWidth,h/b.naturalHeight); bw=b.naturalWidth*s; bh=b.naturalHeight*s; x=(w-bw)/2; y=0; }
+  else{
+    /* Querformat: an der Fensterhoehe ausrichten, damit der Kopf nie abgeschnitten wird (Rueckmeldung Alex 29.09.) */
+    var s2=h*0.94/b.naturalHeight; bw=b.naturalWidth*s2; bh=b.naturalHeight*s2; y=h-bh;
+    var ziel=(w/h<1.75)?0.79:0.73; x=w*ziel-bw*0.67; if(x+bw<w*0.97) x=w*0.97-bw;
+  }
+  ctx.clearRect(0,0,w,h); ctx.globalAlpha=alpha; ctx.drawImage(b,x,y,bw,bh);
+  if(!hoch()){
+    /* Bildkanten weich in den Seitenhintergrund ueberblenden */
+    var BG='10,15,16', f=bw*0.14, g;
+    if(x>-1){ g=ctx.createLinearGradient(x,0,x+f,0); g.addColorStop(0,'rgba('+BG+',1)'); g.addColorStop(1,'rgba('+BG+',0)'); ctx.fillStyle=g; ctx.fillRect(x-1,y,f+1,bh); }
+    if(x+bw<w+1){ g=ctx.createLinearGradient(x+bw-f,0,x+bw,0); g.addColorStop(0,'rgba('+BG+',0)'); g.addColorStop(1,'rgba('+BG+',1)'); ctx.fillStyle=g; ctx.fillRect(x+bw-f,y,f+1,bh); }
+    if(y>0){ g=ctx.createLinearGradient(0,y,0,y+bh*0.12); g.addColorStop(0,'rgba('+BG+',1)'); g.addColorStop(1,'rgba('+BG+',0)'); ctx.fillStyle=g; ctx.fillRect(x,y-1,bw,bh*0.12+1); }
+  }
+  ctx.globalAlpha=1; return true;
+}
+var ruhig=matchMedia('(prefers-reduced-motion: reduce)').matches;
+function takt(){
+  var SR=window.__heroSR||0;
+  var ziel=Math.min(1,SR/(ANTEIL*0.9))*(ANZ-1);
+  aktuell+= (ziel-aktuell)*(ruhig?1:0.14); if(Math.abs(ziel-aktuell)<0.05) aktuell=ziel;
+  var aus=Math.min(1,Math.max(0,(SR-ANTEIL*0.95)/0.07));
+  var alpha=1-aus;
+  document.documentElement.classList.toggle('alex-weg',aus>0.5);
+  document.getElementById('alexSchleier').style.opacity=alpha; var hc=document.getElementById('heroCanvas'); if(hc) hc.style.opacity=(0.4+0.6*aus).toFixed(3);
+  var i=Math.round(aktuell);
+  if(i!==gezeigt||Math.abs(alpha-alphaAlt)>0.01){ if(alpha<=0.005){ ctx.clearRect(0,0,cv.width,cv.height); gezeigt=i; alphaAlt=alpha; } else if(zeichne(i,alpha)){ gezeigt=i; alphaAlt=alpha; } }
+  requestAnimationFrame(takt);
+}
+addEventListener('resize',groesse);
+groesse(); requestAnimationFrame(takt);
+})();
+</script>
+<script>
+/* TEST 02.10.2026: Blickziel im Hero. Ein Glas-Element mit Abstand vor Alex, auf Augenhoehe,
+   zwischen Text und Gesicht. 3 Versionen (?hero=1|2|3 oder Knopf unten links). Nur PC-Querformat. */
+(function(){
+var box=document.getElementById('blickziel'), hc=document.getElementById('heroContent'), wahl=document.getElementById('bzWahl');
+if(!box||!hc) return;
+var v='2'; /* 02.10.: Alex hat Version 2 (drei Saeulen-Karten) gewaehlt */
+function setze(n){ v=String(n); box.className='v'+v; start=performance.now(); }
+
+var css=getComputedStyle(document.documentElement), F={teal:css.getPropertyValue('--teal').trim(),gold:css.getPropertyValue('--gold').trim(),green:css.getPropertyValue('--green').trim()};
+function rgba(hex,a){ var n=parseInt(hex.replace('#',''),16); return 'rgba('+(n>>16&255)+','+(n>>8&255)+','+(n&255)+','+a+')'; }
+/* ruhige Zufallskurve mit Aufwaertsneigung, fest (kein echter Kurs, reine Illustration) */
+function reihe(n,seed,trend){ var a=[],y=0,s=seed; for(var i=0;i<n;i++){ s=(s*9301+49297)%233280; var r=s/233280-0.5; y+=r*0.9+trend; a.push(y);} var mn=Math.min.apply(0,a),mx=Math.max.apply(0,a); return a.map(function(x){return (x-mn)/(mx-mn||1);}); }
+var R1=reihe(160,7,0.09), R2={teal:reihe(90,3,0.07),gold:reihe(90,11,0.06),green:reihe(90,5,0.03)};
+function linie(cv,daten,farbe,anteil,zeit,flaeche,gestr){
+  var d=Math.min(devicePixelRatio||1,2), w=cv.clientWidth*d, h=cv.clientHeight*d; if(!w||!h) return; if(cv.width!==w){cv.width=w;cv.height=h;}
+  var c=cv.getContext('2d'); c.clearRect(0,0,w,h);
+  var n=Math.max(2,Math.min(daten.length,Math.floor(daten.length*anteil))), pad=5*d;
+  function P(i){ var wob=(i===n-1)?Math.sin(zeit/380)*0.025:0; return {x:pad+(w-2*pad)*i/(daten.length-1), y:h-pad-(h-2*pad)*Math.min(1,Math.max(0,daten[i]+wob))}; }
+  if(flaeche){ var g=c.createLinearGradient(0,0,0,h); g.addColorStop(0,rgba(farbe,.28)); g.addColorStop(1,rgba(farbe,0));
+    c.beginPath(); c.moveTo(P(0).x,h); for(var i=0;i<n;i++){var p=P(i); c.lineTo(p.x,p.y);} c.lineTo(P(n-1).x,h); c.closePath(); c.fillStyle=g; c.fill(); }
+  c.beginPath(); for(var j=0;j<n;j++){var q=P(j); if(j)c.lineTo(q.x,q.y); else c.moveTo(q.x,q.y);}
+  c.setLineDash(gestr?[4*d,5*d]:[]); c.strokeStyle=farbe; c.lineWidth=1.6*d; c.shadowColor=farbe; c.shadowBlur=8*d; c.stroke(); c.setLineDash([]); c.shadowBlur=0;
+  var e=P(n-1), pu=(Math.sin(zeit/300)+1)/2;
+  c.beginPath(); c.arc(e.x,e.y,(3+pu*3)*d,0,7); c.fillStyle=rgba(farbe,.25*(1-pu)+.08); c.fill();
+  c.beginPath(); c.arc(e.x,e.y,2.6*d,0,7); c.fillStyle=farbe; c.fill();
+}
+var start=performance.now(), alpha=0;
+function querPc(){ return innerWidth>=1100 && innerWidth>innerHeight*1.2; }
+function takt(now){
+  var SR=window.__heroSR||0;
+  if(!querPc()){ box.style.display='none'; requestAnimationFrame(takt); return; }
+  box.style.display='block';
+  var w=innerWidth, h=Math.max(innerHeight,640);
+  var bh=h*0.94,bw=bh*16/9,by=h-bh,zx=(w/h<1.75)?0.79:0.73,bx=w*zx-bw*0.67; if(bx+bw<w*0.97) bx=w*0.97-bw;
+  var nase=bx+bw*0.58, auge=by+bh*0.26;
+  var rg=document.createRange(); rg.selectNodeContents(hc); var tr=rg.getBoundingClientRect().right;
+  var rechts=nase-w*0.035, links=tr+36, B=Math.min(370,rechts-links);
+  if(B<255){ box.style.opacity=0; requestAnimationFrame(takt); return; }
+  box.style.width=B+'px';
+  var H=box.offsetHeight, top=Math.max(96,Math.min(h-H-40,auge-H*0.42));
+  /* Einblenden nach dem Laden, Ausblenden zusammen mit Alex */
+  var ein=Math.min(1,(now-start)/900), aus=Math.min(1,Math.max(0,(SR-0.26*0.95)/0.07)), zielA=ein*(1-aus);
+  alpha+=(zielA-alpha)*0.15;
+  var sch=(1-ein)*18+SR*-60;
+  box.style.opacity=alpha.toFixed(3); box.style.transform='translate('+(rechts-B)+'px,'+(top+sch)+'px)';
+  /* Fortschritt: Zeit fuer den ersten Eindruck, Scrollen treibt den Rest */
+  var t=(now-start)/1000, prog=Math.min(1,Math.max(Math.min(t/3.2,0.45),SR/0.2));
+  if(v==='1'){
+    linie(document.getElementById('bzKurve'),R1,F.teal,0.25+0.75*prog,now,true,false);
+    [].forEach.call(box.querySelectorAll('.feed>div'),function(el,i){ el.classList.toggle('an',prog>0.12+i*0.2); });
+  } else if(v==='2'){
+    [].forEach.call(box.querySelectorAll('.bz2 .karte'),function(el,i){
+      el.classList.toggle('an',prog>i*0.22);
+      var cv=el.querySelector('canvas'), f=cv.dataset.farbe; linie(cv,R2[f],F[f],Math.min(1,Math.max(0.05,0.3+prog*0.9-i*0.1)),now,true,!!cv.dataset.bald);
+    });
+  } else {
+    var s=box.querySelectorAll('.ablauf .sch'); [].forEach.call(s,function(el,i){ el.classList.toggle('an',prog>i*0.24); });
+    var ab=box.querySelector('.ablauf'), l=ab.querySelector('.lauf'); if(!l){ l=document.createElement('span'); l.className='lauf'; ab.appendChild(l); }
+    var hoehe=ab.clientHeight-30, an=Math.max(0,Math.min(s.length,Math.floor(prog/0.24)+1)), bis=hoehe*Math.min(1,an/s.length);
+    l.style.top=(6+((now/12)%Math.max(bis,1)))+'px';
+  }
+  requestAnimationFrame(takt);
+}
+setze(v); requestAnimationFrame(takt);
+})();
+</script>
+
+<script>
+/* TEST 02.10.2026: Ablauf-Szenen (CFD 5 Schritte, Pruefprozess 7 Schritte). Schritt folgt der Scrollposition.
+   Titel je Schritt im data-titel des li. */
+(function(){
+[].forEach.call(document.querySelectorAll('.ablauf-szene'),function(sz){
+var li=sz.querySelectorAll('.ab-liste li'), bi=sz.querySelectorAll('.ab-buehne .bild'), pu=sz.querySelectorAll('.ab-punkte i');
+var n=li.length, tEl=sz.querySelector('.ab-titel'), zEl=sz.querySelector('.ab-zaehler'), akt=-1;
+function setze(k){ if(k===akt) return; akt=k;
+  for(var i=0;i<n;i++){ li[i].classList.toggle('an',i===k); li[i].classList.toggle('fertig',i<k); if(bi[i]) bi[i].classList.toggle('an',i===k); if(pu[i]) pu[i].classList.toggle('an',i===k); }
+  if(tEl) tEl.textContent=li[k].dataset.titel||''; if(zEl) zEl.textContent='Step '+(k+1)+' of '+n; }
+function lauf(){ var r=sz.getBoundingClientRect(), weg=sz.offsetHeight-innerHeight, p=Math.min(1,Math.max(0,-r.top/Math.max(1,weg)));
+  setze(Math.min(n-1,Math.floor(p*n))); }
+function springe(k){ var top=sz.getBoundingClientRect().top+scrollY, weg=sz.offsetHeight-innerHeight; scrollTo({top:top+weg*(k+0.5)/n,behavior:'smooth'}); }
+[].forEach.call(li,function(el,i){ el.addEventListener('click',function(){ springe(i); }); });
+[].forEach.call(pu,function(el,i){ el.addEventListener('click',function(){ springe(i); }); });
+addEventListener('scroll',lauf,{passive:true}); addEventListener('resize',lauf); lauf();
+});
+})();</script><script>
+/* 02.10.2026: Pruefprozess-Visuals: Ideen-Raster und Monte-Carlo-Faecher */
+(function(){
+var ideen=document.querySelector('#pruefAblauf .ideen'); if(!ideen) return;
+var gut={5:1,14:1,27:1,31:1,46:1}; for(var i=0;i<48;i++){ var e=document.createElement('i'); if(gut[i]) e.className='gut'; e.style.setProperty('--d',(((i*37)%48)/48*1.6).toFixed(2)); ideen.appendChild(e); }
+var cv=document.querySelector('#pruefAblauf .mc'), bild=document.querySelector('#pruefAblauf .p4'), lief=false, t0=0;
+var css=getComputedStyle(document.documentElement), teal=css.getPropertyValue('--teal').trim();
+var pfade=[]; var s=11; function r(){ s=(s*9301+49297)%233280; return s/233280-0.5; }
+for(var k=0;k<60;k++){ var y=0,a=[0]; for(var j=1;j<80;j++){ y+=r()*1.1; a.push(y); } pfade.push(a); }
+var mn=1e9,mx=-1e9; pfade.forEach(function(a){ a.forEach(function(v){ mn=Math.min(mn,v); mx=Math.max(mx,v); }); });
+function zeichne(now){
+  if(!bild.classList.contains('an')){ lief=false; requestAnimationFrame(zeichne); return; }
+  if(!lief){ lief=true; t0=now; }
+  var d=Math.min(devicePixelRatio||1,2), w=cv.clientWidth*d, h=cv.clientHeight*d; if(cv.width!==w){ cv.width=w; cv.height=h; }
+  var c=cv.getContext('2d'); c.clearRect(0,0,w,h);
+  var prog=Math.min(1,(now-t0)/2200), n=Math.max(2,Math.floor(80*prog));
+  pfade.forEach(function(a,ix){ c.beginPath(); for(var j=0;j<n;j++){ var x=w*j/79, yy=h*0.08+(h*0.84)*(1-(a[j]-mn)/(mx-mn)); if(j) c.lineTo(x,yy); else c.moveTo(x,yy); }
+    c.strokeStyle=ix===7?'rgba(216,174,94,.95)':'rgba(64,198,204,.22)'; c.lineWidth=(ix===7?2:1)*d; c.stroke(); });
+  requestAnimationFrame(zeichne);
+}
+requestAnimationFrame(zeichne);
+})();
+</script></body>
+</html>
