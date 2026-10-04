@@ -642,7 +642,27 @@ color:var(--gold);background:rgba(216,174,94,.13);border:1px solid rgba(216,174,
 .mc{height:160px}
 .ideen{gap:7px}
 .vergleich>div{grid-template-columns:80px 1fr}
-}</style>
+}
+/* ATH-GALERIE-CSS (04.10.2026): Einblick in All Time High, Klick oeffnet die Grossansicht */
+.ath-gal{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.ath-karte{background:var(--card);border:1px solid var(--line);border-radius:14px;overflow:hidden;display:flex;flex-direction:column;transition:border-color .3s,box-shadow .3s,transform .3s}
+.ath-karte:hover{border-color:rgba(216,174,94,.45);box-shadow:0 0 26px rgba(216,174,94,.16);transform:translateY(-4px)}
+.ath-karte.breit{grid-column:span 2}
+.ath-karte .gal-bild.ath-bild{aspect-ratio:auto;height:300px;border:0;border-radius:0;border-bottom:1px solid var(--line);background:#080b0c}
+.ath-karte .gal-bild.ath-bild:hover{box-shadow:none;transform:none}
+.ath-bild img{object-fit:cover;object-position:top left}
+.ath-bild.ganz img{object-fit:contain;object-position:center}
+.ath-text{padding:22px 24px 26px}
+.ath-text .n{font-size:12.5px;letter-spacing:.3em;text-transform:uppercase;color:var(--gold);font-weight:600;margin-bottom:10px}
+.ath-text h3{font-size:21px;font-weight:400;margin-bottom:8px}
+.ath-text p{color:var(--muted);font-size:15.5px;line-height:1.6}
+.ath-hinweis{margin-top:26px;text-align:center;color:var(--dim);font-size:13px}
+@media(max-width:860px){.ath-gal{grid-template-columns:1fr}.ath-karte.breit{grid-column:auto}.ath-karte .gal-bild.ath-bild{height:220px}}
+
+/* CT-GALERIE-CSS (04.10.2026): Teal-Variante der Galerie fuer das Customer Terminal */
+.ath-gal.teal .ath-karte:hover{border-color:rgba(64,198,204,.45);box-shadow:0 0 26px rgba(64,198,204,.16)}
+.ath-gal.teal .ath-text .n{color:var(--teal)}
+</style>
 <script>
 /* Sofort feststellen, ob die Seite in einem Kasten auf einer anderen Seite
    laeuft. Muss vor dem Zeichnen passieren, sonst blitzt der zweite
@@ -873,6 +893,26 @@ Direkt mit deinem Konto bei <b class="hg">Interactive Brokers</b> verbunden, ohn
 </div>
 </div>
 </div>
+<!-- ATH-GALERIE-START (04.10.2026) -->
+<section id="ath-einblick" style="background:var(--bg2);border-top:1px solid var(--line);border-bottom:1px solid var(--line)">
+<div class="wrap">
+<div class="sec-head mid reveal">
+<div class="kicker" style="color:var(--gold)">Säule 02 · Einblick</div>
+<h2>So arbeitet All Time High</h2>
+<p>Echte Bildschirmfotos aus der App. <b class="hg">Vom Finden der Aktie über den Test an der Vergangenheit bis zum automatischen Handel</b>, alles in einer Software.</p>
+</div>
+<div class="ath-gal" data-galerie="ath">
+<div class="ath-karte reveal breit" style="--i:0"><a class="gal-bild ath-bild" href="../ath-galerie/gross/ath02_screener.jpg" data-gruppe="All Time High"><img src="../ath-galerie/klein/ath02_screener.jpg" alt="Marktscreener mit Rangliste der Treffer" loading="lazy" decoding="async"></a><div class="ath-text"><div class="n">Finden</div><h3>Aktien finden statt suchen</h3><p>Der <b class="hg">Marktscreener</b> durchsucht ganze Indizes nach 49 Kennzahlen und sortiert die Treffer in eine Rangliste. Fertige Vorlagen machen den Start einfach.</p></div></div>
+<div class="ath-karte reveal" style="--i:1"><a class="gal-bild ath-bild ganz" href="../ath-galerie/gross/ath03_firma.jpg" data-gruppe="All Time High"><img src="../ath-galerie/klein/ath03_firma.jpg" alt="Firmenfenster mit Kursverlauf, Umsatz und Gewinn" loading="lazy" decoding="async"></a><div class="ath-text"><div class="n">Verstehen</div><h3>Jede Firma auf einen Blick</h3><p>Ein Klick zeigt Kursverlauf, Umsatz, Gewinn und Bewertung. Die Geschäftszahlen stammen aus den <b class="hl">offiziellen Meldungen an die US-Börsenaufsicht</b>.</p></div></div>
+<div class="ath-karte reveal" style="--i:2"><a class="gal-bild ath-bild" href="../ath-galerie/gross/ath05_screenerbacktest.jpg" data-gruppe="All Time High"><img src="../ath-galerie/klein/ath05_screenerbacktest.jpg" alt="Screener-Backtester mit Ablauf und Korb je Stichtag" loading="lazy" decoding="async"></a><div class="ath-text"><div class="n">Testen</div><h3>Erst testen, dann handeln</h3><p>Der <b class="hg">Screener-Backtester</b> rechnet durch, was der Bot mit genau dieser Auswahl gemacht hätte. Ohne Export, ohne Tabellen, mit einem Klick.</p></div></div>
+<div class="ath-karte reveal breit" style="--i:0"><a class="gal-bild ath-bild" href="../ath-galerie/gross/ath04_historisch.jpg" data-gruppe="All Time High"><img src="../ath-galerie/klein/ath04_historisch.jpg" alt="Historisches Screening mit der Auswahl je Stichtag" loading="lazy" decoding="async"></a><div class="ath-text"><div class="n">Zurückblicken</div><h3>Zeitreise statt Bauchgefühl</h3><p>Das <b class="hg">historische Screening</b> rechnet so, als wäre heute ein Tag der Vergangenheit. Nur mit dem Wissen von damals, auch mit Firmen, die es heute nicht mehr gibt. <b class="hl">So wird nichts schöngerechnet.</b></p></div></div>
+<div class="ath-karte reveal breit" style="--i:1"><a class="gal-bild ath-bild" href="../ath-galerie/gross/ath06_gridbot.jpg" data-gruppe="All Time High"><img src="../ath-galerie/klein/ath06_gridbot.jpg" alt="Chart einer laufenden Position mit Kaufstufen und Stops" loading="lazy" decoding="async"></a><div class="ath-text"><div class="n">Handeln</div><h3>Der GridBot bei der Arbeit</h3><p>Er kauft in mehreren kleinen Stufen, zieht den Stop auf den Einstand nach und legt die Absicherung <b class="hg">direkt bei Interactive Brokers</b> ab. Sie greift auch, wenn dein Rechner aus ist.</p></div></div>
+<div class="ath-karte reveal" style="--i:2"><a class="gal-bild ath-bild ganz" href="../ath-galerie/gross/ath07_ampel.jpg" data-gruppe="All Time High"><img src="../ath-galerie/klein/ath07_ampel.jpg" alt="Einstiegs-Ampel mit drei erfüllten Trendbedingungen" loading="lazy" decoding="async"></a><div class="ath-text"><div class="n">Absichern</div><h3>Kauft nur im Aufwärtstrend</h3><p>Die <b class="hl">Einstiegs-Ampel</b> zeigt, ob alle Trendbedingungen erfüllt sind. Nachgekauft wird nur, wenn der große Trend passt.</p></div></div>
+</div>
+<p class="ath-hinweis">Bildschirmfotos aus All Time High. Zum Vergrößern anklicken. Vergangene Ergebnisse sind kein verlässlicher Hinweis auf künftige Ergebnisse.</p>
+</div>
+</section>
+<!-- ATH-GALERIE-ENDE -->
 <section id="vergleich">
 <div class="wrap">
 <div class="sec-head mid reveal">
@@ -927,7 +967,7 @@ für alles, sondern <b class="hl">drei getrennte Systeme</b>.</p>
 <div class="cmp-row reveal" style="--i:7">
 <div>Stand</div>
 <div><b class="ht">Portfolios live seit dem 8. Juni 2026</b></div>
-<div>Alpha seit Ende August 2026</div>
+<div><b class="hg">Live seit Oktober 2026</b></div>
 <div>In Entwicklung</div>
 </div>
 </div>
@@ -974,6 +1014,29 @@ wahrscheinlich eine Challenge zu bestehen ist, bevor du einen Euro riskierst.</p
 </div>
 </div>
 </section>
+<!-- CT-GALERIE-START (04.10.2026) -->
+<section id="ct-einblick">
+<div class="wrap">
+<div class="sec-head mid reveal">
+<div class="kicker" style="color:var(--teal)">Der Kontrollraum · Einblick</div>
+<h2>So sieht das Customer Terminal aus</h2>
+<p>Ein kurzer Rundgang mit echten Bildschirmfotos: <b class="ht">die Bots in drei Schritten installieren</b>, danach aktuell halten und mit den Werkzeugen arbeiten.</p>
+</div>
+<div class="ath-gal teal" data-galerie="ct">
+<div class="ath-karte reveal breit" style="--i:0"><a class="gal-bild ath-bild" href="../ct-galerie/gross/ct01_start.jpg" data-gruppe="Customer Terminal"><img src="../ct-galerie/klein/ct01_start.jpg" alt="Startseite des Customer Terminals" loading="lazy" decoding="async"></a><div class="ath-text"><div class="n">Überblick</div><h3>Alles an einem Ort</h3><p>Installer, Updater, Werkzeuge und Live-Performance in einer Oberfläche. Das Terminal bekommst du schon als <b class="ht">Free Member kostenlos</b>.</p></div></div>
+<div class="ath-karte reveal" style="--i:1"><a class="gal-bild ath-bild" href="../ct-galerie/gross/ct02_installer.jpg" data-gruppe="Customer Terminal"><img src="../ct-galerie/klein/ct02_installer.jpg" alt="Willkommensseite des Installers" loading="lazy" decoding="async"></a><div class="ath-text"><div class="n">Schritt 1</div><h3>Installer starten</h3><p>Der Installer richtet MetaTrader 5 für dich ein: Broker-Software laden, eigene Instanzen anlegen, alles sauber an einem Ort abgelegt.</p></div></div>
+<div class="ath-karte reveal breit" style="--i:2"><a class="gal-bild ath-bild ganz" href="../ct-galerie/gross/ct03b_portfolios.jpg" data-gruppe="Customer Terminal"><img src="../ct-galerie/klein/ct03b_portfolios.jpg" alt="Auswahl der Strategieportfolios im Installer" loading="lazy" decoding="async"></a><div class="ath-text"><div class="n">Schritt 2</div><h3>Fertiges Portfolio wählen</h3><p>Im Reiter Portfolios suchst du dir ein <b class="ht">fertig abgestimmtes Strategieportfolio</b> in der Fassung für deinen Broker aus. Ein Häkchen, und alle enthaltenen Strategien kommen als ein einziger Bot.</p></div></div>
+<div class="ath-karte reveal" style="--i:0"><a class="gal-bild ath-bild ganz" href="../ct-galerie/gross/ct03_auswahl.jpg" data-gruppe="Customer Terminal"><img src="../ct-galerie/klein/ct03_auswahl.jpg" alt="Auswahl von Einzelstrategien im Installer" loading="lazy" decoding="async"></a><div class="ath-text"><div class="n">Schritt 2</div><h3>Oder Einzelstrategien</h3><p>Wer lieber selbst kombiniert, hakt einzelne Strategien an. Programmieren oder Dateien kopieren musst du nicht.</p></div></div>
+<div class="ath-karte reveal" style="--i:1"><a class="gal-bild ath-bild ganz" href="../ct-galerie/gross/ct04_zusammenfassung.jpg" data-gruppe="Customer Terminal"><img src="../ct-galerie/klein/ct04_zusammenfassung.jpg" alt="Zusammenfassung vor der Installation" loading="lazy" decoding="async"></a><div class="ath-text"><div class="n">Schritt 3</div><h3>Prüfen und installieren</h3><p>Die Zusammenfassung zeigt, was wohin kommt. Ein Klick, und die Bots liegen im richtigen MetaTrader.</p></div></div>
+<div class="ath-karte reveal breit" style="--i:2"><a class="gal-bild ath-bild" href="../ct-galerie/gross/ct05_updater.jpg" data-gruppe="Customer Terminal"><img src="../ct-galerie/klein/ct05_updater.jpg" alt="Updater mit lokalen Instanzen und installierten Bots" loading="lazy" decoding="async"></a><div class="ath-text"><div class="n">Danach</div><h3>Immer aktuell</h3><p>Der Updater erkennt deine MetaTrader-Instanzen, zeigt, welche Bots darauf laufen, und spielt <b class="ht">neue Versionen</b> mit einem Klick ein.</p></div></div>
+<div class="ath-karte reveal" style="--i:0"><a class="gal-bild ath-bild" href="../ct-galerie/gross/ct06_seasonal.jpg" data-gruppe="Customer Terminal"><img src="../ct-galerie/klein/ct06_seasonal.jpg" alt="Seasonal Screener mit Heatmap" loading="lazy" decoding="async"></a><div class="ath-text"><div class="n">Werkzeug</div><h3>Saisonale Muster finden</h3><p>Der <b class="ht">Seasonal Screener</b> prüft Kursdaten aus über 25 Jahren und zeigt, welche Einstiege und Haltedauern sich Jahr für Jahr wiederholen.</p></div></div>
+<div class="ath-karte reveal" style="--i:1"><a class="gal-bild ath-bild ganz" href="../ct-galerie/gross/ct07_cot.jpg" data-gruppe="Customer Terminal"><img src="../ct-galerie/klein/ct07_cot.jpg" alt="COT Screener mit Signal-Matrix" loading="lazy" decoding="async"></a><div class="ath-text"><div class="n">Werkzeug</div><h3>COT-Daten auf einen Blick</h3><p>Der <b class="ht">COT Screener</b> wertet die wöchentlichen Berichte der US-Terminmarktaufsicht aus und macht daraus ein klares Signal, von sehr bearish bis sehr bullish.</p></div></div>
+<div class="ath-karte reveal" style="--i:2"><a class="gal-bild ath-bild ganz" href="../ct-galerie/gross/ct08_prop.jpg" data-gruppe="Customer Terminal"><img src="../ct-galerie/klein/ct08_prop.jpg" alt="Risiko- und Prop-Simulator" loading="lazy" decoding="async"></a><div class="ath-text"><div class="n">Werkzeug</div><h3>Prop-Challenge vorab testen</h3><p>Der Simulator spielt deine echten Trades <b class="ht">10.000 Mal</b> in neuer Reihenfolge durch und zeigt, wie oft du eine Challenge bestanden hättest, bevor du Geld riskierst.</p></div></div>
+</div>
+<p class="ath-hinweis">Bildschirmfotos aus dem Customer Terminal. Zum Vergrößern anklicken. Kontonummern sind unkenntlich gemacht.</p>
+</div>
+</section>
+<!-- CT-GALERIE-ENDE -->
 <!-- 02.10.2026: Pruefprozess als scrollgekoppelte Ablauf-Szene (vorher Textliste .qlist) -->
 <div class="ablauf-szene pruef" id="pruefAblauf" style="--f:var(--teal)">
 <div class="ab-sticky">
@@ -1867,11 +1930,11 @@ if(location.hash==='#erfolgsstorys') oeffnen();
 /* Grossansicht fuer die Nachweis-Galerie (28.09.2026): Klick oeffnet, Pfeile/Wischen blaettern, Esc schliesst */
 (function(){
 var lb=document.getElementById('lb'); if(!lb) return;
-var bild=lb.querySelector('img'), info=lb.querySelector('.lb-info'), links=[].slice.call(document.querySelectorAll('.gal-bild')), i=0;
+var bild=lb.querySelector('img'), info=lb.querySelector('.lb-info'), alle=[].slice.call(document.querySelectorAll('.gal-bild')), links=alle, i=0; /* ATH-GALERIE: jede Galerie blaettert nur in ihren eigenen Bildern */ function gruppe(a){ var g=a.closest('[data-galerie]'); return alle.filter(function(b){ return b.closest('[data-galerie]')===g; }); }
 function zeige(n){ i=(n+links.length)%links.length; var a=links[i]; bild.src=a.getAttribute('href'); bild.alt=a.querySelector('img').alt; info.textContent=a.dataset.gruppe+' · '+(i+1)+' von '+links.length; }
 function auf(n){ zeige(n); lb.classList.add('offen'); document.documentElement.style.overflow='hidden'; }
 function zu(){ lb.classList.remove('offen'); document.documentElement.style.overflow=''; bild.removeAttribute('src'); }
-links.forEach(function(a,n){ a.addEventListener('click',function(e){ e.preventDefault(); auf(n); }); });
+alle.forEach(function(a){ a.addEventListener('click',function(e){ e.preventDefault(); links=gruppe(a); auf(links.indexOf(a)); }); });
 lb.querySelector('.lb-zu').onclick=zu; lb.querySelector('.lb-vor').onclick=function(e){e.stopPropagation();zeige(i+1);}; lb.querySelector('.lb-zur').onclick=function(e){e.stopPropagation();zeige(i-1);};
 lb.addEventListener('click',function(e){ if(e.target===lb) zu(); });
 addEventListener('keydown',function(e){ if(!lb.classList.contains('offen')) return; if(e.key==='Escape') zu(); if(e.key==='ArrowRight') zeige(i+1); if(e.key==='ArrowLeft') zeige(i-1); });
