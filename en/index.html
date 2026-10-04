@@ -658,6 +658,10 @@ color:var(--gold);background:rgba(216,174,94,.13);border:1px solid rgba(216,174,
 .ath-text p{color:var(--muted);font-size:15.5px;line-height:1.6}
 .ath-hinweis{margin-top:26px;text-align:center;color:var(--dim);font-size:13px}
 @media(max-width:860px){.ath-gal{grid-template-columns:1fr}.ath-karte.breit{grid-column:auto}.ath-karte .gal-bild.ath-bild{height:220px}}
+
+/* CT-GALERIE-CSS (04.10.2026): Teal-Variante der Galerie fuer das Customer Terminal */
+.ath-gal.teal .ath-karte:hover{border-color:rgba(64,198,204,.45);box-shadow:0 0 26px rgba(64,198,204,.16)}
+.ath-gal.teal .ath-text .n{color:var(--teal)}
 </style>
 <script>
 /* Sofort feststellen, ob die Seite in einem Kasten auf einer anderen Seite
@@ -1026,6 +1030,29 @@ June 8, 2026. <b class="hl">Visible even with the free membership.</b></p></div>
 </div>
 </div>
 </section>
+<!-- CT-GALERIE-START (04.10.2026) -->
+<section id="ct-einblick">
+<div class="wrap">
+<div class="sec-head mid reveal">
+<div class="kicker" style="color:var(--teal)">The control room · Inside look</div>
+<h2>What the Customer Terminal looks like</h2>
+<p>A short tour with real screenshots: <b class="ht">install the bots in three steps</b>, then keep them up to date and work with the tools.</p>
+</div>
+<div class="ath-gal teal" data-galerie="ct">
+<div class="ath-karte reveal breit" style="--i:0"><a class="gal-bild ath-bild" href="../ct-galerie/gross/ct01_start.jpg" data-gruppe="Customer Terminal"><img src="../ct-galerie/klein/ct01_start.jpg" alt="Start screen of the Customer Terminal" loading="lazy" decoding="async"></a><div class="ath-text"><div class="n">Overview</div><h3>Everything in one place</h3><p>Installer, updater, tools and live performance in one interface. You get the terminal <b class="ht">for free as a Free Member</b>.</p></div></div>
+<div class="ath-karte reveal" style="--i:1"><a class="gal-bild ath-bild" href="../ct-galerie/gross/ct02_installer.jpg" data-gruppe="Customer Terminal"><img src="../ct-galerie/klein/ct02_installer.jpg" alt="Welcome screen of the installer" loading="lazy" decoding="async"></a><div class="ath-text"><div class="n">Step 1</div><h3>Start the installer</h3><p>The installer sets up MetaTrader 5 for you: download the broker software, create your own instances, everything stored neatly in one place.</p></div></div>
+<div class="ath-karte reveal breit" style="--i:2"><a class="gal-bild ath-bild ganz" href="../ct-galerie/gross/ct03b_portfolios.jpg" data-gruppe="Customer Terminal"><img src="../ct-galerie/klein/ct03b_portfolios.jpg" alt="Selecting strategy portfolios in the installer" loading="lazy" decoding="async"></a><div class="ath-text"><div class="n">Step 2</div><h3>Pick a ready-made portfolio</h3><p>In the Portfolios tab you choose a <b class="ht">fully tuned strategy portfolio</b> in the version for your broker. One tick and all strategies inside come as one single bot.</p></div></div>
+<div class="ath-karte reveal" style="--i:0"><a class="gal-bild ath-bild ganz" href="../ct-galerie/gross/ct03_auswahl.jpg" data-gruppe="Customer Terminal"><img src="../ct-galerie/klein/ct03_auswahl.jpg" alt="Selecting single strategies in the installer" loading="lazy" decoding="async"></a><div class="ath-text"><div class="n">Step 2</div><h3>Or single strategies</h3><p>If you prefer to combine yourself, tick individual strategies. No programming, no copying files.</p></div></div>
+<div class="ath-karte reveal" style="--i:1"><a class="gal-bild ath-bild ganz" href="../ct-galerie/gross/ct04_zusammenfassung.jpg" data-gruppe="Customer Terminal"><img src="../ct-galerie/klein/ct04_zusammenfassung.jpg" alt="Summary before installation" loading="lazy" decoding="async"></a><div class="ath-text"><div class="n">Step 3</div><h3>Check and install</h3><p>The summary shows what goes where. One click and the bots are in the right MetaTrader.</p></div></div>
+<div class="ath-karte reveal breit" style="--i:2"><a class="gal-bild ath-bild" href="../ct-galerie/gross/ct05_updater.jpg" data-gruppe="Customer Terminal"><img src="../ct-galerie/klein/ct05_updater.jpg" alt="Updater with local instances and installed bots" loading="lazy" decoding="async"></a><div class="ath-text"><div class="n">Afterwards</div><h3>Always up to date</h3><p>The updater detects your MetaTrader instances, shows which bots run on them and installs <b class="ht">new versions</b> with one click.</p></div></div>
+<div class="ath-karte reveal" style="--i:0"><a class="gal-bild ath-bild" href="../ct-galerie/gross/ct06_seasonal.jpg" data-gruppe="Customer Terminal"><img src="../ct-galerie/klein/ct06_seasonal.jpg" alt="Seasonal Screener with heatmap" loading="lazy" decoding="async"></a><div class="ath-text"><div class="n">Tool</div><h3>Find seasonal patterns</h3><p>The <b class="ht">Seasonal Screener</b> checks more than 25 years of price data and shows which entries and holding periods repeat year after year.</p></div></div>
+<div class="ath-karte reveal" style="--i:1"><a class="gal-bild ath-bild ganz" href="../ct-galerie/gross/ct07_cot.jpg" data-gruppe="Customer Terminal"><img src="../ct-galerie/klein/ct07_cot.jpg" alt="COT Screener with signal matrix" loading="lazy" decoding="async"></a><div class="ath-text"><div class="n">Tool</div><h3>COT data at a glance</h3><p>The <b class="ht">COT Screener</b> evaluates the weekly reports of the US futures regulator and turns them into a clear signal, from very bearish to very bullish.</p></div></div>
+<div class="ath-karte reveal" style="--i:2"><a class="gal-bild ath-bild ganz" href="../ct-galerie/gross/ct08_prop.jpg" data-gruppe="Customer Terminal"><img src="../ct-galerie/klein/ct08_prop.jpg" alt="Risk and prop simulator" loading="lazy" decoding="async"></a><div class="ath-text"><div class="n">Tool</div><h3>Test a prop challenge first</h3><p>The simulator replays your real trades <b class="ht">10,000 times</b> in a new order and shows how often you would have passed a challenge, before you risk any money.</p></div></div>
+</div>
+<p class="ath-hinweis">Screenshots from the Customer Terminal (German interface). Click to enlarge. Account numbers are hidden.</p>
+</div>
+</section>
+<!-- CT-GALERIE-ENDE -->
 <!-- 02.10.2026: Pruefprozess als scrollgekoppelte Ablauf-Szene (vorher Textliste .qlist) -->
 <div class="ablauf-szene pruef" id="pruefAblauf" style="--f:var(--teal)">
 <div class="ab-sticky">

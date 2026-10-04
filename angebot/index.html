@@ -658,6 +658,10 @@ color:var(--gold);background:rgba(216,174,94,.13);border:1px solid rgba(216,174,
 .ath-text p{color:var(--muted);font-size:15.5px;line-height:1.6}
 .ath-hinweis{margin-top:26px;text-align:center;color:var(--dim);font-size:13px}
 @media(max-width:860px){.ath-gal{grid-template-columns:1fr}.ath-karte.breit{grid-column:auto}.ath-karte .gal-bild.ath-bild{height:220px}}
+
+/* CT-GALERIE-CSS (04.10.2026): Teal-Variante der Galerie fuer das Customer Terminal */
+.ath-gal.teal .ath-karte:hover{border-color:rgba(64,198,204,.45);box-shadow:0 0 26px rgba(64,198,204,.16)}
+.ath-gal.teal .ath-text .n{color:var(--teal)}
 </style>
 <script>
 /* Sofort feststellen, ob die Seite in einem Kasten auf einer anderen Seite
@@ -1022,6 +1026,29 @@ wahrscheinlich eine Challenge zu bestehen ist, bevor du einen Euro riskierst.</p
 </div>
 </div>
 </section>
+<!-- CT-GALERIE-START (04.10.2026) -->
+<section id="ct-einblick">
+<div class="wrap">
+<div class="sec-head mid reveal">
+<div class="kicker" style="color:var(--teal)">Der Kontrollraum · Einblick</div>
+<h2>So sieht das Customer Terminal aus</h2>
+<p>Ein kurzer Rundgang mit echten Bildschirmfotos: <b class="ht">die Bots in drei Schritten installieren</b>, danach aktuell halten und mit den Werkzeugen arbeiten.</p>
+</div>
+<div class="ath-gal teal" data-galerie="ct">
+<div class="ath-karte reveal breit" style="--i:0"><a class="gal-bild ath-bild" href="../ct-galerie/gross/ct01_start.jpg" data-gruppe="Customer Terminal"><img src="../ct-galerie/klein/ct01_start.jpg" alt="Startseite des Customer Terminals" loading="lazy" decoding="async"></a><div class="ath-text"><div class="n">Überblick</div><h3>Alles an einem Ort</h3><p>Installer, Updater, Werkzeuge und Live-Performance in einer Oberfläche. Das Terminal bekommst du schon als <b class="ht">Free Member kostenlos</b>.</p></div></div>
+<div class="ath-karte reveal" style="--i:1"><a class="gal-bild ath-bild" href="../ct-galerie/gross/ct02_installer.jpg" data-gruppe="Customer Terminal"><img src="../ct-galerie/klein/ct02_installer.jpg" alt="Willkommensseite des Installers" loading="lazy" decoding="async"></a><div class="ath-text"><div class="n">Schritt 1</div><h3>Installer starten</h3><p>Der Installer richtet MetaTrader 5 für dich ein: Broker-Software laden, eigene Instanzen anlegen, alles sauber an einem Ort abgelegt.</p></div></div>
+<div class="ath-karte reveal breit" style="--i:2"><a class="gal-bild ath-bild ganz" href="../ct-galerie/gross/ct03b_portfolios.jpg" data-gruppe="Customer Terminal"><img src="../ct-galerie/klein/ct03b_portfolios.jpg" alt="Auswahl der Strategieportfolios im Installer" loading="lazy" decoding="async"></a><div class="ath-text"><div class="n">Schritt 2</div><h3>Fertiges Portfolio wählen</h3><p>Im Reiter Portfolios suchst du dir ein <b class="ht">fertig abgestimmtes Strategieportfolio</b> in der Fassung für deinen Broker aus. Ein Häkchen, und alle enthaltenen Strategien kommen als ein einziger Bot.</p></div></div>
+<div class="ath-karte reveal" style="--i:0"><a class="gal-bild ath-bild ganz" href="../ct-galerie/gross/ct03_auswahl.jpg" data-gruppe="Customer Terminal"><img src="../ct-galerie/klein/ct03_auswahl.jpg" alt="Auswahl von Einzelstrategien im Installer" loading="lazy" decoding="async"></a><div class="ath-text"><div class="n">Schritt 2</div><h3>Oder Einzelstrategien</h3><p>Wer lieber selbst kombiniert, hakt einzelne Strategien an. Programmieren oder Dateien kopieren musst du nicht.</p></div></div>
+<div class="ath-karte reveal" style="--i:1"><a class="gal-bild ath-bild ganz" href="../ct-galerie/gross/ct04_zusammenfassung.jpg" data-gruppe="Customer Terminal"><img src="../ct-galerie/klein/ct04_zusammenfassung.jpg" alt="Zusammenfassung vor der Installation" loading="lazy" decoding="async"></a><div class="ath-text"><div class="n">Schritt 3</div><h3>Prüfen und installieren</h3><p>Die Zusammenfassung zeigt, was wohin kommt. Ein Klick, und die Bots liegen im richtigen MetaTrader.</p></div></div>
+<div class="ath-karte reveal breit" style="--i:2"><a class="gal-bild ath-bild" href="../ct-galerie/gross/ct05_updater.jpg" data-gruppe="Customer Terminal"><img src="../ct-galerie/klein/ct05_updater.jpg" alt="Updater mit lokalen Instanzen und installierten Bots" loading="lazy" decoding="async"></a><div class="ath-text"><div class="n">Danach</div><h3>Immer aktuell</h3><p>Der Updater erkennt deine MetaTrader-Instanzen, zeigt, welche Bots darauf laufen, und spielt <b class="ht">neue Versionen</b> mit einem Klick ein.</p></div></div>
+<div class="ath-karte reveal" style="--i:0"><a class="gal-bild ath-bild" href="../ct-galerie/gross/ct06_seasonal.jpg" data-gruppe="Customer Terminal"><img src="../ct-galerie/klein/ct06_seasonal.jpg" alt="Seasonal Screener mit Heatmap" loading="lazy" decoding="async"></a><div class="ath-text"><div class="n">Werkzeug</div><h3>Saisonale Muster finden</h3><p>Der <b class="ht">Seasonal Screener</b> prüft Kursdaten aus über 25 Jahren und zeigt, welche Einstiege und Haltedauern sich Jahr für Jahr wiederholen.</p></div></div>
+<div class="ath-karte reveal" style="--i:1"><a class="gal-bild ath-bild ganz" href="../ct-galerie/gross/ct07_cot.jpg" data-gruppe="Customer Terminal"><img src="../ct-galerie/klein/ct07_cot.jpg" alt="COT Screener mit Signal-Matrix" loading="lazy" decoding="async"></a><div class="ath-text"><div class="n">Werkzeug</div><h3>COT-Daten auf einen Blick</h3><p>Der <b class="ht">COT Screener</b> wertet die wöchentlichen Berichte der US-Terminmarktaufsicht aus und macht daraus ein klares Signal, von sehr bearish bis sehr bullish.</p></div></div>
+<div class="ath-karte reveal" style="--i:2"><a class="gal-bild ath-bild ganz" href="../ct-galerie/gross/ct08_prop.jpg" data-gruppe="Customer Terminal"><img src="../ct-galerie/klein/ct08_prop.jpg" alt="Risiko- und Prop-Simulator" loading="lazy" decoding="async"></a><div class="ath-text"><div class="n">Werkzeug</div><h3>Prop-Challenge vorab testen</h3><p>Der Simulator spielt deine echten Trades <b class="ht">10.000 Mal</b> in neuer Reihenfolge durch und zeigt, wie oft du eine Challenge bestanden hättest, bevor du Geld riskierst.</p></div></div>
+</div>
+<p class="ath-hinweis">Bildschirmfotos aus dem Customer Terminal. Zum Vergrößern anklicken. Kontonummern sind unkenntlich gemacht.</p>
+</div>
+</section>
+<!-- CT-GALERIE-ENDE -->
 <!-- 02.10.2026: Pruefprozess als scrollgekoppelte Ablauf-Szene (vorher Textliste .qlist) -->
 <div class="ablauf-szene pruef" id="pruefAblauf" style="--f:var(--teal)">
 <div class="ab-sticky">
