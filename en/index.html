@@ -665,6 +665,42 @@ color:var(--gold);background:rgba(216,174,94,.13);border:1px solid rgba(216,174,
 .preis-sprung{text-align:center;padding:64px 0;border-top:1px solid var(--line)}
 .preis-sprung p{color:var(--muted);font-size:17px;margin-bottom:22px}
 .preis-sprung .btn{width:auto}
+.sp-raster{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;align-items:stretch}
+.sp{position:relative;background:var(--card);border:1px solid rgba(var(--fr),.22);border-radius:18px;padding:34px 30px 28px;display:flex;flex-direction:column;overflow:hidden;transition:transform .35s,border-color .35s,box-shadow .35s}
+.sp::before{content:"";position:absolute;left:0;right:0;top:0;height:3px;background:var(--f);box-shadow:0 0 22px rgba(var(--fr),.6)}
+.sp::after{content:"";position:absolute;left:-20%;right:-20%;top:-120px;height:220px;background:radial-gradient(ellipse at center,rgba(var(--fr),.10),transparent 70%);pointer-events:none}
+.sp:hover{transform:translateY(-6px);border-color:rgba(var(--fr),.5);box-shadow:0 0 34px rgba(var(--fr),.12)}
+.sp-kopf{position:relative;margin-bottom:22px}
+.sp-nr{font-size:12px;letter-spacing:.22em;text-transform:uppercase;color:var(--f)}
+.sp h3{font-size:30px;font-weight:300;margin:8px 0 14px}
+.sp-stand{display:inline-block;font-size:12.5px;letter-spacing:.06em;padding:5px 13px;border-radius:30px;color:var(--f);border:1px solid rgba(var(--fr),.45);background:rgba(var(--fr),.08)}
+.sp dl{position:relative;flex:1}
+.sp dt{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--dim);margin-top:16px}
+.sp dt:first-child{margin-top:0}
+.sp dd{color:var(--muted);font-size:15.5px;line-height:1.55;margin-top:5px}
+.sp-fuss{position:relative;margin-top:24px;padding-top:18px;border-top:1px solid var(--line);color:var(--muted);font-size:15px}
+.sp-bald{opacity:.72}
+.sp-bald .sp-stand{border-style:dashed}
+.zeitleiste{position:relative;display:grid;grid-template-columns:repeat(3,1fr);gap:40px}
+.zl-linie{position:absolute;left:16.66%;right:16.66%;top:21px;height:2px;background:var(--line)}
+.zl-linie i{display:block;height:100%;width:calc(var(--p,1)*100%);background:var(--teal);box-shadow:0 0 14px rgba(64,198,204,.55)}
+.zl-schritt{position:relative;text-align:center;transition:opacity .6s}
+.zl-schritt p{color:var(--muted);font-size:16px;max-width:340px;margin:0 auto}
+.zl-schritt h3{font-size:21px;margin-bottom:12px}
+.zl-schritt .n{font-size:12px;letter-spacing:.22em;color:var(--teal);margin-bottom:12px}
+.zl-punkt{position:relative;z-index:1;width:44px;height:44px;border-radius:50%;margin:0 auto 24px;display:flex;align-items:center;justify-content:center;border:1px solid var(--line);background:var(--bg2);color:var(--dim);font-size:15px;transition:background .5s,color .5s,border-color .5s,box-shadow .5s}
+.zeitleiste.zl-js .zl-schritt{opacity:.4}
+.zeitleiste.zl-js .zl-schritt.an{opacity:1}
+.zeitleiste .zl-schritt.an .zl-punkt,.zeitleiste:not(.zl-js) .zl-punkt{background:var(--teal);border-color:var(--teal);color:#04181a;box-shadow:0 0 24px rgba(64,198,204,.45)}
+@media(max-width:900px){
+.sp-raster{grid-template-columns:1fr}
+.zeitleiste{grid-template-columns:1fr;gap:44px}
+.zl-schritt{text-align:left;padding-left:68px}
+.zl-schritt p{margin:0}
+.zl-punkt{position:absolute;left:0;top:-6px;margin:0}
+.zl-linie{left:21px;right:auto;top:22px;bottom:22px;width:2px;height:auto}
+.zl-linie i{width:100%;height:calc(var(--p,1)*100%)}
+}
 </style>
 <script>
 /* Sofort feststellen, ob die Seite in einem Kasten auf einer anderen Seite
@@ -873,19 +909,21 @@ strengthens the conservative ones. The core stays protected.
 <p>Under the hood it keeps getting more sophisticated. For you it should feel like
 a modern car: you enjoy the drive, the technology stays out of sight.</p>
 </div>
-<div class="steps">
-<div class="step reveal" style="--i:0"><div class="n">STEP 01</div><h3>Become a member</h3>
+<div class="zeitleiste" id="zeitleiste">
+<div class="zl-linie" aria-hidden="true"><i></i></div>
+<div class="zl-schritt"><div class="zl-punkt">1</div><div class="n">STEP 01</div><h3>Become a member</h3>
 <p><b class="hg">Instant access</b> to the member area, the Discord community and the
 <b class="hg">setup guide from A to Z</b>, as a video and as a PDF.</p></div>
-<div class="step reveal" style="--i:1"><div class="n">STEP 02</div><h3>Choose your pillar</h3>
+<div class="zl-schritt"><div class="zl-punkt">2</div><div class="n">STEP 02</div><h3>Choose your pillar</h3>
 <p><b class="hg">Portfolios on MetaTrader 5</b>, <b class="hg">All Time High for stocks</b>, or both. You drag
 the MetaTrader bots onto any chart, instrument and timeframe don't matter. All Time High
 connects directly to your Interactive Brokers account.
 If you like, you can add the <b class="hg">setup service for €99</b>.</p></div>
-<div class="step reveal" style="--i:2"><div class="n">STEP 03</div><h3>Let it run</h3>
+<div class="zl-schritt"><div class="zl-punkt">3</div><div class="n">STEP 03</div><h3>Let it run</h3>
 <p>On your own computer or on a <b class="hg">Windows VPS</b> for continuous operation.
 <b class="hg">Updates arrive automatically</b> through the terminal. You scale at your own pace.</p></div>
 </div>
+
 </div>
 </section>
 <div class="preis-sprung">
@@ -947,56 +985,39 @@ Connected directly to your <b class="hg">Interactive Brokers</b> account, <b cla
 <p>Every market needs different tools. That's why we don't offer one product
 for everything, but <b class="hg">three separate systems</b>.</p>
 </div>
-<div class="cmp">
-<div class="cmp-row cmp-head reveal" style="--i:0">
-<div></div>
-<div class="c1"><div class="h">CFDs</div><div class="s">Pillar 01</div></div>
-<div class="c2"><div class="h">Stocks</div><div class="s">Pillar 02</div></div>
-<div class="c3"><div class="h">Futures</div><div class="s">Pillar 03</div></div>
+<div class="sp-raster">
+<div class="sp reveal l" style="--f:var(--teal);--fr:64,198,204;--i:0">
+<div class="sp-kopf"><div class="sp-nr">Pillar 01</div><h3>CFDs</h3><div class="sp-stand">Live since June 8, 2026</div></div>
+<dl>
+<dt>What is traded</dt><dd><b class="ht">Indices, currencies and commodities</b>, for example Nasdaq, S&amp;P 500, Gold and Forex</dd>
+<dt>Platform</dt><dd>MetaTrader 5 with the Customer Terminal (no MetaTrader 4)</dd>
+<dt>Broker</dt><dd>Your own MT5 broker, free choice</dd>
+<dt>What runs</dt><dd>Strategy portfolios, each also as a prop version, plus 5 core strategies and the community strategies</dd>
+<dt>Capital</dt><dd>€2,000 to €5,000 per portfolio, single strategies from €500</dd>
+</dl>
+<div class="sp-fuss">In <b class="ht">Basic and Premium</b></div>
 </div>
-<div class="cmp-row reveal" style="--i:1">
-<div>What is traded</div>
-<div>Indices, currencies and commodities as leveraged products, for example Nasdaq, S&amp;P 500, Gold and Forex</div>
-<div>Real stocks worldwide, everything Interactive Brokers offers</div>
-<div>Futures</div>
+<div class="sp reveal" style="--f:var(--gold);--fr:212,168,67;--i:1">
+<div class="sp-kopf"><div class="sp-nr">Pillar 02</div><h3>Stocks</h3><div class="sp-stand">Live since October 2026</div></div>
+<dl>
+<dt>What is traded</dt><dd><b class="hg">Real stocks worldwide</b>, everything Interactive Brokers offers</dd>
+<dt>Platform</dt><dd>All Time High, our own Windows app with a direct connection, <b class="hg">no TradingView needed</b></dd>
+<dt>Broker</dt><dd>Interactive Brokers, also via CapTrader or LYNX</dd>
+<dt>What runs</dt><dd>Two trading approaches: breakout and staged entry</dd>
+<dt>Capital</dt><dd>No fixed minimum, the position size is based on your account</dd>
+</dl>
+<div class="sp-fuss">Premium only, <b class="hg">no extra charge</b></div>
 </div>
-<div class="cmp-row reveal" style="--i:2">
-<div>Platform</div>
-<div>MetaTrader 5, plus the Customer Terminal. MetaTrader 4 is not supported</div>
-<div>All Time High, our own Windows app with a direct connection</div>
-<div>To be announced</div>
-</div>
-<div class="cmp-row reveal" style="--i:3">
-<div>Broker</div>
-<div>Your own MT5 broker, free choice</div>
-<div>Interactive Brokers, also via CapTrader or LYNX</div>
-<div>To be announced</div>
-</div>
-<div class="cmp-row reveal" style="--i:4">
-<div>What runs</div>
-<div>Various strategy portfolios, each also as a prop version, plus 5 core strategies and the community strategies</div>
-<div>Two trading approaches, breakout and staged entry</div>
-<div>To be announced</div>
-</div>
-<div class="cmp-row reveal" style="--i:5">
-<div>Recommended capital</div>
-<div>€2,000 to €5,000 for a portfolio, single strategies from €500</div>
-<div>No fixed minimum, the position size is based on your account</div>
-<div>To be announced</div>
-</div>
-<div class="cmp-row reveal" style="--i:6">
-<div>Included in</div>
-<div>Basic and Premium</div>
-<div><b class="hg">Premium only, no extra charge</b></div>
-<div>For members, as soon as available</div>
-</div>
-<div class="cmp-row reveal" style="--i:7">
-<div>Status</div>
-<div><b class="ht">Portfolios live since June 8, 2026</b></div>
-<div><b class="hg">Live since October 2026</b></div>
-<div>In development</div>
+<div class="sp sp-bald reveal r" style="--f:var(--green);--fr:51,196,111;--i:2">
+<div class="sp-kopf"><div class="sp-nr">Pillar 03</div><h3>Futures</h3><div class="sp-stand">In development</div></div>
+<dl>
+<dt>What is traded</dt><dd>Futures</dd>
+<dt>Platform, broker, strategies</dt><dd>To be announced</dd>
+</dl>
+<div class="sp-fuss">For members, as soon as available</div>
 </div>
 </div>
+
 </div>
 </section>
 <div class="preis-sprung">
@@ -2139,5 +2160,19 @@ function zeichne(now){
 }
 requestAnimationFrame(zeichne);
 })();
-</script></body>
+</script><script>
+(function(){
+var z=document.getElementById('zeitleiste');if(!z)return;
+if(window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches)return;
+var s=[].slice.call(z.querySelectorAll('.zl-schritt')),l=z.querySelector('.zl-linie'),wartet=false;
+z.classList.add('zl-js');
+function rechne(){wartet=false;var r=z.getBoundingClientRect(),h=innerHeight;l.style.bottom=innerWidth<=900?(s[s.length-1].offsetHeight-16)+'px':'';
+var p=(h*0.78-r.top)/(r.height*0.75);p=Math.max(0,Math.min(1,p));
+l.style.setProperty('--p',p.toFixed(3));
+s.forEach(function(e,i){e.classList.toggle('an',p>=i/(s.length-1)-0.001&&p>0)});}
+addEventListener('scroll',function(){if(!wartet){wartet=true;requestAnimationFrame(rechne)}},{passive:true});
+addEventListener('resize',rechne);rechne();
+})();
+</script>
+</body>
 </html>
