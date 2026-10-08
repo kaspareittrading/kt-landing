@@ -45,6 +45,7 @@ p{color:var(--muted)}
     if (d.typ === 'inhalt') {
       status.innerHTML = 'Verbunden. Stufe laut Wix: <b>' + esc(d.stufe || '?') + '</b> · Herkunft ' + esc(e.origin);
       inhalt.innerHTML = '<div>Rollen: ' + (d.rollen || []).map(function(r){ return '<span class="pill">' + esc(r) + '</span>'; }).join('') + '</div>'
+        + (d.pruefung ? '<p class="status" style="margin-top:10px">Mitgliedsdaten: Status <b>' + esc(d.pruefung.status || '') + '</b> · Rolle <b>' + esc(d.pruefung.rolle || '') + '</b> · Ablauf <b>' + esc(d.pruefung.ablauf || '') + '</b></p>' : '')
         + '<p class="status" style="margin-top:10px">Zeitstempel vom Wix-Backend: ' + esc(d.zeit || '') + '</p>';
       hoehe();
     } else if (d.typ === 'fehler') {
