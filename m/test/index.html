@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Mitgliederbereich (Test) | Kaspareit Trading</title>
+<link rel="stylesheet" href="../../schrift/schrift.css">
+<style>
+:root{--bg:#0a0c10;--card:#11151b;--line:rgba(255,255,255,.08);--ink:#eef2f3;--muted:#d6dddf;--dim:#b1bbbd;--teal:#5EBFC4;--gold:#D4A843;--green:#33C46F}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--ink);font-family:'Manrope',system-ui,sans-serif;line-height:1.6;padding:48px 24px}
+.wrap{max-width:900px;margin:0 auto}
+.kicker{font-size:12px;letter-spacing:.22em;text-transform:uppercase;color:var(--gold)}
+h1{font-size:clamp(28px,4vw,44px);font-weight:300;margin:10px 0 18px}
+p{color:var(--muted)}
+.hg{color:var(--gold);font-weight:600}
+.karte{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:26px 24px;margin-top:26px}
+.status{font-size:14px;color:var(--dim)}
+.status b{color:var(--ink)}
+.pill{display:inline-block;padding:5px 13px;border-radius:30px;border:1px solid rgba(212,168,67,.45);color:var(--gold);font-size:13px;margin-right:6px}
+.fehler{color:#e07a7a}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="kicker">Mitgliederbereich · Technik-Test</div>
+  <h1>Verbindung zu Wix</h1>
+  <p>Diese Seite enthält selbst keine geschützten Inhalte. Sie zeigt nur, was Wix ihr <span class="hg">nach der Login- und Rollenprüfung</span> schickt.</p>
+  <div class="karte">
+    <div class="status" id="status">Warte auf Daten von Wix …</div>
+    <div id="inhalt" style="margin-top:14px"></div>
+  </div>
+</div>
+<script>
+(function(){
+  // Nachrichten nur von unserer Wix-Seite annehmen (dort steckt diese Hülle im Einbett-Element).
+  var ERLAUBT = /^https:\/\/(www\.)?kaspareit-trading\.com$|^https:\/\/[a-z0-9-]+\.(filesusr|wixsite|wix)\.com$|^https:\/\/[a-z0-9-]+\.wixstudio\.com$/;
+  var status = document.getElementById('status'), inhalt = document.getElementById('inhalt');
+  function an(nachricht){ try { window.parent.postMessage(nachricht, '*'); } catch(e){} }
+  function esc(s){ return String(s).replace(/[&<>"]/g, function(c){ return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]; }); }
+  window.addEventListener('message', function(e){
+    var d = e.data || {};
+    if (!ERLAUBT.test(e.origin)) { status.innerHTML = 'Nachricht von <b>' + esc(e.origin) + '</b> ignoriert.'; return; }
+    if (d.typ === 'inhalt') {
+      status.innerHTML = 'Verbunden. Stufe laut Wix: <b>' + esc(d.stufe || '?') + '</b> · Herkunft ' + esc(e.origin);
+      inhalt.innerHTML = '<div>Rollen: ' + (d.rollen || []).map(function(r){ return '<span class="pill">' + esc(r) + '</span>'; }).join('') + '</div>'
+        + '<p class="status" style="margin-top:10px">Zeitstempel vom Wix-Backend: ' + esc(d.zeit || '') + '</p>';
+      hoehe();
+    } else if (d.typ === 'fehler') {
+      status.innerHTML = '<span class="fehler">Fehler aus Wix: ' + esc(d.text || '') + '</span>';
+    } else if (d.typ === 'gast') {
+      status.innerHTML = 'Nicht eingeloggt. Bitte im Mitgliederbereich anmelden.';
+    }
+  });
+  function hoehe(){ an({ typ: 'hoehe', px: document.documentElement.scrollHeight }); }
+  if (window.ResizeObserver) new ResizeObserver(hoehe).observe(document.body);
+  an({ typ: 'bereit' });
+  setTimeout(function(){ if (/Warte/.test(status.textContent)) { status.textContent = 'Keine Antwort von Wix. (Direkt aufgerufen? Dann ist das richtig so: ohne Wix gibt es hier nichts zu sehen.)'; } }, 6000);
+})();
+</script>
+</body>
+</html>
