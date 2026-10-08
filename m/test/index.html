@@ -35,7 +35,7 @@ p{color:var(--muted)}
 <script>
 (function(){
   // Nachrichten nur von unserer Wix-Seite annehmen (dort steckt diese Hülle im Einbett-Element).
-  var ERLAUBT = /^https:\/\/(www\.)?kaspareit-trading\.com$|^https:\/\/[a-z0-9-]+\.(filesusr|wixsite|wix)\.com$|^https:\/\/[a-z0-9-]+\.wixstudio\.com$/;
+  var ERLAUBT = /^https:\/\/(www\.)?kaspareit-trading\.com$|^https:\/\/[a-z0-9-]+\.(filesusr|wixsite|wix)\.com$|^https:\/\/[a-z0-9-]+\.wixstudio\.com$|^https:\/\/[a-z0-9-]+\.editor\.wix\.com$/;
   var status = document.getElementById('status'), inhalt = document.getElementById('inhalt');
   function an(nachricht){ try { window.parent.postMessage(nachricht, '*'); } catch(e){} }
   function esc(s){ return String(s).replace(/[&<>"]/g, function(c){ return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]; }); }
