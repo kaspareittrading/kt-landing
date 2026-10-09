@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>All Time High | Mitgliederbereich | Kaspareit Trading</title>
+<link rel="stylesheet" href="../../schrift/schrift.css">
+<style>
+:root{--bg:#0a0f10;--bg2:#0d1314;--ink:#e7eced;--muted:#bac4c6;--dim:#8f999b;--teal:#40C6CC;--gold:#D8AE5E;--green:#33C46F;--line:rgba(255,255,255,.08);--card:rgba(255,255,255,.025);--goldline:rgba(216,174,94,.28)}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--ink);font-family:'Manrope',-apple-system,'Helvetica Neue',Arial,sans-serif;font-weight:300;line-height:1.62;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{color:inherit}
+.wrap{max-width:1080px;margin:0 auto;padding:0 26px}
+section{padding:84px 0;position:relative}
+.kicker{font-size:12px;letter-spacing:.4em;text-transform:uppercase;font-weight:600;color:var(--gold);margin-bottom:18px}
+h1,h2,h3{font-weight:300;letter-spacing:.01em;line-height:1.12}
+h2{font-size:clamp(28px,4vw,44px)}
+h3{font-size:19px;font-weight:500}
+p{color:var(--muted)}
+.hg{color:var(--gold);font-weight:600}
+.sec-head{max-width:700px;margin-bottom:44px}
+.sec-head p{margin-top:16px;font-size:17px}
+.btn{display:inline-block;padding:13px 28px;border-radius:40px;font-size:14px;letter-spacing:.05em;font-weight:600;text-decoration:none;cursor:pointer;border:1px solid transparent;transition:all .3s}
+.btn-gold{background:var(--gold);color:#1a1205}
+.btn-gold:hover{box-shadow:0 0 28px rgba(216,174,94,.5);transform:translateY(-1px)}
+.btn-ghost{border-color:var(--goldline);color:var(--ink)}
+.btn-ghost:hover{border-color:var(--gold);box-shadow:0 0 20px rgba(216,174,94,.22)}
+.karte{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:28px 26px;transition:border-color .3s,transform .3s}
+.karte:hover{border-color:var(--goldline);transform:translateY(-3px)}
+.grid-2{display:grid;grid-template-columns:repeat(2,1fr);gap:20px}
+.grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.grid-4{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+.karte .nr{font-size:12px;letter-spacing:.3em;color:var(--gold);font-weight:600;margin-bottom:12px}
+.karte h3{margin-bottom:10px}
+.karte p{font-size:15px}
+.trenner{border:0;border-top:1px solid var(--line);margin:0}
+
+/* Hero */
+.hero{padding:96px 0 70px;background:radial-gradient(ellipse at 70% 0%,rgba(216,174,94,.13),transparent 60%),radial-gradient(ellipse at 10% 100%,rgba(64,198,204,.06),transparent 55%)}
+.hero-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:46px;align-items:center}
+.hero h1{font-size:clamp(42px,7vw,78px)}
+.hero h1 span{color:var(--gold)}
+.hero .sub{font-size:clamp(17px,2vw,20px);margin:22px 0 30px;max-width:560px}
+.fakten{display:flex;gap:34px;flex-wrap:wrap;margin-top:6px}
+.fakt b{display:block;font-size:24px;font-weight:400;color:var(--ink)}
+.fakt span{font-size:13px;color:var(--dim);letter-spacing:.04em}
+.zugang{background:linear-gradient(160deg,rgba(216,174,94,.10),rgba(255,255,255,.02));border:1px solid var(--goldline);border-radius:18px;padding:30px 28px}
+.zugang .titel{font-size:12px;letter-spacing:.3em;text-transform:uppercase;color:var(--gold);font-weight:600;margin-bottom:14px}
+.zugang p{font-size:15.5px}
+.zugang .btn{margin-top:20px}
+.zugang .klein{font-size:13px;color:var(--dim);margin-top:12px}
+.lampe{display:inline-block;width:9px;height:9px;border-radius:50%;background:var(--dim);margin-right:8px;vertical-align:middle}
+.lampe.an{background:var(--green);box-shadow:0 0 10px rgba(51,196,111,.7)}
+.lampe.gold{background:var(--gold)}
+
+/* Schritte als Zeitleiste */
+.schritte{position:relative;margin-left:8px}
+.schritte:before{content:"";position:absolute;left:21px;top:8px;bottom:8px;width:1px;background:linear-gradient(var(--gold),rgba(216,174,94,.05))}
+.schritt{position:relative;display:grid;grid-template-columns:44px 1fr;gap:22px;padding:0 0 34px}
+.schritt:last-child{padding-bottom:0}
+.schritt .punkt{width:44px;height:44px;border-radius:50%;border:1px solid var(--goldline);background:var(--bg2);display:flex;align-items:center;justify-content:center;color:var(--gold);font-weight:600;font-size:15px;position:relative;z-index:1}
+.schritt h3{margin:9px 0 8px}
+.schritt p{font-size:15.5px;max-width:720px}
+.einst{margin-top:12px;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px 18px;max-width:720px}
+.einst div{display:flex;gap:14px;font-size:14.5px;color:var(--muted);padding:5px 0;border-bottom:1px solid var(--line)}
+.einst div:last-child{border-bottom:0}
+.einst b{color:var(--ink);font-weight:500;min-width:210px}
+code{font-family:Consolas,monospace;font-size:13.5px;color:var(--gold);background:rgba(216,174,94,.08);padding:1px 6px;border-radius:5px}
+
+/* Galerie */
+.gal{display:grid;grid-template-columns:1fr;gap:16px;align-items:start}
+.gal-rechts{display:grid;grid-template-columns:1.45fr 1fr;gap:16px;align-items:start}
+@media(max-width:900px){.gal-rechts{grid-template-columns:1fr}}
+.bild{display:block;border:1px solid var(--line);border-radius:12px;overflow:hidden;cursor:zoom-in;background:var(--card);transition:border-color .25s,box-shadow .25s}
+.bild:hover{border-color:var(--goldline);box-shadow:0 0 24px rgba(216,174,94,.15)}
+.bild img{display:block;width:100%;height:auto}
+.bild figcaption{font-size:13px;color:var(--dim);padding:10px 14px}
+.anm{font-size:13px;color:var(--dim);margin-top:16px}
+.gross{position:fixed;inset:0;background:rgba(5,7,8,.94);display:none;align-items:center;justify-content:center;z-index:50;padding:24px;cursor:zoom-out}
+.gross.auf{display:flex}
+.gross img{max-width:100%;max-height:100%;border-radius:10px}
+
+/* Liste Webinare */
+.liste{border-top:1px solid var(--line)}
+.zeile{display:grid;grid-template-columns:230px 1fr;gap:18px;padding:16px 0;border-bottom:1px solid var(--line);align-items:baseline}
+.zeile b{color:var(--gold);font-weight:600;font-size:14px;letter-spacing:.04em}
+.zeile span{color:var(--muted);font-size:15.5px}
+
+.hinweis{border-left:2px solid var(--gold);padding:4px 0 4px 18px;margin-top:30px;max-width:760px}
+.hinweis p{font-size:15px}
+.tv{background:var(--bg2)}
+.tv .knoepfe{display:flex;gap:12px;flex-wrap:wrap;margin-top:22px}
+.fuss{padding:40px 0 60px}
+.fuss p{font-size:12.5px;color:var(--dim);max-width:820px}
+.versteckt{display:none!important}
+
+.reveal{opacity:0;transform:translateY(26px);transition:opacity .8s ease,transform .8s ease}
+.reveal.da{opacity:1;transform:none}
+@media(max-width:900px){
+  .hero-grid,.gal,.grid-2,.grid-3,.grid-4{grid-template-columns:1fr}
+  .zeile{grid-template-columns:1fr;gap:4px}
+  .einst div{flex-direction:column;gap:2px}
+  .einst b{min-width:0}
+  section{padding:64px 0}
+}
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<header class="hero">
+  <div class="wrap hero-grid">
+    <div class="reveal">
+      <div class="kicker">Säule 02 · Aktien</div>
+      <h1>All <span>Time</span> High</h1>
+      <p class="sub">Automatisierter Aktienhandel aus einer einzigen Software. Direkt mit deinem Konto bei <span class="hg">Interactive Brokers</span> verbunden, ohne Zusatzprogramme.</p>
+      <div class="fakten">
+        <div class="fakt"><b>2</b><span>fertige Strategien</span></div>
+        <div class="fakt"><b>Weltweit</b><span>alles, was IB anbietet</span></div>
+        <div class="fakt"><b>Premium</b><span>ohne Aufpreis</span></div>
+      </div>
+    </div>
+    <div class="zugang reveal" id="zugang">
+      <div class="titel"><span class="lampe" id="lampe"></span>Dein Zugang</div>
+      <p id="zugangText">Dein Zugang wird geprüft …</p>
+      <div id="zugangKnopf"></div>
+      <p class="klein" id="zugangKlein"></p>
+    </div>
+  </div>
+</header>
+
+<!-- VORAUSSETZUNGEN -->
+<section>
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="kicker">Bevor es losgeht</div>
+      <h2>Das brauchst du</h2>
+    </div>
+    <div class="grid-4">
+      <div class="karte reveal"><div class="nr">01</div><h3>Premium</h3><p>All Time High ist in Premium enthalten, ohne Aufpreis. Die App prüft deine Mitgliedschaft beim Anmelden.</p></div>
+      <div class="karte reveal"><div class="nr">02</div><h3>Konto bei IB</h3><p>Ein Konto bei Interactive Brokers, auch über CapTrader oder LYNX. Zum Start reicht das Paper-Konto.</p></div>
+      <div class="karte reveal"><div class="nr">03</div><h3>Windows</h3><p>Ein 64-Bit-Windows-PC. Für den Dauerbetrieb ein Windows-Server, der rund um die Uhr läuft.</p></div>
+      <div class="karte reveal"><div class="nr">04</div><h3>IB Gateway</h3><p>Das kostenlose Verbindungsprogramm von Interactive Brokers. Für Echtgeld zusätzlich ein Abo für Echtzeit-Kurse bei IB.</p></div>
+    </div>
+  </div>
+</section>
+
+<hr class="trenner">
+
+<!-- EINRICHTUNG -->
+<section id="einrichtung">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="kicker">Einrichtung</div>
+      <h2>In fünf Schritten startklar</h2>
+      <p>Einmal sauber eingerichtet, läuft der Rest von allein. Updates holt sich die App selbst.</p>
+    </div>
+    <div class="schritte">
+      <div class="schritt reveal"><div class="punkt">1</div><div>
+        <h3>Herunterladen und installieren</h3>
+        <p>Lade All Time High oben über deinen Zugang herunter, entpacke die Datei und starte das Setup. Es installiert ohne Administratorrechte.</p>
+      </div></div>
+      <div class="schritt reveal"><div class="punkt">2</div><div>
+        <h3>Anmelden</h3>
+        <p>Gib die E-Mail-Adresse deiner Mitgliedschaft ein. Du bekommst einen <span class="hg">6-stelligen Code</span> per E-Mail. Der Zugang gilt für einen PC. Willst du den Rechner wechseln, meldest du dich vorher in der App ab.</p>
+      </div></div>
+      <div class="schritt reveal"><div class="punkt">3</div><div>
+        <h3>IB Gateway einrichten</h3>
+        <p>Im Gateway mit „IB API“ anmelden. Dann diese Einstellungen setzen:</p>
+        <div class="einst">
+          <div><b>Configure &gt; Settings &gt; API &gt; Settings</b><span>Socket-Port <code>4002</code> für das Paper-Konto, <code>4001</code> für Echtgeld</span></div>
+          <div><b>Trusted IPs</b><span><code>127.0.0.1</code> eintragen</span></div>
+          <div><b>Read-Only API</b><span>ausschalten, sonst darf die App keine Orders senden</span></div>
+          <div><b>Lock and Exit</b><span>Automatischen Neustart auf eine ruhige Zeit legen, zum Beispiel 23:30 Uhr</span></div>
+        </div>
+      </div></div>
+      <div class="schritt reveal"><div class="punkt">4</div><div>
+        <h3>Handelsplan anlegen</h3>
+        <p>Ein Handelsplan ist ein eigener Topf in deinem Konto: eigenes Budget, eigene Aktien, eigene Gewinnrechnung. Du wählst den Aktienbot oder den GridBot. Alle Pläne zusammen nutzen nie mehr als 100 Prozent deines Kontos.</p>
+      </div></div>
+      <div class="schritt reveal"><div class="punkt">5</div><div>
+        <h3>Erst üben, dann echt</h3>
+        <p>Fang immer mit dem Paper-Konto an. Beim ersten Verbinden merkt sich die App dein IB-Konto und arbeitet danach nur mit diesem. Für Echtgeld brauchst du das Abo für Echtzeit-Kurse, ohne Abo kauft die App nichts Neues.</p>
+      </div></div>
+    </div>
+  </div>
+</section>
+
+<hr class="trenner">
+
+<!-- BOTS + SCHUTZ -->
+<section>
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="kicker">Die Strategien</div>
+      <h2>Zwei Bots, zwei Ideen</h2>
+    </div>
+    <div class="grid-2">
+      <div class="karte reveal"><div class="nr">AKTIENBOT</div><h3>Folgt dem Trend</h3><p>Kauft, wenn eine Aktie nach oben ausbricht, und zieht den Stop mit, solange der Trend läuft.</p></div>
+      <div class="karte reveal"><div class="nr">GRIDBOT</div><h3>Kauft in Stufen</h3><p>Steigt in mehreren kleinen Schritten ein, senkt so den Durchschnittspreis und sichert alles mit einem gemeinsamen Stop ab. Nachgekauft wird nur, wenn der große Trend passt.</p></div>
+    </div>
+
+    <div class="sec-head reveal" style="margin-top:80px">
+      <div class="kicker">Sicherheit</div>
+      <h2>Abgesichert, auch wenn dein PC aus ist</h2>
+    </div>
+    <div class="grid-4">
+      <div class="karte reveal"><h3>Echte Stops</h3><p>Jede Position bekommt eine Stop-Order direkt bei Interactive Brokers. Sie gilt auch, wenn dein Rechner aus ist.</p></div>
+      <div class="karte reveal"><h3>Kontoschutz</h3><p>Fällt dein Konto unter deine Schwelle, schließt der Kontoschutz alles. Einstellbar in drei Stufen.</p></div>
+      <div class="karte reveal"><h3>Bestandsabgleich</h3><p>Alle 90 Sekunden prüft die App, ob Stops und Bestand zusammenpassen.</p></div>
+      <div class="karte reveal"><h3>Not-Aus</h3><p>„Not-Aus“ und „Alle schließen“ stehen jederzeit bereit.</p></div>
+    </div>
+  </div>
+</section>
+
+<hr class="trenner">
+
+<!-- GALERIE -->
+<section>
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="kicker">Einblick</div>
+      <h2>So sieht All Time High aus</h2>
+    </div>
+    <div class="gal">
+      <figure class="bild reveal" data-gross="../../ath-galerie/gross/ath01_start.jpg"><img src="../../ath-galerie/klein/ath01_start.jpg" alt="Startseite von All Time High"><figcaption>Die Startseite: Dashboard, Automatik, Tools und Einstellungen</figcaption></figure>
+      <div class="gal-rechts">
+        <figure class="bild reveal" data-gross="../../ath-galerie/gross/ath06_gridbot.jpg"><img src="../../ath-galerie/klein/ath06_gridbot.jpg" alt="GridBot im Chart"><figcaption>Der GridBot im Chart mit Einstiegen und Stop</figcaption></figure>
+        <figure class="bild reveal" data-gross="../../ath-galerie/gross/ath07_ampel.jpg"><img src="../../ath-galerie/klein/ath07_ampel.jpg" alt="Einstiegs-Ampel"><figcaption>Die Einstiegs-Ampel prüft den großen Trend</figcaption></figure>
+      </div>
+    </div>
+    <p class="anm">Bildschirmfotos aus All Time High. Zum Vergrößern anklicken.</p>
+    <div class="hinweis reveal"><p>Werkzeuge wie Marktscreener und Screener-Backtester schalten wir schrittweise frei. Was in deiner Version schon geht, siehst du in der App unter „Tools“.</p></div>
+  </div>
+</section>
+
+<hr class="trenner">
+
+<!-- WEBINARE -->
+<section>
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="kicker">Zum Nachschauen</div>
+      <h2>Webinare zu All Time High</h2>
+    </div>
+    <div class="liste reveal">
+      <div class="zeile"><b>Webinar 13-26 · 15.08.26</b><span>Die neue Aktien-Plattform: Handelsplan, Aktienbot und GridBot, Kontoschutz</span></div>
+      <div class="zeile"><b>Webinar 14-26 · 29.08.26</b><span>Die App im Detail, Installation, Einrichtung des IB Gateway</span></div>
+      <div class="zeile"><b>Stammtisch #19 · 03.09.26</b><span>Kontoarten bei Interactive Brokers, Pattern-Day-Trader-Regel, Kontogröße</span></div>
+      <div class="zeile"><b>Webinar 15-26 · 12.09.26</b><span>Behobene Fehler, Aktienbot und GridBot am Chart, Ausblick</span></div>
+      <div class="zeile"><b>Stammtisch #20 · 17.09.26</b><span>Gateway und Live-Daten, Bestandsabgleich, Kontoschutz</span></div>
+    </div>
+    <div style="margin-top:28px" class="reveal"><a class="btn btn-ghost" href="https://www.kaspareit-trading.com/webinare" target="_top">Alle Webinare ansehen</a></div>
+  </div>
+</section>
+
+<hr class="trenner">
+
+<!-- HILFE -->
+<section>
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="kicker">Hilfe</div>
+      <h2>Wenn etwas hakt</h2>
+    </div>
+    <div class="grid-3">
+      <div class="karte reveal"><h3>Feedback in der App</h3><p>Fehler gefunden oder einen Wunsch? Der Knopf „Feedback“ in der App geht direkt an unser Entwicklerteam.</p></div>
+      <div class="karte reveal"><h3>Support-Ticket</h3><p>In der App unter Einstellungen bei „Diagnose / Support-Paket“ eine ZIP-Datei erstellen und mit einem Ticket im Discord schicken. Passwörter sind nicht enthalten.</p></div>
+      <div class="karte reveal"><h3>Einrichtung mit Hilfe</h3><p>Matthias richtet alles mit dir zusammen ein, für <span class="hg">100 € pro Stunde</span>. Melde dich dafür bei Discord.</p></div>
+    </div>
+    <div style="margin-top:28px" class="reveal"><a class="btn btn-ghost" href="https://www.kaspareit-trading.com/discord" target="_top">Zu Discord</a></div>
+  </div>
+</section>
+
+<!-- TRADINGVIEW (optional) -->
+<section class="tv">
+  <div class="wrap">
+    <div class="sec-head reveal" style="margin-bottom:0">
+      <div class="kicker">Alternative</div>
+      <h2>Lieber in TradingView?</h2>
+      <p>Der Aktienbot steht weiterhin als Skript in TradingView bereit. Du kannst ihn auf deinen Charts nutzen, an der Vergangenheit testen und die Signale selbst handeln. Automatisch handelt er dort nicht, das übernimmt All Time High.</p>
+      <p>Zur Freischaltung trägst du deinen TradingView-Benutzernamen oben rechts unter „Mitglieder-Status“ ein. Die Freischaltung folgt innerhalb von 24 Stunden.</p>
+      <div class="knoepfe" id="tvKnoepfe"></div>
+    </div>
+  </div>
+</section>
+
+<footer class="fuss">
+  <div class="wrap"><p>Trading birgt erhebliche Risiken bis hin zum Totalverlust des eingesetzten Kapitals. Vergangene Ergebnisse sind kein verlässlicher Hinweis auf künftige Ergebnisse. Die Software ist ein Werkzeug, keine Anlageberatung.</p></div>
+</footer>
+
+<div class="gross" id="gross"><img alt=""></div>
+
+<script>
+/* Sanftes Einblenden beim Scrollen */
+(function(){
+  var els=document.querySelectorAll('.reveal');
+  if(!('IntersectionObserver' in window)){els.forEach(function(e){e.classList.add('da');});return;}
+  var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('da');io.unobserve(e.target);}});},{threshold:.12});
+  els.forEach(function(e){io.observe(e);});
+})();
+
+/* Großansicht der Bilder */
+(function(){
+  var g=document.getElementById('gross'), gi=g.querySelector('img');
+  document.querySelectorAll('[data-gross]').forEach(function(f){f.addEventListener('click',function(){gi.src=f.getAttribute('data-gross');gi.alt=f.querySelector('img').alt;g.classList.add('auf');});});
+  g.addEventListener('click',function(){g.classList.remove('auf');});
+})();
+
+/* Verbindung zu Wix (Weg B): Links und Freischaltung kommen nur nach Login und Rollenprüfung von Wix. */
+(function(){
+  var ERLAUBT=/^https:\/\/(www\.)?kaspareit-trading\.com$|^https:\/\/[a-z0-9-]+\.(filesusr|wixsite|wix)\.com$|^https:\/\/[a-z0-9-]+\.wixstudio\.com$|^https:\/\/[a-z0-9-]+\.editor\.wix\.com$/;
+  var LINK_OK=/^https:\/\/(www\.kaspareit-trading\.com\/_files\/|([a-z]+\.)?tradingview\.com\/script\/)/;
+  var lampe=document.getElementById('lampe'), text=document.getElementById('zugangText'), knopf=document.getElementById('zugangKnopf'), klein=document.getElementById('zugangKlein'), tv=document.getElementById('tvKnoepfe');
+  var fertig=false;
+  function an(n){try{window.parent.postMessage(n,'*');}catch(e){}}
+  function link(href,label,klasse,neu){var a=document.createElement('a');a.className='btn '+klasse;a.href=href;a.textContent=label;a.target=neu?'_blank':'_top';if(neu)a.rel='noopener';return a;}
+  function zeige(d){
+    fertig=true; knopf.innerHTML=''; tv.innerHTML=''; klein.textContent='';
+    var l=d.links||{};
+    if(d.stufe==='premium'){
+      lampe.className='lampe an';
+      text.innerHTML='Dein Zugang ist <span class="hg">aktiv</span>. All Time High ist in Premium ohne Aufpreis enthalten.';
+      if(l.download && LINK_OK.test(l.download)){knopf.appendChild(link(l.download,'All Time High herunterladen','btn-gold',false));klein.textContent='Danach holt sich die App ihre Updates selbst.';}
+      if(l.tradingview && LINK_OK.test(l.tradingview)) tv.appendChild(link(l.tradingview,'Skript in TradingView öffnen','btn-gold',true));
+      if(l.parameter && LINK_OK.test(l.parameter)) tv.appendChild(link(l.parameter,'Parameter-Erklärung (PDF)','btn-ghost',true));
+    }else{
+      lampe.className='lampe gold';
+      text.innerHTML='All Time High ist Teil von <span class="hg">Premium</span>, ohne Aufpreis. Mit deinem aktuellen Paket ist die App noch nicht freigeschaltet.';
+      knopf.appendChild(link('https://start.kaspareit-trading.com/angebot/#preise','Pakete ansehen','btn-ghost',false));
+    }
+    hoehe();
+  }
+  window.addEventListener('message',function(e){
+    if(!ERLAUBT.test(e.origin))return;
+    var d=e.data||{};
+    if(d.typ==='inhalt')zeige(d);
+    else if(d.typ==='gast'){fertig=true;lampe.className='lampe';text.textContent='Bitte melde dich im Mitgliederbereich an.';knopf.innerHTML='';}
+    else if(d.typ==='fehler'){fertig=true;text.textContent='Dein Zugang konnte gerade nicht geprüft werden. Bitte lade die Seite neu.';}
+  });
+  function hoehe(){an({typ:'hoehe',px:document.documentElement.scrollHeight});}
+  if(window.ResizeObserver)new ResizeObserver(hoehe).observe(document.body);
+  an({typ:'bereit'});
+  setTimeout(function(){if(!fertig){text.textContent='Keine Verbindung zum Mitgliederbereich. Diese Seite funktioniert nur eingeloggt auf kaspareit-trading.com.';}},7000);
+})();
+</script>
+</body>
+</html>
