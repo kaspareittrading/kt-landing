@@ -142,6 +142,7 @@ nav,nav.scrolled{padding:12px 16px}
 .lap-deckel{background:linear-gradient(180deg,#1c2123,#0c0f10);border-radius:18px 18px 4px 4px;padding:14px 14px 18px;box-shadow:0 0 0 1px rgba(255,255,255,.08),inset 0 1px 0 rgba(255,255,255,.07),0 0 120px -30px rgba(216,174,94,.3);position:relative}
 .lap-deckel:before{content:"";position:absolute;top:5px;left:50%;width:5px;height:5px;margin-left:-2.5px;border-radius:50%;background:#2c3337}
 .lap-basis{height:16px;margin:0 -7%;border-radius:2px 2px 16px 16px;background:linear-gradient(180deg,#454c50,#1a1e20 70%);position:relative;box-shadow:0 26px 40px -16px rgba(0,0,0,.95)}
+@media(max-width:480px){.lap-basis{margin:0 -3%}}
 .lap-basis:before{content:"";position:absolute;top:0;left:50%;width:16%;margin-left:-8%;height:6px;border-radius:0 0 8px 8px;background:#1f2427}
 .bildschirm .bs{opacity:0;transition:opacity .6s ease,transform .9s ease;transform:scale(1.03)}
 .bildschirm .bs.an{opacity:1;transform:none}
@@ -153,6 +154,7 @@ nav,nav.scrolled{padding:12px 16px}
 
 /* ===== App-Fenster (Windows) mit schwebender Ampel ===== */
 .zwei{display:grid;grid-template-columns:1fr 1fr;gap:70px;align-items:center}
+.zwei>*{min-width:0}
 .fenster-buehne{position:relative;perspective:1800px;padding:20px 0 60px}
 .fenster{background:#111617;border:1px solid rgba(255,255,255,.1);border-radius:12px;overflow:hidden;box-shadow:0 50px 100px -30px rgba(0,0,0,.95),0 0 100px -30px rgba(216,174,94,.28);transition:transform .8s cubic-bezier(.2,.7,.2,1);cursor:zoom-in}
 .fenster.kipp{transform:rotateY(-9deg) rotateX(3deg)}
