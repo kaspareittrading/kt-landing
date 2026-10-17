@@ -113,13 +113,14 @@ code{font-family:Consolas,monospace;font-size:13.5px;color:var(--gold);backgroun
 <header class="hero">
   <div class="wrap hero-grid">
     <div class="reveal">
-      <div class="kicker">Säule 02 · Aktien</div>
+      <div class="kicker" id="heroKicker">Säule 02 · Aktien</div>
       <h1>All <span>Time</span> High</h1>
       <p class="sub">Automatisierter Aktienhandel aus einer einzigen Software. Direkt mit deinem Konto bei <span class="hg">Interactive Brokers</span> verbunden, ohne Zusatzprogramme.</p>
       <div class="fakten">
         <div class="fakt"><b>2</b><span>fertige Strategien</span></div>
         <div class="fakt"><b>Weltweit</b><span>alles, was IB anbietet</span></div>
-        <div class="fakt"><b>Premium</b><span>ohne Aufpreis</span></div>
+        <div class="fakt nur-premium"><b>Premium</b><span>ohne Aufpreis</span></div>
+        <div class="fakt nur-ath versteckt"><b>Echte Stops</b><span>direkt bei IB</span></div>
       </div>
     </div>
     <div class="zugang reveal" id="zugang">
@@ -139,7 +140,8 @@ code{font-family:Consolas,monospace;font-size:13.5px;color:var(--gold);backgroun
       <h2>Das brauchst du</h2>
     </div>
     <div class="grid-4">
-      <div class="karte reveal"><div class="nr">01</div><h3>Premium</h3><p>All Time High ist in Premium enthalten, ohne Aufpreis. Die App prüft deine Mitgliedschaft beim Anmelden.</p></div>
+      <div class="karte reveal nur-premium"><div class="nr">01</div><h3>Premium</h3><p>All Time High ist in Premium enthalten, ohne Aufpreis. Die App prüft deine Mitgliedschaft beim Anmelden.</p></div>
+      <div class="karte reveal nur-ath versteckt"><div class="nr">01</div><h3>Dein Abo</h3><p>Dein All-Time-High-Abo ist dein Zugang. Die App prüft ihn bei jeder Anmeldung.</p></div>
       <div class="karte reveal"><div class="nr">02</div><h3>Konto bei IB</h3><p>Ein Konto bei Interactive Brokers, auch über CapTrader oder LYNX. Zum Start reicht das Paper-Konto.</p></div>
       <div class="karte reveal"><div class="nr">03</div><h3>Windows</h3><p>Ein 64-Bit-Windows-PC. Für den Dauerbetrieb ein Windows-Server, der rund um die Uhr läuft.</p></div>
       <div class="karte reveal"><div class="nr">04</div><h3>IB Gateway</h3><p>Das kostenlose Verbindungsprogramm von Interactive Brokers. Für Echtgeld zusätzlich ein Abo für Echtzeit-Kurse bei IB.</p></div>
@@ -160,11 +162,11 @@ code{font-family:Consolas,monospace;font-size:13.5px;color:var(--gold);backgroun
     <div class="schritte">
       <div class="schritt reveal"><div class="punkt">1</div><div>
         <h3>Herunterladen und installieren</h3>
-        <p>Lade All Time High oben über deinen Zugang herunter, entpacke die Datei und starte das Setup. Es installiert ohne Administratorrechte.</p>
+        <p>Lade All Time High oben über deinen Zugang herunter und starte die Setup-Datei. Sie installiert ohne Administratorrechte.</p>
       </div></div>
       <div class="schritt reveal"><div class="punkt">2</div><div>
         <h3>Anmelden</h3>
-        <p>Gib die E-Mail-Adresse deiner Mitgliedschaft ein. Du bekommst einen <span class="hg">6-stelligen Code</span> per E-Mail. Der Zugang gilt für einen PC. Willst du den Rechner wechseln, meldest du dich vorher in der App ab.</p>
+        <p>Gib die E-Mail-Adresse ein, mit der du gekauft hast. Du bekommst einen <span class="hg">6-stelligen Code</span> per E-Mail. Der Zugang gilt für einen PC. Willst du den Rechner wechseln, meldest du dich vorher in der App ab.</p>
       </div></div>
       <div class="schritt reveal"><div class="punkt">3</div><div>
         <h3>IB Gateway einrichten</h3>
@@ -238,8 +240,8 @@ code{font-family:Consolas,monospace;font-size:13.5px;color:var(--gold);backgroun
 
 <hr class="trenner">
 
-<!-- WEBINARE -->
-<section>
+<!-- WEBINARE (nur Premium) -->
+<section class="nur-premium">
   <div class="wrap">
     <div class="sec-head reveal">
       <div class="kicker">Zum Nachschauen</div>
@@ -268,14 +270,27 @@ code{font-family:Consolas,monospace;font-size:13.5px;color:var(--gold);backgroun
     <div class="grid-3">
       <div class="karte reveal"><h3>Feedback in der App</h3><p>Fehler gefunden oder einen Wunsch? Der Knopf „Feedback“ in der App geht direkt an unser Entwicklerteam.</p></div>
       <div class="karte reveal"><h3>Support-Ticket</h3><p>In der App unter Einstellungen bei „Diagnose / Support-Paket“ eine ZIP-Datei erstellen und mit einem Ticket im Discord schicken. Passwörter sind nicht enthalten.</p></div>
+      <div class="karte reveal nur-ath versteckt"><h3>Discord</h3><p>Trag deinen Discord-Benutzernamen im Mitgliederbereich unter „Mitglieder-Status“ ein und tritt dem Server bei. Zur nächsten vollen Stunde schalten wir dich für den All-Time-High-Kanal frei.</p></div>
       <div class="karte reveal"><h3>Einrichtung mit Hilfe</h3><p>Mit dem Einrichtungsservice richten wir alles mit dir zusammen ein, pauschal für <span class="hg">99 €</span>. Melde dich dafür mit einem Ticket im Discord.</p></div>
     </div>
     <div style="margin-top:28px" class="reveal"><a class="btn btn-ghost" href="https://www.kaspareit-trading.com/discord" target="_top">Zu Discord</a></div>
   </div>
 </section>
 
-<!-- TRADINGVIEW (optional) -->
-<section class="tv">
+<!-- ABO (nur reine ATH-Kunden) -->
+<section class="nur-ath versteckt">
+  <div class="wrap">
+    <div class="sec-head reveal" style="margin-bottom:0">
+      <div class="kicker">Dein Abo</div>
+      <h2>Laufzeit und Kündigung</h2>
+      <p>Dein Abo läuft jährlich oder monatlich, je nachdem, was du gewählt hast, und verlängert sich automatisch. Abgerechnet wird über CopeCart. Dort kannst du es jederzeit zum Ende der bezahlten Zeit kündigen. Bis dahin bleibt dein Zugang aktiv.</p>
+      <p>Fragen zu deinem Abo oder einem Wechsel? Schreib uns ein Support-Ticket im Discord.</p>
+    </div>
+  </div>
+</section>
+
+<!-- TRADINGVIEW (optional, nur Premium) -->
+<section class="tv nur-premium">
   <div class="wrap">
     <div class="sec-head reveal" style="margin-bottom:0">
       <div class="kicker">Alternative</div>
@@ -320,7 +335,16 @@ code{font-family:Consolas,monospace;font-size:13.5px;color:var(--gold);backgroun
   function zeige(d){
     fertig=true; knopf.innerHTML=''; tv.innerHTML=''; klein.textContent='';
     var l=d.links||{};
-    if(d.stufe==='premium'){
+    var nurAth=(d.stufe!=='premium' && d.ath===true);
+    /* Reine ATH-Kunden (Rolle „All Time High“, Plan 15.10.2026): eigene Ansicht ohne Premium, Webinare, TradingView */
+    document.querySelectorAll('.nur-premium').forEach(function(e){e.classList.toggle('versteckt',nurAth);});
+    document.querySelectorAll('.nur-ath').forEach(function(e){e.classList.toggle('versteckt',!nurAth);});
+    if(nurAth){document.getElementById('heroKicker').textContent='Dein Mitgliederbereich';}
+    if(nurAth){
+      lampe.className='lampe an';
+      text.innerHTML='Dein All-Time-High-Abo ist <span class="hg">aktiv</span>.';
+      if(l.download && LINK_OK.test(l.download)){knopf.appendChild(link(l.download,'All Time High herunterladen','btn-gold',false));klein.textContent='Danach holt sich die App ihre Updates selbst.';}
+    }else if(d.stufe==='premium'){
       lampe.className='lampe an';
       text.innerHTML='Dein Zugang ist <span class="hg">aktiv</span>. All Time High ist in Premium ohne Aufpreis enthalten.';
       if(l.download && LINK_OK.test(l.download)){knopf.appendChild(link(l.download,'All Time High herunterladen','btn-gold',false));klein.textContent='Danach holt sich die App ihre Updates selbst.';}
