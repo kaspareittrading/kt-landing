@@ -158,6 +158,7 @@ code{font-family:Consolas,monospace;font-size:13.5px;color:var(--gold);backgroun
       <div class="kicker">Einrichtung</div>
       <h2>In fünf Schritten startklar</h2>
       <p>Einmal sauber eingerichtet, läuft der Rest von allein. Updates holt sich die App selbst.</p>
+      <p style="margin-top:14px">Hängst du irgendwo? <a href="#chat" data-ktchat-frage="Ich hänge bei der Einrichtung von All Time High: " style="color:var(--gold)">Frag unseren ATH-Assistenten</a>, er kennt jeden Schritt.</p>
     </div>
     <div class="schritte">
       <div class="schritt reveal"><div class="punkt">1</div><div>
@@ -267,6 +268,7 @@ code{font-family:Consolas,monospace;font-size:13.5px;color:var(--gold);backgroun
       <div class="kicker">Hilfe</div>
       <h2>Wenn etwas hakt</h2>
     </div>
+    <div class="karte reveal" style="margin-bottom:20px;border-color:var(--goldline)"><h3>Zuerst: der ATH-Assistent</h3><p>Die schnellste Hilfe bei Fragen zu Einrichtung, IB Gateway, Bots und Fehlermeldungen. Er antwortet sofort, rund um die Uhr.</p><p style="margin-top:14px"><a href="#chat" class="btn btn-gold" data-ktchat-frage="">Chat öffnen</a></p></div>
     <div class="grid-3">
       <div class="karte reveal"><h3>Feedback in der App</h3><p>Fehler gefunden oder einen Wunsch? Der Knopf „Feedback“ in der App geht direkt an unser Entwicklerteam.</p></div>
       <div class="karte reveal"><h3>Support-Ticket</h3><p>In der App unter Einstellungen bei „Diagnose / Support-Paket“ eine ZIP-Datei erstellen und mit einem Ticket im Discord schicken. Passwörter sind nicht enthalten.</p></div>
@@ -365,6 +367,8 @@ code{font-family:Consolas,monospace;font-size:13.5px;color:var(--gold);backgroun
     else if(d.typ==='fehler'){fertig=true;text.textContent='Dein Zugang konnte gerade nicht geprüft werden. Bitte lade die Seite neu.';}
   });
   function hoehe(){an({typ:'hoehe',px:document.documentElement.scrollHeight});}
+  /* Chat-Knoepfe (18.10.2026): Der ATH-Assistent sitzt auf der Wix-Seite drumherum, wir bitten sie per Nachricht, ihn zu oeffnen. */
+  document.addEventListener('click',function(e){var el=e.target.closest&&e.target.closest('[data-ktchat-frage]');if(!el)return;e.preventDefault();an({typ:'ktchat-oeffnen',frage:el.getAttribute('data-ktchat-frage')||''});});
   if(window.ResizeObserver)new ResizeObserver(hoehe).observe(document.body);
   an({typ:'bereit'});
   setTimeout(function(){if(!fertig){text.textContent='Keine Verbindung zum Mitgliederbereich. Diese Seite funktioniert nur eingeloggt auf kaspareit-trading.com.';}},7000);
