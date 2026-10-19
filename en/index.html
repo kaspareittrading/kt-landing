@@ -1445,14 +1445,12 @@ and are included in Premium at no extra charge.</div>
 <h2>Chatbot</h2>
 </div>
 <div class="botbox reveal">
-<!-- Chatbase "Alex Bot". loading="lazy" laedt den Bot erst beim Hinscrollen,
-     sonst zieht er schon beim Seitenstart sein komplettes Programmpaket. -->
-<iframe
-src="https://www.chatbase.co/chatbot-iframe/BkBjWGmiWIHOAiNel6kVN"
-title="Alex Bot"
-loading="lazy"
-allow="microphone; autoplay"
-referrerpolicy="strict-origin-when-cross-origin"></iframe>
+<!-- KT-Chat (own chatbot, replaces Chatbase since 19.10.2026). The chat window opens via the button bottom right. -->
+<div style="padding:28px 22px;text-align:center">
+<p style="margin:0 0 14px;color:#1a2224">Our AI assistant answers your questions about plans, strategies and setup. Just ask in English.</p>
+<button type="button" class="btn btn-primary" onclick="document.getElementById('ktc-knopf')&&document.getElementById('ktc-knopf').click()">Open chat</button>
+</div>
+<script src="https://chat.kaspareit-trading.com:8443/widget.js" data-bot="neukunden" data-titel="Kaspareit-Trading Assistant" data-gruss="Hi, I'm the AI assistant of Kaspareit-Trading. How can I help you?" defer></script>
 </div>
 <p class="bothint reveal">If the chatbot doesn't have enough information for you,
 you can also contact us by email:

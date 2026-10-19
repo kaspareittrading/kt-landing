@@ -1441,14 +1441,12 @@ und sind in Premium ohne Aufpreis enthalten.</div>
 <h2>Chatbot</h2>
 </div>
 <div class="botbox reveal">
-<!-- Chatbase "Alex Bot". loading="lazy" laedt den Bot erst beim Hinscrollen,
-     sonst zieht er schon beim Seitenstart sein komplettes Programmpaket. -->
-<iframe
-src="https://www.chatbase.co/chatbot-iframe/BkBjWGmiWIHOAiNel6kVN"
-title="Alex Bot"
-loading="lazy"
-allow="microphone; autoplay"
-referrerpolicy="strict-origin-when-cross-origin"></iframe>
+<!-- KT-Chat (eigener Chatbot, ersetzt Chatbase seit 19.10.2026). Das Chatfenster oeffnet sich ueber den Knopf unten rechts. -->
+<div style="padding:28px 22px;text-align:center">
+<p style="margin:0 0 14px;color:#1a2224">Unser KI-Assistent beantwortet deine Fragen zu Paketen, Strategien und Einrichtung.</p>
+<button type="button" class="btn btn-primary" onclick="document.getElementById('ktc-knopf')&&document.getElementById('ktc-knopf').click()">Chat öffnen</button>
+</div>
+<script src="https://chat.kaspareit-trading.com:8443/widget.js" data-bot="neukunden" defer></script>
 </div>
 <p class="bothint reveal">Sollte der Chat-Bot keine ausreichenden Infos für dich haben,
 kannst du uns auch per Mail kontaktieren:
