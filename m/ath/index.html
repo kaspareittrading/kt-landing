@@ -329,7 +329,8 @@ code{font-family:Consolas,monospace;font-size:13.5px;color:var(--gold);backgroun
 /* Verbindung zu Wix (Weg B): Links und Freischaltung kommen nur nach Login und Rollenprüfung von Wix. */
 (function(){
   var ERLAUBT=/^https:\/\/(www\.)?kaspareit-trading\.com$|^https:\/\/[a-z0-9-]+\.(filesusr|wixsite|wix)\.com$|^https:\/\/[a-z0-9-]+\.wixstudio\.com$|^https:\/\/[a-z0-9-]+\.editor\.wix\.com$/;
-  var LINK_OK=/^https:\/\/(www\.kaspareit-trading\.com\/_files\/|([a-z]+\.)?tradingview\.com\/script\/)/;
+  /* 22.10.2026: Update-Server dazu (ATH-Download seit 19.10. von download.kaspareit-trading.de/ath/, sonst fehlte der Knopf) */
+  var LINK_OK=/^https:\/\/(www\.kaspareit-trading\.com\/_files\/|download\.kaspareit-trading\.de\/ath\/|([a-z]+\.)?tradingview\.com\/script\/)/;
   var lampe=document.getElementById('lampe'), text=document.getElementById('zugangText'), knopf=document.getElementById('zugangKnopf'), klein=document.getElementById('zugangKlein'), tv=document.getElementById('tvKnoepfe');
   var fertig=false;
   function an(n){try{window.parent.postMessage(n,'*');}catch(e){}}
