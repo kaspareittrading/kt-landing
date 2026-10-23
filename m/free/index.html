@@ -7,53 +7,161 @@
 <title>Free Member | Mitgliederbereich | Kaspareit Trading</title>
 <link rel="stylesheet" href="../../schrift/schrift.css">
 <!-- Gebaut aus vorlagen/free-vorlage.html mit scripts/free-bauen.py. Nicht von Hand ändern, sondern Vorlage oder Daten ändern und neu bauen. -->
+<!-- Reihenfolge (Alex 23.10.2026): ATH und Ergebnisse oben, Angebote an mehreren Stellen, Videothek und Artikel unten. Optik wie die Verkaufsseite. -->
 <style>
 :root{--bg:#0a0f10;--bg2:#0d1314;--ink:#e7eced;--muted:#bac4c6;--dim:#8f999b;--teal:#40C6CC;--gold:#D8AE5E;--green:#33C46F;--red:#E06464;--line:rgba(255,255,255,.08);--card:rgba(255,255,255,.025);--goldline:rgba(216,174,94,.28)}
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
 body{background:var(--bg);color:var(--ink);font-family:'Manrope',-apple-system,'Helvetica Neue',Arial,sans-serif;font-weight:300;line-height:1.62;-webkit-font-smoothing:antialiased;overflow-x:hidden}
 a{color:inherit}
-.wrap{max-width:1080px;margin:0 auto;padding:0 26px}
-section{padding:84px 0;position:relative}
+.wrap{max-width:1140px;margin:0 auto;padding:0 28px}
+section{padding:110px 0;position:relative}
 .kicker{font-size:12px;letter-spacing:.4em;text-transform:uppercase;font-weight:600;color:var(--gold);margin-bottom:18px}
-h1,h2,h3{font-weight:300;letter-spacing:.01em;line-height:1.12}
-h2{font-size:clamp(28px,4vw,44px)}
-h3{font-size:18px;font-weight:500}
+h1,h2,h3{font-weight:200;letter-spacing:.01em;line-height:1.1}
+h2{font-size:clamp(30px,4.5vw,52px)}
+h3{font-size:19px;font-weight:500;line-height:1.3}
 p{color:var(--muted)}
 .hg{color:var(--gold);font-weight:600}
-.sec-head{max-width:720px;margin-bottom:40px}
-.sec-head p{margin-top:16px;font-size:17px}
-.btn{display:inline-block;padding:13px 28px;border-radius:40px;font-size:14px;letter-spacing:.05em;font-weight:600;text-decoration:none;cursor:pointer;border:1px solid transparent;transition:all .3s;font-family:inherit}
-.btn-gold{background:var(--gold);color:#1a1205}
-.btn-gold:hover{box-shadow:0 0 28px rgba(216,174,94,.5);transform:translateY(-1px)}
-.btn-ghost{border-color:var(--goldline);color:var(--ink);background:transparent}
-.btn-ghost:hover{border-color:var(--gold);box-shadow:0 0 20px rgba(216,174,94,.22)}
-.karte{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:26px 24px;transition:border-color .3s,transform .3s}
-.karte:hover{border-color:var(--goldline)}
-.karte .nr{font-size:12px;letter-spacing:.3em;color:var(--gold);font-weight:600;margin-bottom:12px}
+.ht{color:var(--teal);font-weight:600}
+.sec-head{max-width:720px;margin-bottom:56px}
+.sec-head.mid{margin-left:auto;margin-right:auto;text-align:center}
+.sec-head p{margin-top:20px;font-size:17px}
+.btn{display:inline-flex;align-items:center;gap:10px;padding:14px 30px;border-radius:40px;font-size:14px;letter-spacing:.05em;font-weight:600;text-decoration:none;cursor:pointer;border:1px solid transparent;transition:transform .3s,box-shadow .3s,border-color .3s,background .3s;font-family:inherit;position:relative;overflow:hidden}
+.btn-gold{background:linear-gradient(135deg,#e6c27a,#D8AE5E 45%,#b98f43);color:#1a1205;box-shadow:0 6px 24px rgba(216,174,94,.22)}
+.btn-gold:hover{box-shadow:0 0 34px rgba(216,174,94,.55);transform:translateY(-2px)}
+.btn-gold:after{content:"";position:absolute;top:0;left:-60%;width:40%;height:100%;background:linear-gradient(100deg,transparent,rgba(255,255,255,.45),transparent);transform:skewX(-20deg);animation:glanz 4.5s ease-in-out infinite}
+@keyframes glanz{0%,62%{left:-60%}100%{left:130%}}
+.btn-ghost{border-color:var(--goldline);color:var(--ink);background:rgba(255,255,255,.02)}
+.btn-ghost:hover{border-color:var(--gold);box-shadow:0 0 22px rgba(216,174,94,.22);transform:translateY(-2px)}
+.btn .pf{transition:transform .3s}
+.btn:hover .pf{transform:translateX(4px)}
+.karte{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:30px 26px;transition:border-color .35s,transform .35s,box-shadow .35s}
+.karte:hover{border-color:var(--goldline);transform:translateY(-6px);box-shadow:0 0 34px rgba(216,174,94,.08)}
+.karte .nr{font-size:12px;letter-spacing:.3em;color:var(--gold);font-weight:600;margin-bottom:14px}
 .karte h3{margin-bottom:10px}
 .karte p{font-size:15px}
-.grid-2{display:grid;grid-template-columns:repeat(2,1fr);gap:20px}
-.grid-4{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
-.grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.trenner{border:0;border-top:1px solid var(--line);margin:0}
+.versteckt{display:none!important}
+
+/* Einblenden beim Scrollen, Richtungen wie auf der Verkaufsseite */
+.reveal{opacity:0;transform:translateY(54px);filter:blur(6px);transition:opacity 1s cubic-bezier(.2,.7,.2,1),transform 1s cubic-bezier(.2,.7,.2,1),filter 1s cubic-bezier(.2,.7,.2,1);transition-delay:calc(var(--i,0) * 110ms)}
+.reveal.l{transform:translateX(-90px)}
+.reveal.r{transform:translateX(90px)}
+.reveal.sc{transform:scale(.86)}
+.reveal.da{opacity:1;transform:none;filter:none}
+
+/* Hero */
+.hero{min-height:min(860px,100vh);display:flex;align-items:center;padding:110px 0 90px;overflow:hidden;position:relative}
+.hero:before{content:"";position:absolute;inset:0;background:radial-gradient(ellipse 60% 55% at 78% 18%,rgba(216,174,94,.20),transparent 70%),radial-gradient(ellipse 50% 50% at 8% 95%,rgba(64,198,204,.12),transparent 70%);animation:atmen 9s ease-in-out infinite alternate}
+@keyframes atmen{to{opacity:.6;transform:scale(1.06)}}
+.raster{position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.035) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.035) 1px,transparent 1px);background-size:64px 64px;-webkit-mask-image:radial-gradient(ellipse at 60% 40%,#000 20%,transparent 75%);mask-image:radial-gradient(ellipse at 60% 40%,#000 20%,transparent 75%)}
+.hkurve{position:absolute;left:0;right:0;bottom:0;height:72%;width:100%;pointer-events:none;will-change:transform}
+.hkurve .fl{fill:url(#hverlauf);opacity:0;animation:einblenden 1.6s 1.4s ease forwards}
+.hkurve .ln{fill:none;stroke:var(--gold);stroke-width:2.2;vector-effect:non-scaling-stroke;clip-path:inset(0 100% 0 0);animation:zeichnen 2.8s .3s cubic-bezier(.45,.1,.2,1) forwards;filter:drop-shadow(0 0 10px rgba(216,174,94,.6))}
+/* Linie von links nach rechts aufdecken. clip-path statt stroke-dasharray, das verträgt sich nicht mit non-scaling-stroke */
+@keyframes zeichnen{to{clip-path:inset(0 0 0 0)}}
+@keyframes einblenden{to{opacity:1}}
+.hero .wrap{position:relative;z-index:2;width:100%}
+.hero h1{font-size:clamp(42px,7vw,84px);max-width:860px}
+.hero h1 span{background:linear-gradient(90deg,#f0d49a,#D8AE5E 50%,#40C6CC);-webkit-background-clip:text;background-clip:text;color:transparent}
+.hero .sub{font-size:clamp(17px,2vw,20px);margin:26px 0 36px;max-width:620px}
+.hero-cta{display:flex;gap:14px;flex-wrap:wrap}
+.hplakette{position:absolute;right:28px;top:118px;z-index:3;text-align:right;opacity:0;animation:einblenden 1s 2.6s ease forwards}
+.hplakette b{display:block;font-size:clamp(28px,3.4vw,44px);font-weight:200;color:var(--gold)}
+.hplakette span{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--dim)}
+.gast{margin-top:28px;font-size:14px;color:var(--dim)}
+.scroll-ind{position:absolute;bottom:26px;left:50%;transform:translateX(-50%);z-index:3;font-size:10.5px;letter-spacing:.32em;text-transform:uppercase;color:var(--dim);transition:opacity .4s}
+.scroll-ind:after{content:"";display:block;width:1px;height:34px;margin:10px auto 0;background:linear-gradient(var(--gold),transparent);animation:tropfen 2s ease-in-out infinite}
+@keyframes tropfen{0%{transform:scaleY(0);transform-origin:top}50%{transform:scaleY(1);transform-origin:top}51%{transform-origin:bottom}100%{transform:scaleY(0);transform-origin:bottom}}
+
+/* Zahlenband */
+.band{border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:var(--bg2)}
+.band .wrap{display:grid;grid-template-columns:repeat(4,1fr);gap:26px;padding:50px 28px}
+.stat{text-align:center}
+.stat b{display:block;font-size:clamp(30px,4vw,48px);font-weight:200;font-variant-numeric:tabular-nums}
+.stat:nth-child(1) b{color:var(--gold)}.stat:nth-child(2) b{color:var(--teal)}.stat:nth-child(3) b{color:var(--green)}
+.stat span{font-size:12.5px;color:var(--dim);letter-spacing:.09em;display:block;margin-top:8px}
+
+/* ATH */
+.ath{background:radial-gradient(ellipse 70% 50% at 85% 10%,rgba(216,174,94,.08),transparent 70%)}
+.ath-split{display:grid;grid-template-columns:1fr 1.15fr;gap:60px;align-items:center}
+.funk{display:grid;gap:22px;margin-top:34px}
+.funk>div{display:grid;grid-template-columns:44px 1fr;gap:16px;align-items:start}
+.funk i{width:44px;height:44px;border-radius:12px;border:1px solid var(--goldline);background:rgba(216,174,94,.07);display:flex;align-items:center;justify-content:center;font-style:normal;color:var(--gold);font-size:13px;font-weight:600;letter-spacing:.06em}
+.funk h3{font-size:17px;margin-bottom:4px}
+.funk p{font-size:15px}
+.buehne{perspective:1400px}
+.bild{display:block;border:1px solid var(--line);border-radius:14px;overflow:hidden;cursor:zoom-in;background:var(--card);transition:border-color .3s,box-shadow .3s;box-shadow:0 30px 80px rgba(0,0,0,.55)}
+.bild:hover{border-color:var(--goldline);box-shadow:0 30px 80px rgba(0,0,0,.55),0 0 40px rgba(216,174,94,.15)}
+.bild img{display:block;width:100%;height:auto}
+.bild figcaption{font-size:13px;color:var(--dim);padding:11px 15px}
+.kippen{transform:rotateY(-14deg) rotateX(6deg) scale(.92);transition:transform 1.4s cubic-bezier(.2,.7,.2,1),opacity 1s,filter 1s}
+.kippen.da{transform:rotateY(-4deg) rotateX(2deg)}
+.kippen:hover{transform:none}
+.gal2{display:grid;grid-template-columns:1fr 1fr;gap:22px;margin-top:60px}
+.gross{position:fixed;inset:0;background:rgba(5,7,8,.94);display:none;align-items:center;justify-content:center;z-index:60;padding:24px;cursor:zoom-out}
+.gross.auf{display:flex}
+.gross img{max-width:100%;max-height:100%;border-radius:10px}
+.knoepfe{display:flex;gap:14px;flex-wrap:wrap;margin-top:40px}
+
+/* Ergebnisse */
+.ergebnisse{background:var(--bg2);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.vergleich{display:grid;grid-template-columns:repeat(2,1fr);gap:22px}
+.erg .kopf{display:flex;justify-content:space-between;align-items:baseline;gap:12px;margin-bottom:6px}
+.erg .profil{font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--dim)}
+.erg .zahlen{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:18px 0 14px}
+.erg .zahlen b{display:block;font-size:26px;font-weight:200;color:var(--ink);font-variant-numeric:tabular-nums}
+.erg .zahlen span{font-size:12.5px;color:var(--dim)}
+.erg .zahlen .gut b{color:var(--gold)}
+.spark{display:block;width:100%;height:70px;margin:4px 0 14px;overflow:visible}
+.spark-fl{fill:rgba(216,174,94,.10);opacity:0;transition:opacity 1.2s 1.2s}
+.spark-ln{fill:none;stroke:var(--gold);stroke-width:1.8;vector-effect:non-scaling-stroke;clip-path:inset(0 100% 0 0);transition:clip-path 2.2s .3s cubic-bezier(.45,.1,.2,1)}
+.da .spark-ln{clip-path:inset(0 0 0 0)}
+.da .spark-fl{opacity:1}
+.erg table{width:100%;border-collapse:collapse;font-size:14px}
+.erg td{padding:8px 0;border-top:1px solid var(--line);color:var(--muted)}
+.erg td.z{text-align:right;color:var(--ink);font-variant-numeric:tabular-nums}
+.erg td .hint{font-size:11px;letter-spacing:.08em;color:var(--teal);margin-left:6px;border:1px solid rgba(64,198,204,.35);border-radius:20px;padding:1px 8px;white-space:nowrap}
+.spy{margin-top:22px;border-style:dashed}
+.spy .zahlen b{color:var(--muted)}
+.hinweis{border-left:2px solid var(--gold);padding:4px 0 4px 18px;margin-top:34px;max-width:800px}
+.hinweis p{font-size:15px}
+
+/* Angebote */
+.angebote{background:radial-gradient(ellipse 60% 50% at 50% 0%,rgba(216,174,94,.12),transparent 70%)}
+.preise{display:grid;grid-template-columns:1.15fr 1fr;gap:26px;max-width:940px;margin:0 auto;align-items:stretch}
+.preis{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:42px 34px;position:relative;display:flex;flex-direction:column}
+.preis.haupt{border-color:rgba(216,174,94,.5);box-shadow:0 0 70px rgba(216,174,94,.10);background:linear-gradient(180deg,rgba(216,174,94,.06),rgba(255,255,255,.02))}
+.preis .badge{position:absolute;top:-13px;left:34px;background:var(--gold);color:#1a1205;font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;padding:5px 14px;border-radius:30px;font-weight:700}
+.preis h3{font-size:22px;letter-spacing:.08em;text-transform:uppercase;font-weight:400}
+.preis .betrag{font-size:50px;font-weight:200;margin:14px 0 2px}
+.preis .betrag small{font-size:15px;color:var(--dim);font-weight:400}
+.preis .claim{font-size:15px;margin:6px 0 24px}
+.preis ul{list-style:none;display:grid;gap:11px;margin-bottom:32px}
+.preis li{color:var(--muted);font-size:14.5px;display:flex;gap:11px}
+.preis li:before{content:"✓";color:var(--gold);flex:0 0 auto}
+.preis li.ath{color:var(--ink)}
+.preis li.ath b{color:var(--gold);font-weight:600}
+.preis .btn{margin-top:auto;justify-content:center}
+.preis-fuss{text-align:center;margin-top:30px;font-size:14px;color:var(--dim)}
+.preis-fuss a{color:var(--gold);text-decoration:none}
+.preis-fuss a:hover{text-decoration:underline}
+
+/* Zwischenbanner mit Angebot */
+.banner{padding:0}
+.banner .innen{border:1px solid rgba(216,174,94,.35);border-radius:22px;padding:44px 46px;display:flex;align-items:center;justify-content:space-between;gap:30px;flex-wrap:wrap;background:linear-gradient(120deg,rgba(216,174,94,.12),rgba(64,198,204,.05) 60%,transparent);position:relative;overflow:hidden}
+.banner .innen:before{content:"";position:absolute;width:320px;height:320px;right:-80px;top:-160px;border-radius:50%;background:radial-gradient(circle,rgba(216,174,94,.25),transparent 70%)}
+.banner h2{font-size:clamp(24px,3vw,34px)}
+.banner p{margin-top:10px;max-width:560px}
+.banner .btn{position:relative}
+
+/* Bausteine */
 #bausteine .karte{display:flex;flex-direction:column}
-.karte .los{margin-top:auto;padding-top:20px}
+.karte .los{margin-top:auto;padding-top:22px}
 .karte .klein{font-size:13.5px;margin-top:12px}
 .karte .klein a{color:var(--gold);text-decoration:none}
 .karte .klein a:hover{text-decoration:underline}
-.trenner{border:0;border-top:1px solid var(--line);margin:0}
-
-/* Hero */
-.hero{padding:96px 0 70px;background:radial-gradient(ellipse at 70% 0%,rgba(216,174,94,.13),transparent 60%),radial-gradient(ellipse at 10% 100%,rgba(64,198,204,.06),transparent 55%)}
-.hero h1{font-size:clamp(40px,6.5vw,72px);max-width:820px}
-.hero h1 span{color:var(--gold)}
-.hero .sub{font-size:clamp(17px,2vw,20px);margin:22px 0 30px;max-width:640px}
-.fakten{display:flex;gap:38px;flex-wrap:wrap}
-.fakt{text-decoration:none}
-.fakt b{display:block;font-size:26px;font-weight:400;color:var(--ink)}
-.fakt span{font-size:13px;color:var(--dim);letter-spacing:.04em}
-.fakt:hover b{color:var(--gold)}
-.gast{margin-top:28px;font-size:14px;color:var(--dim)}
 
 /* Videothek */
 .reiter{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:18px}
@@ -65,12 +173,14 @@ p{color:var(--muted)}
 .suche:focus{outline:none;border-color:var(--goldline)}
 .kat-text{font-size:15px;color:var(--dim);margin-bottom:26px;min-height:24px}
 .videos{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
-.video{background:var(--card);border:1px solid var(--line);border-radius:14px;overflow:hidden;display:flex;flex-direction:column;transition:border-color .3s}
-.video:hover{border-color:var(--goldline)}
-.spieler{position:relative;aspect-ratio:16/9;background:#000;cursor:pointer;border:0;padding:0;width:100%;display:block}
-.spieler img{width:100%;height:100%;object-fit:cover;display:block;opacity:.88;transition:opacity .3s}
-.spieler:hover img{opacity:1}
-.spieler .play{position:absolute;inset:0;margin:auto;width:58px;height:58px;border-radius:50%;background:rgba(10,15,16,.72);border:1px solid var(--goldline);display:flex;align-items:center;justify-content:center}
+.video{background:var(--card);border:1px solid var(--line);border-radius:14px;overflow:hidden;display:flex;flex-direction:column;transition:border-color .3s,transform .3s;animation:auf .6s ease both}
+@keyframes auf{from{opacity:0;transform:translateY(18px)}}
+.video:hover{border-color:var(--goldline);transform:translateY(-4px)}
+.spieler{position:relative;aspect-ratio:16/9;background:#000;cursor:pointer;border:0;padding:0;width:100%;display:block;overflow:hidden}
+.spieler img{width:100%;height:100%;object-fit:cover;display:block;opacity:.85;transition:opacity .3s,transform .6s}
+.spieler:hover img{opacity:1;transform:scale(1.05)}
+.spieler .play{position:absolute;inset:0;margin:auto;width:58px;height:58px;border-radius:50%;background:rgba(10,15,16,.72);border:1px solid var(--goldline);display:flex;align-items:center;justify-content:center;transition:transform .3s}
+.spieler:hover .play{transform:scale(1.12)}
 .spieler .play:after{content:"";border-left:16px solid var(--gold);border-top:10px solid transparent;border-bottom:10px solid transparent;margin-left:4px}
 .spieler .dauer{position:absolute;right:8px;bottom:8px;font-size:12px;background:rgba(0,0,0,.75);color:#fff;padding:2px 7px;border-radius:5px}
 .spieler iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
@@ -84,86 +194,179 @@ p{color:var(--muted)}
 
 /* Blogliste */
 .liste{border-top:1px solid var(--line)}
-.zeile{display:grid;grid-template-columns:110px 1fr auto;gap:20px;padding:16px 0;border-bottom:1px solid var(--line);align-items:baseline;text-decoration:none}
+.zeile{display:grid;grid-template-columns:110px 1fr auto;gap:20px;padding:16px 0;border-bottom:1px solid var(--line);align-items:baseline;text-decoration:none;transition:padding .3s}
+.zeile:hover{padding-left:8px}
 .zeile b{color:var(--dim);font-weight:400;font-size:13px;letter-spacing:.04em}
 .zeile span{color:var(--ink);font-size:16px}
 .zeile em{font-style:normal;color:var(--muted);font-size:14px;display:block;margin-top:4px}
 .zeile i{font-style:normal;color:var(--gold);font-size:13px;white-space:nowrap}
 .zeile:hover span{color:var(--gold)}
 
-/* ATH */
-.ath{background:var(--bg2)}
-.gal{display:grid;grid-template-columns:1.4fr 1fr;gap:16px;margin-top:40px;align-items:start}
-.gal-spalte{display:grid;gap:16px}
-.bild{display:block;border:1px solid var(--line);border-radius:12px;overflow:hidden;cursor:zoom-in;background:var(--card);transition:border-color .25s}
-.bild:hover{border-color:var(--goldline)}
-.bild img{display:block;width:100%;height:auto}
-.bild figcaption{font-size:13px;color:var(--dim);padding:10px 14px}
-.gross{position:fixed;inset:0;background:rgba(5,7,8,.94);display:none;align-items:center;justify-content:center;z-index:50;padding:24px;cursor:zoom-out}
-.gross.auf{display:flex}
-.gross img{max-width:100%;max-height:100%;border-radius:10px}
-.knoepfe{display:flex;gap:12px;flex-wrap:wrap;margin-top:34px}
+/* Schluss */
+.schluss{text-align:center;padding:130px 0;background:radial-gradient(ellipse 60% 60% at 50% 100%,rgba(216,174,94,.16),transparent 70%)}
+.schluss h2{font-size:clamp(34px,5vw,60px);max-width:820px;margin:0 auto}
+.schluss p{max-width:600px;margin:22px auto 34px;font-size:17px}
+.schluss .hero-cta{justify-content:center}
 
-/* Ergebnisse */
-.vergleich{display:grid;grid-template-columns:repeat(2,1fr);gap:20px}
-.erg .kopf{display:flex;justify-content:space-between;align-items:baseline;gap:12px;margin-bottom:6px}
-.erg .profil{font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--dim)}
-.erg .zahlen{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:16px 0 14px}
-.erg .zahlen b{display:block;font-size:24px;font-weight:400;color:var(--ink)}
-.erg .zahlen span{font-size:12.5px;color:var(--dim)}
-.erg .zahlen .gut b{color:var(--gold)}
-.spark{display:block;width:100%;height:64px;margin:4px 0 12px}
-.spark-fl{fill:rgba(216,174,94,.10)}
-.spark-ln{fill:none;stroke:var(--gold);stroke-width:1.6;vector-effect:non-scaling-stroke}
-.erg table{width:100%;border-collapse:collapse;font-size:14px}
-.erg td{padding:7px 0;border-top:1px solid var(--line);color:var(--muted)}
-.erg td.z{text-align:right;color:var(--ink);font-variant-numeric:tabular-nums}
-.erg td .hint{font-size:11.5px;letter-spacing:.06em;color:var(--teal);margin-left:6px}
-.spy{margin-top:20px;border-style:dashed}
-.spy .zahlen b{color:var(--muted)}
-.hinweis{border-left:2px solid var(--gold);padding:4px 0 4px 18px;margin-top:30px;max-width:780px}
-.hinweis p{font-size:15px}
+/* Leiste unten mit Angebot */
+.leiste{position:fixed;left:50%;bottom:18px;z-index:40;transform:translate(-50%,140%);transition:transform .5s cubic-bezier(.2,.7,.2,1);display:flex;align-items:center;gap:18px;padding:10px 10px 10px 24px;border-radius:40px;background:rgba(13,19,20,.92);border:1px solid rgba(216,174,94,.4);box-shadow:0 12px 40px rgba(0,0,0,.6);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);white-space:nowrap}
+.leiste.auf{transform:translate(-50%,0)}
+.leiste span{font-size:14px;color:var(--muted)}
+.leiste span b{color:var(--ink);font-weight:500}
+.leiste .btn{padding:10px 22px}
 
-/* Angebot */
-.angebot{text-align:center;background:radial-gradient(ellipse at 50% 0%,rgba(216,174,94,.10),transparent 65%)}
-.angebot .sec-head{margin:0 auto 30px}
-
-.fuss{padding:40px 0 60px}
+.fuss{padding:40px 0 90px}
 .fuss p{font-size:12.5px;color:var(--dim);max-width:860px;margin-bottom:10px}
-.versteckt{display:none!important}
-.reveal{opacity:0;transform:translateY(26px);transition:opacity .8s ease,transform .8s ease}
-.reveal.da{opacity:1;transform:none}
+
 @media(max-width:900px){
+  .ath-split,.gal2,.vergleich,.preise,.grid-3{grid-template-columns:1fr}
   .videos{grid-template-columns:repeat(2,1fr)}
-  .grid-2,.grid-3,.grid-4,.gal,.vergleich{grid-template-columns:1fr}
-  section{padding:64px 0}
+  .band .wrap{grid-template-columns:repeat(2,1fr)}
+  section{padding:80px 0}
+  .reveal.l,.reveal.r{transform:translateY(48px)}
+  .hero{flex-direction:column;align-items:stretch;justify-content:center}
+  .hplakette{position:relative;order:2;right:auto;top:auto;text-align:left;margin:34px auto 0;width:100%;max-width:1140px;padding:0 28px;animation-delay:1s}
+  .kippen,.kippen.da{transform:none}
 }
 @media(max-width:600px){
   .wrap{padding:0 16px}
   .videos{grid-template-columns:1fr}
   .zeile{grid-template-columns:1fr;gap:4px}
-  .fakten{gap:24px}
+  .hero{padding:80px 0 90px;min-height:0}
+  .banner .innen{padding:32px 24px}
+  .preis{padding:38px 24px}
+  .leiste{left:12px;right:12px;transform:translateY(140%);justify-content:space-between;padding-left:18px}
+  .leiste.auf{transform:none}
+  .leiste span{font-size:13px;white-space:normal}
+  .leiste .lang{display:none}
+  .hplakette{padding:0 16px}
+  .scroll-ind{display:none}
+  .erg .zahlen b{font-size:21px;white-space:nowrap}
+}
+@media(prefers-reduced-motion:reduce){
+  *,*:before,*:after{animation:none!important;transition:none!important}
+  .reveal{opacity:1;transform:none;filter:none}
+  .hkurve .ln,.spark-ln{clip-path:none}.hkurve .fl,.hplakette{opacity:1}
 }
 </style>
 </head>
 <body>
 
 <!-- HERO -->
-<header class="hero">
-  <div class="wrap reveal">
-    <div class="kicker">Dein Free-Bereich</div>
-    <h1>Alles, was wir wissen. <span>Kostenlos.</span></h1>
-    <p class="sub">Hier findest du deine kostenlosen Bausteine, alle Videos dieses Jahres nach Themen sortiert, zu fast jedem Video den passenden Artikel und einen Blick in unsere Aktien-Software All Time High.</p>
-    <div class="fakten">
-      <a class="fakt" href="#bausteine"><b>6</b><span>Bausteine</span></a>
-      <a class="fakt" href="#videothek"><b id="zahlVideos">0</b><span>Videos</span></a>
-      <a class="fakt" href="#artikel"><b id="zahlArtikel">0</b><span>Artikel</span></a>
-      <a class="fakt" href="#ath"><b>All Time High</b><span>die Aktien-Software</span></a>
-      <a class="fakt" href="#ergebnisse"><b>Ergebnisse</b><span>aus 16 Jahren Backtest</span></a>
+<header class="hero" id="oben">
+  <div class="raster"></div>
+  <svg class="hkurve" id="hkurve" viewBox="0 0 1000 400" preserveAspectRatio="none" aria-hidden="true"><defs><linearGradient id="hverlauf" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#D8AE5E" stop-opacity=".22"/><stop offset="1" stop-color="#D8AE5E" stop-opacity="0"/></linearGradient></defs></svg>
+  <div class="hplakette" id="hplakette"></div>
+  <div class="wrap">
+    <div class="kicker reveal">Dein Free-Bereich</div>
+    <h1 class="reveal" style="--i:1">Kostenlos lernen.<br><span>Automatisch handeln.</span></h1>
+    <p class="sub reveal" style="--i:2">Hier findest du alle kostenlosen Bausteine, Videos und Artikel. Und du siehst, was unsere Aktien-Software <span class="hg">All Time High</span> seit 2010 im Backtest erreicht hat, mit Gebühren und Slippage gerechnet.</p>
+    <div class="hero-cta reveal" style="--i:3">
+      <a class="btn btn-gold" href="#ath">All Time High entdecken <span class="pf">→</span></a>
+      <a class="btn btn-ghost" href="#angebote">Angebote ansehen</a>
     </div>
     <p class="gast versteckt" id="gast">Bitte melde dich im Mitgliederbereich an.</p>
   </div>
+  <div class="scroll-ind" id="scrollInd">Scrollen</div>
 </header>
+
+<!-- ZAHLENBAND -->
+<div class="band">
+  <div class="wrap">
+    <div class="stat reveal"><b data-zahl="16">0</b><span>Jahre Backtest seit 2010</span></div>
+    <div class="stat reveal" style="--i:1"><b id="statOos">0</b><span>Vorlagen out of sample bestätigt</span></div>
+    <div class="stat reveal" style="--i:2"><b id="statVideos">0</b><span>Videos seit Januar</span></div>
+    <div class="stat reveal" style="--i:3"><b data-zahl="6">0</b><span>kostenlose Bausteine</span></div>
+  </div>
+</div>
+
+<!-- ALL TIME HIGH -->
+<section class="ath" id="ath">
+  <div class="wrap">
+    <div class="ath-split">
+      <div>
+        <div class="kicker reveal">Säule 02 · Aktien</div>
+        <h2 class="reveal" style="--i:1">All Time High findet, prüft und handelt Aktien für dich</h2>
+        <p class="reveal" style="--i:2;margin-top:20px;font-size:17px">Unsere eigene Software verbindet sich direkt mit deinem Konto bei <span class="hg">Interactive Brokers</span>. Von der Suche nach starken Aktien bis zur fertigen Order. Ohne TradingView, ohne Zusatzprogramme.</p>
+        <div class="funk">
+          <div class="reveal l" style="--i:1"><i>01</i><div><h3>Aktien finden</h3><p>Der Marktscreener durchsucht tausende US-Aktien nach Gewinn, Umsatz und Trend und stellt dir eine Rangliste zusammen.</p></div></div>
+          <div class="reveal l" style="--i:2"><i>02</i><div><h3>Zurück in die Zeit</h3><p>Das historische Screening zeigt, welche Aktien der Screener an einem beliebigen Tag der letzten Jahre gefunden hätte.</p></div></div>
+          <div class="reveal l" style="--i:3"><i>03</i><div><h3>Erst testen</h3><p>Der Screener-Backtest spielt eine Idee über viele Jahre durch, mit Gebühren, und zeigt Rendite und Rückgang.</p></div></div>
+          <div class="reveal l" style="--i:4"><i>04</i><div><h3>Automatisch handeln</h3><p>Aktienbot oder GridBot handeln für dich. Jede Position bekommt einen echten Stop direkt bei Interactive Brokers, auch wenn dein PC aus ist.</p></div></div>
+        </div>
+      </div>
+      <div class="buehne">
+        <!-- Bewusst ohne Screener- und Backtest-Fotos: dort sind Vorlagen-Einstellungen lesbar (Alex 23.10.2026: Einstellungen nur für Mitglieder) -->
+        <figure class="bild kippen reveal r" data-gross="../../ath-galerie/gross/ath01_start.jpg"><img src="../../ath-galerie/klein/ath01_start.jpg" alt="Startseite von All Time High" loading="lazy"><figcaption>Die Startseite: Dashboard, Automatik, Tools und Einstellungen</figcaption></figure>
+      </div>
+    </div>
+    <div class="gal2">
+      <figure class="bild reveal sc" data-gross="../../ath-galerie/gross/ath07_ampel.jpg"><img src="../../ath-galerie/klein/ath07_ampel.jpg" alt="Einstiegs-Ampel in All Time High" loading="lazy"><figcaption>Die Einstiegs-Ampel prüft den großen Trend, bevor gekauft wird</figcaption></figure>
+      <figure class="bild reveal sc" style="--i:2" data-gross="../../ath-galerie/gross/ath06_gridbot.jpg"><img src="../../ath-galerie/klein/ath06_gridbot.jpg" alt="GridBot im Chart mit Einstiegen und Stop" loading="lazy"><figcaption>Der GridBot im Chart mit Einstiegen und Stop</figcaption></figure>
+    </div>
+    <p style="font-size:13px;color:var(--dim);margin-top:14px">Bildschirmfotos aus All Time High. Zum Vergrößern anklicken.</p>
+    <div class="knoepfe reveal">
+      <a class="btn btn-gold" href="#angebote">In Premium ohne Aufpreis <span class="pf">→</span></a>
+      <a class="btn btn-ghost" href="https://start.kaspareit-trading.com/ath/" target="_blank" rel="noopener">Alles über All Time High</a>
+    </div>
+  </div>
+</section>
+
+<!-- ERGEBNISSE -->
+<section class="ergebnisse" id="ergebnisse">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="kicker">Hall of Fame</div>
+      <h2>Was mit den Vorlagen möglich ist</h2>
+      <p>Vier Beispiele aus unserer Hall of Fame, gerechnet mit All Time High über US-Aktien seit 2010, mit Gebühren und Slippage. Entwickelt und verfeinert haben wir sie an den Jahren ab 2022. Die Jahre 2010 bis 2021 dienten als unabhängige Gegenprobe, im Fachjargon <span class="hg">Out of Sample</span>. Jedes Beispiel blieb auch dort im Plus.</p>
+    </div>
+    <div class="vergleich" id="ergebnisKarten"></div>
+    <div class="karte erg spy reveal" id="spyKarte"></div>
+    <div class="hinweis reveal"><p><b style="color:var(--ink);font-weight:500">Wie die Vorlagen eingestellt sind, bekommst du mit All Time High.</b> Die Calmar-Zahl teilt die Rendite pro Jahr durch den größten Rückgang. Je höher, desto mehr Ertrag je Prozent Schwankung. Ehrlich gesagt: Von 2010 bis 2021 lief der S&amp;P 500 in der reinen Rendite besser. Der Vorteil der Vorlagen liegt in deutlich kleineren Rückgängen und in den Jahren seit 2022. Alle Zahlen sind Ergebnisse im Backtest und keine Garantie für die Zukunft.</p></div>
+  </div>
+</section>
+
+<!-- ANGEBOTE (Preise wie auf der Verkaufsseite, siehe Fakten-Register) -->
+<section class="angebote" id="angebote">
+  <div class="wrap">
+    <div class="sec-head mid reveal">
+      <div class="kicker">Dein nächster Schritt</div>
+      <h2>Mit den Vorlagen selbst handeln</h2>
+      <p>In Premium steckt alles: die Strategieportfolios für CFDs und All Time High für Aktien, ohne Aufpreis.</p>
+    </div>
+    <div class="preise">
+      <div class="preis haupt reveal l">
+        <div class="badge">Beliebteste Wahl</div>
+        <h3>Premium</h3>
+        <div class="betrag">799,- €<small> / 12 Monate</small></div>
+        <p class="claim">Alle Säulen, alle Strategien, voller Zugang. Heute und in Zukunft.</p>
+        <ul>
+          <li class="ath"><span><b>All Time High</b> für den Aktienhandel, ohne Aufpreis</span></li>
+          <li>Alle Strategieportfolios, jeweils auch als Prop-Variante</li>
+          <li>Alle 5 Kernstrategien und alle Community-Strategien</li>
+          <li>Jede künftige Strategie und jedes künftige Portfolio inklusive</li>
+          <li>Webinare samstags, Stammtische donnerstags</li>
+          <li>Persönlicher Support per Ticket</li>
+        </ul>
+        <a class="btn btn-gold" href="https://copecart.com/products/2f416c32/checkout" target="_blank" rel="noopener">Premium starten <span class="pf">→</span></a>
+      </div>
+      <div class="preis reveal r" style="--i:1">
+        <h3>Basic</h3>
+        <div class="betrag">299,- €<small> / 12 Monate</small></div>
+        <p class="claim">Dein Einstieg ins automatisierte Portfolio-Trading.</p>
+        <ul>
+          <li>Ein Strategieportfolio, fertig konfiguriert, auch als Prop-Variante</li>
+          <li>Kernstrategie 1 plus zwei Community-Strategien</li>
+          <li>Customer Terminal mit automatischen Updates</li>
+          <li>Einrichtungsanleitung als Video und als PDF</li>
+          <li>Discord-Community und KI-Chatbot</li>
+        </ul>
+        <a class="btn btn-ghost" href="https://copecart.com/products/408f1468/checkout" target="_blank" rel="noopener">Basic starten</a>
+      </div>
+    </div>
+    <p class="preis-fuss reveal">Jährliche Verlängerung, jederzeit kündbar. Solange dein Abo durchläuft, behältst du deinen Einstiegspreis.<br><a href="https://start.kaspareit-trading.com/" target="_top">Alle Details und Fragen auf der Angebotsseite</a> · <a href="#chat" data-ktchat-frage="Ich habe eine Frage zu den Abos: ">Frag den Assistenten</a></p>
+  </div>
+</section>
 
 <!-- BAUSTEINE (Bestand der alten Free-Seite, Alex 23.10.2026: alle sechs bleiben) -->
 <section id="bausteine">
@@ -175,16 +378,27 @@ p{color:var(--muted)}
     </div>
     <div class="grid-3">
       <div class="karte reveal"><div class="nr">01</div><h3>Customer Terminal</h3><p>Teste unsere CFD-Strategien im Backtest und fordere dich im Prop-Simulator heraus. Mit echten Zahlen statt Versprechen.</p><p class="los"><a class="btn btn-gold" href="https://download.kaspareit-trading.de/terminal/Kaspareit_Customer_Terminal_Setup.exe">Kostenlos herunterladen</a></p><p class="klein"><a href="#" data-video="3TtAgD4TR7w">Video: So funktioniert das Terminal</a></p></div>
-      <div class="karte reveal"><div class="nr">02</div><h3>Trading-Grundausbildung</h3><p>Basiskurs und Trading-Psychologie: wie Märkte funktionieren, wie du Risiko einschätzt und welche mentalen Fallen jeden Trader treffen.</p><p class="los"><a class="btn btn-ghost" href="https://www.kaspareit-trading.com/kostenlosetradingausbildung" target="_top">Zum Kurs</a></p></div>
-      <div class="karte reveal"><div class="nr">03</div><h3>KI-Chatbot</h3><p>Frag rund um die Uhr, was du wissen willst: zu Trading, zu unseren Inhalten und zu den nächsten Schritten.</p><p class="los"><a class="btn btn-ghost" href="#chat" data-ktchat-frage="">Chatbot öffnen</a></p></div>
+      <div class="karte reveal" style="--i:1"><div class="nr">02</div><h3>Trading-Grundausbildung</h3><p>Basiskurs und Trading-Psychologie: wie Märkte funktionieren, wie du Risiko einschätzt und welche mentalen Fallen jeden Trader treffen.</p><p class="los"><a class="btn btn-ghost" href="https://www.kaspareit-trading.com/kostenlosetradingausbildung" target="_top">Zum Kurs</a></p></div>
+      <div class="karte reveal" style="--i:2"><div class="nr">03</div><h3>KI-Chatbot</h3><p>Frag rund um die Uhr, was du wissen willst: zu Trading, zu unseren Inhalten und zu den nächsten Schritten.</p><p class="los"><a class="btn btn-ghost" href="#chat" data-ktchat-frage="">Chatbot öffnen</a></p></div>
       <div class="karte reveal"><div class="nr">04</div><h3>TradingView-Indikatoren</h3><p>Mehrere Indikatoren mit Quellcode, sofort einsetzbar in deinem TradingView-Konto.</p><p class="los"><a class="btn btn-ghost" href="https://www.kaspareit-trading.com/tradingview-skripte" target="_top">Zu den Indikatoren</a></p></div>
-      <div class="karte reveal"><div class="nr">05</div><h3>Prompt für die Aktienanalyse</h3><p>Mein Prompt für eine Deep-Research-Analyse einer Aktie mit KI, so wie ich ihn im Video zeige.</p><p class="los"><a class="btn btn-ghost" href="https://www.kaspareit-trading.com/_files/ugd/aa3622_6f3ebc7c2cd44bce9bccc690a57f79fb.pdf" target="_blank" rel="noopener">PDF herunterladen</a></p></div>
-      <div class="karte reveal"><div class="nr">06</div><h3>Meine 10 besten Trading-Tipps</h3><p>Fünfzehn Jahre Erfahrung auf sieben Seiten. Was wirklich zählt und warum Trading langweilig sein darf.</p><p class="los"><a class="btn btn-ghost" href="https://www.kaspareit-trading.com/_files/ugd/aa3622_cdc38785b8cf4a88a1ae4fabeb7b319e.pdf" target="_blank" rel="noopener">PDF herunterladen</a></p></div>
+      <div class="karte reveal" style="--i:1"><div class="nr">05</div><h3>Prompt für die Aktienanalyse</h3><p>Mein Prompt für eine Deep-Research-Analyse einer Aktie mit KI, so wie ich ihn im Video zeige.</p><p class="los"><a class="btn btn-ghost" href="https://www.kaspareit-trading.com/_files/ugd/aa3622_6f3ebc7c2cd44bce9bccc690a57f79fb.pdf" target="_blank" rel="noopener">PDF herunterladen</a></p></div>
+      <div class="karte reveal" style="--i:2"><div class="nr">06</div><h3>Meine 10 besten Trading-Tipps</h3><p>Fünfzehn Jahre Erfahrung auf sieben Seiten. Was wirklich zählt und warum Trading langweilig sein darf.</p><p class="los"><a class="btn btn-ghost" href="https://www.kaspareit-trading.com/_files/ugd/aa3622_cdc38785b8cf4a88a1ae4fabeb7b319e.pdf" target="_blank" rel="noopener">PDF herunterladen</a></p></div>
     </div>
   </div>
 </section>
 
-<hr class="trenner">
+<!-- ZWISCHENBANNER -->
+<section class="banner">
+  <div class="wrap">
+    <div class="innen reveal sc">
+      <div>
+        <h2>Vom Lernen zum Handeln</h2>
+        <p>Mit Premium laufen die Strategieportfolios und All Time High auf deinem eigenen Konto. Du behältst die volle Kontrolle.</p>
+      </div>
+      <a class="btn btn-gold" href="#angebote">Angebote ansehen <span class="pf">→</span></a>
+    </div>
+  </div>
+</section>
 
 <!-- VIDEOTHEK -->
 <section id="videothek">
@@ -194,7 +408,7 @@ p{color:var(--muted)}
       <h2>Alle Videos nach Themen</h2>
       <p>Jeden Sonntag kommt ein neues Video dazu. Unter den meisten findest du den Artikel zum Nachlesen.</p>
     </div>
-    <div class="reiter" id="reiter" role="group" aria-label="Kategorien"></div>
+    <div class="reiter reveal" id="reiter" role="group" aria-label="Kategorien"></div>
     <input class="suche" id="suche" type="search" placeholder="Video suchen, zum Beispiel Stop Loss" aria-label="Video suchen">
     <p class="kat-text" id="katText"></p>
     <div class="videos" id="videos"></div>
@@ -216,59 +430,16 @@ p{color:var(--muted)}
   </div>
 </section>
 
-<!-- ALL TIME HIGH -->
-<section class="ath" id="ath">
+<!-- SCHLUSS -->
+<section class="schluss">
   <div class="wrap">
-    <div class="sec-head reveal">
-      <div class="kicker">Säule 02 · Aktien</div>
-      <h2>All Time High: Aktien finden, prüfen und automatisch handeln</h2>
-      <p>All Time High ist unsere eigene Software für den Aktienhandel. Sie verbindet sich direkt mit deinem Konto bei <span class="hg">Interactive Brokers</span> und übernimmt alles von der Suche nach starken Aktien bis zur fertigen Order. Ohne TradingView, ohne Zusatzprogramme.</p>
+    <div class="kicker reveal">Bereit?</div>
+    <h2 class="reveal" style="--i:1">Hol dir die Vorlagen und handle mit</h2>
+    <p class="reveal" style="--i:2">Premium mit allen Strategieportfolios und All Time High für 799 € im Jahr. Jederzeit kündbar.</p>
+    <div class="hero-cta reveal" style="--i:3">
+      <a class="btn btn-gold" href="https://copecart.com/products/2f416c32/checkout" target="_blank" rel="noopener">Premium starten <span class="pf">→</span></a>
+      <a class="btn btn-ghost" href="https://start.kaspareit-trading.com/" target="_top">Alle Angebote vergleichen</a>
     </div>
-    <div class="grid-4">
-      <div class="karte reveal"><div class="nr">01</div><h3>Aktien finden</h3><p>Der Marktscreener durchsucht tausende US-Aktien nach Gewinn, Umsatz und Trend und stellt dir eine Rangliste zusammen.</p></div>
-      <div class="karte reveal"><div class="nr">02</div><h3>Zurück in die Zeit</h3><p>Das historische Screening zeigt, welche Aktien der Screener an einem beliebigen Tag der letzten Jahre gefunden hätte.</p></div>
-      <div class="karte reveal"><div class="nr">03</div><h3>Erst testen</h3><p>Der Screener-Backtest spielt eine Idee über viele Jahre durch, mit Gebühren, und zeigt Rendite und Rückgang.</p></div>
-      <div class="karte reveal"><div class="nr">04</div><h3>Automatisch handeln</h3><p>Aktienbot oder GridBot handeln für dich. Jede Position bekommt einen echten Stop direkt bei Interactive Brokers, auch wenn dein PC aus ist.</p></div>
-    </div>
-    <div class="gal">
-      <!-- Bewusst ohne Screener- und Backtest-Fotos: dort sind Vorlagen-Einstellungen lesbar (Alex 23.10.2026: Einstellungen nur für Mitglieder) -->
-      <figure class="bild reveal" data-gross="../../ath-galerie/gross/ath01_start.jpg"><img src="../../ath-galerie/klein/ath01_start.jpg" alt="Startseite von All Time High" loading="lazy"><figcaption>Die Startseite: Dashboard, Automatik, Tools und Einstellungen</figcaption></figure>
-      <div class="gal-spalte">
-        <figure class="bild reveal" data-gross="../../ath-galerie/gross/ath07_ampel.jpg"><img src="../../ath-galerie/klein/ath07_ampel.jpg" alt="Einstiegs-Ampel in All Time High" loading="lazy"><figcaption>Die Einstiegs-Ampel prüft den großen Trend</figcaption></figure>
-        <figure class="bild reveal" data-gross="../../ath-galerie/gross/ath06_gridbot.jpg"><img src="../../ath-galerie/klein/ath06_gridbot.jpg" alt="GridBot im Chart mit Einstiegen und Stop" loading="lazy"><figcaption>Der GridBot im Chart</figcaption></figure>
-      </div>
-    </div>
-    <p style="font-size:13px;color:var(--dim);margin-top:14px">Bildschirmfotos aus All Time High. Zum Vergrößern anklicken.</p>
-    <div class="knoepfe reveal">
-      <a class="btn btn-gold" href="https://alltime-high.com/" target="_blank" rel="noopener">All Time High kennenlernen</a>
-      <a class="btn btn-ghost" href="#ergebnisse">Ergebnisse ansehen</a>
-    </div>
-  </div>
-</section>
-
-<!-- ERGEBNISSE -->
-<section id="ergebnisse">
-  <div class="wrap">
-    <div class="sec-head reveal">
-      <div class="kicker">Hall of Fame</div>
-      <h2>Was mit den Vorlagen möglich ist</h2>
-      <p>Vier Beispiele aus unserer Hall of Fame, gerechnet mit All Time High über US-Aktien seit 2010, mit Gebühren und Slippage. Entwickelt und verfeinert haben wir sie an den Jahren ab 2022. Die Jahre 2010 bis 2021 dienten als unabhängige Gegenprobe, im Fachjargon <span class="hg">Out of Sample</span>. Jedes Beispiel blieb auch dort im Plus.</p>
-    </div>
-    <div class="vergleich" id="ergebnisKarten"></div>
-    <div class="karte erg spy reveal" id="spyKarte"></div>
-    <div class="hinweis reveal"><p><b style="color:var(--ink);font-weight:500">Wie die Vorlagen eingestellt sind, bekommst du mit All Time High.</b> Die Calmar-Zahl teilt die Rendite pro Jahr durch den größten Rückgang. Je höher, desto mehr Ertrag je Prozent Schwankung. Ehrlich gesagt: Von 2010 bis 2021 lief der S&amp;P 500 in der reinen Rendite besser. Der Vorteil der Vorlagen liegt in deutlich kleineren Rückgängen und in den Jahren seit 2022. Alle Zahlen sind Ergebnisse im Backtest und keine Garantie für die Zukunft.</p></div>
-  </div>
-</section>
-
-<!-- ANGEBOT -->
-<section class="angebot">
-  <div class="wrap reveal">
-    <div class="sec-head">
-      <div class="kicker">Nächster Schritt</div>
-      <h2>Bereit für mehr?</h2>
-      <p>Strategieportfolios für CFD, All Time High für Aktien oder beides zusammen in Premium. Alle Pakete und Preise findest du auf unserer Angebotsseite.</p>
-    </div>
-    <a class="btn btn-gold" href="https://start.kaspareit-trading.com/" target="_top">Angebot ansehen</a>
   </div>
 </section>
 
@@ -279,6 +450,7 @@ p{color:var(--muted)}
   </div>
 </footer>
 
+<div class="leiste" id="leiste"><span><b>Premium</b><span class="lang"> mit All Time High</span> · 799 € / Jahr</span><a class="btn btn-gold" href="#angebote">Ansehen</a></div>
 <div class="gross" id="gross"><img alt=""></div>
 
 <script>
@@ -291,6 +463,26 @@ function de(x, n, plus){
 function datumDe(d){ return d.slice(6, 8) + '.' + d.slice(4, 6) + '.' + d.slice(0, 4); }
 function dauer(s){ var m = Math.floor(s / 60), r = s % 60; return m + ':' + (r < 10 ? '0' : '') + r; }
 function el(tag, klasse, text){ var e = document.createElement(tag); if(klasse) e.className = klasse; if(text != null) e.textContent = text; return e; }
+/* Zahl zum Hochzählen vormerken: data-zahl, optional data-dez, data-plus, data-nach */
+function zahl(e, wert, dez, plus, nach){ e.dataset.zahl = wert; if(dez) e.dataset.dez = dez; if(plus) e.dataset.plus = 1; if(nach) e.dataset.nach = nach; e.textContent = de(wert, dez || 0, plus) + (nach || ''); }
+/* Kurve als SVG-Punkte, logarithmisch, damit gleiche Prozent-Schritte gleich hoch aussehen */
+function punkte(kurve, B, H, rand){
+  var w = kurve.map(function(p){ return Math.log(p[1]); }), lo = Math.min.apply(null, w), hi = Math.max.apply(null, w);
+  return w.map(function(v, i){ return (i / (w.length - 1) * B).toFixed(1) + ',' + (H - rand - (v - lo) / (hi - lo) * (H - 2 * rand)).toFixed(1); }).join(' ');
+}
+
+/* Hero: Kurve des stärksten Beispiels im Hintergrund */
+(function(){
+  var S = DATEN.screener, best = S.karten.slice().sort(function(a, b){ return b.rendite_gesamt - a.rendite_gesamt; })[0];
+  var svg = document.getElementById('hkurve'), ns = 'http://www.w3.org/2000/svg', pts = punkte(best.kurve, 1000, 400, 30);
+  var fl = document.createElementNS(ns, 'polygon'); fl.setAttribute('class', 'fl'); fl.setAttribute('points', '0,400 ' + pts + ' 1000,400');
+  var ln = document.createElementNS(ns, 'polyline'); ln.setAttribute('class', 'ln'); ln.setAttribute('points', pts);
+  svg.appendChild(fl); svg.appendChild(ln);
+  var p = document.getElementById('hplakette');
+  p.innerHTML = '<b>' + de(best.rendite_gesamt, 0, true) + ' %</b><span>' + best.titel + ' im Backtest seit 2010</span>';
+  document.getElementById('statOos').textContent = S.karten.length;
+  document.getElementById('statOos').dataset.zahl = S.karten.length;
+})();
 
 /* Videothek */
 (function(){
@@ -300,8 +492,7 @@ function el(tag, klasse, text){ var e = document.createElement(tag); if(klasse) 
   if(videos.some(function(v){ return v.kategorie === 'neu'; })) kats.splice(1, 0, {id: 'neu', name: 'Neu', text: 'Gerade erschienen.'});
   var neueste = videos.slice(0, 3).map(function(v){ return v.id; });
   var aktiv = 'alle', reiter = document.getElementById('reiter'), suche = document.getElementById('suche');
-  document.getElementById('zahlVideos').textContent = videos.length;
-  document.getElementById('zahlArtikel').textContent = DATEN.blogs.length;
+  var sv = document.getElementById('statVideos'); sv.textContent = videos.length; sv.dataset.zahl = videos.length;
 
   kats.forEach(function(k){
     var anzahl = k.id === 'alle' ? videos.length : videos.filter(function(v){ return v.kategorie === k.id; }).length;
@@ -312,8 +503,8 @@ function el(tag, klasse, text){ var e = document.createElement(tag); if(klasse) 
   });
   suche.addEventListener('input', zeigen);
 
-  function karte(v){
-    var k = el('article', 'video'); k.dataset.vid = v.id;
+  function karte(v, i){
+    var k = el('article', 'video'); k.dataset.vid = v.id; k.style.animationDelay = (i % 9) * 60 + 'ms';
     var s = el('button', 'spieler'); s.type = 'button'; s.setAttribute('aria-label', 'Video abspielen: ' + v.titel);
     var img = el('img'); img.src = v.bild; img.alt = ''; img.loading = 'lazy';
     s.appendChild(img); s.appendChild(el('span', 'play')); s.appendChild(el('span', 'dauer', dauer(v.dauer)));
@@ -346,7 +537,7 @@ function el(tag, klasse, text){ var e = document.createElement(tag); if(klasse) 
     });
     box.innerHTML = '';
     if(!liste.length){ box.appendChild(el('p', 'leer', 'Kein Video gefunden.')); }
-    liste.slice(0, offen ? liste.length : 9).forEach(function(v){ box.appendChild(karte(v)); });
+    liste.slice(0, offen ? liste.length : 9).forEach(function(v, i){ box.appendChild(karte(v, i)); });
     mehr.classList.toggle('versteckt', offen || liste.length <= 9);
     mehr.textContent = 'Alle ' + liste.length + ' Videos anzeigen';
     hoehe();
@@ -377,24 +568,26 @@ function el(tag, klasse, text){ var e = document.createElement(tag); if(klasse) 
 (function(){
   var S = DATEN.screener;
   function spark(kurve){
-    /* logarithmisch, damit gleiche Prozent-Schritte gleich hoch aussehen */
-    var w = kurve.map(function(p){ return Math.log(p[1]); }), lo = Math.min.apply(null, w), hi = Math.max.apply(null, w), B = 300, H = 64;
-    var pts = w.map(function(v, i){ return (i / (w.length - 1) * B).toFixed(1) + ',' + (H - 4 - (v - lo) / (hi - lo) * (H - 8)).toFixed(1); }).join(' ');
-    return '<svg class="spark" viewBox="0 0 ' + B + ' ' + H + '" preserveAspectRatio="none" role="img" aria-label="Verlauf des Depotwerts"><polygon class="spark-fl" points="0,' + H + ' ' + pts + ' ' + B + ',' + H + '"/><polyline class="spark-ln" points="' + pts + '"/></svg>';
+    var pts = punkte(kurve, 300, 70, 4);
+    return '<svg class="spark" viewBox="0 0 300 70" preserveAspectRatio="none" role="img" aria-label="Verlauf des Depotwerts"><polygon class="spark-fl" points="0,70 ' + pts + ' 300,70"/><polyline class="spark-ln" points="' + pts + '"/></svg>';
   }
   var box = document.getElementById('ergebnisKarten');
-  S.karten.forEach(function(k){
-    var c = el('div', 'karte erg reveal');
+  S.karten.forEach(function(k, i){
+    var c = el('div', 'karte erg reveal ' + (i % 2 ? 'r' : 'l'));
+    c.style.setProperty('--i', Math.floor(i / 2));
     c.innerHTML =
       '<div class="kopf"><h3>' + k.titel + '</h3><span class="profil">' + k.profil + '</span></div>' +
-      '<div class="zahlen"><div class="gut"><b>' + de(k.rendite_pa, 1, true) + ' %</b><span>pro Jahr</span></div>' +
-      '<div><b>' + de(k.rueckgang, 1, false) + ' %</b><span>größter Rückgang</span></div>' +
-      '<div class="gut"><b>' + de(k.calmar, 2, false) + '</b><span>Calmar</span></div></div>' +
+      '<div class="zahlen"><div class="gut"><b class="z1"></b><span>pro Jahr</span></div>' +
+      '<div><b class="z2"></b><span>größter Rückgang</span></div>' +
+      '<div class="gut"><b class="z3"></b><span>Calmar</span></div></div>' +
       spark(k.kurve) +
       '<table><tr><td>Gesamt seit März 2010</td><td class="z">' + de(k.rendite_gesamt, 0, true) + ' %</td></tr>' +
       '<tr><td>2010 bis 2021 <span class="hint">OUT OF SAMPLE</span></td><td class="z">' + de(k.oos_2010_2021, 0, true) + ' %</td></tr>' +
       '<tr><td>2022 bis heute</td><td class="z">' + de(k.ab_2022, 0, true) + ' %</td></tr>' +
       '<tr><td>Ohne die drei besten Aktien</td><td class="z">' + de(k.ohne_top3, 0, true) + ' %</td></tr></table>';
+    zahl(c.querySelector('.z1'), k.rendite_pa, 1, true, ' %');
+    zahl(c.querySelector('.z2'), k.rueckgang, 1, false, ' %');
+    zahl(c.querySelector('.z3'), k.calmar, 2);
     box.appendChild(c);
   });
   var s = S.spy;
@@ -408,12 +601,43 @@ function el(tag, klasse, text){ var e = document.createElement(tag); if(klasse) 
     '<tr><td>2022 bis heute</td><td class="z">' + de(s.ab_2022, 0, true) + ' %</td></tr></table>';
 })();
 
-/* Einblenden beim Scrollen */
+/* Einblenden und Hochzählen beim Scrollen. IntersectionObserver statt Scroll-Ereignis, damit es auch klappt, wenn Wix den Rahmen in voller Höhe zeigt. */
 (function(){
+  var leise = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
+  function zaehlen(e){
+    var ziel = parseFloat(e.dataset.zahl), dez = +(e.dataset.dez || 0), plus = !!e.dataset.plus, nach = e.dataset.nach || '';
+    if(leise){ e.textContent = de(ziel, dez, plus) + nach; return; }
+    var t0 = null, D = 1600;
+    function schritt(t){ if(!t0) t0 = t; var p = Math.min(1, (t - t0) / D), q = 1 - Math.pow(1 - p, 3);
+      e.textContent = de(ziel * q, dez, plus) + nach; if(p < 1) requestAnimationFrame(schritt); }
+    requestAnimationFrame(schritt);
+  }
   var els = document.querySelectorAll('.reveal');
   if(!('IntersectionObserver' in window)){ els.forEach(function(e){ e.classList.add('da'); }); return; }
-  var io = new IntersectionObserver(function(es){ es.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('da'); io.unobserve(e.target); } }); }, {threshold: .12});
+  var io = new IntersectionObserver(function(es){ es.forEach(function(e){
+    if(!e.isIntersecting) return;
+    e.target.classList.add('da'); io.unobserve(e.target);
+    var z = e.target.matches('[data-zahl]') ? [e.target] : [].slice.call(e.target.querySelectorAll('[data-zahl]'));
+    z.forEach(zaehlen);
+  }); }, {threshold: .12, rootMargin: '0px 0px -6% 0px'});
   els.forEach(function(e){ io.observe(e); });
+  /* Hero: Text gleich beim Laden einblenden */
+  requestAnimationFrame(function(){ document.querySelectorAll('.hero .reveal').forEach(function(e){ e.classList.add('da'); }); });
+})();
+
+/* Hero-Kurve leicht verschieben beim Scrollen, Angebotsleiste nach dem Hero zeigen und über den Angeboten ausblenden */
+(function(){
+  var k = document.getElementById('hkurve'), ind = document.getElementById('scrollInd'), leiste = document.getElementById('leiste');
+  var hero = document.getElementById('oben'), sichtbar = {};
+  function lauf(){ var y = window.pageYOffset; k.style.transform = 'translateY(' + (y * .25) + 'px)'; ind.style.opacity = y > 40 ? 0 : 1; }
+  window.addEventListener('scroll', lauf, {passive: true});
+  if(!('IntersectionObserver' in window)) return;
+  var io = new IntersectionObserver(function(es){
+    es.forEach(function(e){ sichtbar[e.target.id || e.target.className] = e.isIntersecting; });
+    var aus = sichtbar.oben || sichtbar.angebote || sichtbar.schluss;
+    leiste.classList.toggle('auf', !aus);
+  }, {threshold: 0});
+  [hero, document.getElementById('angebote'), document.querySelector('.schluss')].forEach(function(e){ io.observe(e); });
 })();
 
 /* Großansicht der Bilder */
