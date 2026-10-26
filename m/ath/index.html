@@ -96,6 +96,26 @@ code{font-family:Consolas,monospace;font-size:13.5px;color:var(--gold);backgroun
 .fuss p{font-size:12.5px;color:var(--dim);max-width:820px}
 .versteckt{display:none!important}
 
+/* Anleitung Schritt für Schritt (26.10.2026): je Schritt Text, Bildschirmfoto, Platz für das Erklärvideo */
+.anl-sprung{display:flex;gap:10px;flex-wrap:wrap;margin:-14px 0 44px}
+.anl-sprung a{font-size:13px;letter-spacing:.04em;padding:8px 16px;border:1px solid var(--goldline);border-radius:30px;text-decoration:none;color:var(--ink)}
+.anl-sprung a:hover{border-color:var(--gold)}
+.anl-teil{margin-top:64px}
+#anl-einrichten{margin-top:0}
+.anl-teil>h3{font-size:13px;letter-spacing:.3em;text-transform:uppercase;color:var(--gold);font-weight:600;margin-bottom:26px;padding-bottom:12px;border-bottom:1px solid var(--line)}
+.anl{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:34px;align-items:start;padding:30px 0;border-bottom:1px solid var(--line)}
+.anl:last-child{border-bottom:0}
+.anl .nr{display:inline-flex;align-items:center;justify-content:center;width:34px;height:34px;border-radius:50%;border:1px solid var(--goldline);color:var(--gold);font-weight:600;font-size:14px;margin-bottom:12px}
+.anl h4{font-size:20px;font-weight:500;line-height:1.25;margin-bottom:10px}
+.anl p{font-size:15.5px;margin-bottom:10px}
+.anl .bilder{display:grid;gap:14px}
+.platz{border:1px dashed var(--goldline);border-radius:12px;padding:14px 16px;display:flex;align-items:center;gap:12px;font-size:13.5px;color:var(--dim);background:rgba(216,174,94,.03)}
+.platz svg{flex:0 0 auto}
+.platz b{color:var(--muted);font-weight:500}
+.platz.bild-folgt{min-height:150px;justify-content:center;text-align:center;flex-direction:column}
+.video-platz{margin-top:16px}
+@media(max-width:900px){.anl{grid-template-columns:1fr;gap:18px}.anl h4{font-size:18px}}
+
 .reveal{opacity:0;transform:translateY(26px);transition:opacity .8s ease,transform .8s ease}
 .reveal.da{opacity:1;transform:none}
 @media(max-width:900px){
@@ -159,6 +179,7 @@ code{font-family:Consolas,monospace;font-size:13.5px;color:var(--gold);backgroun
       <h2>In fünf Schritten startklar</h2>
       <p>Einmal sauber eingerichtet, läuft der Rest von allein. Updates holt sich die App selbst.</p>
       <p style="margin-top:14px">Hängst du irgendwo? <a href="#chat" data-ktchat-frage="Ich hänge bei der Einrichtung von All Time High: " style="color:var(--gold)">Frag unseren ATH-Assistenten</a>, er kennt jeden Schritt.</p>
+      <p style="margin-top:14px">Lieber mit Bildern? <a href="#anleitung" style="color:var(--gold)">Zur Anleitung Schritt für Schritt</a>.</p>
     </div>
     <div class="schritte">
       <div class="schritt reveal"><div class="punkt">1</div><div>
@@ -188,6 +209,300 @@ code{font-family:Consolas,monospace;font-size:13.5px;color:var(--gold);backgroun
         <p>Fang immer mit dem Paper-Konto an. Beim ersten Verbinden merkt sich die App dein IB-Konto und arbeitet danach nur mit diesem. Für Echtgeld brauchst du das Abo für Echtzeit-Kurse, ohne Abo kauft die App nichts Neues.</p>
       </div></div>
     </div>
+  </div>
+</section>
+
+<hr class="trenner">
+
+<!-- ANLEITUNG SCHRITT FÜR SCHRITT (26.10.2026)
+     Quelle der Texte: ATH-Erklärserie Teil 1 bis 5 (Voiceover-Skripte) und die App selbst (Version 0.9.20, Paper-Konto).
+     Bilder: outputs\mitglieder\bilder\ath\anleitung\{klein,gross}, Beträge, Kontonummer und E-Mail ausgeblendet.
+     VIDEO EINSETZEN: jeden Kasten class="platz video-platz" (data-video="ath0X-...") durch das Vimeo-Einbettfeld ersetzen.
+     BILD NACHREICHEN: Kästen class="platz bild-folgt" durch <figure class="bild" data-gross="..."> ersetzen. -->
+<section id="anleitung">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="kicker">Schritt für Schritt</div>
+      <h2>Die Anleitung mit Bildern</h2>
+      <p>Hier siehst du die wichtigsten Schritte so, wie sie in der App aussehen. Zu jedem Schritt kommt noch ein kurzes Erklärvideo. Die Bilder stammen aus einem Paper-Konto, Beträge und Kontonummer haben wir ausgeblendet. Zum Vergrößern ein Bild anklicken.</p>
+    </div>
+    <nav class="anl-sprung reveal" aria-label="Teile der Anleitung">
+      <a href="#anl-einrichten">Einrichten</a>
+      <a href="#anl-plan">Erster Handelsplan</a>
+      <a href="#anl-alltag">Im Alltag</a>
+      <a href="#anl-finden">Aktien finden und testen</a>
+    </nav>
+
+    <!-- Teil A: Einrichten (Video Teil 1) -->
+    <div class="anl-teil" id="anl-einrichten">
+      <h3>Einrichten</h3>
+
+      <div class="anl reveal">
+        <div>
+          <div class="nr">1</div>
+          <h4>Zugang und Download</h4>
+          <p>Melde dich auf kaspareit-trading.com mit der E-Mail-Adresse an, mit der du gekauft hast. Nur so erkennt dich das System als Kunde.</p>
+          <p>Ganz oben auf dieser Seite zeigt dir der Kasten „Dein Zugang“, ob dein Zugang aktiv ist. Darunter liegt der goldene Knopf zum Herunterladen. Starte das Setup und klick es einmal durch, es installiert ohne Administratorrechte.</p>
+          <div class="platz video-platz" data-video="ath01-download"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#D8AE5E" stroke-width="1.6" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M10 8l6 4-6 4z" fill="#D8AE5E" stroke="none"/></svg><span><b>Video folgt.</b> Erklärvideo Teil 1: Einrichtung</span></div>
+        </div>
+        <div class="bilder">
+          <figure class="bild" data-gross="bilder/ath/anleitung/gross/01_zugang.webp"><img src="bilder/ath/anleitung/klein/01_zugang.webp" alt="Mitgliederseite All Time High mit dem Kasten Dein Zugang und dem Download-Knopf" width="820" height="303" loading="lazy"><figcaption>Oben auf dieser Seite: der Kasten „Dein Zugang“ mit dem goldenen Download-Knopf</figcaption></figure>
+        </div>
+      </div>
+
+      <div class="anl reveal">
+        <div>
+          <div class="nr">2</div>
+          <h4>IB Gateway vorbereiten</h4>
+          <p>Nimm die Offline-Version des IB Gateway. Leg dir bei Interactive Brokers am besten einen zweiten Benutzer nur für das Gateway an: Meldest du dich mit demselben Benutzer gleichzeitig auf der Webseite oder in der Handy-App an, fliegt das Gateway raus.</p>
+          <p>Im Gateway unter Configure, Settings, API (auf Deutsch: Konfigurieren, Einstellungen, API, Einstellungen) trägst du den Socket-Port ein (<code>4002</code> Paper, <code>4001</code> Echtgeld), bei Trusted IPs <code>127.0.0.1</code>, und das Häkchen bei Read-Only API (deutsch: Schreibgeschützte API) nimmst du raus. Gegen die nächtliche Abmeldung durch IB gibt es im Discord im Kanal All Time High das IBC-Paket. Sonntags verlangt IB trotzdem eine neue Anmeldung mit Bestätigung am Handy.</p>
+          <div class="platz video-platz" data-video="ath01-gateway"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#D8AE5E" stroke-width="1.6" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M10 8l6 4-6 4z" fill="#D8AE5E" stroke="none"/></svg><span><b>Video folgt.</b> Erklärvideo Teil 1: Einrichtung</span></div>
+        </div>
+        <div class="bilder">
+          <figure class="bild" data-gross="bilder/ath/anleitung/gross/01_gateway_api.webp"><img src="bilder/ath/anleitung/klein/01_gateway_api.webp" alt="IB Gateway, API-Einstellungen mit Socket-Port 4002, Schreibgeschützte API aus und 127.0.0.1" width="820" height="867" loading="lazy"><figcaption>IB Gateway auf Deutsch: Konfigurieren, Einstellungen, API, Einstellungen. Socket Port 4002, „Schreibgeschützte API“ ohne Haken, unten 127.0.0.1 bei „Vertrauenswürdige IPs“ (Kontonummer ausgeblendet)</figcaption></figure>
+        </div>
+      </div>
+
+      <div class="anl reveal">
+        <div>
+          <div class="nr">3</div>
+          <h4>Der erste Start</h4>
+          <p>Jeden Tag gilt: erst das Gateway starten und anmelden, dann All Time High. Beim ersten Start gibst du deine Kauf-E-Mail ein und tippst den sechsstelligen Code aus der Mail ein.</p>
+          <p>Oben links siehst du dann einen grünen Punkt, deine Kontonummer und die Kontoart, hier PAPER. Dann hat alles geklappt. Auf der Startseite geht es weiter zu Dashboard, Automatik, Tools und Einstellungen.</p>
+          <div class="platz video-platz" data-video="ath01-erster-start"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#D8AE5E" stroke-width="1.6" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M10 8l6 4-6 4z" fill="#D8AE5E" stroke="none"/></svg><span><b>Video folgt.</b> Erklärvideo Teil 1: Einrichtung</span></div>
+        </div>
+        <div class="bilder">
+          <figure class="bild" data-gross="bilder/ath/anleitung/gross/01_start.webp"><img src="bilder/ath/anleitung/klein/01_start.webp" alt="Startseite von All Time High mit Verbindungsanzeige oben links" width="820" height="512" loading="lazy"><figcaption>Die Startseite. Oben links: Verbindung, Kontonummer (ausgeblendet) und Kontoart</figcaption></figure>
+        </div>
+      </div>
+
+      <div class="anl reveal">
+        <div>
+          <div class="nr">4</div>
+          <h4>Verbindung prüfen</h4>
+          <p>Unter Einstellungen, IB-Verbindung siehst du, ob die App mit dem Paper-Konto (Port 4002) oder mit Echtgeld (Port 4001) arbeitet. Eine Änderung wirkt erst nach einem Neustart der App.</p>
+          <p>Beim ersten Verbinden merkt sich die App dein IB-Konto unter „Konto-Bindung“ und arbeitet danach nur noch mit diesem Konto. Lass nie zwei All Time High gleichzeitig auf demselben IB-Konto laufen.</p>
+          <div class="platz video-platz" data-video="ath01-verbindung"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#D8AE5E" stroke-width="1.6" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M10 8l6 4-6 4z" fill="#D8AE5E" stroke="none"/></svg><span><b>Video folgt.</b> Erklärvideo Teil 1: Einrichtung</span></div>
+        </div>
+        <div class="bilder">
+          <figure class="bild" data-gross="bilder/ath/anleitung/gross/14_einstellungen.webp"><img src="bilder/ath/anleitung/klein/14_einstellungen.webp" alt="Einstellungen, IB-Verbindung mit Handelsmodus Paper oder Live" width="820" height="421" loading="lazy"><figcaption>Einstellungen, IB-Verbindung: Handelsmodus und Konto-Bindung</figcaption></figure>
+        </div>
+      </div>
+    </div>
+
+    <!-- Teil B: Erster Handelsplan (Video Teil 2) -->
+    <div class="anl-teil" id="anl-plan">
+      <h3>Erster Handelsplan</h3>
+
+      <div class="anl reveal">
+        <div>
+          <div class="nr">5</div>
+          <h4>Das Dashboard</h4>
+          <p>Ganz oben steht dein Kontowert direkt von Interactive Brokers, also Bargeld und alle Positionen zusammen. Unter „Rahmen“ siehst du, wie viel deines Kontos höchstens im Markt sein darf. Auf einem normalen Konto sind das 100 Prozent.</p>
+          <p>Links stehen deine Handelspläne, jeder mit seinem eigenen Ergebnis. Rechts liegen Equity-Schutz und Not-Aus.</p>
+          <div class="platz video-platz" data-video="ath02-dashboard"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#D8AE5E" stroke-width="1.6" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M10 8l6 4-6 4z" fill="#D8AE5E" stroke="none"/></svg><span><b>Video folgt.</b> Erklärvideo Teil 2: Dashboard und erster Handelsplan</span></div>
+        </div>
+        <div class="bilder">
+          <figure class="bild" data-gross="bilder/ath/anleitung/gross/02_dashboard.webp"><img src="bilder/ath/anleitung/klein/02_dashboard.webp" alt="Dashboard mit Kontowert, Rahmen und Handelsplänen" width="820" height="512" loading="lazy"><figcaption>Das Dashboard. Beträge und Verläufe sind ausgeblendet</figcaption></figure>
+        </div>
+      </div>
+
+      <div class="anl reveal">
+        <div>
+          <div class="nr">6</div>
+          <h4>Neuen Plan anlegen: Name und Kapital</h4>
+          <p>Oben in der Leiste klickst du auf „Neue Strategie“. Ein Assistent führt dich in sieben Schritten durch: Name, Kapital, Watchlist, Strategie, Feintuning, Risiko, Prüfen &amp; Start.</p>
+          <p>Im ersten Schritt gibst du dem Plan einen Namen und wählst den Markt, USA oder Deutschland. Beim Kapital legst du fest, wie viel Geld dieser Plan als eigenen Topf bekommt. Die App zeigt dir gleich, welcher Anteil deines Kontos das ist.</p>
+          <div class="platz video-platz" data-video="ath02-plan-anlegen"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#D8AE5E" stroke-width="1.6" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M10 8l6 4-6 4z" fill="#D8AE5E" stroke="none"/></svg><span><b>Video folgt.</b> Erklärvideo Teil 2: Dashboard und erster Handelsplan</span></div>
+        </div>
+        <div class="bilder">
+          <figure class="bild" data-gross="bilder/ath/anleitung/gross/04_kapital.webp"><img src="bilder/ath/anleitung/klein/04_kapital.webp" alt="Assistent Schritt 2: Kapital für diesen Plan" width="820" height="444" loading="lazy"><figcaption>Schritt 2 von 7: das Kapital für diesen Plan (Beträge ausgeblendet)</figcaption></figure>
+        </div>
+      </div>
+
+      <div class="anl reveal">
+        <div>
+          <div class="nr">7</div>
+          <h4>Aktien eintragen</h4>
+          <p>Du fügst eine Liste ein, lädst eine Datei hoch oder tippst einzelne Ticker. Eine Liste kann zum Beispiel aus dem Marktscreener kommen.</p>
+          <p>Eine Aktie gehört immer genau einem Plan. Steckt sie schon in einem anderen, zeigt dir die App das an und du nimmst sie mit einem Klick wieder heraus.</p>
+          <div class="platz video-platz" data-video="ath02-aktien"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#D8AE5E" stroke-width="1.6" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M10 8l6 4-6 4z" fill="#D8AE5E" stroke="none"/></svg><span><b>Video folgt.</b> Erklärvideo Teil 2: Dashboard und erster Handelsplan</span></div>
+        </div>
+        <div class="bilder">
+          <figure class="bild" data-gross="bilder/ath/anleitung/gross/05_watchlist.webp"><img src="bilder/ath/anleitung/klein/05_watchlist.webp" alt="Assistent Schritt 3: Aktien eintragen, mit Hinweis auf doppelte Titel" width="820" height="433" loading="lazy"><figcaption>Schritt 3 von 7: rot markierte Titel stecken schon in einem anderen Plan</figcaption></figure>
+        </div>
+      </div>
+
+      <div class="anl reveal">
+        <div>
+          <div class="nr">8</div>
+          <h4>Den Bot wählen</h4>
+          <p>Der Aktienbot folgt dem Trend. Er kauft beim Ausbruch nach oben und zieht den Stop nach, solange der Trend läuft.</p>
+          <p>Der Grid-Bot baut eine Position in mehreren kleinen Stufen auf und sichert alles mit einem gemeinsamen Stop ab. Die Stufen bleiben gleich klein, ihre Zahl ist gedeckelt.</p>
+          <div class="platz video-platz" data-video="ath02-bot"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#D8AE5E" stroke-width="1.6" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M10 8l6 4-6 4z" fill="#D8AE5E" stroke="none"/></svg><span><b>Video folgt.</b> Erklärvideo Teil 2: Dashboard und erster Handelsplan</span></div>
+        </div>
+        <div class="bilder">
+          <figure class="bild" data-gross="bilder/ath/anleitung/gross/06_strategie.webp"><img src="bilder/ath/anleitung/klein/06_strategie.webp" alt="Assistent Schritt 4: Aktienbot oder Grid-Bot" width="820" height="347" loading="lazy"><figcaption>Schritt 4 von 7: Aktienbot oder Grid-Bot</figcaption></figure>
+        </div>
+      </div>
+
+      <div class="anl reveal">
+        <div>
+          <div class="nr">9</div>
+          <h4>Feintuning</h4>
+          <p>Hier passt du die Einstellungen des Bots an und siehst die Wirkung direkt im Beispielchart. Fährst du mit der Maus über einen Abschnitt, leuchtet im Chart auf, was er bewirkt.</p>
+          <p>Für den Anfang lässt du die Standardwerte einfach stehen.</p>
+          <div class="platz video-platz" data-video="ath02-feintuning"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#D8AE5E" stroke-width="1.6" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M10 8l6 4-6 4z" fill="#D8AE5E" stroke="none"/></svg><span><b>Video folgt.</b> Erklärvideo Teil 2: Dashboard und erster Handelsplan</span></div>
+        </div>
+        <div class="bilder">
+          <figure class="bild" data-gross="bilder/ath/anleitung/gross/07_feintuning.webp"><img src="bilder/ath/anleitung/klein/07_feintuning.webp" alt="Assistent Schritt 5: Feintuning mit Beispielchart" width="820" height="512" loading="lazy"><figcaption>Schritt 5 von 7: Einstellungen links, Wirkung rechts im Beispielchart</figcaption></figure>
+        </div>
+      </div>
+
+      <div class="anl reveal">
+        <div>
+          <div class="nr">10</div>
+          <h4>Wie viel Geld ein Kauf bekommt</h4>
+          <p>Du legst fest, wie viel Prozent des Topfes ein einzelner Einstieg bekommt, wie viel des Topfes höchstens im Markt sein darf und wie groß eine einzelne Aktie höchstens werden darf.</p>
+          <p>Darunter rechnet die App das sofort in Geld um, du musst nichts im Kopf rechnen. Passt etwas nicht zusammen, sagt sie es dir vorher.</p>
+          <div class="platz video-platz" data-video="ath02-geld"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#D8AE5E" stroke-width="1.6" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M10 8l6 4-6 4z" fill="#D8AE5E" stroke="none"/></svg><span><b>Video folgt.</b> Erklärvideo Teil 2: Dashboard und erster Handelsplan</span></div>
+        </div>
+        <div class="bilder">
+          <figure class="bild" data-gross="bilder/ath/anleitung/gross/08_risiko.webp"><img src="bilder/ath/anleitung/klein/08_risiko.webp" alt="Assistent Schritt 6: Prozent je Einstieg, Investitionsgrad, maximale Größe je Aktie" width="820" height="416" loading="lazy"><figcaption>Schritt 6 von 7: Geld und Risiko (Beträge ausgeblendet)</figcaption></figure>
+        </div>
+      </div>
+
+      <div class="anl reveal">
+        <div>
+          <div class="nr">11</div>
+          <h4>Prüfen und starten</h4>
+          <p>Zum Schluss siehst du alles noch einmal zusammengefasst, rechts den Sicherheits-Check. Erst wenn alle Punkte grün sind, startest du den Plan mit „Jetzt starten“.</p>
+          <p>Fang damit im Paper-Konto an und schau dir ein paar Tage in Ruhe an, was die Bots machen. Erst wenn du verstehst, warum sie kaufen und verkaufen, wechselst du auf Echtgeld.</p>
+          <div class="platz video-platz" data-video="ath02-start"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#D8AE5E" stroke-width="1.6" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M10 8l6 4-6 4z" fill="#D8AE5E" stroke="none"/></svg><span><b>Video folgt.</b> Erklärvideo Teil 2: Dashboard und erster Handelsplan</span></div>
+        </div>
+        <div class="bilder">
+          <figure class="bild" data-gross="bilder/ath/anleitung/gross/09_start.webp"><img src="bilder/ath/anleitung/klein/09_start.webp" alt="Assistent Schritt 7: Zusammenfassung und Sicherheits-Check" width="820" height="473" loading="lazy"><figcaption>Schritt 7 von 7: Zusammenfassung und Sicherheits-Check</figcaption></figure>
+        </div>
+      </div>
+    </div>
+
+    <!-- Teil C: Im Alltag (Video Teil 2 und 3) -->
+    <div class="anl-teil" id="anl-alltag">
+      <h3>Im Alltag</h3>
+
+      <div class="anl reveal">
+        <div>
+          <div class="nr">12</div>
+          <h4>Einstiegs-Ampel und Positionen</h4>
+          <p>Ob ein Bot gerade kaufen darf, zeigt dir die Einstiegs-Ampel. Sie sagt dir auch, woran es hakt, zum Beispiel weil die Börse geschlossen ist.</p>
+          <p>Jede gekaufte Position hat eine echte Stop-Order bei Interactive Brokers, die auch gilt, wenn dein Rechner aus ist. Über das Zahnrad an der Position wählst du: nur Nachkauf stoppen, nur schließen oder schließen und Bot stoppen. Einen ganzen Plan kannst du pausieren, Positionen und Stops bleiben dabei liegen.</p>
+          <div class="platz video-platz" data-video="ath03-ampel"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#D8AE5E" stroke-width="1.6" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M10 8l6 4-6 4z" fill="#D8AE5E" stroke="none"/></svg><span><b>Video folgt.</b> Erklärvideo Teil 3: So spielt alles zusammen</span></div>
+        </div>
+        <div class="bilder">
+          <figure class="bild" data-gross="bilder/ath/anleitung/gross/ath07_ampel.webp"><img src="bilder/ath/anleitung/klein/ath07_ampel.webp" alt="Einstiegs-Ampel eines Bots" width="654" height="480" loading="lazy"><figcaption>Die Einstiegs-Ampel prüft vor jedem Kauf, ob alles passt</figcaption></figure>
+          <figure class="bild" data-gross="bilder/ath/anleitung/gross/02_zahnrad.webp"><img src="bilder/ath/anleitung/klein/02_zahnrad.webp" alt="Optionen einer Position nach Klick auf das Zahnrad" width="820" height="847" loading="lazy"><figcaption>Das Zahnrad an einer Position: Nachkauf stoppen, nur schließen oder schließen und Bot stoppen</figcaption></figure>
+        </div>
+      </div>
+
+      <div class="anl reveal">
+        <div>
+          <div class="nr">13</div>
+          <h4>Benachrichtigungen</h4>
+          <p>Bildschirmmeldungen kommen immer. Ob zusätzlich eine E-Mail kommt, stellst du unter Einstellungen je Ereignis ein, dazu gibt es einen Nachtmodus mit Ruhezeit.</p>
+          <p>Der Handels-Report bündelt Käufe und Verkäufe in einer Sammel-Mail und kommt nur, wenn auch gehandelt wurde. Für den Versand trägst du unter „E-Mail-Versand“ eine Gmail-Adresse mit App-Passwort ein.</p>
+          <div class="platz video-platz" data-video="ath03-benachrichtigungen"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#D8AE5E" stroke-width="1.6" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M10 8l6 4-6 4z" fill="#D8AE5E" stroke="none"/></svg><span><b>Video folgt.</b> Erklärvideo Teil 3: So spielt alles zusammen</span></div>
+        </div>
+        <div class="bilder">
+          <figure class="bild" data-gross="bilder/ath/anleitung/gross/15_benachrichtigung.webp"><img src="bilder/ath/anleitung/klein/15_benachrichtigung.webp" alt="Einstellungen, Benachrichtigungen je Ereignistyp" width="820" height="401" loading="lazy"><figcaption>Einstellungen: E-Mail je Ereignis und Handels-Report</figcaption></figure>
+        </div>
+      </div>
+
+      <div class="anl reveal">
+        <div>
+          <div class="nr">14</div>
+          <h4>Die Trade-Historie</h4>
+          <p>Unter „Historie“ findest du jeden Kauf und Verkauf mit Grund, Plan und Bot. Du filterst nach Plan, Zeitraum, Aktion, Ergebnis und Grund.</p>
+          <p>Mit „CSV“ speicherst du alles als Datei, zum Beispiel für Excel oder deine Steuer.</p>
+          <div class="platz video-platz" data-video="ath03-historie"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#D8AE5E" stroke-width="1.6" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M10 8l6 4-6 4z" fill="#D8AE5E" stroke="none"/></svg><span><b>Video folgt.</b> Erklärvideo Teil 3: So spielt alles zusammen</span></div>
+        </div>
+        <div class="bilder">
+          <figure class="bild" data-gross="bilder/ath/anleitung/gross/10_historie.webp"><img src="bilder/ath/anleitung/klein/10_historie.webp" alt="Trade-Historie mit Filtern" width="820" height="512" loading="lazy"><figcaption>Die Trade-Historie, hier gefiltert auf Käufe (Preise ausgeblendet)</figcaption></figure>
+        </div>
+      </div>
+
+      <div class="anl reveal">
+        <div>
+          <div class="nr">15</div>
+          <h4>Wenn etwas hakt: das Support-Paket</h4>
+          <p>Bei einem technischen Problem klickst du unter Einstellungen auf „Support-Paket erstellen“. Die App packt Logs und Zustand in eine ZIP-Datei.</p>
+          <p>Die Datei hängst du an dein Ticket im Discord. Passwörter sind nicht enthalten.</p>
+          <div class="platz video-platz" data-video="ath01-support"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#D8AE5E" stroke-width="1.6" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M10 8l6 4-6 4z" fill="#D8AE5E" stroke="none"/></svg><span><b>Video folgt.</b> Erklärvideo Teil 1: Einrichtung</span></div>
+        </div>
+        <div class="bilder">
+          <figure class="bild" data-gross="bilder/ath/anleitung/gross/16_support.webp"><img src="bilder/ath/anleitung/klein/16_support.webp" alt="Einstellungen, Diagnose und Support-Paket" width="820" height="238" loading="lazy"><figcaption>Einstellungen: Support-Paket erstellen</figcaption></figure>
+        </div>
+      </div>
+    </div>
+
+    <!-- Teil D: Aktien finden und testen (Video Teil 4 und 5) -->
+    <div class="anl-teil" id="anl-finden">
+      <h3>Aktien finden und testen</h3>
+
+      <div class="anl reveal">
+        <div>
+          <div class="nr">16</div>
+          <h4>Der Marktscreener</h4>
+          <p>Unter „Tools“ öffnest du den Marktscreener und wählst „Heute screenen“. Du nimmst eine Vorlage, das Universum (Standard: die 1.000 größten US-Aktien) und auf Wunsch eine Branche, dann klickst du auf „Screenen“.</p>
+          <p>Die Bedingungen entscheiden, wer überhaupt in die Liste kommt. Die Gewichtung macht daraus einen Punktwert von 0 bis 100 und entscheidet, wer oben steht. Eigene Einstellungen speicherst du als Vorlage.</p>
+          <div class="platz video-platz" data-video="ath04-screener"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#D8AE5E" stroke-width="1.6" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M10 8l6 4-6 4z" fill="#D8AE5E" stroke="none"/></svg><span><b>Video folgt.</b> Erklärvideo Teil 4: Der Marktscreener</span></div>
+        </div>
+        <div class="bilder">
+          <figure class="bild" data-gross="bilder/ath/anleitung/gross/12_screener.webp"><img src="bilder/ath/anleitung/klein/12_screener.webp" alt="Marktscreener mit Vorlage, Universum und Rangliste" width="820" height="512" loading="lazy"><figcaption>Der Marktscreener: oben die Einstellungen, unten die Rangliste</figcaption></figure>
+        </div>
+      </div>
+
+      <div class="anl reveal">
+        <div>
+          <div class="nr">17</div>
+          <h4>Eine Firma genauer ansehen</h4>
+          <p>Ein Klick auf eine Aktie öffnet ihr Firmenprofil mit Kursverlauf, Screener-Bewertung sowie Umsatz und Gewinn je Jahr.</p>
+          <p>Unter dem Reiter Technik siehst du den Chart mit der 50-, 100-, 150- und 200-Tage-Linie, eingezeichneten Widerständen und erkannten Chartmustern.</p>
+          <div class="platz video-platz" data-video="ath04-firma"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#D8AE5E" stroke-width="1.6" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M10 8l6 4-6 4z" fill="#D8AE5E" stroke="none"/></svg><span><b>Video folgt.</b> Erklärvideo Teil 4: Der Marktscreener</span></div>
+        </div>
+        <div class="bilder">
+          <figure class="bild" data-gross="bilder/ath/anleitung/gross/ath03_firma.webp"><img src="bilder/ath/anleitung/klein/ath03_firma.webp" alt="Firmenprofil einer Aktie aus dem Screener" width="820" height="876" loading="lazy"><figcaption>Das Firmenprofil einer Aktie aus der Rangliste</figcaption></figure>
+        </div>
+      </div>
+
+      <div class="anl reveal">
+        <div>
+          <div class="nr">18</div>
+          <h4>Die Zeitreise</h4>
+          <p>Mit „Zeitreise starten“ zeigt dir der Screener, welche Aktien er an Stichtagen in der Vergangenheit gefunden hätte, nur mit dem Wissen von damals. Firmen, die es heute nicht mehr gibt, sind dabei mit drin.</p>
+          <p>Du wählst Zeitraum, Abstand und Korbgröße. Die Liste speicherst du als CSV oder schickst sie direkt in den Backtester.</p>
+          <div class="platz video-platz" data-video="ath04-zeitreise"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#D8AE5E" stroke-width="1.6" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M10 8l6 4-6 4z" fill="#D8AE5E" stroke="none"/></svg><span><b>Video folgt.</b> Erklärvideo Teil 4: Der Marktscreener</span></div>
+        </div>
+        <div class="bilder">
+          <figure class="bild" data-gross="bilder/ath/anleitung/gross/ath04_historisch.webp"><img src="bilder/ath/anleitung/klein/ath04_historisch.webp" alt="Historisches Screening mit der Auswahl je Stichtag" width="820" height="461" loading="lazy"><figcaption>Historisches Screening: die Auswahl je Stichtag</figcaption></figure>
+        </div>
+      </div>
+
+      <div class="anl reveal">
+        <div>
+          <div class="nr">19</div>
+          <h4>Backtesten</h4>
+          <p>Unter „Tools“ gibt es drei Backtester: für eine einzelne Aktie, für einen ganzen Korb (Multi Asset) und für die Liste aus der Zeitreise (Screening-Strategie). Du wählst Bot, Zeitraum und Kapital und startest den Test.</p>
+          <p>Schalte IB-Gebühren und Slippage ein. Ab Werk sind beide aus, und ohne Kosten sieht jeder Backtest besser aus als die Wirklichkeit. Backtests gehen derzeit für US-Aktien ab 2009.</p>
+          <div class="platz video-platz" data-video="ath05-backtest"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#D8AE5E" stroke-width="1.6" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M10 8l6 4-6 4z" fill="#D8AE5E" stroke="none"/></svg><span><b>Video folgt.</b> Erklärvideo Teil 5: Backtesten</span></div>
+        </div>
+        <div class="bilder">
+          <figure class="bild" data-gross="bilder/ath/anleitung/gross/13_backtest.webp"><img src="bilder/ath/anleitung/klein/13_backtest.webp" alt="Einzelwert-Backtester mit Schaltern für Gebühren und Slippage" width="820" height="512" loading="lazy"><figcaption>Der Einzelwert-Backtester: unten links die Schalter für Gebühren und Slippage</figcaption></figure>
+          <figure class="bild" data-gross="bilder/ath/anleitung/gross/ath05_screenerbacktest.webp"><img src="bilder/ath/anleitung/klein/ath05_screenerbacktest.webp" alt="Screener-Backtester mit der Liste aus dem historischen Screening" width="820" height="461" loading="lazy"><figcaption>Der Screener-Backtester rechnet die Liste aus der Zeitreise durch</figcaption></figure>
+        </div>
+      </div>
+    </div>
+
+    <div class="hinweis reveal"><p>Ein Backtest zeigt, wie sich Regeln in der Vergangenheit verhalten hätten. Er ist kein Versprechen für die Zukunft.</p></div>
   </div>
 </section>
 
