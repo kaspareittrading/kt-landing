@@ -177,6 +177,14 @@ section[id]{scroll-margin-top:58px}
 .preis li.ath b{color:var(--gold);font-weight:600}
 .preis .btn{margin-top:auto;justify-content:center}
 .preis-fuss{text-align:center;margin-top:30px;font-size:14px;color:var(--dim)}
+/* ENTWURF 26.10.2026: drei Angebotskarten */
+.preise.drei{grid-template-columns:repeat(3,1fr);max-width:1180px}
+.preis .betrag-alt{color:var(--dim);font-size:14.5px;margin:0 0 4px}
+.preis.cfd{border-color:rgba(64,198,204,.35)}
+.preis.cfd li:before{color:var(--teal)}
+.preis .knopfpaar{display:grid;gap:10px;margin-top:auto}
+.preis .knopfpaar .btn{margin-top:0}
+@media(max-width:900px){.preise.drei{grid-template-columns:1fr}}
 .preis-fuss a{color:var(--gold);text-decoration:none}
 .preis-fuss a:hover{text-decoration:underline}
 
@@ -349,11 +357,11 @@ section[id]{scroll-margin-top:58px}
     <div class="sec-head reveal" style="margin-bottom:34px">
       <div class="kicker">Was suchst du?</div>
       <h2>Direkt zum Ziel</h2>
-      <p>Wir haben zwei Werkzeuge für zwei Märkte. Du willst <b style="color:var(--ink);font-weight:500">CFDs</b> handeln? Dann ist das <span class="ht">Customer Terminal</span> deins, als Free Member kostenlos. Du willst <b style="color:var(--ink);font-weight:500">Aktien</b> handeln? Dann schau dir <span class="hg">All Time High</span> an, das ist in Premium enthalten.</p>
+      <p>Wir haben zwei Werkzeuge für zwei Märkte. Du willst <b style="color:var(--ink);font-weight:500">CFDs</b> handeln? Dann ist das <span class="ht">Customer Terminal</span> deins, als Free Member kostenlos. Du willst <b style="color:var(--ink);font-weight:500">Aktien</b> handeln? Dann schau dir <span class="hg">All Time High</span> an, das bekommst du mit Aktien-Trader oder in Premium.</p>
     </div>
     <div class="wege">
       <a class="weg t reveal" href="#terminal"><b>CFD</b><div><h3>Customer Terminal: für CFDs</h3><p>Kostenlos: Backtests unserer CFD-Portfolios, Prop-Simulator, Live-Performance</p></div><span class="pf">→</span></a>
-      <a class="weg reveal" style="--i:1" href="#ath"><b>ATH</b><div><h3>All Time High: für Aktien</h3><p>Aktien finden, prüfen und automatisch handeln. In Premium enthalten</p></div><span class="pf">→</span></a>
+      <a class="weg reveal" style="--i:1" href="#ath"><b>ATH</b><div><h3>All Time High: für Aktien</h3><p>Aktien finden, prüfen und automatisch handeln. In Aktien-Trader und Premium</p></div><span class="pf">→</span></a>
       <a class="weg reveal" style="--i:2" href="#ergebnisse"><b id="statOos">0</b><div><h3>Ergebnisse</h3><p>Vorlagen seit 2010, out of sample bestätigt</p></div><span class="pf">→</span></a>
       <a class="weg g reveal" href="#bausteine"><b data-zahl="6">0</b><div><h3>Kostenlose Bausteine</h3><p>Grundausbildung, Indikatoren, PDFs, Chatbot</p></div><span class="pf">→</span></a>
       <a class="weg reveal" style="--i:1" href="#videothek"><b id="statVideos">0</b><div><h3>Videos</h3><p>Nach Themen sortiert, mit Suche</p></div><span class="pf">→</span></a>
@@ -401,7 +409,7 @@ section[id]{scroll-margin-top:58px}
         <div class="kicker reveal">Säule 02 · Aktien</div>
         <h2 class="reveal" style="--i:1">All Time High findet, prüft und handelt Aktien für dich</h2>
         <p class="reveal" style="--i:2;margin-top:20px;font-size:17px">Unsere eigene Software verbindet sich direkt mit deinem Konto bei <span class="hg">Interactive Brokers</span>. Von der Suche nach starken Aktien bis zur fertigen Order. Ohne TradingView, ohne Zusatzprogramme.</p>
-        <p class="reveal" style="--i:3;margin-top:14px;font-size:15px;color:var(--dim)">Wichtig: All Time High gehört nicht zur kostenlosen Mitgliedschaft. Du bekommst es in Premium ohne Aufpreis.</p>
+        <p class="reveal" style="--i:3;margin-top:14px;font-size:15px;color:var(--dim)">Wichtig: All Time High gehört nicht zur kostenlosen Mitgliedschaft. Du bekommst es mit Aktien-Trader oder in Premium.</p>
         <div class="funk">
           <div class="reveal l" style="--i:1"><i>01</i><div><h3>Aktien finden</h3><p>Der Marktscreener durchsucht tausende US-Aktien nach Gewinn, Umsatz und Trend und stellt dir eine Rangliste zusammen.</p></div></div>
           <div class="reveal l" style="--i:2"><i>02</i><div><h3>Zurück in die Zeit</h3><p>Das historische Screening zeigt, welche Aktien der Screener an einem beliebigen Tag der letzten Jahre gefunden hätte.</p></div></div>
@@ -420,7 +428,7 @@ section[id]{scroll-margin-top:58px}
     </div>
     <p style="font-size:13px;color:var(--dim);margin-top:14px">Bildschirmfotos aus All Time High. Zum Vergrößern anklicken.</p>
     <div class="knoepfe reveal">
-      <a class="btn btn-gold" href="#angebote">In Premium ohne Aufpreis <span class="pf">→</span></a>
+      <a class="btn btn-gold" href="#angebote">Aktien-Trader oder Premium <span class="pf">→</span></a>
       <a class="btn btn-ghost" href="https://start.kaspareit-trading.com/ath/" target="_blank" rel="noopener">Alles über All Time High</a>
     </div>
   </div>
@@ -440,32 +448,72 @@ section[id]{scroll-margin-top:58px}
   </div>
 </section>
 
-<!-- ANGEBOTE (Preise wie auf der Verkaufsseite, siehe Fakten-Register) -->
+<!-- ANGEBOTE (Preise wie auf der Verkaufsseite, siehe Fakten-Register). ENTWURF 26.10.2026: drei Pakete, Kassen-Links sind Platzhalter. -->
 <section class="angebote" id="angebote">
   <div class="wrap">
     <div class="sec-head mid reveal">
       <div class="kicker">Dein nächster Schritt</div>
       <h2>Mit den Vorlagen selbst handeln</h2>
-      <p>In Premium steckt alles: die Strategieportfolios für CFDs und All Time High für Aktien, ohne Aufpreis.</p>
+      <p>Drei Pakete: <span class="ht">CFD-Trader</span> für die Strategieportfolios, <span class="hg">Aktien-Trader</span> für All Time High und Premium für beides.</p>
     </div>
-    <div class="preise">
-      <div class="preis haupt reveal l">
+    <div class="preise drei">
+      <div class="preis cfd reveal l">
+        <h3>CFD-Trader</h3>
+        <div class="betrag">490,- €<small> / 12 Monate</small></div>
+        <div class="betrag-alt">oder 59,- € im Monat</div>
+        <p class="claim">Alle CFD-Portfolios und Strategien für MetaTrader 5.</p>
+        <ul>
+          <li>Alle Strategieportfolios, jeweils auch als Prop-Variante</li>
+          <li>Alle 5 Kernstrategien und alle Community-Strategien</li>
+          <li>Customer Terminal mit Live-Handel, Updates und Backtests</li>
+          <li>Discord-Community mit allen CFD-Kanälen</li>
+          <li>Webinare samstags, Stammtische donnerstags</li>
+          <li>Support per Ticket</li>
+        </ul>
+        <div class="knopfpaar">
+          <a class="btn btn-gold" href="https://www.copecart.com/products/4f2d86d0/checkout" target="_blank" rel="noopener">Jährlich starten <span class="pf">→</span></a>
+          <a class="btn btn-ghost" href="https://www.copecart.com/products/4f2d86d0/checkout" target="_blank" rel="noopener">Monatlich starten</a>
+        </div>
+        <p class="kasse-hinweis" style="font-size:.8rem;opacity:.75;margin:.6rem 0 0;text-align:center;line-height:1.4">Monat oder Jahr wählst du an der Kasse im Schritt „Zahlung“.</p>
+      </div>
+      <div class="preis haupt reveal">
         <div class="badge">Beliebteste Wahl</div>
         <h3>Premium</h3>
         <div class="betrag">799,- €<small> / 12 Monate</small></div>
-        <p class="claim">Alle Säulen, alle Strategien, voller Zugang. Heute und in Zukunft.</p>
+        <div class="betrag-alt">oder 79,- € im Monat</div>
+        <p class="claim">CFD-Trader und Aktien-Trader zusammen. Alle Strategien, voller Zugang.</p>
         <ul>
-          <li class="ath"><span><b>All Time High</b> für den Aktienhandel, ohne Aufpreis</span></li>
-          <li>Alle Strategieportfolios, jeweils auch als Prop-Variante</li>
-          <li>Alle 5 Kernstrategien und alle Community-Strategien</li>
-          <li>Jede künftige Strategie und jedes künftige Portfolio inklusive</li>
+          <li class="ath"><span><b>All Time High</b> für den Aktienhandel</span></li>
+          <li>Alles aus CFD-Trader: alle Portfolios und Strategien</li>
+          <li>Neue Strategien und Portfolios automatisch inklusive</li>
+          <li>Discord-Community mit allen Kanälen</li>
           <li>Webinare samstags, Stammtische donnerstags</li>
           <li>Persönlicher Support per Ticket</li>
         </ul>
-        <a class="btn btn-gold" href="https://copecart.com/products/2f416c32/checkout" target="_blank" rel="noopener">Premium starten <span class="pf">→</span></a>
+        <div class="knopfpaar">
+          <a class="btn btn-gold" href="https://www.copecart.com/products/2f416c32/checkout" target="_blank" rel="noopener">Jährlich starten <span class="pf">→</span></a>
+          <a class="btn btn-ghost" href="https://www.copecart.com/products/2f416c32/checkout" target="_blank" rel="noopener">Monatlich starten</a>
+        </div>
+        <p class="kasse-hinweis" style="font-size:.8rem;opacity:.75;margin:.6rem 0 0;text-align:center;line-height:1.4">Monat oder Jahr wählst du an der Kasse im Schritt „Zahlung“.</p>
+      </div>
+      <div class="preis reveal r">
+        <h3>Aktien-Trader</h3>
+        <div class="betrag">490,- €<small> / 12 Monate</small></div>
+        <div class="betrag-alt">oder 59,- € im Monat</div>
+        <p class="claim">Mit Aktien-Trader bekommst du All Time High für dein Konto bei Interactive Brokers.</p>
+        <ul>
+          <li class="ath"><span><b>All Time High</b> mit Aktienbot und GridBot</span></li>
+          <li>Marktscreener, historisches Screening und Backtester</li>
+          <li>Echte Stops beim Broker und Kontoschutz</li>
+          <li>All-Time-High-Kanal im Discord</li>
+          <li>Support per Ticket</li>
+        </ul>
+        <div class="knopfpaar">
+          <a class="btn btn-gold" href="https://alltime-high.com" target="_blank" rel="noopener">Zu All Time High <span class="pf">→</span></a>
+        </div>
       </div>
     </div>
-    <p class="preis-fuss reveal">Jährliche Verlängerung, jederzeit kündbar.<br><a href="https://start.kaspareit-trading.com/" target="_top">Alle Details und Fragen auf der Angebotsseite</a> · <a href="#chat" data-ktchat-frage="Ich habe eine Frage zu den Abos: ">Frag den Assistenten</a></p>
+    <p class="preis-fuss reveal">Monatlich oder jährlich, jederzeit zum Ende der Laufzeit kündbar.<br><a href="https://start.kaspareit-trading.com/" target="_top">Alle Details und Fragen auf der Angebotsseite</a> · <a href="#chat" data-ktchat-frage="Ich habe eine Frage zu den Paketen: ">Frag den Assistenten</a></p>
   </div>
 </section>
 
@@ -498,7 +546,7 @@ section[id]{scroll-margin-top:58px}
     <div class="innen reveal sc">
       <div>
         <h2>Vom Lernen zum Handeln</h2>
-        <p>Mit Premium laufen die Strategieportfolios und All Time High auf deinem eigenen Konto. Du behältst die volle Kontrolle.</p>
+        <p>Mit CFD-Trader laufen die Strategieportfolios, mit Aktien-Trader All Time High auf deinem eigenen Konto. Premium enthält beides. Du behältst die volle Kontrolle.</p>
       </div>
       <a class="btn btn-gold" href="#angebote">Angebote ansehen <span class="pf">→</span></a>
     </div>
@@ -540,10 +588,10 @@ section[id]{scroll-margin-top:58px}
   <div class="wrap">
     <div class="kicker reveal">Bereit?</div>
     <h2 class="reveal" style="--i:1">Hol dir die Vorlagen und handle mit</h2>
-    <p class="reveal" style="--i:2">Premium mit allen Strategieportfolios und All Time High für 799 € im Jahr. Jederzeit kündbar.</p>
+    <p class="reveal" style="--i:2">Premium mit allen Strategieportfolios und All Time High für 79 € im Monat oder 799 € im Jahr. Jederzeit zum Ende der Laufzeit kündbar.</p>
     <div class="hero-cta reveal" style="--i:3">
-      <a class="btn btn-gold" href="https://copecart.com/products/2f416c32/checkout" target="_blank" rel="noopener">Premium starten <span class="pf">→</span></a>
-      <a class="btn btn-ghost" href="https://start.kaspareit-trading.com/" target="_top">Alle Angebote vergleichen</a>
+      <a class="btn btn-gold" href="https://www.copecart.com/products/2f416c32/checkout" target="_blank" rel="noopener">Premium starten <span class="pf">→</span></a>
+      <a class="btn btn-ghost" href="#angebote">Alle Pakete vergleichen</a>
     </div>
   </div>
 </section>
@@ -555,7 +603,7 @@ section[id]{scroll-margin-top:58px}
   </div>
 </footer>
 
-<div class="leiste" id="leiste"><span><b>Premium</b><span class="lang"> mit All Time High</span> · 799 € / Jahr</span><a class="btn btn-gold" href="#angebote">Ansehen</a></div>
+<div class="leiste" id="leiste"><span><b>Drei Pakete</b><span class="lang"> für CFDs und Aktien</span> · ab 59 € / Monat</span><a class="btn btn-gold" href="#angebote">Ansehen</a></div>
 <div class="gross" id="gross"><img alt=""></div>
 
 <script>
