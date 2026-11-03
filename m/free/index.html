@@ -315,6 +315,19 @@ section[id]{scroll-margin-top:58px}
   .reveal{opacity:1;transform:none;filter:none}
   .hkurve .ln,.spark-ln{clip-path:none}.hkurve .fl,.hplakette{opacity:1}
 }
+
+/* ABO-SCHALTER (03.11.2026): Jaehrlich/Monatlich wie auf alltime-high.com */
+.abo-schalter-zeile{text-align:center;margin:0 0 30px}
+.abo-schalter{display:inline-flex;padding:4px;border:1px solid rgba(64,198,204,.35);border-radius:40px;background:rgba(0,0,0,.25)}
+.abo-schalter button{white-space:nowrap;font:inherit;font-size:14px;font-weight:600;color:var(--dim);background:transparent;border:0;border-radius:40px;padding:10px 20px;cursor:pointer;transition:all .25s}
+.abo-schalter button em{font-style:normal;font-size:12px;font-weight:700;color:var(--gold);margin-left:6px}
+.abo-schalter button.an{background:var(--teal);color:#06181a}
+.abo-schalter button.an em{color:#06181a;opacity:.75}
+[data-abo].abo-aus{display:none!important}
+.kasse-hinweis{font-size:.8rem;color:var(--dim);margin:.6rem 0 0;text-align:center;line-height:1.45}
+.kasse-hinweis.wichtig{color:var(--gold);font-size:.86rem}
+@media(max-width:560px){.abo-schalter button{padding:9px 13px;font-size:13px}.abo-schalter button em{font-size:11px;margin-left:4px}}
+/* ABO-SCHALTER-ENDE */
 </style>
 </head>
 <body>
@@ -456,11 +469,15 @@ section[id]{scroll-margin-top:58px}
       <h2>Mit den Vorlagen selbst handeln</h2>
       <p>Drei Pakete: <span class="ht">CFD-Trader</span> für die Strategieportfolios, <span class="hg">Aktien-Trader</span> für All Time High und Premium für beides.</p>
     </div>
+    <!-- ABO-SCHALTER: Jaehrlich/Monatlich, Skript abo-schalter-einbauen.py -->
+    <div class="abo-schalter-zeile"><div class="abo-schalter" role="tablist" aria-label="Zahlweise"><button type="button" class="an" data-abo="jahr" role="tab" aria-selected="true">Jährlich <em>bis zu 218 € sparen</em></button><button type="button" data-abo="monat" role="tab" aria-selected="false">Monatlich</button></div></div>
     <div class="preise drei">
       <div class="preis cfd reveal l">
         <h3>CFD-Trader</h3>
-        <div class="betrag">490,- €<small> / 12 Monate</small></div>
-        <div class="betrag-alt">oder 59,- € im Monat</div>
+        <div class="betrag" data-abo="jahr">490,- €<small> / 12 Monate</small></div>
+        <div class="betrag abo-aus" data-abo="monat">59,- €<small> / Monat</small></div>
+        <div class="betrag-alt" data-abo="jahr">Entspricht rund 41 € im Monat. Du sparst 218 € im Jahr.</div>
+        <div class="betrag-alt abo-aus" data-abo="monat">Flexibel Monat für Monat. Jährlich sparst du 218 €.</div>
         <p class="claim">Alle CFD-Portfolios und Strategien für MetaTrader 5.</p>
         <ul>
           <li>Alle Strategieportfolios, jeweils auch als Prop-Variante</li>
@@ -471,16 +488,19 @@ section[id]{scroll-margin-top:58px}
           <li>Support per Ticket</li>
         </ul>
         <div class="knopfpaar">
-          <a class="btn btn-gold" href="https://www.copecart.com/products/4f2d86d0/checkout" target="_blank" rel="noopener">Jährlich starten <span class="pf">→</span></a>
-          <a class="btn btn-ghost" href="https://www.copecart.com/products/4f2d86d0/checkout" target="_blank" rel="noopener">Monatlich starten</a>
+          <a class="btn btn-gold" href="https://www.copecart.com/products/4f2d86d0/checkout" target="_blank" rel="noopener" data-abo="jahr">Jährlich starten <span class="pf">→</span></a>
+          <a class="btn btn-gold abo-aus" href="https://www.copecart.com/products/4f2d86d0/checkout" target="_blank" rel="noopener" data-abo="monat">Monatlich starten <span class="pf">→</span></a>
         </div>
-        <p class="kasse-hinweis" style="font-size:.8rem;opacity:.75;margin:.6rem 0 0;text-align:center;line-height:1.4">Monat oder Jahr wählst du an der Kasse im Schritt „Zahlung“.</p>
+        <p class="kasse-hinweis" data-abo="jahr">Der Jahrespreis ist an der Kasse schon ausgewählt.</p>
+        <p class="kasse-hinweis wichtig abo-aus" data-abo="monat"><b>Wichtig:</b> An der Kasse ist zuerst der Jahrespreis markiert. Klick im Schritt „Zahlung“ auf den Monatsplan mit 59,00 €.</p>
       </div>
       <div class="preis haupt reveal">
         <div class="badge">Beliebteste Wahl</div>
         <h3>Premium</h3>
-        <div class="betrag">799,- €<small> / 12 Monate</small></div>
-        <div class="betrag-alt">oder 79,- € im Monat</div>
+        <div class="betrag" data-abo="jahr">799,- €<small> / 12 Monate</small></div>
+        <div class="betrag abo-aus" data-abo="monat">79,- €<small> / Monat</small></div>
+        <div class="betrag-alt" data-abo="jahr">Entspricht rund 67 € im Monat. Du sparst 149 € im Jahr.</div>
+        <div class="betrag-alt abo-aus" data-abo="monat">Flexibel Monat für Monat. Jährlich sparst du 149 €.</div>
         <p class="claim">CFD-Trader und Aktien-Trader zusammen. Alle Strategien, voller Zugang.</p>
         <ul>
           <li class="ath"><span><b>All Time High</b> für den Aktienhandel</span></li>
@@ -491,15 +511,18 @@ section[id]{scroll-margin-top:58px}
           <li>Persönlicher Support per Ticket</li>
         </ul>
         <div class="knopfpaar">
-          <a class="btn btn-gold" href="https://www.copecart.com/products/2f416c32/checkout" target="_blank" rel="noopener">Jährlich starten <span class="pf">→</span></a>
-          <a class="btn btn-ghost" href="https://www.copecart.com/products/2f416c32/checkout" target="_blank" rel="noopener">Monatlich starten</a>
+          <a class="btn btn-gold" href="https://www.copecart.com/products/2f416c32/checkout" target="_blank" rel="noopener" data-abo="jahr">Jährlich starten <span class="pf">→</span></a>
+          <a class="btn btn-gold abo-aus" href="https://www.copecart.com/products/2f416c32/checkout" target="_blank" rel="noopener" data-abo="monat">Monatlich starten <span class="pf">→</span></a>
         </div>
-        <p class="kasse-hinweis" style="font-size:.8rem;opacity:.75;margin:.6rem 0 0;text-align:center;line-height:1.4">Monat oder Jahr wählst du an der Kasse im Schritt „Zahlung“.</p>
+        <p class="kasse-hinweis" data-abo="jahr">Der Jahrespreis ist an der Kasse schon ausgewählt.</p>
+        <p class="kasse-hinweis wichtig abo-aus" data-abo="monat"><b>Wichtig:</b> An der Kasse ist zuerst der Jahrespreis markiert. Klick im Schritt „Zahlung“ auf den Monatsplan mit 79,00 €.</p>
       </div>
       <div class="preis reveal r">
         <h3>Aktien-Trader</h3>
-        <div class="betrag">490,- €<small> / 12 Monate</small></div>
-        <div class="betrag-alt">oder 59,- € im Monat</div>
+        <div class="betrag" data-abo="jahr">490,- €<small> / 12 Monate</small></div>
+        <div class="betrag abo-aus" data-abo="monat">59,- €<small> / Monat</small></div>
+        <div class="betrag-alt" data-abo="jahr">Entspricht rund 41 € im Monat. Du sparst 218 € im Jahr.</div>
+        <div class="betrag-alt abo-aus" data-abo="monat">Flexibel Monat für Monat. Jährlich sparst du 218 €.</div>
         <p class="claim">Mit Aktien-Trader bekommst du All Time High für dein Konto bei Interactive Brokers.</p>
         <ul>
           <li class="ath"><span><b>All Time High</b> mit Aktienbot und GridBot</span></li>
@@ -874,6 +897,9 @@ function hoehe(){ try{ window.parent.postMessage({typ: 'hoehe', px: document.doc
   });
   try{ window.parent.postMessage({typ: 'bereit'}, '*'); }catch(e){}
 })();
+</script>
+<script>/* ABO-SCHALTER */
+(function(){document.querySelectorAll('.abo-schalter').forEach(function(s){var sec=s.closest('section')||document;s.addEventListener('click',function(e){var b=e.target.closest('button[data-abo]');if(!b)return;var art=b.getAttribute('data-abo');s.querySelectorAll('button[data-abo]').forEach(function(x){var an=x===b;x.classList.toggle('an',an);x.setAttribute('aria-selected',an?'true':'false');});sec.querySelectorAll('[data-abo]').forEach(function(el){if(el.tagName!=='BUTTON')el.classList.toggle('abo-aus',el.getAttribute('data-abo')!==art);});});});})();
 </script>
 </body>
 </html>
