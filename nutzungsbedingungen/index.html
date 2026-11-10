@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nutzungsbedingungen | Kaspareit Trading</title>
+<meta name="description" content="Nutzungsbedingungen der Kaspareit-Trading LLC für Software, Strategie-Sammlungen, Trading Robots und Community, gültig für Mitgliedschaften ab dem 11.11.2026.">
+<meta name="robots" content="index,follow">
+<link rel="icon" type="image/png" sizes="32x32" href="../favicon-32.png">
+<link rel="apple-touch-icon" href="../apple-touch-icon.png">
+<link rel="stylesheet" href="../schrift/schrift.css">
+<style>
+:root{
+--bg:#0a0f10;
+--bg2:#0d1314;
+--ink:#e7eced;
+--muted:#bac4c6;
+--dim:#8f999b;
+--teal:#40C6CC;
+--gold:#D8AE5E;
+--green:#33C46F;
+--line:rgba(255,255,255,.08);
+--card:rgba(255,255,255,.025);
+}
+:root{--muted:#d6dddf;--dim:#b1bbbd}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:'Manrope',-apple-system,'Helvetica Neue',Arial,sans-serif;
+font-weight:400;line-height:1.7;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+b,strong{font-weight:600;color:var(--ink)}
+::-webkit-scrollbar{width:10px}
+::-webkit-scrollbar-track{background:var(--bg)}
+::-webkit-scrollbar-thumb{background:rgba(64,198,204,.35);border-radius:10px}
+html{scrollbar-width:thin;scrollbar-color:rgba(64,198,204,.4) var(--bg)}
+html.im-rahmen{scrollbar-width:none;-ms-overflow-style:none}
+html.im-rahmen::-webkit-scrollbar{width:0;height:0;display:none}
+/* Menü wie auf der Landingpage */
+nav{position:fixed;inset:0 0 auto 0;z-index:100;display:flex;align-items:center;justify-content:space-between;
+padding:16px 28px;background:rgba(10,15,16,.92);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+nav.menu-open{background:var(--bg)}
+.logo{display:flex;align-items:center;gap:11px;font-family:'Anton',sans-serif;font-size:16px;letter-spacing:.22em;
+text-transform:uppercase;color:var(--ink)}
+.logo img{width:30px;height:30px;flex:0 0 auto;object-fit:contain}
+.navlinks{display:flex;gap:32px;align-items:center}
+.navlinks a{color:var(--muted);font-size:14px;letter-spacing:.04em}
+.navlinks a:hover{color:var(--ink)}
+.btn-login{padding:9px 22px;border:1px solid var(--line);border-radius:40px;font-size:13.5px}
+.btn-login:hover{border-color:var(--teal)}
+.burger{display:none;width:42px;height:42px;flex:0 0 auto;position:relative;cursor:pointer;
+background:transparent;border:1px solid var(--line);border-radius:12px}
+.burger:hover{border-color:var(--teal)}
+.burger span{position:absolute;left:11px;width:18px;height:1.5px;background:var(--ink);border-radius:2px}
+.burger span:nth-child(1){top:14px}
+.burger span:nth-child(2){top:19.5px}
+.burger span:nth-child(3){top:25px}
+nav.menu-open .burger span:nth-child(1){transform:translateY(5.5px) rotate(45deg)}
+nav.menu-open .burger span:nth-child(2){opacity:0}
+nav.menu-open .burger span:nth-child(3){transform:translateY(-5.5px) rotate(-45deg)}
+@media(max-width:900px){
+.burger{display:block}
+.navlinks{position:absolute;left:0;right:0;top:100%;flex-direction:column;align-items:stretch;gap:0;
+background:var(--bg);box-shadow:0 22px 40px rgba(0,0,0,.55);border-bottom:1px solid var(--line);padding:6px 24px 28px;display:none}
+nav.menu-open .navlinks{display:flex}
+.navlinks a{padding:17px 2px;font-size:16px;letter-spacing:.01em;border-bottom:1px solid var(--line)}
+.navlinks a.btn-login{margin-top:20px;text-align:center;border:1px solid var(--line);border-radius:40px;padding:15px 22px;font-size:15px}
+}
+html.im-rahmen nav{display:none}
+html.im-rahmen main{padding-top:48px}
+/* Lesetext */
+main{max-width:760px;margin:0 auto;padding:128px 24px 72px;font-size:17px;color:var(--ink)}
+main h1{font-size:clamp(32px,5vw,46px);font-weight:300;line-height:1.15;letter-spacing:.01em;margin:0 0 36px;
+overflow-wrap:break-word;hyphens:manual}
+main h2{font-size:clamp(23px,3vw,28px);font-weight:400;line-height:1.3;margin:52px 0 16px;color:var(--ink)}
+main h3{font-size:19.5px;font-weight:500;line-height:1.4;margin:34px 0 10px;color:var(--ink)}
+main h4{font-size:17px;font-weight:600;line-height:1.45;margin:24px 0 6px;color:var(--ink)}
+main h1+h2{margin-top:0}
+main h2+h3{margin-top:18px}
+main p{color:var(--muted);margin:0 0 16px}
+main ul{color:var(--muted);margin:0 0 18px;padding-left:22px}
+main li{margin:0 0 10px}
+main li::marker{color:var(--teal)}
+main em{font-style:italic;color:var(--ink)}
+main a{color:var(--teal);text-decoration:underline;text-decoration-color:rgba(64,198,204,.45);text-underline-offset:3px;
+overflow-wrap:anywhere}
+main a:hover{text-decoration-color:var(--teal)}
+main hr{border:0;border-top:1px solid var(--line);margin:44px 0}
+.adresse p{margin:0}
+.adresse{margin:0 0 16px}
+/* Fußzeile */
+footer{border-top:1px solid var(--line);background:var(--bg2);padding:40px 24px 48px}
+footer .inner{max-width:712px;margin:0 auto}
+footer .links{display:flex;flex-wrap:wrap;gap:8px 28px;margin-bottom:20px;font-size:15px}
+footer .links a{color:var(--teal)}
+footer .links a:hover{text-decoration:underline}
+footer .links a[aria-current]{color:var(--ink)}
+footer p{color:var(--dim);font-size:14px;line-height:1.65}
+footer .cpy{margin-top:14px}
+@media(max-width:600px){main{padding:104px 20px 56px;font-size:16px}main h1{margin-bottom:28px}nav{padding:14px 18px}}
+.stand{margin-top:48px;font-size:14px;color:var(--dim,#b1bbbd)}
+</style>
+<script>
+/* Läuft die Seite in einem Kasten auf einer anderen Seite (Wix), Menü ausblenden (wie Landingpage). */
+(function(){
+  var imRahmen;
+  try { imRahmen = (window.self !== window.top); } catch(e) { imRahmen = true; }
+  if (imRahmen) document.documentElement.classList.add('im-rahmen');
+})();
+</script>
+<!-- SEO-START -->
+<link rel="canonical" href="https://start.kaspareit-trading.com/nutzungsbedingungen/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Kaspareit Trading">
+<meta property="og:locale" content="de_DE">
+<meta property="og:url" content="https://start.kaspareit-trading.com/nutzungsbedingungen/">
+<meta property="og:title" content="Nutzungsbedingungen | Kaspareit Trading">
+<meta property="og:description" content="Nutzungsbedingungen der Kaspareit-Trading LLC für Software, Strategie-Sammlungen, Trading Robots und Community, gültig für Mitgliedschaften ab dem 11.11.2026.">
+<meta property="og:image" content="https://start.kaspareit-trading.com/og-de.jpg">
+<meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="google-site-verification" content="8msCaOENSyZW-oMHTvYtkyDHypJolIPIGohwg-ykfk0">
+<!-- SEO-ENDE -->
+<!-- EINWILLIGUNG-START -->
+<script src="/einwilligung.js?v=58b5114f" defer></script>
+<!-- EINWILLIGUNG-ENDE -->
+</head>
+<body>
+<nav id="nav">
+<a class="logo" href="https://start.kaspareit-trading.com/" aria-label="Zur Startseite"><img src="../apple-touch-icon.png" alt="">Kaspareit Trading</a>
+<div class="navlinks" id="navlinks">
+<a href="https://start.kaspareit-trading.com/#preise">Strategie-Sammlungen</a>
+<a href="https://www.kaspareit-trading.com/member">Free Member</a>
+<a href="https://start.kaspareit-trading.com/#erfolgsstorys">Erfolgsstorys</a>
+<a href="https://www.kaspareit-trading.com/blog">Blog</a>
+<a href="https://start.kaspareit-trading.com/#chatbot">Kontakt</a>
+<a href="https://www.kaspareit-trading.com/start-1" class="btn-login">Mitglieder-Login</a>
+</div>
+<button class="burger" id="burger" aria-label="Menü öffnen" aria-expanded="false" aria-controls="navlinks"><span></span><span></span><span></span></button>
+</nav>
+<main id="inhalt">
+<h1>Nutzungsbedingungen</h1>
+<p>Diese Nutzungsbedingungen gelten für Mitgliedschaften, die ab dem 11.11.2026 abgeschlossen werden. Für Mitgliedschaften, die vorher abgeschlossen wurden, gelten weiter unsere <a href="/agb/">bisherigen AGB</a>.</p>
+<hr>
+<h2>§ 1 Worum es geht</h2>
+<p>(1) Diese Nutzungsbedingungen regeln die Nutzung der Software, Strategie-Sammlungen und Trading Robots sowie der Community von Kaspareit-Trading LLC, 7901 4th St N, Ste 300, St. Petersburg, FL 33702, USA („wir“). Eine Strategie-Sammlung ist eine feste Zusammenstellung mehrerer Handelsstrategien mit festen Regeln. Welche Sammlung du auf welchem Konto mit welchem Risiko einsetzt, entscheidest du selbst.</p>
+<p>(2) Kauf, Zahlung, Preis, Laufzeit, Verlängerung, Kündigung und Widerruf deiner Bestellung richten sich nach dem Vertrag mit der CopeCart GmbH, Rosenstr. 2, 10178 Berlin, und den dort geltenden Bedingungen. Diese Nutzungsbedingungen weichen davon nicht ab. § 7 Abs. 3 bleibt unberührt.</p>
+<p>(3) Hauptleistung der kostenpflichtigen Pakete ist die Überlassung der Software, Strategie-Sammlungen und Trading Robots. Anleitungen, Support und Live-Formate dienen vorrangig ihrer Einrichtung und Bedienung. Soweit darüber hinaus Inhalte zu Trading-Themen bereitstehen, sind sie ein freiwilliges Zusatzangebot ohne Lernziel, ohne Fragerecht dazu und ohne Prüfung deines Lernerfolgs. Ausdrückliche Zusagen in der Leistungsbeschreibung deines Pakets bleiben unberührt.</p>
+<p>(4) Für Einzelvereinbarungen außerhalb der Pakete, etwa bestehende Coachings, gelten die dort getroffenen Vereinbarungen.</p>
+<p>(5) Auf diese Nutzungsbedingungen weisen wir dich auf unseren Verkaufsseiten und beim ersten Login hin. Für Mitgliedschaften ab dem 11.11.2026 gelten sie für deine Nutzung der Software und Community. Sie schränken deine Rechte aus dem Kauf bei CopeCart nicht ein.</p>
+<p>(6) Für Mitgliedschaften, die vor dem 11.11.2026 abgeschlossen wurden, gilt weiter die bisherige Fassung.</p>
+<hr>
+<h2>§ 2 Was du nutzen kannst</h2>
+<p>(1) Der Umfang deines Pakets ergibt sich aus der Leistungsbeschreibung bei deiner Bestellung.</p>
+<p>(2) Support, KI-Chatbot und Community helfen bei Installation, Aktivierung, Fehlermeldungen und der Bedienung der Software. Auch in Live-Formaten hast du keinen Anspruch auf Antworten zu Trading-Wissen, Märkten, Strategien oder darauf, ob du Inhalte richtig verstanden hast. In keinem Format, auch nicht bei Betreuung oder Einrichtung, erhältst du Empfehlungen zu Risiko, Kapital, Portfolio oder Einzelwerten für deine persönliche Lage.</p>
+<p>(3) Die Live-Formate behandeln vor allem Funktionen, Bedienung und Einstellmöglichkeiten der Software und neue Versionen. Gezeigte Einstellungen und Einzelwerte sind Beispiele zur Erläuterung und keine Handlungsvorschläge. Welche Einstellungen du verwendest, entscheidest du selbst.</p>
+<p>(4) Ein Anspruch auf Aufzeichnung, Bereitstellung oder dauerhaften Abruf von Live-Formaten besteht nicht. Stellen wir einzelne Aufzeichnungen bereit, ist das freiwillig und ohne Zusage für künftige Termine.</p>
+<hr>
+<h2>§ 3 Keine Finanzdienstleistung</h2>
+<p>(1) Wir überlassen Software zur Eigenanwendung. Anlageberatung und die Verwaltung deines Vermögens sind nicht Gegenstand dieses Vertrags.</p>
+<p>(2) Welche Software, welches Risiko und welches Konto du einsetzt und ob sie handeln soll, entscheidest du selbst. CFD-Strategie-Sammlungen und Trading Robots enthalten von uns vorgegebene Handelsregeln und führen nach deiner Aktivierung auf deinem Konto selbstständig Trades aus, ohne dass du einzelne Trades bestätigst. Über die Software haben wir keinen Zugriff auf dein Brokerkonto oder dein Kapital. Unsere Mitarbeiter geben keine Orders für dich auf.</p>
+<p>(3) Für Konten, die du über Partnerlinks eröffnest, erhalten wir vom Broker eine Vergütung. Eine Pflicht, diese zu nutzen, besteht nicht.</p>
+<p>(4) Bei All Time High wählst du Kriterien und Aktien selbst und übernimmst sie selbst in deinen Handelsplan. Die Ausführung innerhalb dieses Plans läuft automatisch. Der Marktscreener erstellt Ranglisten aus Filtern, die du wählst, oder aus mitgelieferten Vorlagen; bei einer Vorlage bestimmt diese, welche Kennzahlen zählen. Ranglisten, Kennzahlen und Backtests sind Analysehilfen und keine Anlageempfehlung.</p>
+<hr>
+<h2>§ 4 Dein Nutzungsrecht</h2>
+<p>(1) Für die Dauer deines bezahlten oder kostenlosen Zugangs erhältst du ein einfaches, nicht übertragbares Nutzungsrecht an der bereitgestellten Software, den Strategie-Sammlungen und Trading Robots. Es endet mit dem Ende des Zugangs.</p>
+<p>(2) CFD-Strategie-Sammlungen und Trading Robots darfst du nur auf Konten nutzen, die dir persönlich zugeordnet sind: bis zu 10 Privatkonten auf deinen Namen und bis zu 10 Prop-Trading-Konten, für die ein Eigentumsbeleg im Mitgliederbereich hochzuladen ist.</p>
+<p>(3) All Time High darfst du nur auf Konten bei Interactive Brokers oder einem Broker mit derselben Technik einsetzen, deren Inhaber oder Mitinhaber du bist. Dein Zugang gilt für einen PC oder Server zur gleichen Zeit. Die Anmeldung ist persönlich. Anmeldung, Lizenzprüfung, Gerätebindung und Datenabruf darfst du nicht umgehen oder nachbilden.</p>
+<p>(4) Nicht von uns gestellt werden insbesondere dein Brokerkonto, die Kurs- und Marktdaten deines Brokers für den Handel, Gebühren, Rechner, Server und Internetverbindung. Für All Time High brauchst du zusätzlich 64-Bit-Windows und das IB Gateway.</p>
+<p>(5) Mit Ende oder Sperre des Zugangs kannst du die Software nicht mehr nutzen. Offene Positionen und beim Broker liegende Orders bleiben davon unberührt, darum kümmerst du dich selbst.</p>
+<hr>
+<h2>§ 5 Was nicht erlaubt ist</h2>
+<p>(1) Verboten sind Weitergabe und Veröffentlichung der Software, der Setfiles, der Strategielogik und der ATH-Daten an Dritte. Das gilt nicht für allgemein bekannte Informationen, die Weitergabe an Berater, die zur Verschwiegenheit verpflichtet sind, Pflichtangaben gegenüber Behörden und deine persönlichen Erfahrungen und Bewertungen.</p>
+<p>(2) Verboten ist Copytrading, also das Spiegeln, Kopieren oder automatische Weiterleiten von Signalen oder Orders auf Konten Dritter, auch unentgeltlich.</p>
+<p>(3) Vervielfältigung, Dekompilierung und Reverse Engineering sind untersagt, soweit das Gesetz sie nicht zwingend erlaubt.</p>
+<p>(4) Bei schwerwiegenden Verstößen können wir nach Abmahnung, in besonders schweren Fällen sofort, deinen Zugang sperren und teilen dir den Grund per E-Mail mit. Rechte aus dem Vertrag mit CopeCart und gesetzliche Ansprüche bleiben unberührt.</p>
+<hr>
+<h2>§ 6 Community und Live-Formate</h2>
+<p>(1) In Community und Live-Formaten gehen wir respektvoll und sachlich miteinander um. Bei wiederholten Verstößen können wir dich nach Hinweis von diesen Formaten ausschließen. Rechte aus dem Vertrag mit CopeCart und gesetzliche Ansprüche bleiben unberührt.</p>
+<p>(2) Live-Formate können aufgezeichnet werden; wir kündigen das vorab an, sagen eine Aufzeichnung zu Beginn an, und du siehst im Termin, wann sie läuft. Du kannst Kamera und Mikrofon ausgeschaltet lassen und unter einem Anzeigenamen teilnehmen. Bild, Stimme oder Namen von Teilnehmern veröffentlichen wir außerhalb des Mitgliederbereichs nur mit gesonderter Einwilligung.</p>
+<hr>
+<h2>§ 7 Software, Mängel, Änderungen</h2>
+<p>(1) All Time High befindet sich in Weiterentwicklung und kann Fehler enthalten. Teste neue Einstellungen zuerst auf einem Übungskonto.</p>
+<p>(2) Deine gesetzlichen Rechte bei Mängeln bleiben unberührt.</p>
+<p>(3) Über das zur Vertragsmäßigkeit Erforderliche hinaus dürfen wir die Software nur aus triftigem Grund ändern, etwa wegen geänderter Schnittstellen, aus Sicherheitsgründen, wegen rechtlicher Vorgaben oder zur Weiterentwicklung. Dir entstehen dadurch keine zusätzlichen Kosten, und wir informieren dich klar und verständlich. Beeinträchtigt eine Änderung deinen Zugriff oder die Nutzbarkeit mehr als unerheblich, informieren wir dich rechtzeitig vorher per E-Mail über Merkmale und Zeitpunkt der Änderung und über deine Rechte. Bist du Verbraucher und wird dir die Software dauerhaft bereitgestellt, hast du dann das gesetzliche Recht, den Vertrag innerhalb von 30 Tagen nach Zugang dieser Information, bei späterer Änderung ab deren Zeitpunkt, unentgeltlich zu beenden, außer du kannst die unveränderte Software ohne Zusatzkosten weiter nutzen. Die Beendigung richtest du an CopeCart oder an uns; schreibst du uns, leiten wir sie an CopeCart weiter.</p>
+<p>(4) Bei All Time High ändert kein Software-Update deine Handelspläne oder die von dir gewählten Aktien. Software-Updates von All Time High werden automatisch eingespielt und können Funktionsweise, Ausführung und Schutzfunktionen ändern. Neue Versionen von CFD-Strategie-Sammlungen und Trading Robots werden erst eingespielt, wenn du das im Terminal selbst auslöst.</p>
+<hr>
+<h2>§ 8 Risiko und Haftung</h2>
+<p>(1) Der Handel mit Finanzinstrumenten, insbesondere CFDs, kann zum Verlust des eingesetzten Kapitals führen. Stop-Orders und Kontoschutz begrenzen Verluste nicht garantiert. Backtests und Simulationen sind kein verlässlicher Hinweis auf künftige Ergebnisse. Lies vor dem Einsatz den Risikohinweis deines Brokers und die dort genannte Verlustquote.</p>
+<p>(2) Wir schulden keinen Handelserfolg. Für Marktverluste, die aus deinen Handelsentscheidungen oder dem Marktverlauf entstehen, haften wir nicht. Absatz 3 bleibt unberührt.</p>
+<p>(3) Wir haften unbeschränkt bei Vorsatz und grober Fahrlässigkeit, bei Verletzung von Leben, Körper oder Gesundheit, aus Garantien, bei Arglist und nach dem Produkthaftungsgesetz. Bei einfacher Fahrlässigkeit haften wir nur bei Verletzung wesentlicher Vertragspflichten, also solcher, deren Erfüllung die Durchführung des Vertrags erst ermöglicht und auf die du vertrauen darfst, und begrenzt auf den vorhersehbaren, vertragstypischen Schaden. Das gilt auch für unsere Erfüllungsgehilfen.</p>
+<p>(4) Für Ausfälle von Diensten Dritter, die nicht unsere Erfüllungsgehilfen sind, haften wir nicht. Absatz 3 bleibt unberührt.</p>
+<hr>
+<h2>§ 9 Schluss</h2>
+<p>(1) Es gilt das Recht des Staates Florida, USA, unter Ausschluss des UN-Kaufrechts. Bist du Verbraucher, behältst du den zwingenden Schutz des Staates, in dem du deinen gewöhnlichen Aufenthalt hast.</p>
+<p>(2) An die Stelle unwirksamer Bestimmungen treten die gesetzlichen Vorschriften.</p>
+<p>(3) Die Datenschutzerklärung findest du unter <a href="https://start.kaspareit-trading.com/datenschutz/">https://start.kaspareit-trading.com/datenschutz/</a>.</p>
+<hr>
+<p>Diese Nutzungsbedingungen gelten ab dem 11.11.2026.</p>
+<p class="stand">Stand: 10.11.2026</p></main>
+<footer>
+<div class="inner">
+<div class="links" role="navigation" aria-label="Rechtliches">
+<a href="/impressum/">Impressum</a>
+<a href="/datenschutz/">Datenschutz</a>
+<a href="/agb/">AGB</a>
+<a href="/nutzungsbedingungen/" aria-current="page">Nutzungsbedingungen</a>
+</div>
+<p><b>Risikohinweis:</b> CFDs sind komplexe Finanzinstrumente und bergen aufgrund des Hebels ein hohes Risiko, schnell Geld zu verlieren. 79 % der Kleinanlegerkonten verlieren Geld beim CFD-Handel. Überlege sorgfältig, ob du die Funktionsweise von CFDs verstehst und ob du das hohe Risiko eines Geldverlusts tragen kannst.</p>
+<p style="margin:18px 0"><a class="kuendigen-knopf" href="https://www.copecart.com/buyer_order_overview_requests/new" target="_blank" rel="noopener" style="display:inline-block;max-width:100%;box-sizing:border-box;padding:12px 24px;border:1px solid #40c6cc;border-radius:8px;color:#40c6cc;font-size:15px;font-weight:500;line-height:1.3;text-align:center;text-decoration:none;white-space:normal">Verträge hier kündigen</a></p>
+<p class="cpy">© 2026 Kaspareit Trading</p>
+</div>
+</footer>
+<script>
+/* Menü: Handy-Klappmenü (aus der Landingpage übernommen) */
+(function(){
+var nav=document.getElementById('nav'); if(!nav) return;
+var burger=document.getElementById('burger'), links=document.getElementById('navlinks');
+function setOpen(open){nav.classList.toggle('menu-open',open);burger.setAttribute('aria-expanded',open?'true':'false');burger.setAttribute('aria-label',open?'Menü schließen':'Menü öffnen');}
+burger.addEventListener('click',function(){setOpen(!nav.classList.contains('menu-open'));});
+links.addEventListener('click',function(e){if(e.target.closest('a')) setOpen(false);});
+addEventListener('keydown',function(e){if(e.key==='Escape') setOpen(false);});
+addEventListener('resize',function(){if(innerWidth>900) setOpen(false);});
+})();
+/* Im Wix-Kasten: eigene Domain im ganzen Fenster öffnen */
+(function(){
+if(!document.documentElement.classList.contains('im-rahmen')) return;
+document.querySelectorAll('a[href]').forEach(function(a){
+var h=a.getAttribute('href'); if(a.getAttribute('target')||/^mailto:/.test(h)) return;
+a.setAttribute('target','_top');
+});
+})();
+</script>
+</body>
+</html>
