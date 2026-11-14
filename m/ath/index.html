@@ -138,7 +138,7 @@ code{font-family:Consolas,monospace;font-size:13.5px;color:var(--gold);backgroun
       <p class="sub">Automatisierter Aktienhandel aus einer einzigen Software. Direkt mit deinem Konto bei <span class="hg">Interactive Brokers</span> verbunden, ohne Zusatzprogramme.</p>
       <div class="fakten">
         <div class="fakt"><b>2</b><span>fertige Strategien</span></div>
-        <div class="fakt"><b>Weltweit</b><span>alles, was IB anbietet</span></div>
+        <div class="fakt"><b>USA + Xetra</b><span>US-Aktien und deutsche Aktien</span></div>
         <div class="fakt nur-premium"><b>Premium</b><span>ohne Aufpreis</span></div>
         <div class="fakt nur-ath versteckt"><b>Echte Stops</b><span>direkt bei IB</span></div>
       </div>
@@ -177,7 +177,7 @@ code{font-family:Consolas,monospace;font-size:13.5px;color:var(--gold);backgroun
     <div class="sec-head reveal">
       <div class="kicker">Einrichtung</div>
       <h2>In fünf Schritten startklar</h2>
-      <p>Einmal sauber eingerichtet, läuft der Rest von allein. Updates holt sich die App selbst.</p>
+      <p>Einmal sauber eingerichtet, läuft der Rest von allein. Updates installierst du selbst per Klick, vorher zeigt dir die App, was sich am Handel deiner laufenden Pläne ändert.</p>
       <p style="margin-top:14px">Hängst du irgendwo? <a href="#chat" data-ktchat-frage="Ich hänge bei der Einrichtung von All Time High: " style="color:var(--gold)">Frag unseren ATH-Assistenten</a>, er kennt jeden Schritt.</p>
       <p style="margin-top:14px">Lieber mit Bildern? <a href="#anleitung" style="color:var(--gold)">Zur Anleitung Schritt für Schritt</a>.</p>
     </div>
@@ -202,7 +202,7 @@ code{font-family:Consolas,monospace;font-size:13.5px;color:var(--gold);backgroun
       </div></div>
       <div class="schritt reveal"><div class="punkt">4</div><div>
         <h3>Handelsplan anlegen</h3>
-        <p>Ein Handelsplan ist ein eigener Topf in deinem Konto: eigenes Budget, eigene Aktien, eigene Gewinnrechnung. Du wählst den Aktienbot oder den GridBot. Alle Pläne zusammen nutzen nie mehr als 100 Prozent deines Kontos.</p>
+        <p>Ein Handelsplan ist ein eigener Topf in deinem Konto: eigenes Budget, eigene Aktien, eigene Gewinnrechnung. Du wählst den Aktienbot oder den Grid-Bot. US-Aktien (NYSE, Nasdaq) und deutsche Aktien über Xetra kannst du auf Wunsch in einem Plan mischen. Ab Werk nutzen alle Pläne zusammen nie mehr als 100 Prozent deines Kontos. Mehr nur, wenn du den Investitionsrahmen bewusst erhöhst.</p>
       </div></div>
       <div class="schritt reveal"><div class="punkt">5</div><div>
         <h3>Erst üben, dann echt</h3>
@@ -452,7 +452,7 @@ code{font-family:Consolas,monospace;font-size:13.5px;color:var(--gold);backgroun
         <div>
           <div class="nr">16</div>
           <h4>Der Marktscreener</h4>
-          <p>Unter „Tools“ öffnest du den Marktscreener und wählst „Heute screenen“. Du nimmst eine Vorlage, das Universum (Standard: die 1.000 größten US-Aktien) und auf Wunsch eine Branche, dann klickst du auf „Screenen“.</p>
+          <p>Unter „Tools“ öffnest du den Marktscreener und wählst „Heute screenen“. Du nimmst eine Vorlage, das Universum (Standard: die 1.000 größten US-Aktien) und auf Wunsch eine Branche, dann klickst du auf „Screenen“. Zur Wahl stehen US gesamt, US Top 1000, S&amp;P 500, Nasdaq 100, Russell 1000, Russell 2000 und Fonds (ETF), bewertet nach über 80 Kennzahlen und gut 20 Chartmustern.</p>
           <p>Die Bedingungen entscheiden, wer überhaupt in die Liste kommt. Die Gewichtung macht daraus einen Punktwert von 0 bis 100 und entscheidet, wer oben steht. Eigene Einstellungen speicherst du als Vorlage.</p>
           <div class="platz video-platz" data-video="ath04-screener"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#D8AE5E" stroke-width="1.6" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M10 8l6 4-6 4z" fill="#D8AE5E" stroke="none"/></svg><span><b>Video folgt.</b> Erklärvideo Teil 4: Der Marktscreener</span></div>
         </div>
@@ -491,8 +491,8 @@ code{font-family:Consolas,monospace;font-size:13.5px;color:var(--gold);backgroun
         <div>
           <div class="nr">19</div>
           <h4>Backtesten</h4>
-          <p>Unter „Tools“ gibt es drei Backtester: für eine einzelne Aktie, für einen ganzen Korb (Multi Asset) und für die Liste aus der Zeitreise (Screening-Strategie). Du wählst Bot, Zeitraum und Kapital und startest den Test.</p>
-          <p>Schalte IB-Gebühren und Slippage ein. Ab Werk sind beide aus, und ohne Kosten sieht jeder Backtest besser aus als die Wirklichkeit. Backtests gehen derzeit für US-Aktien ab 2009.</p>
+          <p>Unter „Tools“ gibt es Backtester für eine einzelne Aktie, für einen ganzen Korb (Multi Asset) und für die Liste aus der Zeitreise (Screening-Strategie). Du wählst Bot, Zeitraum und Kapital und startest den Test. Neu ist der Backtest Strategie-Verbund: Er testet mehrere deiner Strategien gemeinsam. Eine Strategie daraus übernimmst du mit deinem Klick auf „Live umsetzen“ in einen Handelsplan, neue Listen holst du selbst.</p>
+          <p>Schalte IB-Gebühren und Slippage ein. Ab Werk sind beide aus, und ohne Kosten sieht jeder Backtest besser aus als die Wirklichkeit. Backtests gehen derzeit für US-Aktien ab 2009, deutsche Titel folgen später. Live-Ergebnisse weichen vom Backtest ab, etwa durch Ausführung, Kurslücken, Gebühren und Wechselkurse.</p>
           <div class="platz video-platz" data-video="ath05-backtest"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#D8AE5E" stroke-width="1.6" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M10 8l6 4-6 4z" fill="#D8AE5E" stroke="none"/></svg><span><b>Video folgt.</b> Erklärvideo Teil 5: Backtesten</span></div>
         </div>
         <div class="bilder">
@@ -517,7 +517,7 @@ code{font-family:Consolas,monospace;font-size:13.5px;color:var(--gold);backgroun
     </div>
     <div class="grid-2">
       <div class="karte reveal"><div class="nr">AKTIENBOT</div><h3>Folgt dem Trend</h3><p>Kauft, wenn eine Aktie nach oben ausbricht, und zieht den Stop mit, solange der Trend läuft.</p></div>
-      <div class="karte reveal"><div class="nr">GRIDBOT</div><h3>Kauft in Stufen</h3><p>Steigt in mehreren kleinen Schritten ein, senkt so den Durchschnittspreis und sichert alles mit einem gemeinsamen Stop ab. Nachgekauft wird nur, wenn der große Trend passt.</p></div>
+      <div class="karte reveal"><div class="nr">GRID-BOT</div><h3>Kauft in Stufen</h3><p>Steigt in mehreren kleinen Schritten ein, senkt so den Durchschnittspreis und sichert alles mit einem gemeinsamen Stop ab. Nachgekauft wird nur, wenn der große Trend passt.</p></div>
     </div>
 
     <div class="sec-head reveal" style="margin-top:80px">
@@ -526,10 +526,33 @@ code{font-family:Consolas,monospace;font-size:13.5px;color:var(--gold);backgroun
     </div>
     <div class="grid-4">
       <div class="karte reveal"><h3>Echte Stops</h3><p>Jede Position bekommt eine Stop-Order direkt bei Interactive Brokers. Sie gilt auch, wenn dein Rechner aus ist.</p></div>
-      <div class="karte reveal"><h3>Kontoschutz</h3><p>Fällt dein Konto unter deine Schwelle, schließt der Kontoschutz alles. Einstellbar in drei Stufen.</p></div>
-      <div class="karte reveal"><h3>Bestandsabgleich</h3><p>Alle 90 Sekunden prüft die App, ob Stops und Bestand zusammenpassen.</p></div>
+      <div class="karte reveal"><h3>Equity-Schutz</h3><p>Wacht in drei Stufen über deinen Kontowert. Fällt er unter den Schutz-Stop, warnt dich die App, auf Wunsch auch per E-Mail. Alles schließen lässt sie nur, wenn du das einschaltest.</p></div>
+      <div class="karte reveal"><h3>Bestandsabgleich</h3><p>Alle 90 Sekunden prüft die App, ob Stops und Bestand zusammenpassen. Positionen, die nicht zu einem Handelsplan gehören, meldet sie dir. Schließen lässt sie sie nur, wenn du das einschaltest.</p></div>
       <div class="karte reveal"><h3>Not-Aus</h3><p>„Not-Aus“ und „Alle schließen“ stehen jederzeit bereit.</p></div>
     </div>
+  </div>
+</section>
+
+<hr class="trenner">
+
+<!-- NEU DABEI (Stand ATH 0.9.65, 14.11.2026) -->
+<section id="neu">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="kicker">Neu dabei</div>
+      <h2>Was die letzten Updates gebracht haben</h2>
+    </div>
+    <div class="grid-4">
+      <div class="karte reveal"><div class="nr">MÄRKTE</div><h3>USA und Xetra in einem Plan</h3><p>US-Aktien und deutsche Aktien über Xetra laufen auf Wunsch gemischt in einem Handelsplan. Ohne aktuellen Wechselkurs kauft der Plan nicht.</p></div>
+      <div class="karte reveal"><div class="nr">BACKTEST</div><h3>Strategie-Verbund</h3><p>Testet mehrere deiner Strategien gemeinsam. Mit „Live umsetzen“ übernimmst du eine davon per Klick in einen Handelsplan.</p></div>
+      <div class="karte reveal"><div class="nr">AKTIENBOT</div><h3>Preismarke „Aktiv ab“</h3><p>Je Aktie setzt du eine Preismarke. Erst wenn der Kurs darüber schließt, darf der Aktienbot nach seiner Regel kaufen.</p></div>
+      <div class="karte reveal"><div class="nr">EINSTELLUNGEN</div><h3>Profi-Einstellung</h3><p>Ein Haken in den Einstellungen blendet weitere Einstellungen ein. Ohne Haken bleibt die Oberfläche einfach.</p></div>
+      <div class="karte reveal"><div class="nr">SICHERUNG</div><h3>Handelspläne zurückholen</h3><p>Die App sichert deine Handelspläne jeden Tag. Aus einer Sicherung holst du sie bei Bedarf zurück.</p></div>
+      <div class="karte reveal"><div class="nr">WINDOWS</div><h3>Automatischer Start</h3><p>Auf Wunsch startet All Time High nach einem Windows-Neustart zusammen mit dem IB Gateway von selbst wieder.</p></div>
+      <div class="karte reveal"><div class="nr">UPDATES</div><h3>Nur per Klick</h3><p>Vor jedem Update zeigt dir die App, was neu ist und was sich am Handel deiner laufenden Pläne ändert. Installiert wird erst nach deinem Klick auf „Jetzt aktualisieren“.</p></div>
+      <div class="karte reveal"><div class="nr">SCHUTZ</div><h3>Fremde Positionen</h3><p>Positionen, die nicht zu einem Handelsplan gehören, meldet die App dir. Automatisch geschlossen werden sie nur, wenn du das einschaltest.</p></div>
+    </div>
+    <div class="hinweis reveal"><p>Backtests rechnen auf vergangenen Kursdaten, die Ergebnisse sind hypothetisch. Live-Ergebnisse können abweichen, etwa durch Ausführung, Kurslücken, Gebühren und Wechselkurse.</p></div>
   </div>
 </section>
 
@@ -545,7 +568,7 @@ code{font-family:Consolas,monospace;font-size:13.5px;color:var(--gold);backgroun
     <div class="gal">
       <figure class="bild reveal" data-gross="../../ath-galerie/gross/ath01_start.jpg"><img src="../../ath-galerie/klein/ath01_start.jpg" alt="Startseite von All Time High"><figcaption>Die Startseite: Dashboard, Automatik, Tools und Einstellungen</figcaption></figure>
       <div class="gal-rechts">
-        <figure class="bild reveal" data-gross="../../ath-galerie/gross/ath06_gridbot.jpg"><img src="../../ath-galerie/klein/ath06_gridbot.jpg" alt="GridBot im Chart"><figcaption>Der GridBot im Chart mit Einstiegen und Stop</figcaption></figure>
+        <figure class="bild reveal" data-gross="../../ath-galerie/gross/ath06_gridbot.jpg"><img src="../../ath-galerie/klein/ath06_gridbot.jpg" alt="Grid-Bot im Chart"><figcaption>Der Grid-Bot im Chart mit Einstiegen und Stop</figcaption></figure>
         <figure class="bild reveal" data-gross="../../ath-galerie/gross/ath07_ampel.jpg"><img src="../../ath-galerie/klein/ath07_ampel.jpg" alt="Einstiegs-Ampel"><figcaption>Die Einstiegs-Ampel prüft den großen Trend</figcaption></figure>
       </div>
     </div>
@@ -564,11 +587,11 @@ code{font-family:Consolas,monospace;font-size:13.5px;color:var(--gold);backgroun
       <h2>Webinare zu All Time High</h2>
     </div>
     <div class="liste reveal">
-      <div class="zeile"><b>Webinar 13-26 · 15.08.26</b><span>Die neue Aktien-Plattform: Handelsplan, Aktienbot und GridBot, Kontoschutz</span></div>
+      <div class="zeile"><b>Webinar 13-26 · 15.08.26</b><span>Die neue Aktien-Plattform: Handelsplan, Aktienbot und Grid-Bot, Equity-Schutz</span></div>
       <div class="zeile"><b>Webinar 14-26 · 29.08.26</b><span>Die App im Detail, Installation, Einrichtung des IB Gateway</span></div>
       <div class="zeile"><b>Stammtisch #19 · 03.09.26</b><span>Kontoarten bei Interactive Brokers, Pattern-Day-Trader-Regel, Kontogröße</span></div>
-      <div class="zeile"><b>Webinar 15-26 · 12.09.26</b><span>Behobene Fehler, Aktienbot und GridBot am Chart, Ausblick</span></div>
-      <div class="zeile"><b>Stammtisch #20 · 17.09.26</b><span>Gateway und Live-Daten, Bestandsabgleich, Kontoschutz</span></div>
+      <div class="zeile"><b>Webinar 15-26 · 12.09.26</b><span>Behobene Fehler, Aktienbot und Grid-Bot am Chart, Ausblick</span></div>
+      <div class="zeile"><b>Stammtisch #20 · 17.09.26</b><span>Gateway und Live-Daten, Bestandsabgleich, Equity-Schutz</span></div>
     </div>
     <div style="margin-top:28px" class="reveal"><a class="btn btn-ghost" href="https://www.kaspareit-trading.com/webinare" target="_top">Alle Webinare ansehen</a></div>
   </div>
@@ -661,11 +684,11 @@ code{font-family:Consolas,monospace;font-size:13.5px;color:var(--gold);backgroun
     if(nurAth){
       lampe.className='lampe an';
       text.innerHTML='Dein All-Time-High-Abo ist <span class="hg">aktiv</span>.';
-      if(l.download && LINK_OK.test(l.download)){knopf.appendChild(link(l.download,'All Time High herunterladen','btn-gold',false));klein.textContent='Danach holt sich die App ihre Updates selbst.';}
+      if(l.download && LINK_OK.test(l.download)){knopf.appendChild(link(l.download,'All Time High herunterladen','btn-gold',false));klein.textContent='Updates installierst du danach selbst per Klick in der App.';}
     }else if(d.stufe==='premium'){
       lampe.className='lampe an';
       text.innerHTML='Dein Zugang ist <span class="hg">aktiv</span>. All Time High ist in Premium ohne Aufpreis enthalten.';
-      if(l.download && LINK_OK.test(l.download)){knopf.appendChild(link(l.download,'All Time High herunterladen','btn-gold',false));klein.textContent='Danach holt sich die App ihre Updates selbst.';}
+      if(l.download && LINK_OK.test(l.download)){knopf.appendChild(link(l.download,'All Time High herunterladen','btn-gold',false));klein.textContent='Updates installierst du danach selbst per Klick in der App.';}
       if(l.tradingview && LINK_OK.test(l.tradingview)) tv.appendChild(link(l.tradingview,'Skript in TradingView öffnen','btn-gold',true));
       if(l.parameter && LINK_OK.test(l.parameter)) tv.appendChild(link(l.parameter,'Parameter-Erklärung (PDF)','btn-ghost',true));
     }else{

@@ -358,7 +358,7 @@ section{padding:76px 0}
 
     <div class="fakten">
       <div class="fakt reveal" style="--i:0"><b>2 Strategien</b><span>fertig eingebaut, frei wählbar je Topf</span></div>
-      <div class="fakt reveal" style="--i:1"><b>Weltweit</b><span>alle Aktien, die Interactive Brokers anbietet</span></div>
+      <div class="fakt reveal" style="--i:1"><b>USA und Xetra</b><span>US-Aktien (NYSE, Nasdaq) und deutsche Aktien über Xetra, auf Wunsch gemischt in einem Handelsplan</span></div>
       <div class="fakt reveal" style="--i:2"><b>Echte Stops</b><span>liegen beim Broker, auch wenn dein PC aus ist</span></div>
       <div class="fakt reveal" style="--i:3"><b>1 App</b><span>Screener, Backtest und Handel in einem</span></div>
     </div>
@@ -376,10 +376,10 @@ section{padding:76px 0}
         <h2>Eine Software.<br>Der ganze Aktienhandel.</h2>
         <p class="leit"><b class="hg">Automatisierter Aktienhandel aus einer einzigen Software.</b> Direkt mit deinem Konto bei <b class="hg">Interactive Brokers</b> verbunden, ohne TradingView und ohne Zusatzprogramme.</p>
         <ul class="vorteile">
-          <li><b>Alle Aktien, die dein Broker anbietet</b><span>US-Werte, Xetra und weltweit alles, was Interactive Brokers im Angebot hat.</span></li>
+          <li><b>US-Aktien und Xetra</b><span>US-Aktien (NYSE, Nasdaq) und deutsche Aktien über Xetra, auf Wunsch gemischt in einem Handelsplan.</span></li>
           <li><b>Zwei fertige Strategien</b><span>Eine folgt Trends und Ausbrüchen, die andere kauft in Stufen.</span></li>
           <li><b>Dein Konto in Töpfe aufteilen</b><span>Jeder Handelsplan bekommt eigenes Kapital und eigene Aktien.</span></li>
-          <li><b>Stops direkt beim Broker</b><span>Jede Position hat eine echte Stop-Order bei Interactive Brokers. Fällt dein Konto unter deine Schwelle, schließt der Kontoschutz alles.</span></li>
+          <li><b>Stops direkt beim Broker</b><span>Jede Position hat eine echte Stop-Order bei Interactive Brokers. Fällt dein Kontowert unter deine Schwelle, warnt dich der Equity-Schutz. Auf Wunsch schließt er dann alles.</span></li>
         </ul>
       </div>
     </div>
@@ -409,7 +409,7 @@ section{padding:76px 0}
       </div>
       <div class="karte reveal" style="--i:3">
         <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#D8AE5E" stroke-width="1.6"><path d="M12 3l7 3v5c0 4.5-3 8.3-7 10-4-1.7-7-5.5-7-10V6l7-3z"/></svg></div>
-        <h3>Stops auch ohne deinen PC</h3><p>Jede Position hat eine <b class="hg">echte Stop-Order bei Interactive Brokers</b>. Dazu wacht der Kontoschutz.</p>
+        <h3>Stops auch ohne deinen PC</h3><p>Jede Position hat eine <b class="hg">echte Stop-Order bei Interactive Brokers</b>. Dazu wacht der Equity-Schutz über deinen Kontowert.</p>
       </div>
     </div>
   </div>
@@ -428,8 +428,8 @@ section{padding:76px 0}
         <div class="schritt aktiv" data-bild="0">
           <div class="n">Schritt 01 · Finden</div>
           <h3>Aktien finden statt suchen</h3>
-          <p>Der <b class="hg">Marktscreener</b> durchsucht ganze Indizes wie S&amp;P 500, Nasdaq 100 oder Russell 2000 nach 49 Kennzahlen. Du gewichtest, was dir wichtig ist, und bekommst eine Rangliste.</p>
-          <ul><li>Fertige Vorlagen für den schnellen Start</li><li>Eigene Vorlagen speichern und wieder laden</li></ul>
+          <p>Der <b class="hg">Marktscreener</b> durchsucht US-Aktien nach über 80 Kennzahlen und gut 20 Chartmustern. Du gewichtest, was dir wichtig ist, und bekommst eine Rangliste.</p>
+          <ul><li>Universen: US gesamt, US Top 1000, S&amp;P 500, Nasdaq 100, Russell 1000, Russell 2000 und Fonds (ETF)</li><li>Historisch ab 2009</li><li>Eigene Vorlagen speichern und wieder laden</li></ul>
         </div>
         <div class="schritt" data-bild="1">
           <div class="n">Schritt 02 · Zurückblicken</div>
@@ -440,7 +440,7 @@ section{padding:76px 0}
           <div class="n">Schritt 03 · Testen</div>
           <h3>Erst testen, dann handeln</h3>
           <p>Der <b class="hg">Screener-Backtester</b> rechnet durch, was der Bot mit genau dieser Auswahl gemacht hätte. Ohne Export, ohne Tabellen, mit einem Klick.</p>
-          <ul><li>Mit derselben Kaufmechanik wie der echte Bot</li><li>Jeder Kauf und Verkauf im Chart sichtbar</li></ul>
+          <ul><li>Mit derselben Kaufmechanik wie der echte Bot</li><li>Jeder Kauf und Verkauf im Chart sichtbar</li><li>Backtests rechnen mit US-Aktien ab 2009, deutsche Titel folgen später</li></ul>
         </div>
         <div class="schritt" data-bild="3">
           <div class="n">Schritt 04 · Handeln</div>
@@ -514,14 +514,14 @@ section{padding:76px 0}
         <div class="eig"><span>Trend und Ausbruch</span><span>Stop zieht mit</span><span>für klare Bewegungen</span></div>
       </div>
       <div class="karte bot reveal r">
-        <div class="nr">GRIDBOT</div>
+        <div class="nr">GRID-BOT</div>
         <div class="kurve"><svg viewBox="0 0 400 90" preserveAspectRatio="none"><path d="M0 20 L50 34 L90 30 L130 48 L170 44 L210 60 L250 50 L300 34 L350 22 L400 12" fill="none" stroke="#D8AE5E" stroke-width="2"/><g fill="#D8AE5E"><circle cx="50" cy="34" r="4"/><circle cx="130" cy="48" r="4"/><circle cx="210" cy="60" r="4"/></g><line x1="0" y1="80" x2="400" y2="80" stroke="#e0556b" stroke-opacity=".55" stroke-dasharray="4 5"/><text x="8" y="76" fill="#b1bbbd" font-size="12" font-family="Manrope,Arial">gemeinsamer Stop</text></svg></div>
         <h3>Kauft in Stufen</h3>
         <p>Baut eine Position in <b class="hg">mehreren kleinen Schritten</b> auf, statt alles auf einmal zu kaufen. Alles hängt an einem gemeinsamen Stop.</p>
         <div class="eig"><span>gleich große Stufen</span><span>Stufenzahl gedeckelt</span><span>nur im Aufwärtstrend</span></div>
       </div>
     </div>
-    <div class="ehrlich reveal"><p><b>Ehrlich gesagt:</b> Der GridBot ist <b class="hg">kein Martingale</b>, die Stufen werden nie verdoppelt. Im Fallen nachzukaufen kann sich trotzdem aufsummieren. Dafür gibt es die kleine Stufengröße, die Obergrenze für die Stufen und den Stop. Diese Grenzen setzt du selbst.</p></div>
+    <div class="ehrlich reveal"><p><b>Ehrlich gesagt:</b> Der Grid-Bot ist <b class="hg">kein Martingale</b>, die Stufen werden nie verdoppelt. Im Fallen nachzukaufen kann sich trotzdem aufsummieren. Dafür gibt es die kleine Stufengröße, die Obergrenze für die Stufen und den Stop. Diese Grenzen setzt du selbst.</p></div>
   </div>
 </section>
 
@@ -543,9 +543,9 @@ section{padding:76px 0}
     <p class="schema-text reveal"><span class="an">Der Bot schickt jede Stop-Order <b class="hg">direkt an Interactive Brokers</b>.</span><span class="aus">PC aus, Internet weg? <b class="hg">Die Stops liegen weiter beim Broker</b>. Bei Kurslücken können Verluste größer ausfallen.</span></p>
     <div class="grid-4">
       <div class="karte reveal" style="--i:0"><h3>Echte Stops</h3><p>Jede Position bekommt eine Stop-Order direkt bei Interactive Brokers.</p></div>
-      <div class="karte reveal" style="--i:1"><h3>Kontoschutz</h3><p>Fällt dein Kontowert unter deine Schwelle, schließt der Kontoschutz alles und meldet sich per E-Mail.</p></div>
+      <div class="karte reveal" style="--i:1"><h3>Equity-Schutz</h3><p>Der Equity-Schutz wacht über deinen Kontowert. Fällt er unter deine Schwelle, warnt er dich, auf Wunsch auch per E-Mail. Alles schließen lässt er nur, wenn du das einschaltest.</p></div>
       <div class="karte reveal" style="--i:2"><h3>Bestandsabgleich</h3><p>Alle 90 Sekunden prüft die App, ob Stops und Bestand zusammenpassen.</p></div>
-      <div class="karte reveal" style="--i:3"><h3>Verbindung weg?</h3><p>Dann eröffnet die App keine neuen Positionen. Verkäufe, Stops und Kontoschutz laufen weiter.</p></div>
+      <div class="karte reveal" style="--i:3"><h3>Verbindung weg?</h3><p>Dann eröffnet die App keine neuen Positionen. Verkäufe, Stops und Equity-Schutz laufen weiter.</p></div>
     </div>
   </div>
 </section>
@@ -557,13 +557,13 @@ section{padding:76px 0}
       <div class="kicker">Kapital im Griff</div>
       <h2 style="font-size:clamp(30px,4.2vw,48px)">Ein Konto.<br>Mehrere Töpfe.</h2>
       <p style="margin-top:18px;font-size:17px">Du teilst dein Konto in <b class="hg">Handelspläne</b> auf. Jeder Plan bekommt einen festen Anteil deines Kapitals, eigene Aktien und eine eigene Auswertung. So laufen mehrere Ansätze sauber getrennt nebeneinander.</p>
-      <p style="margin-top:14px;font-size:15.5px;color:var(--dim)">Alle Pläne zusammen nutzen nie mehr als 100 Prozent deines Kontos.</p>
+      <p style="margin-top:14px;font-size:15.5px;color:var(--dim)">Ab Werk nutzen alle Pläne zusammen nie mehr als 100 Prozent deines Kontos. Mehr nur, wenn du den Investitionsrahmen bewusst erhöhst.</p>
     </div>
     <div class="reveal r">
       <div class="toepfe" id="toepfe">
         <div class="balken">
           <div class="a">Topf A<small>Aktienbot · 40 %</small></div>
-          <div class="b">Topf B<small>GridBot · 30 %</small></div>
+          <div class="b">Topf B<small>Grid-Bot · 30 %</small></div>
           <div class="c">Topf C<small>20 %</small></div>
           <div class="frei">frei</div>
         </div>
@@ -576,6 +576,28 @@ section{padding:76px 0}
         <div class="z"><span>Passen zwei Einstellungen nicht zusammen</span><b>warnt sie vorher</b></div>
       </div>
     </div>
+  </div>
+</section>
+
+<!-- ===== NEU DABEI (Stand ATH 0.9.65, 14.11.2026) ===== -->
+<section id="neu" style="padding-top:40px">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="kicker">Neu dabei</div>
+      <h2>Mehr Werkzeuge.<br>Die Entscheidung bleibt bei dir.</h2>
+      <p>Diese Funktionen sind mit den letzten Updates dazugekommen.</p>
+    </div>
+    <div class="grid-4">
+      <div class="karte reveal" style="--i:0"><div class="nr">BACKTEST</div><h3>Strategie-Verbund</h3><p>Du testest mehrere deiner Strategien gemeinsam und siehst, wie sie im Verbund zusammengespielt hätten. <b class="hg">Hypothetischer Backtest</b> mit US-Aktien ab 2009.</p></div>
+      <div class="karte reveal" style="--i:1"><div class="nr">LIVE UMSETZEN</div><h3>Vom Backtest in den Plan</h3><p>Eine Strategie aus dem Backtester übernimmst du mit deinem Klick auf „Live umsetzen“ in einen Handelsplan. Neue Listen holst du selbst.</p></div>
+      <div class="karte reveal" style="--i:2"><div class="nr">MÄRKTE</div><h3>USA und Xetra in einem Plan</h3><p>US-Aktien und deutsche Aktien über Xetra laufen auf Wunsch gemischt in einem Handelsplan. Ohne aktuellen Wechselkurs kauft der Plan nicht.</p></div>
+      <div class="karte reveal" style="--i:3"><div class="nr">AKTIENBOT</div><h3>Preismarke „Aktiv ab“</h3><p>Je Aktie setzt du eine Preismarke. Erst wenn der Kurs darüber schließt, darf der Aktienbot nach seiner Regel kaufen.</p></div>
+      <div class="karte reveal" style="--i:0"><div class="nr">EINSTELLUNGEN</div><h3>Profi-Einstellung</h3><p>Ein Haken in den Einstellungen blendet weitere Einstellungen ein. Ohne Haken bleibt die Oberfläche einfach.</p></div>
+      <div class="karte reveal" style="--i:1"><div class="nr">SICHERUNG</div><h3>Handelspläne zurückholen</h3><p>All Time High sichert deine Handelspläne jeden Tag. Aus einer Sicherung holst du sie bei Bedarf zurück.</p></div>
+      <div class="karte reveal" style="--i:2"><div class="nr">WINDOWS</div><h3>Automatischer Start</h3><p>Auf Wunsch startet All Time High nach einem Windows-Neustart zusammen mit dem IB Gateway von selbst wieder. Die App prüft, ob alles dafür bereit ist.</p></div>
+      <div class="karte reveal" style="--i:3"><div class="nr">UPDATES</div><h3>Nur per Klick</h3><p>Updates installierst du selbst. Vorher zeigt dir die App, was sich am Handel deiner laufenden Pläne ändert.</p></div>
+    </div>
+    <p class="reveal" style="margin-top:22px;font-size:13px;color:var(--dim)">Backtests rechnen auf vergangenen Kursdaten, die Ergebnisse sind hypothetisch. Live-Ergebnisse können vom Backtest abweichen, etwa durch Ausführung, Kurslücken, Gebühren und Wechselkurse.</p>
   </div>
 </section>
 
@@ -621,10 +643,10 @@ section{padding:76px 0}
         <div class="preis-info versteckt" data-art="monat">Flexibel Monat für Monat. Mit dem Jahrespreis sparst du 218 €.</div>
         <div class="claim">Mit Aktien-Trader bekommst du All Time High, die komplette Aktien-Plattform für dein Konto bei Interactive Brokers.</div>
         <ul>
-          <li>Die Software All Time High: Windows-App mit Aktienbot und GridBot</li>
+          <li>Die Software All Time High: Windows-App mit Aktienbot und Grid-Bot</li>
           <li>Marktscreener, historisches Screening und Backtester</li>
-          <li>Handelspläne, echte Stops beim Broker und Kontoschutz</li>
-          <li>Regelmäßige Updates mit neuen Funktionen. Ein Update ändert nie, welche Strategie und welche Einstellungen du gewählt hast.</li>
+          <li>Handelspläne, echte Stops beim Broker und Equity-Schutz</li>
+          <li>Regelmäßige Updates mit neuen Funktionen. Du installierst jedes Update selbst, vorher zeigt dir die App, was sich am Handel deiner laufenden Pläne ändert.</li>
           <li>Einrichtungsanleitung Schritt für Schritt</li>
           <li>Support per Ticket bei technischen Fragen</li>
           <li>Eigener All-Time-High-Kanal im Discord</li>
@@ -640,14 +662,15 @@ section{padding:76px 0}
   </div>
 </section>
 
-<!-- ===== BETA ===== -->
+<!-- ===== LAUFEND WEITERENTWICKELT (ersetzt Beta-Kasten, 14.11.2026) ===== -->
 <section style="padding-bottom:40px">
   <div class="wrap">
     <div class="beta reveal sc">
-      <div class="tag">Beta</div>
+      <div class="tag">Wichtig</div>
       <div>
-        <h3>Freigegeben für echtes Geld, aktiv in Entwicklung</h3>
-        <p>Seit dem 10. Oktober 2026 ist All Time High in der Beta-Phase und nicht mehr auf ein Übungskonto beschränkt. Beta heißt: Die App wird laufend weiterentwickelt, euer Feedback fließt direkt ein. Unsere Empfehlung: <b class="hg">mit einem überschaubaren Betrag starten</b> und erst mit Routine aufstocken.</p>      </div>
+        <h3>Laufend weiterentwickelt</h3>
+        <p>All Time High wird laufend weiterentwickelt. Updates können auch ändern, wie deine Pläne handeln, du siehst das vor jeder Installation. Unsere Empfehlung: <b class="hg">Starte mit einem überschaubaren Betrag</b> und teste neue Einstellungen zuerst auf einem Papierkonto bei Interactive Brokers.</p>
+      </div>
     </div>
   </div>
 </section>
@@ -666,10 +689,11 @@ section{padding:76px 0}
       <details><summary>Welche Broker funktionieren?</summary><div class="ans">Interactive Brokers und Broker, die dieselbe Technik nutzen. Bestätigt sind CapTrader und LYNX. Broker wie comdirect, Trade Republic oder WH SelfInvest funktionieren nicht.</div></details>
       <details><summary>Läuft das auch auf dem Mac oder dem Handy?</summary><div class="ans">Nein, All Time High läuft nur unter Windows. Wenn du einen Mac hast, nimmst du einen Windows-Server oder einen Mini-PC.</div></details>
       <details><summary>Muss mein Rechner durchgehend laufen?</summary><div class="ans">Während der Handelszeiten ja, damit gekauft und verkauft wird. Die Stops liegen aber bei Interactive Brokers und greifen auch, wenn dein Rechner aus ist.</div></details>
-      <details><summary>Welche Aktien kann ich handeln?</summary><div class="ans">Alles, was Interactive Brokers anbietet, zum Beispiel US-Werte und deutsche Aktien an der Xetra. Für jede Börse brauchst du das passende Marktdaten-Abo bei deinem Broker. Läuft dein Konto in einer anderen Währung, rechnet die App den Kurs automatisch um.</div></details>
-      <details><summary>Kann ich im selben Konto eigene Aktien halten?</summary><div class="ans">Am besten liegt im Konto nur, was die App handeln soll. In der Standardeinstellung schließt sie Positionen, die in keiner ihrer Listen stehen. Das kannst du abschalten, dann warnt sie nur. Oder du nutzt für die App ein eigenes Konto.</div></details>
+      <details><summary>Welche Aktien kann ich handeln?</summary><div class="ans">US-Aktien (NYSE, Nasdaq) und deutsche Aktien über Xetra, auf Wunsch gemischt in einem Handelsplan. Für jede Börse brauchst du das passende Marktdaten-Abo bei deinem Broker. Läuft dein Konto in einer anderen Währung, rechnet die App den Kurs automatisch um. Ohne aktuellen Wechselkurs kauft der Plan nicht.</div></details>
+      <details><summary>Kann ich im selben Konto eigene Aktien halten?</summary><div class="ans">Am besten liegt im Konto nur, was die App handeln soll. Positionen, die nicht zu einem Handelsplan gehören, meldet All Time High dir. Automatisch geschlossen werden sie nur, wenn du das einschaltest. Ab Werk ist das aus. Oder du nutzt für die App ein eigenes Konto.</div></details>
       <details><summary>Funktioniert das mit jedem Kontotyp bei Interactive Brokers?</summary><div class="ans">Mit normalen Einzel- und Gemeinschaftskonten ja. Verwaltungskonten mit mehreren Unterkonten (Family oder Financial Advisor) werden nicht unterstützt. Oft hilft die Anmeldung mit dem einzelnen Unterkonto. Frag uns im Zweifel vor dem Kauf.</div></details>
-      <details><summary>Wie genau ist der Backtester?</summary><div class="ans">Er rechnet mit derselben Kaufmechanik wie der echte Bot. Getestet werden derzeit US-Aktien mit Kursdaten ab 2009. Die Ordergebühren von Interactive Brokers (Tarif „Fixed“) kannst du per Schalter mit einrechnen, ab Werk ist der Schalter aus. Vergangene Ergebnisse sind kein verlässlicher Hinweis auf künftige Ergebnisse.</div></details>
+      <details><summary>Wie genau ist der Backtester?</summary><div class="ans">Er rechnet mit derselben Kaufmechanik wie der echte Bot. Getestet werden derzeit US-Aktien mit Kursdaten ab 2009, deutsche Titel folgen später. Die Ordergebühren von Interactive Brokers (Tarif „Fixed“) kannst du per Schalter mit einrechnen, ab Werk ist der Schalter aus. Vergangene Ergebnisse sind kein verlässlicher Hinweis auf künftige Ergebnisse.</div></details>
+      <details><summary>Ändert ein Update, wie meine Pläne handeln?</summary><div class="ans">Das kann sein. Ein Update kann ändern, wie die App deine Einstellungen umsetzt, zum Beispiel wie ein Stop oder ein Kursziel berechnet wird. Es kann auch neue Schalter mitbringen, die schon eingeschaltet sind. Deshalb installiert die App Updates nicht von selbst. Gibt es eine neue Version, siehst du vorher, was neu ist und was sich an deinen laufenden Handelsplänen ändert. Installiert wird erst, wenn du auf „Jetzt aktualisieren“ klickst. Bei „Später“ bleibt deine jetzige Version installiert. Updates enthalten oft auch Fehlerkorrekturen, prüf sie deshalb zeitnah.</div></details>
       <details><summary>Was kostet zusätzlich?</summary><div class="ans">Die Marktdaten-Abos und die Ordergebühren laufen über deinen Broker. Das IB Gateway ist kostenlos. Optional richten wir alles mit dir zusammen ein, pauschal für 99 €.</div></details>
       <details><summary>Was ist Aktien-Trader?</summary><div class="ans">Aktien-Trader ist der Name des Pakets, All Time High der Name der Software. Mit Aktien-Trader bekommst du All Time High mit allen Funktionen, Updates, Support per Ticket und den All-Time-High-Kanal im Discord.</div></details>
       <details><summary>Wie lange läuft der Zugang und wie kündige ich?</summary><div class="ans">Aktien-Trader ist ein Abo. Beim Jahresabo zahlst du einmal im Jahr im Voraus, beim Monatsabo jeden Monat. Beides verlängert sich automatisch, bis du kündigst. Eine kostenlose Testphase gibt es nicht, das Monatsabo ist der einfachste Weg zum Ausprobieren.</div></details>
