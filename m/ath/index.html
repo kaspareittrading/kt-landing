@@ -762,7 +762,13 @@ code{font-family:Consolas,monospace;font-size:13.5px;color:var(--gold);backgroun
       if(l.download && LINK_OK.test(l.download)){knopf.appendChild(link(l.download,'All Time High herunterladen','btn-gold',false));klein.textContent='Updates installierst du danach selbst per Klick in der App.';}
       if(l.tradingview && LINK_OK.test(l.tradingview)) tv.appendChild(link(l.tradingview,'Skript in TradingView öffnen','btn-gold',true));
       if(l.parameter && LINK_OK.test(l.parameter)) tv.appendChild(link(l.parameter,'Parameter-Erklärung (PDF)','btn-ghost',true));
-    }else{
+    }
+    /* Hall of Fame (18.11.2026): Knopf nur, wenn das Backend die Berechtigung meldet (Premium oder Rolle „All Time High“)
+       und der Knopf freigegeben ist (KNOPF_AUF_ATH_SEITE in kaspareit-velo/src/backend/hallOfFameDateien.js). */
+    if((nurAth||d.stufe==='premium') && d.hallOfFame===true){
+      knopf.appendChild(link('https://www.kaspareit-trading.com/hall-of-fame','Hall of Fame','btn-ghost',false));
+    }
+    if(!(nurAth||d.stufe==='premium')){
       lampe.className='lampe gold';
       text.innerHTML='All Time High ist in <span class="hg">Premium</span> ohne Aufpreis enthalten oder einzeln als Abo erhältlich. Mit deinem aktuellen Paket ist die App noch nicht freigeschaltet.';
       knopf.appendChild(link('https://start.kaspareit-trading.com/angebot/#preise','Pakete ansehen','btn-ghost',false));
