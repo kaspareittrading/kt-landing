@@ -9,7 +9,7 @@
 <!-- Quelle: outputs\hall-of-fame\hall-of-fame-vorlage.html. Nie von Hand in der fertigen Seite aendern,
      sondern hier, dann: python scripts\hall-of-fame-bauen.py test -->
 <style>
-:root{--bg:#0a0f10;--bg2:#0d1314;--ink:#e7eced;--muted:#bac4c6;--dim:#8f999b;--teal:#40C6CC;--gold:#D8AE5E;--green:#33C46F;--yellow:#E3C454;--line:rgba(255,255,255,.08);--card:rgba(255,255,255,.025);--goldline:rgba(216,174,94,.28)}
+:root{--red:#D6625A;--bg:#0a0f10;--bg2:#0d1314;--ink:#e7eced;--muted:#bac4c6;--dim:#8f999b;--teal:#40C6CC;--gold:#D8AE5E;--green:#33C46F;--yellow:#E3C454;--line:rgba(255,255,255,.08);--card:rgba(255,255,255,.025);--goldline:rgba(216,174,94,.28)}
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth;scrollbar-color:rgba(216,174,94,.45) var(--bg);scrollbar-width:thin}
 ::selection{background:rgba(216,174,94,.35);color:#fff}
@@ -197,6 +197,61 @@ code{font-family:ui-monospace,'Cascadia Mono',Consolas,monospace;font-size:12.5p
 .laden li{font-size:14px;color:var(--muted);padding:3px 0}
 .laden li b{color:var(--ink);font-weight:600}
 .laden .vs{font-size:13px;color:var(--dim);margin-top:10px}
+
+/* Gleicher Kern und durchgefallene Strategien (Auftrag Alex 18.11.2026) */
+.kern{border-color:var(--gold);background:linear-gradient(160deg,rgba(216,174,94,.10),rgba(255,255,255,.015))}
+.kern .kt{font-size:12px;letter-spacing:.24em;text-transform:uppercase;color:var(--gold);font-weight:600;margin-bottom:8px}
+.kern a{color:var(--gold)}
+.durch{padding:70px 0 20px;border-top:1px solid var(--line)}
+.durch h2{font-size:clamp(28px,4vw,40px);font-weight:300;margin-bottom:10px}
+.durch .einl{max-width:760px;color:var(--muted);font-size:15.5px}
+.durch .einl+.einl{margin-top:10px}
+.durch .einl a{color:var(--gold)}
+.dz{display:flex;gap:30px;flex-wrap:wrap;margin:22px 0 26px}
+.dz b{display:block;font-size:22px;font-weight:400;color:var(--ink)}
+.dz span{font-size:13px;color:var(--dim)}
+.dz .rz b{color:var(--red)}
+.gruende{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin-bottom:30px}
+.grund{border:1px solid var(--line);border-radius:12px;padding:14px 16px;background:var(--card)}
+.grund b{display:block;font-size:14.5px;font-weight:500;color:var(--ink);margin-bottom:4px}
+.grund p{font-size:13.5px;color:var(--muted)}
+.grund .n{font-size:12.5px;color:var(--dim);margin-top:6px}
+.rgruppe summary{align-items:flex-start}
+.rgruppe summary .gt{display:flex;flex-direction:column;gap:2px}
+.rgruppe summary .gt small{font-size:13px;color:var(--dim)}
+.rgruppe .ginnen{padding:0 18px 18px}
+.rgruppe .gerkl{font-size:14px;color:var(--muted);margin-bottom:12px;max-width:820px}
+.rtab{width:100%;border-collapse:collapse;font-size:13.5px}
+.rtab th{font-size:11.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--dim);font-weight:500;text-align:left;padding:8px 10px;border-bottom:1px solid var(--line)}
+.rtab td{padding:10px;border-bottom:1px solid var(--line);vertical-align:top;color:var(--muted)}
+.rtab .r{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap;color:var(--ink)}
+.rtab .pl{color:var(--dim);font-variant-numeric:tabular-nums}
+.rtab td b{display:block;color:var(--ink);font-weight:500;font-size:14.5px}
+.rtab td small{display:block;color:var(--dim);font-size:13px;line-height:1.45;margin-top:2px}
+.rtab ul{list-style:none}
+.rtab li{position:relative;padding:1px 0 1px 14px;color:#e2a39e}
+.rtab li:before{content:"";position:absolute;left:0;top:9px;width:6px;height:6px;border-radius:50%;background:rgba(214,98,90,.7)}
+.rtab .hw{color:var(--dim);font-size:12.5px;margin-top:4px}
+/* Kontrast angehoben (Alex 18.11.2026: auf dem Handy schlecht lesbar), Ziel mind. 7:1 */
+.durch{--hell:#C8CDD2}
+.durch .einl,.grund p,.rgruppe .gerkl,.rtab td,.rtab td small,.rtab .hw,.rtab .pl,.grund .n,.dz span,.rgruppe summary .gt small,.rtab th{color:var(--hell)}
+.rtab td small{font-size:13.5px}
+.rtab .pl{font-size:15px}
+.rtab th{font-weight:600}
+.rtab li{color:#FF9C93}
+.rtab li:before{background:#FF8A80}
+.rtab .hw{font-style:italic}
+@media(max-width:980px){.gruende{grid-template-columns:1fr 1fr}}
+@media(max-width:700px){
+  .gruende{grid-template-columns:1fr}
+  .rtab thead{display:none}
+  .rtab,.rtab tbody,.rtab tr,.rtab td{display:block;width:100%}
+  .rtab tr{border:1px solid var(--line);border-radius:12px;padding:10px 12px;margin-bottom:10px;background:rgba(0,0,0,.18)}
+  .rtab td{border:0;padding:3px 0}
+  .rtab .r{text-align:left;display:inline-block;width:auto;margin-right:16px}
+  .rtab .r:before{content:attr(data-k) " ";color:var(--hell);font-size:12px;font-weight:600;letter-spacing:.08em;text-transform:uppercase}
+  .rtab .pl{display:inline-block;width:auto;margin-right:10px}
+}
 
 .leer{padding:40px 0;text-align:center;color:var(--dim)}
 
