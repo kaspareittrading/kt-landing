@@ -312,6 +312,38 @@ section{padding:76px 0}
 .umschalter button em{font-size:10.5px;margin-left:4px}
 .preis{padding:36px 22px}
 }
+/* BLACK-WEEK-START (2026): Aktionsblock All Time High, schaltet sich per Datum selbst ein und aus (Skript BLACK-WEEK unten) */
+.bw-box{margin:14px 0 18px;padding:18px 18px 16px;border:1px solid rgba(216,174,94,.45);border-radius:16px;background:linear-gradient(165deg,rgba(216,174,94,.14),rgba(255,255,255,.015) 70%);box-shadow:0 0 60px -24px rgba(216,174,94,.55);text-align:left}
+.bw-box[hidden]{display:none!important}
+.bw-box[data-phase="vorab"] .bw-nur-aktiv,.bw-box[data-phase="aktiv"] .bw-nur-vorab{display:none!important}
+.bw-kopf{display:flex;flex-wrap:wrap;align-items:center;gap:8px 10px;margin-bottom:10px;font-size:13.5px;color:#f0cf8e;font-weight:600}
+.bw-marke{background:var(--gold);color:#1a1205;font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;padding:4px 11px;border-radius:20px}
+.bw-text{font-size:14.5px;color:var(--muted);margin:0 0 12px;line-height:1.5}
+.bw-text b{color:#f0cf8e;font-weight:700}
+.bw-preis{display:flex;flex-wrap:wrap;align-items:baseline;gap:2px 12px;margin:4px 0 2px}
+.bw-preis b{font-size:44px;font-weight:200;color:var(--ink);line-height:1.1}
+.bw-statt{font-size:16px;color:var(--dim)}
+.bw-statt s{text-decoration-thickness:2px;text-decoration-color:rgba(224,85,107,.9)}
+.bw-preis small{flex-basis:100%;font-size:13.5px;color:var(--dim)}
+.bw-danach{font-size:13.5px;color:var(--muted);margin:2px 0 12px}
+.bw-code{display:flex;flex-wrap:wrap;align-items:center;gap:8px 10px;margin:0 0 8px;padding:8px 8px 8px 14px;border:1px dashed rgba(216,174,94,.6);border-radius:12px;background:rgba(0,0,0,.28)}
+.bw-code-label{font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--dim)}
+.bw-code-wert{flex:1 1 auto;font-family:ui-monospace,Consolas,Menlo,monospace;font-size:19px;font-weight:700;letter-spacing:.08em;color:#f0cf8e;user-select:all;-webkit-user-select:all;word-break:break-all}
+.bw-kopieren{font:inherit;font-size:13px;font-weight:700;color:#1a1205;background:var(--gold);border:0;border-radius:30px;padding:9px 16px;cursor:pointer;white-space:nowrap;transition:box-shadow .25s}
+.bw-kopieren:hover{box-shadow:0 0 22px rgba(216,174,94,.5)}
+.bw-kopieren:focus-visible{outline:2px solid #f0cf8e;outline-offset:2px}
+.bw-hinweis{font-size:13px;color:var(--dim);margin:0 0 12px;line-height:1.5}
+.bw-uhr-titel{font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--dim);margin:4px 0 6px}
+.bw-uhr{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:6px;margin-bottom:12px}
+.bw-uhr div{background:rgba(0,0,0,.28);border:1px solid var(--line);border-radius:10px;padding:8px 2px 6px;text-align:center;min-width:0}
+.bw-uhr b{display:block;font-size:clamp(20px,5vw,28px);font-weight:300;color:#f0cf8e;font-variant-numeric:tabular-nums;line-height:1.1}
+.bw-uhr small{display:block;font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--dim);overflow:hidden;text-overflow:ellipsis}
+.bw-bed summary{cursor:pointer;font-size:13px;color:var(--teal);text-decoration:underline}
+.bw-bed p{font-size:12px;line-height:1.55;color:var(--dim);margin:8px 0 0}
+.bw-bed a{color:var(--teal);text-decoration:underline}
+@media(max-width:400px){.bw-box{padding:16px 12px 14px}.bw-uhr{gap:4px}.bw-uhr small{font-size:9.5px;letter-spacing:.02em}}
+.preis.bw-an>.betrag,.preis.bw-an>.preis-info{display:none!important}
+/* BLACK-WEEK-ENDE */
 </style>
 </head>
 <body>
@@ -328,6 +360,93 @@ section{padding:76px 0}
     <a href="#preis" class="btn btn-gold">Preis ansehen</a>
   </div>
 </nav>
+<!-- BW-TOP-START (Black Week 2026, gebaut von scripts\black-week-banner.py, nicht von Hand ändern) -->
+<style>
+.bwt{position:relative;overflow:hidden;background:#000;color:#f3efe6;padding:104px 20px 30px;text-align:center;border-bottom:1px solid rgba(216,174,94,.35)}
+html.im-rahmen .bwt{padding-top:30px}
+.bwt[hidden]{display:none!important}
+.bwt:before{content:"";position:absolute;inset:-40% -10% auto;height:120%;background:radial-gradient(ellipse at 50% 0%,rgba(216,174,94,.22),transparent 62%);pointer-events:none}
+.bwt:after{content:"";position:absolute;left:0;right:0;top:0;height:2px;background:linear-gradient(90deg,transparent,#D8AE5E 30%,#f6dc9c 50%,#D8AE5E 70%,transparent)}
+.bwt-in{position:relative;max-width:880px;margin:0 auto}
+.bwt-marke{display:inline-block;font-size:11.5px;font-weight:700;letter-spacing:.32em;text-transform:uppercase;color:#000;background:linear-gradient(90deg,#D8AE5E,#f6dc9c,#D8AE5E);padding:6px 16px 6px 19px;border-radius:30px;margin-bottom:16px}
+.bwt h2{font-size:clamp(34px,7vw,64px);font-weight:200;line-height:1.05;letter-spacing:-.01em;margin:0 0 12px;color:#fff}
+.bwt h2 em{font-style:normal;background:linear-gradient(90deg,#D8AE5E,#f6dc9c 55%,#D8AE5E);-webkit-background-clip:text;background-clip:text;color:transparent;font-weight:300}
+.bwt-sub{font-size:clamp(15px,2.2vw,18px);font-weight:300;color:#d9d4c8;margin:0 auto 20px;max-width:640px;line-height:1.5}
+.bwt-uhr-titel{font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:#a99d84;margin:0 0 8px}
+.bwt-uhr{display:inline-grid;grid-template-columns:repeat(4,minmax(64px,92px));gap:8px;margin:0 0 20px}
+.bwt-uhr div{border:1px solid rgba(216,174,94,.35);border-radius:12px;padding:10px 4px 8px;background:linear-gradient(180deg,rgba(216,174,94,.10),rgba(0,0,0,.4))}
+.bwt-uhr b{display:block;font-size:clamp(26px,6vw,40px);font-weight:200;color:#f6dc9c;font-variant-numeric:tabular-nums;line-height:1.05}
+.bwt-uhr small{display:block;font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:#a99d84;margin-top:2px}
+.bwt-code{display:inline-flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:8px 12px;margin:0 0 18px;padding:9px 10px 9px 18px;border:1px dashed rgba(246,220,156,.7);border-radius:14px;background:rgba(216,174,94,.08)}
+.bwt-code span{font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:#a99d84}
+.bwt-code code{font-family:ui-monospace,Consolas,Menlo,monospace;font-size:22px;font-weight:700;letter-spacing:.1em;color:#f6dc9c;user-select:all;-webkit-user-select:all}
+.bwt-knoepfe{display:flex;flex-wrap:wrap;justify-content:center;gap:10px;margin:0 0 14px}
+.bwt-btn{display:inline-block;font:inherit;font-size:15px;font-weight:600;text-decoration:none;border-radius:40px;padding:13px 26px;cursor:pointer;transition:box-shadow .25s,transform .25s}
+.bwt-gold{color:#000;background:linear-gradient(90deg,#D8AE5E,#f6dc9c,#D8AE5E);border:0}
+.bwt-gold:hover{box-shadow:0 0 28px rgba(216,174,94,.55);transform:translateY(-1px)}
+.bwt-rand{color:#f6dc9c;background:transparent;border:1px solid rgba(216,174,94,.6)}
+.bwt-rand:hover{box-shadow:0 0 22px rgba(216,174,94,.35)}
+.bwt-btn:focus-visible{outline:2px solid #f6dc9c;outline-offset:3px}
+.bwt-web{max-width:640px;margin:4px auto 16px;padding:16px 18px;border:1px solid rgba(216,174,94,.4);border-radius:16px;background:rgba(216,174,94,.06);text-align:center}
+.bwt-web p{margin:0 0 12px;font-size:15px;line-height:1.5;color:#d9d4c8;font-weight:300}
+.bwt-web p strong{display:block;font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:#f6dc9c;font-weight:600;margin-bottom:4px}
+.bwt-web b{color:#fff;font-weight:600}
+.bwt-nur,.bwt-fuss{font-size:12.5px;color:#a99d84;margin:0 auto;max-width:640px;line-height:1.5}
+.bwt-nur{color:#d9d4c8;margin-bottom:4px}
+.bwt-fuss a{color:#f6dc9c}
+.bwt[data-phase="vorab"] .bwt-a,.bwt[data-phase="aktiv"] .bwt-v{display:none!important}
+html.bwt-an .hero{padding-top:48px}
+@media(max-width:480px){.bwt{padding:92px 14px 24px}.bwt-uhr{grid-template-columns:repeat(4,minmax(0,1fr));width:100%;gap:6px}.bwt-btn{width:100%;padding:13px 18px}.bwt-code code{font-size:19px}}
+</style>
+<section class="bwt" id="bwTop" hidden data-phase="vorab" aria-label="Black-Week-Aktion">
+<div class="bwt-in">
+<span class="bwt-marke">Black Week 2026</span>
+<h2>20 % auf <em>All Time High</em></h2>
+<p class="bwt-sub bwt-v">Auf deine erste Zahlung, egal ob monatlich oder jährlich. Start am Montag, 23.11., um 0 Uhr.</p>
+<p class="bwt-sub bwt-a">Mit dem Code auf deine erste Zahlung, monatlich oder jährlich. Nur bis Montag, 30.11., 23:59 Uhr.</p>
+<div class="bwt-code bwt-a"><span>Code</span><code>BLACKWEEK26</code><button type="button" class="bwt-btn bwt-gold" data-kopie="BLACKWEEK26" data-ok="Kopiert ✓">Code kopieren</button></div>
+<p class="bwt-uhr-titel"><span class="bwt-v">Start in</span><span class="bwt-a">Endet in</span> (Berliner Zeit)</p>
+<div class="bwt-uhr" role="timer"><div><b data-u="t">00</b><small>Tage</small></div><div><b data-u="s">00</b><small>Std</small></div><div><b data-u="m">00</b><small>Min</small></div><div><b data-u="x">00</b><small>Sek</small></div></div>
+<div class="bwt-web bwt-v" hidden><p><strong>Nicht bis Montag warten?</strong>Im kostenlosen Live-Webinar am <b>Samstag, 21.11., um 10 Uhr</b> bekommst du den Code schon vorab und kannst sofort starten.</p><a class="bwt-btn bwt-rand" href="https://alltime-high.com/free-webinar/">Kostenlos zum Webinar</a></div>
+<div class="bwt-knoepfe"><a class="bwt-btn bwt-gold" href="#bwBox">Angebot ansehen</a></div>
+<p class="bwt-fuss">Preise inkl. USt. Bedingungen beim Angebot.</p>
+</div>
+</section>
+<script>
+(function(){
+var BW={START:Date.UTC(2026,10,22,23,0,0),ENDE:Date.UTC(2026,10,30,22,59,0),WEB:Date.UTC(2026,10,21,10,0,0)};
+var el=document.getElementById('bwTop');if(!el)return;
+var w=null;try{w=new URLSearchParams(location.search).get('bw-test');}catch(e){}
+var m=w&&/^(\d{4})-(\d{2})-(\d{2})(?:T(\d{2}):(\d{2}))?$/.exec(w);
+var versatz=m?Date.UTC(+m[1],+m[2]-1,+m[3],(+(m[4]||0))-1,+(m[5]||0),0)-Date.now():0;
+var f={};el.querySelectorAll('[data-u]').forEach(function(b){f[b.getAttribute('data-u')]=b;});
+var web=el.querySelector('.bwt-web');
+function z(n){return (n<10?'0':'')+n;}
+function tick(){
+  var t=Date.now()+versatz;
+  if(t>=BW.ENDE){el.parentNode&&el.parentNode.removeChild(el);document.documentElement.classList.remove('bwt-an');return;}
+  var p=t<BW.START?'vorab':'aktiv';
+  el.setAttribute('data-phase',p);el.hidden=false;document.documentElement.classList.add('bwt-an');
+  if(web)web.hidden=!(p==='vorab'&&t<BW.WEB);
+  var d=Math.max(0,Math.floor(((p==='vorab'?BW.START:BW.ENDE)-t)/1000));
+  f.t.textContent=z(Math.floor(d/86400));f.s.textContent=z(Math.floor(d%86400/3600));f.m.textContent=z(Math.floor(d%3600/60));f.x.textContent=z(d%60);
+  setTimeout(tick,1000-(t%1000));
+}
+tick();
+var k=el.querySelector('[data-kopie]');
+if(k){var alt=k.textContent;k.addEventListener('click',function(){
+  var c=k.getAttribute('data-kopie');
+  function ok(){k.textContent=k.getAttribute('data-ok');setTimeout(function(){k.textContent=alt;},2200);}
+  function ersatz(){var a=document.createElement('textarea');a.value=c;a.setAttribute('readonly','');a.style.position='fixed';a.style.top='0';a.style.opacity='0';document.body.appendChild(a);a.select();try{if(document.execCommand('copy'))ok();}catch(e){}document.body.removeChild(a);}
+  if(navigator.clipboard&&window.isSecureContext){navigator.clipboard.writeText(c).then(ok,ersatz);}else{ersatz();}
+});}
+el.querySelectorAll('a[href="#bwBox"]').forEach(function(a){a.addEventListener('click',function(e){
+  var b=document.getElementById('bwBox');if(!b)return;e.preventDefault();b.scrollIntoView({behavior:'smooth',block:'center'});
+});});
+})();
+</script>
+<!-- BW-TOP-ENDE -->
+
 
 <!-- ===== HERO ===== -->
 <header class="hero">
@@ -647,6 +766,23 @@ section{padding:76px 0}
         <div class="betrag versteckt" data-art="monat">59,- €<small> / Monat</small></div>
         <div class="preis-info" data-art="jahr">Entspricht rund 41 € im Monat. Monatlich gezahlt wären es 708 € im Jahr.</div>
         <div class="preis-info versteckt" data-art="monat">Flexibel Monat für Monat. Mit dem Jahrespreis sparst du 218 €.</div>
+<!-- BLACK-WEEK-START (2026): Block schaltet sich per Datum selbst ein und aus, Skript BLACK-WEEK unten -->
+<div class="bw-box" id="bwBox" hidden aria-label="Black Week">
+<div class="bw-kopf"><span class="bw-marke">Black Week</span><span class="bw-nur-aktiv">bis 30.11., 23:59 Uhr</span><span class="bw-nur-vorab">ab Montag, 23.11.2026</span></div>
+<p class="bw-text bw-nur-vorab">20 % auf die erste Zahlung von All Time High, egal ob du monatlich oder jährlich zahlst. Erster Monat 47,20 € statt 59 € oder erstes Jahr 392 € statt 490 €, jeweils inkl. USt. Danach gilt der reguläre Preis.</p>
+<p class="bw-text bw-nur-aktiv">20 % auf deine erste Zahlung mit Code <b>BLACKWEEK26</b>, monatlich oder jährlich.</p>
+<div class="bw-preis bw-nur-aktiv" data-art="jahr"><b>392,- €</b><span class="bw-statt">statt <s>490,- €</s></span><small>erstes Jahr, inkl. USt</small></div>
+<div class="bw-preis bw-nur-aktiv versteckt" data-art="monat"><b>47,20 €</b><span class="bw-statt">statt <s>59,- €</s></span><small>erster Monat, inkl. USt</small></div>
+<div class="bw-danach bw-nur-aktiv" data-art="jahr">Danach 490 € im Jahr, inkl. USt.</div>
+<div class="bw-danach bw-nur-aktiv versteckt" data-art="monat">Danach 59 € im Monat, inkl. USt.</div>
+<div class="bw-code bw-nur-aktiv"><span class="bw-code-label">Code</span><code class="bw-code-wert">BLACKWEEK26</code><button type="button" class="bw-kopieren" data-bw-kopieren="BLACKWEEK26" data-ok="Kopiert ✓">Code kopieren</button></div>
+<p class="bw-hinweis bw-nur-aktiv">Du wählst an der Kasse, ob du monatlich oder jährlich zahlst, und gibst den Code ein.</p>
+<div class="bw-uhr-titel"><span class="bw-nur-aktiv">Aktion endet in</span><span class="bw-nur-vorab">Start in</span> (Berliner Zeit)</div>
+<div class="bw-uhr" role="timer"><div><b data-bw-u="t">00</b><small>Tage</small></div><div><b data-bw-u="s">00</b><small>Std</small></div><div><b data-bw-u="m">00</b><small>Min</small></div><div><b data-bw-u="x">00</b><small>Sek</small></div></div>
+<details class="bw-bed bw-nur-aktiv"><summary>Bedingungen</summary><p>Black Week 2026: Der Code BLACKWEEK26 gilt vom 21.11.2026, 00:00 Uhr, bis 30.11.2026, 23:59 Uhr (Berliner Zeit). Öffentlicher Start ist Montag, 23.11.2026. Wer am Webinar vom 21.11.2026 teilnimmt, bekommt den Code dort vorab. Mit dem Code gibt es 20 % auf die erste Zahlung eines neuen Abos von All Time High (Paket Aktien-Trader), bei monatlicher oder jährlicher Zahlung. Das ergibt 47,20 € statt 59 € für den ersten Monat oder 392 € statt 490 € für das erste Jahr, jeweils inkl. USt. Ab der zweiten Zahlung gilt der reguläre Preis von 59 € im Monat bzw. 490 € im Jahr, inkl. USt. Das Abo verlängert sich automatisch um den gewählten Zeitraum (einen Monat bzw. zwölf Monate), wenn du nicht vorher kündigst. Hast du schon ein Abo, läuft ein neues Abo zusätzlich. Dein bisheriges Abo endet nur, wenn du es kündigst. Verkauf und Zahlung über CopeCart GmbH, Rosenstr. 2, 10178 Berlin. Anbieterin der Software: Kaspareit-Trading LLC, 7901 4th St N, Ste 300, St. Petersburg, FL 33702, USA. Für die Nutzung gelten die <a href="https://start.kaspareit-trading.com/nutzungsbedingungen/" target="_blank" rel="noopener">Nutzungsbedingungen</a> der Kaspareit-Trading LLC (Stand 14.11.2026), für Kauf, Zahlung, Laufzeit, Kündigung und Widerruf die Bedingungen von CopeCart.</p><p>Software, keine Anlageberatung. Der Handel mit Aktien ist mit Risiken bis hin zum Verlust des eingesetzten Kapitals verbunden.</p></details>
+<details class="bw-bed bw-nur-vorab"><summary>Bedingungen</summary><p>Der Black-Week-Code gilt vom 21.11.2026, 00:00 Uhr, bis 30.11.2026, 23:59 Uhr (Berliner Zeit). Öffentlicher Start ist Montag, 23.11.2026. Wer am Webinar vom 21.11.2026 teilnimmt, bekommt den Code dort vorab. Mit dem Code gibt es 20 % auf die erste Zahlung eines neuen Abos von All Time High (Paket Aktien-Trader), bei monatlicher oder jährlicher Zahlung. Das ergibt 47,20 € statt 59 € für den ersten Monat oder 392 € statt 490 € für das erste Jahr, jeweils inkl. USt. Ab der zweiten Zahlung gilt der reguläre Preis von 59 € im Monat bzw. 490 € im Jahr, inkl. USt. Das Abo verlängert sich automatisch um den gewählten Zeitraum (einen Monat bzw. zwölf Monate), wenn du nicht vorher kündigst. Hast du schon ein Abo, läuft ein neues Abo zusätzlich. Dein bisheriges Abo endet nur, wenn du es kündigst. Verkauf und Zahlung über CopeCart GmbH, Rosenstr. 2, 10178 Berlin. Anbieterin der Software: Kaspareit-Trading LLC, 7901 4th St N, Ste 300, St. Petersburg, FL 33702, USA. Für die Nutzung gelten die <a href="https://start.kaspareit-trading.com/nutzungsbedingungen/" target="_blank" rel="noopener">Nutzungsbedingungen</a> der Kaspareit-Trading LLC (Stand 14.11.2026), für Kauf, Zahlung, Laufzeit, Kündigung und Widerruf die Bedingungen von CopeCart.</p><p>Software, keine Anlageberatung. Der Handel mit Aktien ist mit Risiken bis hin zum Verlust des eingesetzten Kapitals verbunden.</p></details>
+</div>
+<!-- BLACK-WEEK-ENDE -->
         <div class="claim">Mit Aktien-Trader bekommst du All Time High, die komplette Aktien-Plattform für dein Konto bei Interactive Brokers.</div>
         <ul>
           <li>Die Software All Time High: Windows-App mit Aktienbot und Grid-Bot</li>
@@ -881,5 +1017,51 @@ document.querySelectorAll('.vscene').forEach(setupScrub);
 </script>
 <!-- KT-Chat: All Time High Assistent fuer Interessenten (Bot 4 ath_verkauf), seit 18.10.2026 -->
 <script src="https://chat.kaspareit-trading.com:8443/widget.js" data-bot="ath_verkauf" data-titel="All Time High Assistent" data-gruss="Hi, ich bin der Assistent zu All Time High. Frag mich, was die Software kann, was du daf&uuml;r brauchst oder wie Kauf und Start ablaufen. Ich bin ein KI-Assistent und antworte automatisch. F&uuml;r R&uuml;ckfragen an einen Menschen schreib an info@kaspareit-trading.de." defer></script>
+<script>/* BLACK-WEEK-START (2026): Aktionsblock All Time High schaltet sich per Datum selbst ein und aus.
+   Zeiten in Berliner Zeit (Europe/Berlin, im November MEZ = UTC+1), fest als UTC hinterlegt, damit die Besucher-Zeitzone keine Rolle spielt.
+   Vor VORAB: Block unsichtbar. VORAB bis START: Hinweis auf den Start mit Countdown. START bis ENDE: Aktion mit Code und Countdown.
+   Ab ENDE: Block wird entfernt, die Seite ist wieder normal. Vorschau/Pruefung: ?bw-test=2026-11-25T12:00 (Berliner Zeit). */
+(function(){
+/* BW-LOGIK-START */
+var BW={
+  VORAB:Date.UTC(2026,10,19,23,0,0),  /* Fr 20.11.2026 00:00 Berlin: Hinweis auf den Start (Tag der Vorankuendigung) */
+  START:Date.UTC(2026,10,22,23,0,0),  /* Mo 23.11.2026 00:00 Berlin: oeffentlicher Start */
+  ENDE:Date.UTC(2026,10,30,22,59,0)   /* Mo 30.11.2026 23:59 Berlin: Aktionsende (Code laeuft in CopeCart 01.12. 00:00 ab) */
+};
+function bwPhase(t){return t<BW.VORAB?'aus':t<BW.START?'vorab':t<BW.ENDE?'aktiv':'vorbei';}
+function bwRest(t,ziel){var d=Math.max(0,Math.floor((ziel-t)/1000));return {t:Math.floor(d/86400),s:Math.floor(d%86400/3600),m:Math.floor(d%3600/60),x:d%60};}
+function bwTestZeit(suche){
+  var w=null;try{w=new URLSearchParams(suche||'').get('bw-test');}catch(e){}
+  var m=w&&/^(\d{4})-(\d{2})-(\d{2})(?:T(\d{2}):(\d{2}))?$/.exec(w);
+  if(!m)return null;
+  return Date.UTC(+m[1],+m[2]-1,+m[3],(+(m[4]||0))-1,+(m[5]||0),0); /* Berlin im Nov/Dez = UTC+1 */
+}
+/* BW-LOGIK-ENDE */
+var box=document.getElementById('bwBox');if(!box)return;
+var karte=box.parentNode;
+var test=bwTestZeit(location.search),versatz=test===null?0:test-Date.now();
+function jetzt(){return Date.now()+versatz;}
+function z(n){return (n<10?'0':'')+n;}
+var felder={};box.querySelectorAll('[data-bw-u]').forEach(function(b){felder[b.getAttribute('data-bw-u')]=b;});
+function tick(){
+  var t=jetzt(),p=bwPhase(t);
+  karte.classList.toggle('bw-an',p==='aktiv');
+  if(p==='vorbei'){karte.classList.remove('bw-an');if(box.parentNode)box.parentNode.removeChild(box);return;}
+  if(p==='aus'){box.hidden=true;setTimeout(tick,Math.min(BW.VORAB-t,3600000));return;}
+  box.setAttribute('data-phase',p);box.hidden=false;
+  var r=bwRest(t,p==='aktiv'?BW.ENDE:BW.START);
+  felder.t.textContent=z(r.t);felder.s.textContent=z(r.s);felder.m.textContent=z(r.m);felder.x.textContent=z(r.x);
+  setTimeout(tick,1000-(t%1000));
+}
+tick();
+var k=box.querySelector('[data-bw-kopieren]');
+if(k){var alt=k.textContent;k.addEventListener('click',function(){
+  var code=k.getAttribute('data-bw-kopieren');
+  function ok(){k.textContent=k.getAttribute('data-ok');setTimeout(function(){k.textContent=alt;},2200);}
+  function ersatz(){var ta=document.createElement('textarea');ta.value=code;ta.setAttribute('readonly','');ta.style.position='fixed';ta.style.top='0';ta.style.opacity='0';document.body.appendChild(ta);ta.select();try{if(document.execCommand('copy'))ok();}catch(e){}document.body.removeChild(ta);}
+  if(navigator.clipboard&&window.isSecureContext){navigator.clipboard.writeText(code).then(ok,ersatz);}else{ersatz();}
+});}
+})();
+/* BLACK-WEEK-ENDE */</script>
 </body>
 </html>
