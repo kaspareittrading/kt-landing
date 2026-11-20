@@ -394,14 +394,20 @@ html.im-rahmen .bwt{padding-top:30px}
 .bwt-nur,.bwt-fuss{font-size:12.5px;color:#a99d84;margin:0 auto;max-width:640px;line-height:1.5}
 .bwt-nur{color:#d9d4c8;margin-bottom:4px}
 .bwt-fuss a{color:#f6dc9c}
+.bwt-stoerer{position:absolute;top:-46px;right:0;width:92px;height:92px;border-radius:50%;display:flex;flex-direction:column;align-items:center;justify-content:center;transform:rotate(-12deg);background:radial-gradient(circle at 35% 30%,#ff5a5f,#d7141a 62%,#9e0b10);color:#fff;box-shadow:0 0 0 3px rgba(0,0,0,.9),0 0 0 4px rgba(255,90,95,.55),0 10px 34px -6px rgba(215,20,26,.75);line-height:1;text-align:center;z-index:1}
+.bwt-stoerer b{font-size:30px;font-weight:800;letter-spacing:-.02em}
+.bwt-stoerer small{font-size:9.5px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;margin-top:3px;opacity:.95}
+.bwt h2 .bwt-rot{color:#ff3b41;font-weight:400;text-shadow:0 0 26px rgba(255,59,65,.45)}
+@media(max-width:600px){.bwt-stoerer{width:66px;height:66px;top:-34px;right:-4px}.bwt-stoerer b{font-size:21px}.bwt-stoerer small{font-size:7.5px;letter-spacing:.1em}}
 .bwt[data-phase="vorab"] .bwt-a,.bwt[data-phase="aktiv"] .bwt-v{display:none!important}
 html.bwt-an .hero{padding-top:48px}
 @media(max-width:480px){.bwt{padding:92px 14px 24px}.bwt-uhr{grid-template-columns:repeat(4,minmax(0,1fr));width:100%;gap:6px}.bwt-btn{width:100%;padding:13px 18px}.bwt-code code{font-size:19px}}
 </style>
 <section class="bwt" id="bwTop" hidden data-phase="vorab" aria-label="Black-Week-Aktion">
 <div class="bwt-in">
+<div class="bwt-stoerer" aria-hidden="true"><b>−20 %</b><small>Rabatt</small></div>
 <span class="bwt-marke">Black Week 2026</span>
-<h2>20 % auf <em>All Time High</em></h2>
+<h2>20 <span class="bwt-rot">%</span> auf <em>All Time High</em></h2>
 <p class="bwt-sub bwt-v">Auf deine erste Zahlung, egal ob monatlich oder jährlich. Start am Montag, 23.11., um 0 Uhr.</p>
 <p class="bwt-sub bwt-a">Mit dem Code auf deine erste Zahlung, monatlich oder jährlich. Nur bis Montag, 30.11., 23:59 Uhr.</p>
 <div class="bwt-code bwt-a"><span>Code</span><code>BLACKWEEK26</code><button type="button" class="bwt-btn bwt-gold" data-kopie="BLACKWEEK26" data-ok="Kopiert ✓">Code kopieren</button></div>
@@ -446,6 +452,9 @@ el.querySelectorAll('a[href="#bwBox"]').forEach(function(a){a.addEventListener('
 })();
 </script>
 <!-- BW-TOP-ENDE -->
+
+
+
 
 
 <!-- ===== HERO ===== -->
