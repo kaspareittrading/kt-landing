@@ -164,7 +164,7 @@ p{color:var(--muted)}
 .name{display:flex;align-items:center;gap:12px;min-width:0}
 .fig{font-family:'Segoe UI Symbol','DejaVu Sans','Noto Sans Symbols 2',serif;font-variant-emoji:text;flex:0 0 34px;height:34px;border-radius:50%;display:grid;place-items:center;font-size:20px;line-height:1;border:1px solid var(--line);color:var(--dim)}
 .fig.bestaetigt{color:var(--gold);border-color:var(--goldline);background:rgba(216,174,94,.08)}
-.fig.profil{color:var(--muted);border-style:dashed}
+.fig.profil,.fig.karenz{color:var(--muted);border-style:dashed}
 .fig.ziel,.fig.keine{color:transparent}
 .name .t{min-width:0}
 .name b{display:block;font-size:17px;font-weight:500;color:var(--ink)}
@@ -321,7 +321,8 @@ code{font-family:ui-monospace,'Cascadia Mono',Consolas,monospace;font-size:12.5p
   }
   function figurText(f){
     if(f.stand==='bestaetigt')return f.name+', bestätigt';
-    if(f.stand==='profil')return 'Profil '+f.name+' erfüllt, nicht alle Prüfungen bestanden';
+    if(f.stand==='profil')return 'Profil '+f.name+' erfüllt, nicht alle Prüfungen streng bestanden';
+    if(f.stand==='karenz')return 'Profil '+f.name+' mit Toleranz erfüllt';
     if(f.stand==='ziel')return 'Zielprofil '+f.name+', nicht bestätigt';
     return 'keine Figur, kein Profil erfüllt';
   }
@@ -331,13 +332,14 @@ code{font-family:ui-monospace,'Cascadia Mono',Consolas,monospace;font-size:12.5p
     var a=document.createElement('article');
     a.className='eintrag';a.dataset.idx=i;
     var id='d'+e.platz, f=e.figur||{};
-    var zeichen=(f.stand==='bestaetigt'||f.stand==='profil')?f.zeichen+'︎':'';
+    var mitFigur=(f.stand==='bestaetigt'||f.stand==='profil'||f.stand==='karenz');
+    var zeichen=mitFigur?f.zeichen+'︎':'';
     var bl=Object.keys(e.einstellungen||{}).map(function(k){return '<div class="block"><h4>'+esc(k)+'</h4>'+md(e.einstellungen[k])+'</div>';}).join('');
     var dl=sichererLink(e.zip)?'<a class="btn btn-gold" href="'+esc(e.zip)+'" download>Vorlage herunterladen <small>ZIP, '+esc(e.zipGroesse)+'</small></a>':(e.datei?'<button type="button" class="btn btn-gold" data-datei="'+esc(e.datei)+'">Vorlage herunterladen <small>ZIP, '+esc(e.zipGroesse)+'</small></button>':'<span class="bt-hinweis">Download nach Anmeldung</span>');
     a.innerHTML=
       '<button class="kopf" aria-expanded="false" aria-controls="'+id+'">'+
         '<span class="platz">'+e.platz+'</span>'+
-        '<span class="name"><span class="fig '+esc(f.stand||'keine')+'" title="'+((f.stand==='bestaetigt'||f.stand==='profil')?esc(figurText(f)):'')+'" aria-hidden="true">'+zeichen+'</span>'+
+        '<span class="name"><span class="fig '+esc(f.stand||'keine')+'" title="'+(mitFigur?esc(figurText(f)):'')+'" aria-hidden="true">'+zeichen+'</span>'+
           '<span class="t"><b>'+esc(e.name)+(e.spezial?' <span class="tag-sp">Kaspareit Spezial</span>':'')+(e.invest>100?' <span class="tag-iv" title="Kein Hebel: nur Obergrenze, investiert wird höchstens das vorhandene Kapital">Obergrenze '+e.invest+' %, kein Hebel</span>':'')+'</b><small>'+esc(e.beschreibung)+'</small></span></span>'+
         '<span class="label '+(e.bewertung==='Grün'?'gruen':'gelb')+'">'+esc(e.bewertung)+'</span>'+
         '<span class="zahlen-m"><span class="hb">Hypothetischer Backtest 2010 bis 16.10.2026</span>'+
@@ -349,7 +351,7 @@ code{font-family:ui-monospace,'Cascadia Mono',Consolas,monospace;font-size:12.5p
         '<span class="pfeil" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3 5l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>'+
       '</button>'+
       '<div class="detail" id="'+id+'" hidden>'+
-        '<div class="statuszeile">'+((f.stand==='bestaetigt'||f.stand==='profil')?'<span>Figur: <b>'+esc(figurText(f))+'</b></span>':'')+'<span>Trades: <b>'+nf0.format(e.trades)+'</b></span><span>Zeitraum: <b>'+esc(e.zeitraum)+'</b>, hypothetischer Backtest</span></div>'+
+        '<div class="statuszeile">'+(mitFigur?'<span>Figur: <b>'+esc(figurText(f))+'</b></span>':'')+'<span>Trades: <b>'+nf0.format(e.trades)+'</b></span><span>Zeitraum: <b>'+esc(e.zeitraum)+'</b>, hypothetischer Backtest</span></div>'+
         '<div class="bloecke">'+bl+'</div>'+
         (e.hinweis?'<p class="vhinweis"><b class="hg">Hinweis:</b> '+esc(e.hinweis)+'.</p>':'')+
         (e.zusatz?'<p class="vhinweis">'+esc(e.zusatz)+'</p>':'')+
