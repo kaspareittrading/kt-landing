@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="index, follow">
+<title>Ist Kaspareit-Trading seriös? Fakten, Kosten und Risiken</title>
+<meta name="description" content="Wer hinter Kaspareit-Trading steht, was die Pakete kosten, wo die Risiken liegen und wie du die Live-Ergebnisse selbst prüfst.">
+<link rel="icon" type="image/png" href="../favicon-32.png">
+<link rel="apple-touch-icon" href="../apple-touch-icon.png">
+<link rel="stylesheet" href="../schrift/schrift.css">
+<style>
+:root{
+--bg:#0a0f10;--bg2:#0d1314;--ink:#e7eced;--muted:#d6dddf;--dim:#b1bbbd;
+--teal:#40C6CC;--gold:#D8AE5E;--gold-hell:#f0cf8e;
+--line:rgba(255,255,255,.08);--card:rgba(255,255,255,.025);--goldline:rgba(216,174,94,.28);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--ink);font-family:'Manrope',-apple-system,'Helvetica Neue',Arial,sans-serif;font-weight:400;line-height:1.62;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+a:focus-visible,button:focus-visible,summary:focus-visible{outline:2px solid var(--gold);outline-offset:3px;border-radius:6px}
+::selection{background:rgba(216,174,94,.35);color:#fff}
+h1,h2,h3{font-weight:300;letter-spacing:.005em;line-height:1.1}
+b,strong{font-weight:600;color:var(--ink)}
+.hg{color:var(--gold);font-weight:600}
+.wrap{max-width:1180px;margin:0 auto;padding:0 28px}
+.kicker{font-size:12.5px;letter-spacing:.4em;text-transform:uppercase;margin-bottom:20px;font-weight:600;color:var(--gold)}
+section{padding:110px 0;position:relative}
+.sec-head{max-width:720px;margin-bottom:56px}
+.sec-head.mid{margin-left:auto;margin-right:auto;text-align:center}
+.sec-head h2{font-size:clamp(30px,4.4vw,52px)}
+.sec-head p{color:var(--muted);margin-top:18px;font-size:17.5px}
+p{color:var(--muted)}
+::-webkit-scrollbar{width:10px}
+::-webkit-scrollbar-track{background:var(--bg)}
+::-webkit-scrollbar-thumb{background:rgba(216,174,94,.35);border-radius:10px}
+html{scrollbar-width:thin;scrollbar-color:rgba(216,174,94,.4) var(--bg)}
+
+/* Knoepfe */
+.btn{display:inline-block;padding:15px 32px;border-radius:40px;font-size:14.5px;letter-spacing:.05em;font-weight:600;cursor:pointer;border:1px solid transparent;transition:all .3s;text-align:center}
+.btn-gold{background:var(--gold);color:#1a1205}
+.btn-gold:hover{box-shadow:0 0 30px rgba(216,174,94,.5);transform:translateY(-1px)}
+.btn-ghost{border-color:var(--goldline);color:var(--ink);background:transparent;font-family:inherit}
+.btn-ghost:hover{border-color:var(--gold);box-shadow:0 0 22px rgba(216,174,94,.22)}
+
+/* Navigation */
+nav{position:fixed;inset:0 0 auto 0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:20px 28px;border-bottom:1px solid transparent;transition:background .35s,padding .35s,border-color .35s}
+nav.scrolled{background:rgba(10,15,16,.86);backdrop-filter:blur(14px);border-bottom-color:var(--line);padding:13px 28px}
+.logo{display:flex;align-items:center;gap:11px;font-family:'Anton',sans-serif;font-size:16px;letter-spacing:.22em;text-transform:uppercase}
+.logo img{width:28px;height:28px;border-radius:7px}
+.navlinks{display:flex;gap:30px;align-items:center}
+.navlinks a{color:var(--dim);font-size:14px;letter-spacing:.03em;transition:color .25s}
+.navlinks a:hover{color:var(--ink)}
+.navlinks .btn{color:#1a1205;padding:10px 22px}
+@media(max-width:900px){
+.navlinks a:not(.btn){display:none}
+nav,nav.scrolled{padding:12px 16px}
+.logo{font-size:12.5px;letter-spacing:.16em;white-space:nowrap;gap:9px}
+.logo img{width:24px;height:24px}
+.navlinks .btn{padding:9px 16px;font-size:12.5px;white-space:nowrap}
+}
+
+/* ===== HERO ===== */
+.hero{padding:132px 0 90px;overflow:hidden;background:radial-gradient(ellipse at 78% 18%,rgba(64,198,204,.10),transparent 52%),radial-gradient(ellipse at 20% 0%,rgba(216,174,94,.13),transparent 55%)}
+.hero-grid{display:grid;grid-template-columns:1.08fr .92fr;gap:60px;align-items:center}
+.hero-grid>*{min-width:0}
+.hero h1{font-size:clamp(34px,3.7vw,54px)}
+.hero h1 .gold{color:var(--gold)}
+.hero .sub{font-size:clamp(16.5px,1.5vw,19px);max-width:600px;margin:0 0 28px}
+.termin{list-style:none;display:flex;flex-wrap:wrap;gap:10px;margin:28px 0 26px}
+.termin li{border:1px solid var(--goldline);background:rgba(216,174,94,.07);border-radius:40px;padding:8px 16px;font-size:15px;color:var(--gold-hell);font-weight:600;white-space:nowrap}
+.hero-cta{display:flex;gap:14px;flex-wrap:wrap;align-items:center}
+.kal-mobil{display:none;font-size:14.5px;color:var(--gold-hell);text-decoration:underline;text-underline-offset:4px}
+.vertrauen{display:flex;align-items:center;gap:10px;margin-top:20px;font-size:14.5px;color:var(--dim)}
+.vertrauen svg{width:18px;height:18px;flex:0 0 auto}
+
+/* Countdown-Karte */
+.uhr-karte{border:1px solid var(--goldline);border-radius:22px;padding:30px 30px 26px;background:linear-gradient(165deg,rgba(216,174,94,.10),rgba(255,255,255,.015) 62%);box-shadow:0 0 110px -40px rgba(216,174,94,.5)}
+.uhr-kopf{display:flex;align-items:center;gap:16px;margin-bottom:22px}
+.uhr-kopf img{width:58px;height:auto;flex:0 0 auto}
+.uhr-kopf b{display:block;font-size:17px;font-weight:600}
+.uhr-kopf span{font-size:14px;color:var(--dim)}
+.uhr{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-bottom:22px}
+.uhr div{background:rgba(0,0,0,.28);border:1px solid var(--line);border-radius:14px;padding:14px 4px 10px;text-align:center}
+.uhr b{display:block;font-size:clamp(26px,3vw,36px);font-weight:300;color:var(--gold-hell);font-variant-numeric:tabular-nums;line-height:1.1}
+.uhr small{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--dim)}
+.uhr-liste{list-style:none;margin-bottom:22px}
+.uhr-liste li{display:flex;justify-content:space-between;gap:14px;padding:9px 0;border-top:1px solid var(--line);font-size:15px;color:var(--muted)}
+.uhr-liste li b{font-weight:600;color:var(--ink);text-align:right}
+.uhr-karte .btn{width:100%}
+.kal{display:flex;gap:10px;margin-top:12px}
+.kal a{flex:1;font-size:13px;padding:10px 12px}
+.vorbei{display:none;border:1px solid var(--goldline);border-radius:14px;padding:16px 18px;background:rgba(216,174,94,.07);color:var(--gold-hell);font-size:15px;margin-bottom:18px}
+.ist-vorbei .vorbei{display:block}
+.ist-vorbei .uhr,.ist-vorbei .nur-vorher{display:none!important}
+
+/* ===== Inhalte: drei Bloecke mit Bildschirmfoto ===== */
+#inhalt{background:var(--bg2);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.block{display:grid;grid-template-columns:.85fr 1.15fr;gap:64px;align-items:center;margin-bottom:96px}
+.block:last-child{margin-bottom:0}
+.block.um{grid-template-columns:1.15fr .85fr}
+.block.um .text{order:2}
+.block>*{min-width:0}
+.block .nr{font-size:12.5px;letter-spacing:.32em;text-transform:uppercase;color:var(--gold);font-weight:700;margin-bottom:14px}
+.block h3{font-size:clamp(26px,3vw,38px);margin-bottom:16px}
+.block p{font-size:16.5px;max-width:480px}
+.block p+p{margin-top:12px}
+.fenster{background:#111617;border:1px solid rgba(255,255,255,.1);border-radius:12px;overflow:hidden;box-shadow:0 50px 100px -30px rgba(0,0,0,.95),0 0 100px -30px rgba(216,174,94,.28);cursor:zoom-in;transition:transform .5s cubic-bezier(.2,.7,.2,1)}
+.fenster:hover{transform:translateY(-4px)}
+.leiste{height:34px;display:flex;align-items:center;gap:10px;padding:0 14px;background:#0b0f10;border-bottom:1px solid rgba(255,255,255,.07);font-size:12.5px;color:var(--dim)}
+.leiste .app{width:14px;height:14px;border-radius:4px;background:linear-gradient(135deg,var(--gold-hell),#9c7a33)}
+.fenster img{display:block;width:100%;height:auto}
+.bild-hinweis{font-size:13px;color:var(--dim);margin-top:12px}
+
+/* ===== Auf einen Blick + Ablauf ===== */
+.zwei{display:grid;grid-template-columns:1fr 1fr;gap:70px;align-items:start}
+.zwei>*{min-width:0}
+.fakten{list-style:none}
+.fakten li{display:grid;grid-template-columns:44px 1fr;gap:16px;align-items:start;padding:18px 0;border-top:1px solid var(--line)}
+.fakten li:last-child{border-bottom:1px solid var(--line)}
+.fakten .ic{width:44px;height:44px;border-radius:12px;display:flex;align-items:center;justify-content:center;background:rgba(216,174,94,.09);border:1px solid var(--goldline)}
+.fakten .ic svg{width:21px;height:21px}
+.fakten b{display:block;font-size:16.5px;font-weight:600}
+.fakten span{font-size:15.5px;color:var(--muted)}
+.ablauf{position:relative;padding-left:30px}
+.ablauf:before{content:"";position:absolute;left:6px;top:10px;bottom:10px;width:1.5px;background:linear-gradient(180deg,var(--gold),rgba(216,174,94,.1))}
+.ablauf li{list-style:none;position:relative;padding:0 0 26px}
+.ablauf li:last-child{padding-bottom:0}
+.ablauf li:before{content:"";position:absolute;left:-29px;top:8px;width:11px;height:11px;border-radius:50%;background:var(--bg);border:2px solid var(--gold)}
+.ablauf b{display:block;font-size:16.5px;font-weight:600}
+.ablauf span{font-size:15.5px;color:var(--muted)}
+
+/* ===== Gastgeber ===== */
+.gast{display:grid;grid-template-columns:.7fr 1.3fr;gap:64px;align-items:center;max-width:1020px;margin:0 auto}
+.gast>*{min-width:0}
+.gast-bild{border-radius:20px;overflow:hidden;border:1px solid var(--line);box-shadow:0 40px 90px -30px rgba(0,0,0,.9),0 0 90px -40px rgba(64,198,204,.4);aspect-ratio:4/5;background:#0d1415}
+.gast-bild img{width:100%;height:100%;object-fit:cover;display:block}
+.gast h2{font-size:clamp(30px,3.6vw,46px);margin-bottom:18px}
+.gast p{font-size:17px}
+.gast p+p{margin-top:14px}
+
+/* ===== FAQ, Schluss, Rechtliches ===== */
+#fragen{background:var(--bg2);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.faq{max-width:860px;margin:0 auto}
+.faq details{border-bottom:1px solid var(--line)}
+.faq summary{list-style:none;cursor:pointer;padding:22px 40px 22px 0;font-size:17.5px;font-weight:500;position:relative}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary:after{content:"+";position:absolute;right:4px;top:18px;font-size:24px;font-weight:300;color:var(--gold);transition:transform .3s}
+.faq details[open] summary:after{transform:rotate(45deg)}
+.faq .ans{padding:0 0 24px;color:var(--muted);font-size:15.5px;max-width:760px}
+.schluss{text-align:center;padding:120px 0;background:radial-gradient(ellipse at 50% 100%,rgba(216,174,94,.14),transparent 60%)}
+.schluss h2{font-size:clamp(32px,4.6vw,56px)}
+.schluss p{max-width:620px;margin:20px auto 34px;font-size:17.5px}
+.schluss .klein{font-size:14px;color:var(--dim);margin-top:18px}
+.legal{border-top:1px solid var(--line);background:var(--bg2);padding:38px 0 90px}
+.legal p{color:var(--dim);font-size:13.5px;line-height:1.75;max-width:980px}
+.legal p+p{margin-top:14px}
+.legal a{color:var(--muted)}
+.legal a:hover{color:var(--gold)}
+
+/* Grossansicht */
+.gross{position:fixed;inset:0;background:rgba(5,7,8,.95);display:none;align-items:center;justify-content:center;z-index:300;padding:28px;cursor:zoom-out}
+.gross.auf{display:flex}
+.gross img{max-width:100%;max-height:100%;border-radius:10px;box-shadow:0 0 80px rgba(0,0,0,.8)}
+
+/* Scroll-Reveal (Hausstandard Baustein 2) */
+.reveal{opacity:0;will-change:opacity,transform,filter}
+
+@media(max-width:900px){
+section{padding:76px 0}
+.hero{padding:104px 0 64px}
+.hero h1{font-size:clamp(30px,8.4vw,44px)}
+.termin li{font-size:14px;padding:7px 13px}
+.hero-grid,.block,.block.um,.zwei,.gast{grid-template-columns:1fr;gap:36px}
+.block.um .text{order:0}
+.block{margin-bottom:72px}
+.gast-bild{max-width:340px}
+.hero-cta .btn{flex:1 1 100%}
+.kal-mobil{display:block;width:100%;text-align:center;margin-top:4px}
+.uhr-karte{padding:24px 18px 20px}
+}
+@media(prefers-reduced-motion:reduce){.reveal{opacity:1!important;transform:none!important;filter:none!important}}
+</style>
+<style>
+.seite{padding:140px 0 70px}
+.seite h1{font-size:clamp(36px,5.6vw,64px);margin-bottom:22px}
+.seite h2{font-size:clamp(24px,3vw,34px);margin:64px 0 18px;color:var(--ink)}
+.seite p{font-size:17px;margin:0 0 16px;max-width:780px}
+.seite .lead{font-size:19px;color:var(--ink)}
+.seite ul,.seite ol{margin:0 0 16px 22px;color:var(--muted);font-size:17px;max-width:780px}
+.seite li{margin:6px 0}
+.karte{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:22px 24px;color:var(--muted);font-size:17px;max-width:820px}
+.tab-wrap{overflow-x:auto;max-width:900px;margin:0 0 18px}
+.seite table{width:100%;border-collapse:collapse;font-size:15.5px;min-width:560px}
+.seite th,.seite td{text-align:left;vertical-align:top;padding:12px 10px;border-bottom:1px solid var(--line);color:var(--muted)}
+.seite th{color:var(--dim);font-weight:600;font-size:13px;letter-spacing:.08em;text-transform:uppercase}
+.seite td:first-child{color:var(--ink);font-weight:600;white-space:nowrap}
+.risiko{border-left:3px solid var(--gold);padding-left:18px;max-width:820px}
+.lnk{color:var(--gold);text-decoration:underline;text-underline-offset:3px}
+.legal{border-top:1px solid var(--line);padding:40px 0 60px;font-size:13.5px}
+.legal p{color:var(--dim);margin-bottom:12px}
+.legal a{text-decoration:underline}
+@media(max-width:600px){.wrap{padding:0 16px}.seite{padding:110px 0 50px}}
+</style>
+<!-- SEO-START -->
+<link rel="canonical" href="https://start.kaspareit-trading.com/serioes/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Kaspareit Trading">
+<meta property="og:locale" content="de_DE">
+<meta property="og:url" content="https://start.kaspareit-trading.com/serioes/">
+<meta property="og:title" content="Ist Kaspareit-Trading seriös? Fakten, Kosten und Risiken">
+<meta property="og:description" content="Wer hinter Kaspareit-Trading steht, was die Pakete kosten, wo die Risiken liegen und wie du die Live-Ergebnisse selbst prüfst.">
+<meta property="og:image" content="https://start.kaspareit-trading.com/og-de.jpg">
+<meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="google-site-verification" content="8msCaOENSyZW-oMHTvYtkyDHypJolIPIGohwg-ykfk0">
+<!-- SEO-ENDE -->
+<!-- EINWILLIGUNG-START -->
+<script src="/einwilligung.js?v=58b5114f" defer></script>
+<!-- EINWILLIGUNG-ENDE -->
+</head>
+<body>
+
+<nav id="nav">
+  <a class="logo" href="https://start.kaspareit-trading.com/" aria-label="Zur Startseite"><img src="../apple-touch-icon.png" alt="">Kaspareit Trading</a>
+  <div class="navlinks">
+    <a href="https://start.kaspareit-trading.com/">Startseite</a>
+    <a href="https://start.kaspareit-trading.com/angebot/" class="btn btn-gold">Pakete ansehen</a>
+  </div>
+</nav>
+
+<main class="seite">
+<div class="wrap">
+<div class="kicker">Transparenz</div>
+<h1>Ist Kaspareit-Trading <span style="color:var(--gold)">seriös?</span></h1>
+<p class="lead">Im automatisierten Trading gibt es Angebote, die mit hohen Renditen werben. Deshalb ist es richtig, genau hinzusehen. Hier steht sachlich, wer wir sind, was wir machen, was es kostet, wo die Risiken liegen und wie du alles selbst prüfen kannst, bevor du einen Euro ausgibst.</p>
+
+<h2>Wer hinter Kaspareit-Trading steht</h2>
+<p>Kaspareit-Trading ist das Unternehmen von Alexander Kaspareit. Ich handle seit 2008 an den Finanzmärkten und seit 2019 hauptberuflich mit regelbasierten, automatisierten Strategien. Rechtlich ist das die KASPAREIT-TRADING LLC mit Sitz in St. Petersburg, Florida (USA). Hinter den Strategien und der Software steht ein kleines Team aus Tradern und Entwicklern. Vollständige Angaben stehen im <a class="lnk" href="https://start.kaspareit-trading.com/impressum/">Impressum</a>.</p>
+
+<h2>Dein Geld bleibt bei dir</h2>
+<div class="karte">Wir verwahren kein Geld und nehmen keine Einzahlungen für den Handel an. Gehandelt wird auf deinem eigenen Konto: Die CFD-Strategien laufen im MetaTrader 5 bei einem Broker deiner Wahl. Bei der Aktien-Software All Time High wählst du Kriterien und Aktien selbst; innerhalb deines Handelsplans führt sie die Orders über dein Konto bei Interactive Brokers automatisch aus. Du kannst jede Strategie jederzeit stoppen. Das schützt nicht vor Verlusten im Handel. Was du bei uns bezahlst, ist die Mitgliedschaft: Software, Strategien, Anleitungen, Community und Support.</div>
+
+<h2>Live-Ergebnisse statt Versprechen</h2>
+<p>Wir versprechen keine Rendite. Stattdessen siehst du im Customer Terminal die Live-Konten unserer CFD-Strategie-Sammlungen, mit allen Gewinn- und Verlustphasen seit ihrem Start am 8. Juni 2026. Die Zahlen veröffentlichen wir selbst, sie sind nicht von einem unabhängigen Dritten geprüft. Dafür reicht die kostenlose Free-Mitgliedschaft, ohne Zahlungsdaten.</p>
+<p>Früher waren unsere Live-Konten zusätzlich bei myfxbook öffentlich einsehbar. Diese Konten liefen bei unserem damaligen Broker JFD, der sein Geschäft mit Privatkunden im April 2026 aufgegeben hat; deshalb gibt es sie dort nicht mehr. Wir wollen unsere heutigen Live-Konten wieder mit myfxbook verbinden, damit die Ergebnisse auch ohne Anmeldung sichtbar sind.</p>
+<p>Wichtig: Backtests zeigen, wie eine Strategie in der Vergangenheit gehandelt hätte. Sie sind keine Vorhersage. Auch unsere Live-Konten haben Phasen mit Verlusten, und eine solche Phase kann lange dauern.</p>
+
+<h2>Was es kostet</h2>
+<div class="tab-wrap"><table>
+<tr><th>Paket</th><th>Was drin ist</th><th>Preis</th></tr>
+<tr><td>Free Member</td><td>Customer Terminal mit Backtests und der Live-Entwicklung der CFD-Strategie-Sammlungen, Videothek, Artikel. Kein Live-Handel.</td><td>kostenlos</td></tr>
+<tr><td>CFD-Trader</td><td>alle CFD-Strategie-Sammlungen und Einzelstrategien für MetaTrader 5, Customer Terminal, Discord, Stammtische, Ticket-Support, KI-Chatbot</td><td>59 € im Monat oder 490 € für 12 Monate</td></tr>
+<tr><td>Aktien-Trader</td><td>All Time High mit Marktscreener, Backtester, Aktienbot und Grid-Bot, Discord-Kanal, Ticket-Support, KI-Chatbot</td><td>59 € im Monat oder 490 € für 12 Monate</td></tr>
+<tr><td>Premium</td><td>CFD-Trader und Aktien-Trader zusammen, dazu die Webinare</td><td>79 € im Monat oder 799 € für 12 Monate</td></tr>
+</table></div>
+<p>Alle Preise inkl. USt. Die Übersicht ist ein Auszug; maßgeblich ist die Leistungsbeschreibung bei deiner Bestellung.</p>
+<p>Dazu kommen gegebenenfalls Kosten bei deinem Broker (Spreads, Gebühren, Swaps), wenn du die Software nicht auf dem eigenen PC laufen lässt ein Windows-Server (VPS) für rund 10 bis 30 Euro im Monat und, wenn du möchtest, ein einmaliger Einrichtungsservice für 99 €.</p>
+<p>Verkauf und Zahlung laufen über die CopeCart GmbH, Berlin. Die Mitgliedschaft verlängert sich automatisch um den gewählten Zeitraum, beim Monatsabo um einen Monat, beim Jahresabo um zwölf Monate, wenn du nicht vorher kündigst. Du kannst jederzeit zum Ende der laufenden Laufzeit kündigen, zum Beispiel über den Link „Verträge hier kündigen“ unten auf der Seite; bis dahin bleibt dein Zugang bestehen. Für Kauf, Zahlung, Laufzeit, Kündigung und Widerruf gelten die Bedingungen von CopeCart, für die Nutzung unsere Nutzungsbedingungen.</p>
+
+<h2>Die Risiken, offen gesagt</h2>
+<div class="risiko">
+<p>CFD sind komplexe Instrumente und beinhalten wegen der Hebelwirkung ein hohes Risiko, schnell Geld zu verlieren. 79 % der Kleinanlegerkonten verlieren Geld beim CFD-Handel mit diesem Anbieter (GBE Brokers Ltd., Stand 24.11.2026). Sie sollten überlegen, ob Sie verstehen, wie CFD funktionieren, und ob Sie es sich leisten können, das hohe Risiko einzugehen, Ihr Geld zu verlieren.</p>
+<p>Mit einigen Brokern, darunter GBE Brokers Ltd., haben wir eine Partnerschaft und erhalten eine Vergütung, wenn du über unseren Link ein Konto eröffnest. Du musst diese Links nicht nutzen.</p>
+<p>Auch Aktienhandel kann zu Verlusten führen. Automatisierte Strategien haben Verlustphasen. Setze nur Geld ein, dessen Verlust du verkraften kannst. Wir geben keine Anlageberatung.</p>
+</div>
+
+<h2>Was wir bewusst nicht tun</h2>
+<ul>
+<li>keine Gewinn- oder Renditeversprechen</li>
+<li>keine Verwahrung von Kundengeld, keine Einzahlungen an uns für den Handel</li>
+<li>kein „Geld im Schlaf“: Du musst die Software einrichten und dich mit den Regeln beschäftigen. Für Einsteiger gibt es dafür Anleitungen, Ticket-Support und den Einrichtungsservice.</li>
+</ul>
+
+<h2>So prüfst du uns selbst</h2>
+<ol>
+<li>Kostenlos als Free Member anmelden und die Live-Ergebnisse im Customer Terminal ansehen.</li>
+<li>Die YouTube-Videos ansehen, dort erklären wir die Strategien.</li>
+<li>Erst im Demokonto testen, dann mit kleinem Einsatz starten.</li>
+</ol>
+<p>Fragen beantworten wir gern: info@kaspareit-trading.de</p>
+</div>
+</main>
+
+<div class="legal">
+  <div class="wrap">
+    <p><b>Risikohinweis:</b> CFD sind komplexe Instrumente und beinhalten wegen der Hebelwirkung ein hohes Risiko, schnell Geld zu verlieren. 79 % der Kleinanlegerkonten verlieren Geld beim CFD-Handel mit diesem Anbieter (GBE Brokers Ltd., Stand 24.11.2026). Sie sollten überlegen, ob Sie verstehen, wie CFD funktionieren, und ob Sie es sich leisten können, das hohe Risiko einzugehen, Ihr Geld zu verlieren. Kaspareit-Trading erbringt keine Anlageberatung und keine Vermögensverwaltung. Kontakt: info@kaspareit-trading.de</p>
+    <p style="margin:18px 0"><a class="kuendigen-knopf" href="https://www.copecart.com/buyer_order_overview_requests/new" target="_blank" rel="noopener" style="display:inline-block;max-width:100%;box-sizing:border-box;padding:12px 24px;border:1px solid #40c6cc;border-radius:8px;color:#40c6cc;font-size:15px;font-weight:500;line-height:1.3;text-align:center;text-decoration:none;white-space:normal">Verträge hier kündigen</a></p>
+    <p>© 2026 Kaspareit Trading &nbsp;·&nbsp; <a href="https://start.kaspareit-trading.com/impressum/">Impressum</a> &nbsp;·&nbsp; <a href="https://start.kaspareit-trading.com/datenschutz/">Datenschutz</a> &nbsp;·&nbsp; <a href="https://start.kaspareit-trading.com/agb/">AGB</a> &nbsp;·&nbsp; <a href="https://start.kaspareit-trading.com/nutzungsbedingungen/">Nutzungsbedingungen</a></p>
+  </div>
+</div>
+
+<script>
+(function(){var n=document.getElementById('nav');function f(){n.classList.toggle('scrolled',scrollY>30);}addEventListener('scroll',f,{passive:true});f();})();
+</script>
+</body>
+</html>
