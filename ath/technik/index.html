@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, follow">
+<title>All Time High | Technik und Live-Handel</title>
+<meta name="description" content="All Time High ist eine Windows-App für Aktien: Screener, historisches Screening und Backtester, dazu Strategievorlagen aus der Hall of Fame. Live handeln über dein eigenes Konto geht, ist aber kein Muss.">
+<link rel="icon" type="image/png" href="../../favicon-32.png">
+<link rel="stylesheet" href="../../schrift/schrift.css">
+<style>
+:root{
+--bg:#0a0f10;--bg2:#0d1314;--ink:#e7eced;--muted:#d6dddf;--dim:#b1bbbd;
+--teal:#40C6CC;--gold:#D8AE5E;--gold-hell:#f0cf8e;--green:#33C46F;--rot:#e0556b;
+--line:rgba(255,255,255,.08);--card:rgba(255,255,255,.025);--goldline:rgba(216,174,94,.28);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--ink);font-family:'Manrope',-apple-system,'Helvetica Neue',Arial,sans-serif;font-weight:400;line-height:1.62;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+h1,h2,h3{font-weight:300;letter-spacing:.005em;line-height:1.1}
+b,strong{font-weight:600;color:var(--ink)}
+.hg{color:var(--gold);font-weight:600}
+.wrap{max-width:1180px;margin:0 auto;padding:0 28px}
+.kicker{font-size:12.5px;letter-spacing:.4em;text-transform:uppercase;margin-bottom:20px;font-weight:600;color:var(--gold)}
+section{padding:110px 0;position:relative}
+.sec-head{max-width:720px;margin-bottom:56px}
+.sec-head.mid{margin-left:auto;margin-right:auto;text-align:center}
+.sec-head h2{font-size:clamp(30px,4.4vw,52px)}
+.sec-head p{color:var(--muted);margin-top:18px;font-size:17.5px}
+p{color:var(--muted)}
+::-webkit-scrollbar{width:10px}
+::-webkit-scrollbar-track{background:var(--bg)}
+::-webkit-scrollbar-thumb{background:rgba(216,174,94,.35);border-radius:10px}
+html{scrollbar-width:thin;scrollbar-color:rgba(216,174,94,.4) var(--bg)}
+
+/* Knoepfe */
+.btn{display:inline-block;padding:14px 30px;border-radius:40px;font-size:14px;letter-spacing:.05em;font-weight:600;cursor:pointer;border:1px solid transparent;transition:all .3s}
+.btn-gold{background:var(--gold);color:#1a1205}
+.btn-gold:hover{box-shadow:0 0 30px rgba(216,174,94,.5);transform:translateY(-1px)}
+.btn-ghost{border-color:var(--goldline);color:var(--ink)}
+.btn-ghost:hover{border-color:var(--gold);box-shadow:0 0 22px rgba(216,174,94,.22)}
+
+/* Offene Stellen im Entwurf: deutlich sichtbar, damit nichts Erfundenes live geht */
+.offen{outline:1.5px dashed rgba(240,207,142,.75);outline-offset:4px;border-radius:6px;position:relative}
+.offen-tag{display:inline-block;font-size:11px;letter-spacing:.14em;text-transform:uppercase;font-weight:700;color:#1a1205;background:var(--gold-hell);padding:2px 8px;border-radius:20px;vertical-align:middle;margin-left:8px}
+.entwurf{position:fixed;left:18px;bottom:18px;z-index:200;background:rgba(26,18,5,.92);border:1px solid var(--gold);color:var(--gold-hell);font-size:12.5px;font-weight:600;letter-spacing:.06em;padding:9px 16px;border-radius:30px;backdrop-filter:blur(8px)}
+
+/* Navigation */
+nav{position:fixed;inset:0 0 auto 0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:20px 28px;border-bottom:1px solid transparent;transition:background .35s,padding .35s,border-color .35s}
+nav.scrolled{background:rgba(10,15,16,.86);backdrop-filter:blur(14px);border-bottom-color:var(--line);padding:13px 28px}
+.logo{display:flex;align-items:center;gap:11px;font-family:'Anton',sans-serif;font-size:16px;letter-spacing:.22em;text-transform:uppercase}
+.logo img{width:28px;height:28px;border-radius:7px}
+.navlinks{display:flex;gap:30px;align-items:center}
+.navlinks a{color:var(--dim);font-size:14px;letter-spacing:.03em;transition:color .25s}
+.navlinks a:hover{color:var(--ink)}
+.navlinks .btn{color:#1a1205;padding:10px 22px}
+@media(max-width:900px){
+.navlinks a:not(.btn){display:none}
+nav,nav.scrolled{padding:12px 16px}
+.logo{font-size:12.5px;letter-spacing:.16em;white-space:nowrap;gap:9px}
+.logo img{width:24px;height:24px}
+.navlinks .btn{padding:9px 16px;font-size:12.5px;white-space:nowrap}
+.entwurf{font-size:11px;padding:7px 12px;left:10px;bottom:10px}
+}
+
+/* ===== Nutzen-Karten ===== */
+.grid-4{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+.grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.grid-2{display:grid;grid-template-columns:repeat(2,1fr);gap:22px}
+.karte{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:30px 26px;transition:border-color .3s,transform .3s}
+.karte:hover{border-color:var(--goldline);transform:translateY(-4px)}
+.karte .ic{width:44px;height:44px;border-radius:12px;display:flex;align-items:center;justify-content:center;background:rgba(216,174,94,.09);border:1px solid var(--goldline);margin-bottom:20px}
+.karte .ic svg{width:22px;height:22px}
+.karte .nr{font-size:12.5px;letter-spacing:.3em;color:var(--gold);font-weight:700;margin-bottom:12px}
+.karte h3{font-size:20px;font-weight:500;margin-bottom:10px}
+.karte p{font-size:15.5px}
+
+/* ===== App-Fenster (Windows) mit schwebender Ampel ===== */
+.zwei{display:grid;grid-template-columns:1fr 1fr;gap:70px;align-items:center}
+.zwei>*{min-width:0}
+.fenster-buehne{position:relative;perspective:1800px;padding:20px 0 60px}
+.fenster{background:#111617;border:1px solid rgba(255,255,255,.1);border-radius:12px;overflow:hidden;box-shadow:0 50px 100px -30px rgba(0,0,0,.95),0 0 100px -30px rgba(216,174,94,.28);transition:transform .8s cubic-bezier(.2,.7,.2,1);cursor:zoom-in}
+.fenster.kipp{transform:rotateY(-9deg) rotateX(3deg)}
+.fenster.kipp:hover{transform:rotateY(-3deg) rotateX(1deg)}
+.leiste{height:36px;display:flex;align-items:center;gap:10px;padding:0 0 0 14px;background:#0b0f10;border-bottom:1px solid rgba(255,255,255,.07);font-size:12.5px;color:var(--dim)}
+.leiste .app{width:14px;height:14px;border-radius:4px;background:linear-gradient(135deg,var(--gold-hell),#9c7a33)}
+.leiste .tit{flex:1;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.leiste .ktr{display:flex;height:100%}
+.leiste .ktr span{width:44px;height:100%;display:flex;align-items:center;justify-content:center}
+.leiste .ktr svg{width:10px;height:10px;stroke:var(--dim);stroke-width:1.2;fill:none}
+.fenster img{display:block;width:100%;height:auto}
+.schwebe{position:absolute;width:44%;left:-12%;bottom:0;z-index:3;animation:schweben 7s ease-in-out infinite}
+.schwebe .fenster{transform:rotateY(10deg) rotateX(2deg)}
+@keyframes schweben{0%,100%{transform:translateY(0)}50%{transform:translateY(-12px)}}
+.liste-nutzen{list-style:none;margin-top:28px}
+.liste-nutzen li{padding:16px 0;border-top:1px solid var(--line)}
+.liste-nutzen li:last-child{border-bottom:1px solid var(--line)}
+.liste-nutzen li>b{display:block;font-weight:600;font-size:16.5px;margin-bottom:4px}
+.liste-nutzen span{font-size:15.5px;color:var(--muted)}
+
+/* ===== Bots ===== */
+.bot{position:relative;overflow:hidden}
+.bot .kurve{height:90px;margin:4px 0 22px}
+.bot .kurve svg{width:100%;height:100%}
+.bot .eig{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px}
+.bot .eig span{font-size:13px;color:var(--dim);border:1px solid var(--line);border-radius:30px;padding:5px 12px}
+.ehrlich{margin-top:26px;border-left:2px solid var(--gold);padding:4px 0 4px 18px;max-width:820px}
+.ehrlich p{font-size:15.5px}
+
+/* ===== Sicherheit: Schema PC, Gateway, Broker ===== */
+#schutz{background:var(--bg2);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.schema{display:grid;grid-template-columns:1fr auto 1fr auto 1.15fr;align-items:center;gap:0;margin:10px 0 60px}
+.knoten{border:1px solid var(--line);border-radius:16px;padding:24px 22px;background:var(--card);text-align:center;transition:all .7s}
+.knoten .t{font-size:12.5px;letter-spacing:.24em;text-transform:uppercase;color:var(--dim);font-weight:700;margin-bottom:8px}
+.knoten h3{font-size:20px;font-weight:500}
+.knoten .st{display:inline-flex;align-items:center;gap:8px;margin-top:12px;font-size:13.5px;color:var(--muted)}
+.lampe{width:9px;height:9px;border-radius:50%;background:var(--green);box-shadow:0 0 10px rgba(51,196,111,.8);transition:all .6s}
+.knoten.broker{border-color:var(--goldline);background:linear-gradient(160deg,rgba(216,174,94,.10),rgba(255,255,255,.02));box-shadow:0 0 60px -20px rgba(216,174,94,.4)}
+.stops{display:flex;gap:6px;justify-content:center;margin-top:14px}
+.stops i{font-style:normal;font-size:11.5px;font-weight:700;letter-spacing:.06em;color:#1a1205;background:var(--gold);border-radius:6px;padding:3px 7px}
+.linie{width:70px;height:2px;position:relative;background:rgba(255,255,255,.1);overflow:hidden}
+.linie:after{content:"";position:absolute;top:0;left:-40%;width:40%;height:100%;background:linear-gradient(90deg,transparent,var(--gold),transparent);animation:fluss 2.2s linear infinite}
+@keyframes fluss{to{left:100%}}
+.schema.pc-aus .knoten.pc{opacity:.38;filter:grayscale(1)}
+.schema.pc-aus .knoten.pc .lampe{background:#555;box-shadow:none}
+.schema.pc-aus .linie.a:after{animation:none;opacity:0}
+.schema .zustand{font-size:13.5px;color:var(--dim)}
+.schema-text{text-align:center;margin:-30px auto 60px;max-width:700px;font-size:16.5px}
+.schema-text .aus{display:none}
+.pc-aus-text .schema-text .an{display:none}
+.pc-aus-text .schema-text .aus{display:inline}
+
+/* ===== Toepfe ===== */
+.toepfe{margin-top:34px}
+.balken{display:flex;height:64px;border-radius:14px;overflow:hidden;border:1px solid var(--line)}
+.balken div{display:flex;flex-direction:column;justify-content:center;padding:0 16px;font-size:13px;color:#1a1205;font-weight:700;width:0;transition:width 1.4s cubic-bezier(.2,.7,.2,1);white-space:nowrap;overflow:hidden}
+.balken div small{font-weight:500;font-size:12px;opacity:.8}
+.balken .a{background:var(--gold)}
+.balken .b{background:#b8913f}
+.balken .c{background:#8c6d2c;color:#f3e7cc}
+.balken .frei{background:repeating-linear-gradient(135deg,rgba(255,255,255,.04) 0 8px,transparent 8px 16px);color:var(--dim)}
+.toepfe.da .a{width:40%}.toepfe.da .b{width:30%}.toepfe.da .c{width:20%}.toepfe.da .frei{width:10%}
+.balken-fuss{display:flex;justify-content:space-between;margin-top:10px;font-size:13px;color:var(--dim)}
+.beispiel{margin-top:30px;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:22px 24px}
+.beispiel .z{display:flex;justify-content:space-between;gap:16px;padding:9px 0;border-bottom:1px solid var(--line);font-size:15px;color:var(--muted)}
+.beispiel .z:last-child{border-bottom:0}
+.beispiel .z b{color:var(--gold-hell);font-weight:600;white-space:nowrap}
+
+/* ===== Voraussetzungen ===== */
+.nicht{margin-top:26px;display:flex;flex-wrap:wrap;gap:10px;align-items:center;font-size:14.5px;color:var(--dim)}
+.nicht span{border:1px solid rgba(224,85,107,.35);color:#f1b3bf;border-radius:30px;padding:5px 13px;font-size:13.5px}
+
+/* ===== Preis ===== */
+#preis{background:var(--bg2);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.preise{display:grid;grid-template-columns:1.1fr .9fr;gap:24px;max-width:1000px;margin:0 auto}
+.preise.einzeln{grid-template-columns:1fr;max-width:600px}
+.preis{border:1px solid var(--line);border-radius:20px;padding:40px 36px;background:var(--card);position:relative}
+.preis.haupt{border-color:var(--goldline);background:linear-gradient(165deg,rgba(216,174,94,.12),rgba(255,255,255,.015) 60%);box-shadow:0 0 90px -30px rgba(216,174,94,.45)}
+.preis .badge{position:absolute;top:-13px;left:36px;background:var(--gold);color:#1a1205;font-size:11.5px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;padding:5px 14px;border-radius:20px}
+.preis h3{font-size:26px;font-weight:400}
+.preis .betrag{font-size:46px;font-weight:200;margin:16px 0 6px;color:var(--ink)}
+.preis .betrag small{font-size:16px;color:var(--dim);font-weight:400}
+.preis .claim{font-size:15.5px;color:var(--muted);margin-bottom:22px}
+.preis ul{list-style:none;margin-bottom:30px}
+.preis li{position:relative;padding:8px 0 8px 28px;font-size:15px;color:var(--muted);border-bottom:1px solid var(--line)}
+.preis li:before{content:"";position:absolute;left:2px;top:15px;width:12px;height:7px;border-left:2px solid var(--gold);border-bottom:2px solid var(--gold);transform:rotate(-45deg)}
+.preis .btn{width:100%;text-align:center}
+.bald{text-align:center;border:1px solid var(--goldline);border-radius:40px;padding:14px 20px;font-size:14px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--gold-hell);background:rgba(216,174,94,.07)}
+.umschalter{display:inline-flex;margin:20px 0 4px;padding:4px;border:1px solid var(--goldline);border-radius:40px;background:rgba(0,0,0,.25)}
+.umschalter button{white-space:nowrap;font:inherit;font-size:13.5px;font-weight:600;color:var(--dim);background:transparent;border:0;border-radius:40px;padding:9px 18px;cursor:pointer;transition:all .25s}
+.umschalter button em{font-style:normal;font-size:11.5px;font-weight:700;color:var(--gold);margin-left:6px}
+.umschalter button.an{background:var(--gold);color:#1a1205}
+.umschalter button.an em{color:#1a1205;opacity:.7}
+.preis-info{font-size:14px;color:var(--gold-hell);margin-bottom:14px}
+.versteckt{display:none!important}
+.preis .klein{font-size:13px;color:var(--dim);margin-top:14px;text-align:center}
+.preis-vertrauen{text-align:center;margin-top:34px;font-size:15px;color:var(--dim)}
+
+/* ===== Beta + FAQ + Rechtliches ===== */
+.beta{display:grid;grid-template-columns:auto 1fr;gap:26px;align-items:start;border:1px solid var(--goldline);border-radius:18px;padding:30px 32px;background:linear-gradient(160deg,rgba(216,174,94,.08),transparent 70%);max-width:960px;margin:0 auto}
+.beta .tag{font-size:12.5px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:#1a1205;background:var(--gold);padding:6px 14px;border-radius:20px;white-space:nowrap}
+.beta h3{font-size:22px;font-weight:400;margin-bottom:8px}
+.beta p{font-size:15.5px}
+.beta p+p{margin-top:10px}
+.faq{max-width:860px;margin:0 auto}
+.faq details{border-bottom:1px solid var(--line)}
+.faq summary{list-style:none;cursor:pointer;padding:22px 40px 22px 0;font-size:17.5px;font-weight:500;position:relative}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary:after{content:"+";position:absolute;right:4px;top:18px;font-size:24px;font-weight:300;color:var(--gold);transition:transform .3s}
+.faq details[open] summary:after{transform:rotate(45deg)}
+.faq .ans{padding:0 0 24px;color:var(--muted);font-size:15.5px;max-width:760px}
+.compliance{max-width:960px;margin:0 auto;border:1px solid var(--line);border-radius:18px;padding:36px 34px;background:var(--card)}
+.compliance h3{font-size:22px;font-weight:400;margin-bottom:12px}
+.compliance p{font-size:15px}
+.notgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:22px 0}
+.notgrid div{font-size:14px;color:var(--dim);border:1px solid var(--line);border-radius:10px;padding:10px 14px}
+.legal{border-top:1px solid var(--line);background:var(--bg2);padding:38px 0 90px}
+.legal p{color:var(--dim);font-size:13.5px;line-height:1.75;max-width:980px}
+.legal p+p{margin-top:14px}
+.legal a{color:var(--muted)}
+.legal a:hover{color:var(--gold)}
+.schluss{text-align:center;padding:120px 0;background:radial-gradient(ellipse at 50% 100%,rgba(216,174,94,.14),transparent 60%)}
+.schluss h2{font-size:clamp(32px,4.6vw,56px)}
+.schluss p{max-width:620px;margin:20px auto 34px;font-size:17.5px}
+
+/* Grossansicht */
+.gross{position:fixed;inset:0;background:rgba(5,7,8,.95);display:none;align-items:center;justify-content:center;z-index:300;padding:28px;cursor:zoom-out}
+.gross.auf{display:flex}
+.gross img{max-width:100%;max-height:100%;border-radius:10px;box-shadow:0 0 80px rgba(0,0,0,.8)}
+
+/* Scroll-Reveal (Hausstandard Baustein 2) */
+.reveal{opacity:0;will-change:opacity,transform,filter}
+
+@media(max-width:900px){
+section{padding:76px 0}
+.hero{padding-top:120px}
+.fakten,.grid-4,.grid-3,.grid-2,.zwei,.preise,.notgrid{grid-template-columns:1fr}
+.fakten{grid-template-columns:1fr 1fr}
+.story{grid-template-columns:1fr;gap:0}
+.story-geraet{top:58px;z-index:5;background:var(--bg2);padding:12px 6% 16px;order:-1;margin:0 -28px;box-shadow:0 18px 24px -12px var(--bg2)}
+.story-text .schritt,.story-text .schritt:first-child,.story-text .schritt:last-child{min-height:62vh;padding-top:0;justify-content:center}
+.punkte,.geraet-label{display:none}
+.schema{grid-template-columns:1fr;gap:12px}
+.linie{width:2px;height:34px;margin:0 auto}
+.linie:after{left:0;top:-40%;width:100%;height:40%;background:linear-gradient(180deg,transparent,var(--gold),transparent);animation:fluss2 2.2s linear infinite}
+@keyframes fluss2{to{top:100%}}
+.schwebe{width:52%;left:-4%}
+.beta{grid-template-columns:1fr}
+.vscene{height:auto}
+.vsticky{position:relative;height:auto;min-height:0;overflow:visible;display:flex;flex-direction:column;gap:30px;padding:72px 0}
+.vbg{position:relative;inset:auto;width:100%;height:auto;aspect-ratio:16/9;border-radius:14px}
+.vshade{display:none}
+.vtext{padding:0 22px}
+.vtext .inner{max-width:none}
+.balken div{padding:0 8px;font-size:11.5px}
+.balken div small{display:none}
+.umschalter button{padding:8px 13px;font-size:12.5px}
+.umschalter button em{font-size:10.5px;margin-left:4px}
+.preis{padding:36px 22px}
+}
+section{padding:100px 0}
+.entwurf{position:fixed;left:18px;bottom:18px;z-index:200;background:rgba(26,18,5,.92);border:1px solid var(--gold);color:var(--gold-hell);font-size:12.5px;font-weight:600;letter-spacing:.06em;padding:9px 16px;border-radius:30px}
+.t-kopf{padding:170px 0 30px}.t-kopf h1{font-size:clamp(36px,5vw,62px);font-weight:300}.t-kopf p{font-size:18px;margin-top:20px;max-width:680px}
+</style>
+</head>
+<body>
+<nav id="nav">
+  <a class="logo" href="../" aria-label="Zur Hauptseite"><img src="../../apple-touch-icon.png" alt="">Kaspareit Trading</a>
+  <div class="navlinks">
+    <a href="../">Übersicht</a>
+    <a href="#schutz">Stops beim Broker</a>
+    <a href="#voraussetzungen">Was du brauchst</a>
+    <a href="../#preis" class="btn btn-gold">Preis ansehen</a>
+  </div>
+</nav>
+<section class="t-kopf"><div class="wrap reveal"><div class="kicker">Technik und Live-Handel</div><h1>Für alle, die live handeln wollen.</h1><p>Screener und Backtester brauchen das alles nicht. Wer All Time High mit seinem eigenen Konto bei Interactive Brokers verbindet, findet hier, wie der Live-Handel funktioniert und was er dafür braucht.</p></div></section>
+<!-- ===== SICHERHEIT ===== -->
+<section id="schutz">
+  <div class="wrap" id="schutzWrap">
+    <div class="sec-head mid reveal">
+      <div class="kicker">Sicherheit</div>
+      <h2>Deine Stops liegen beim Broker,<br>auch wenn dein PC aus ist.<br><span style="font-size:.5em;font-weight:400">Bei Kurslücken können Verluste größer ausfallen.</span></h2>
+      <p>Die Absicherung liegt nicht auf deinem Rechner, sondern <b class="hg">beim Broker selbst</b>.</p>
+    </div>
+    <div class="schema" id="schema">
+      <div class="knoten pc"><div class="t">Dein PC</div><h3>All Time High</h3><div class="st"><span class="lampe"></span><span class="zustand" id="pcZustand">läuft</span></div></div>
+      <div class="linie a"></div>
+      <div class="knoten"><div class="t">Verbindung</div><h3>IB Gateway</h3><div class="st">kostenlos von Interactive Brokers</div></div>
+      <div class="linie"></div>
+      <div class="knoten broker"><div class="t">Dein Konto</div><h3>Interactive Brokers</h3><div class="stops"><i>STOP</i><i>STOP</i><i>STOP</i></div><div class="st"><span class="lampe"></span>Stops aktiv</div></div>
+    </div>
+    <p class="schema-text reveal"><span class="an">Der Bot schickt jede Stop-Order <b class="hg">direkt an Interactive Brokers</b>.</span><span class="aus">PC aus, Internet weg? <b class="hg">Die Stops liegen weiter beim Broker</b>. Bei Kurslücken können Verluste größer ausfallen.</span></p>
+    <div class="grid-4">
+      <div class="karte reveal" style="--i:0"><h3>Echte Stops</h3><p>Jede Position bekommt eine Stop-Order direkt bei Interactive Brokers, sofern du einen Stop eingestellt hast. Sie löst während der regulären Handelszeit aus.</p></div>
+      <div class="karte reveal" style="--i:1"><h3>Equity-Schutz</h3><p>Der Equity-Schutz wacht über deinen Kontowert. Fällt er unter deine Schwelle, warnt er dich, auf Wunsch auch per E-Mail. Alles schließen lässt er nur, wenn du das einschaltest.</p></div>
+      <div class="karte reveal" style="--i:2"><h3>Bestandsabgleich</h3><p>Alle 90 Sekunden prüft die App, ob Stops und Bestand zusammenpassen.</p></div>
+      <div class="karte reveal" style="--i:3"><h3>Verbindung weg?</h3><p>Dann eröffnet die App keine neuen Positionen. Die Stops beim Broker bleiben aktiv.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== TOEPFE ===== -->
+<section>
+  <div class="wrap zwei">
+    <div class="reveal l">
+      <div class="kicker">Kapital im Griff</div>
+      <h2 style="font-size:clamp(30px,4.2vw,48px)">Ein Konto.<br>Mehrere Töpfe.</h2>
+      <p style="margin-top:18px;font-size:17px">Du teilst dein Konto in <b class="hg">Handelspläne</b> auf. Jeder Plan bekommt einen festen Anteil deines Kapitals, eigene Aktien und eine eigene Auswertung. So laufen mehrere Ansätze sauber getrennt nebeneinander.</p>
+      <p style="margin-top:14px;font-size:15.5px;color:var(--dim)">Ab Werk nutzen alle Pläne zusammen nie mehr als 100 Prozent deines Kontos. Mehr nur, wenn du den Investitionsrahmen bewusst erhöhst.</p>
+    </div>
+    <div class="reveal r">
+      <div class="toepfe" id="toepfe">
+        <div class="balken">
+          <div class="a">Topf A<small>Aktienbot · 40 %</small></div>
+          <div class="b">Topf B<small>Grid-Bot · 30 %</small></div>
+          <div class="c">Topf C<small>20 %</small></div>
+          <div class="frei">frei</div>
+        </div>
+        <div class="balken-fuss"><span>Beispiel für eine Aufteilung</span><span>100 % = dein Konto</span></div>
+      </div>
+      <div class="beispiel">
+        <div class="z"><span>Kapital je Einstieg</span><b>2 % des Topfes</b></div>
+        <div class="z"><span>Einstiege je Aktie</span><b>höchstens 5</b></div>
+        <div class="z"><span>Die App zeigt dir sofort</span><b>den Betrag in Euro</b></div>
+        <div class="z"><span>Passen zwei Einstellungen nicht zusammen</span><b>warnt sie vorher</b></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== NEU DABEI (Stand ATH 0.9.65, 14.11.2026) ===== -->
+<section id="neu" style="padding-top:40px">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="kicker">Neu dabei</div>
+      <h2>Mehr Werkzeuge.<br>Die Entscheidung bleibt bei dir.</h2>
+      <p>Diese Funktionen sind mit den letzten Updates dazugekommen.</p>
+    </div>
+    <div class="grid-4">
+      <div class="karte reveal" style="--i:0"><div class="nr">BACKTEST</div><h3>Strategie-Verbund</h3><p>Du testest mehrere deiner Strategien gemeinsam und siehst, wie sie im Verbund zusammengespielt hätten. <b class="hg">Hypothetischer Backtest</b> mit US-Aktien ab 2009.</p></div>
+      <div class="karte reveal" style="--i:1"><div class="nr">LIVE UMSETZEN</div><h3>Vom Backtest in den Plan</h3><p>Eine Strategie aus dem Backtester übernimmst du mit deinem Klick auf „Live umsetzen“ in einen Handelsplan. Neue Listen holst du selbst.</p></div>
+      <div class="karte reveal" style="--i:2"><div class="nr">MÄRKTE</div><h3>USA und Xetra in einem Plan</h3><p>US-Aktien und deutsche Aktien über Xetra laufen auf Wunsch gemischt in einem Handelsplan. Ohne aktuellen Wechselkurs kauft der Plan nicht.</p></div>
+      <div class="karte reveal" style="--i:3"><div class="nr">AKTIENBOT</div><h3>Preismarke „Aktiv ab“</h3><p>Je Aktie setzt du eine Preismarke. Erst wenn der Kurs darüber schließt, darf der Aktienbot nach seiner Regel kaufen.</p></div>
+      <div class="karte reveal" style="--i:0"><div class="nr">EINSTELLUNGEN</div><h3>Profi-Einstellung</h3><p>Ein Haken in den Einstellungen blendet weitere Einstellungen ein. Ohne Haken bleibt die Oberfläche einfach.</p></div>
+      <div class="karte reveal" style="--i:1"><div class="nr">SICHERUNG</div><h3>Handelspläne zurückholen</h3><p>All Time High sichert deine Handelspläne jeden Tag. Aus einer Sicherung holst du sie bei Bedarf zurück.</p></div>
+      <div class="karte reveal" style="--i:2"><div class="nr">WINDOWS</div><h3>Automatischer Start</h3><p>Auf Wunsch startet All Time High nach einem Windows-Neustart zusammen mit dem IB Gateway von selbst wieder. Die App prüft, ob alles dafür bereit ist.</p></div>
+      <div class="karte reveal" style="--i:3"><div class="nr">UPDATES</div><h3>Nur per Klick</h3><p>Updates installierst du selbst. Vorher zeigt dir die App, was sich am Handel deiner laufenden Pläne ändert.</p></div>
+    </div>
+    <div class="fenster-buehne reveal" style="max-width:960px;margin:34px auto 0;padding:0">
+      <div class="fenster" data-gross="../../ath-galerie/gross/ath08_verbund_0965.jpg">
+        <div class="leiste"><span class="app"></span><span class="tit">All Time High · Backtest Strategie-Verbund</span></div>
+        <img src="../../ath-galerie/gross/ath08_verbund_0965.jpg" alt="Backtest Strategie-Verbund: Kapital, Strategien wählen, Gewichtung und Rebalancing" loading="lazy" width="1552" height="873">
+      </div>
+    </div>
+    <p class="reveal" style="margin-top:22px;font-size:13px;color:var(--dim)">Backtests rechnen auf vergangenen Kursdaten, die Ergebnisse sind hypothetisch. Live-Ergebnisse können vom Backtest abweichen, etwa durch Ausführung, Kurslücken, Gebühren und Wechselkurse.</p>
+  </div>
+</section>
+
+<!-- ===== VORAUSSETZUNGEN ===== -->
+<section id="voraussetzungen" style="padding-top:40px">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="kicker">Bevor es losgeht</div>
+      <h2>Das brauchst du</h2>
+      <p>Vier Dinge, dann kann es losgehen. Die Einrichtung zeigen wir dir Schritt für Schritt.</p>
+    </div>
+    <div class="grid-4">
+      <div class="karte reveal" style="--i:0"><div class="nr">01</div><h3>Konto bei IB</h3><p>Ein eigenes Konto bei <b class="hg">Interactive Brokers</b>.</p></div>
+      <div class="karte reveal" style="--i:1"><div class="nr">02</div><h3>Windows-PC</h3><p>Der während der Handelszeiten läuft. Viele nutzen dafür einen kleinen Server oder Mini-PC.</p></div>
+      <div class="karte reveal" style="--i:2"><div class="nr">03</div><h3>IB Gateway</h3><p>Das kostenlose Verbindungsprogramm von Interactive Brokers.</p></div>
+      <div class="karte reveal" style="--i:3"><div class="nr">04</div><h3>Marktdaten</h3><p>Ein Marktdaten-Abo bei deinem Broker für jede Börse, an der du handeln willst. Das buchst du direkt dort.</p></div>
+    </div>
+    <div class="nicht reveal">Nicht unterstützt: <span>Mac, Linux, Handy</span><span>comdirect</span><span>Trade Republic</span><span>WH SelfInvest</span></div>
+    <div class="ehrlich reveal"><p><b>Lieber mit Hilfe?</b> Mit dem Einrichtungsservice richten wir alles gemeinsam mit dir ein, pauschal für <b class="hg">99 € inkl. USt.</b>.</p></div>
+    <p class="reveal" style="text-align:center;margin-top:22px">Unsicher, ob dein Konto oder dein Rechner passt? <a href="#chat" data-ktchat data-ktchat-frage="Passt mein Setup für All Time High? Mein Broker und mein Rechner: " style="color:var(--gold)">Frag unseren Assistenten</a>, er antwortet sofort.</p>
+  </div>
+</section>
+
+<!-- ===== LAUFEND WEITERENTWICKELT (ersetzt Beta-Kasten, 14.11.2026) ===== -->
+<section style="padding-bottom:40px">
+  <div class="wrap">
+    <div class="beta reveal sc">
+      <div class="tag">Wichtig</div>
+      <div>
+        <h3>Laufend weiterentwickelt</h3>
+        <p>All Time High wird laufend weiterentwickelt. Updates können auch ändern, wie deine Pläne handeln, du siehst das vor jeder Installation. Unsere Empfehlung: <b class="hg">Starte mit einem überschaubaren Betrag</b> und teste neue Einstellungen zuerst auf einem Papierkonto bei Interactive Brokers.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="schluss"><div class="wrap reveal"><h2>Zurück zur Übersicht</h2><p>Finden, prüfen, übernehmen, und wenn du willst, live handeln.</p><a href="../#preis" class="btn btn-gold">Preis ansehen</a></div></section>
+<!-- ===== COMPLIANCE ===== -->
+<section style="padding-top:0">
+  <div class="wrap">
+    <div class="compliance reveal sc">
+      <h3>Was wir anbieten und was nicht</h3>
+      <p>Kaspareit Trading betreibt kein Portfoliomanagement und keine Vermögensverwaltung im Sinne von MiFID II. All Time High ist Handelssoftware zur Eigenanwendung. Du betreibst sie auf deinem eigenen Konto bei deinem eigenen Broker.</p>
+      <div class="notgrid">
+        <div>Wir verwalten kein Kundengeld</div>
+        <div>Wir haben keinen Zugriff auf Konto oder Zugangsdaten</div>
+        <div>Wir platzieren keine Trades in deinem Namen</div>
+        <div>Wir geben keine Anlageberatung</div>
+        <div>Wir geben keine Steuerberatung</div>
+        <div>Wir versprechen keine Gewinne</div>
+      </div>
+      <p>Die Werkzeuge in der App sind Analyse-Hilfen, keine Anlageempfehlung. Welche Aktien in deinem Depot landen, entscheidest du selbst.</p>
+    </div>
+  </div>
+</section>
+
+<div class="legal">
+  <div class="wrap">
+    <p><b>Risikohinweis:</b> Der Handel mit Finanzinstrumenten ist mit erheblichen Risiken verbunden und kann zum Totalverlust des eingesetzten Kapitals führen. Vergangene Ergebnisse, Backtests und Simulationen sind kein verlässlicher Indikator für zukünftige Ergebnisse. Die Bildschirmfotos zeigen die Software, keine Ergebnisse von Kundenkonten. Kaspareit Trading erbringt keine Anlageberatung, keine Anlagevermittlung und keine Vermögensverwaltung. Kontakt: info@kaspareit-trading.de</p>
+    <p style="margin:18px 0"><a class="kuendigen-knopf" href="https://www.copecart.com/buyer_order_overview_requests/new" target="_blank" rel="noopener" style="display:inline-block;max-width:100%;box-sizing:border-box;padding:12px 24px;border:1px solid #D8AE5E;border-radius:8px;color:#D8AE5E;font-size:15px;font-weight:500;line-height:1.3;text-align:center;text-decoration:none;white-space:normal">Verträge hier kündigen</a></p>
+<p>© 2026 Kaspareit-Trading LLC &nbsp;·&nbsp; <a href="https://start.kaspareit-trading.com/ath/impressum/">Impressum</a> &nbsp;·&nbsp; <a href="https://start.kaspareit-trading.com/ath/datenschutz/">Datenschutz</a> &nbsp;·&nbsp; <a href="https://start.kaspareit-trading.com/ath/agb/">AGB</a> &nbsp;·&nbsp; <a href="https://start.kaspareit-trading.com/nutzungsbedingungen/">Nutzungsbedingungen</a></p>
+  </div>
+</div>
+
+<div class="gross" id="gross"><img alt=""></div>
+<script>
+/* Navigation bekommt beim Scrollen einen Hintergrund */
+(function(){var n=document.getElementById('nav');function f(){n.classList.toggle('scrolled',scrollY>30);}addEventListener('scroll',f,{passive:true});f();})();
+
+/* Scroll-Reveal (Hausstandard Baustein 2): Bewegung an die Scroll-Position gekoppelt */
+(function(){
+  var els=[].slice.call(document.querySelectorAll('.reveal')).map(function(el){
+    var d='up';if(el.classList.contains('l'))d='left';else if(el.classList.contains('r'))d='right';else if(el.classList.contains('sc'))d='scale';
+    return {el:el,d:d,i:parseFloat(getComputedStyle(el).getPropertyValue('--i'))||0};
+  });
+  var ease=function(t){return t<.5?2*t*t:1-Math.pow(-2*t+2,2)/2;};
+  var mobil=matchMedia('(max-width:900px)');
+  function apply(){
+    var vh=innerHeight;
+    els.forEach(function(o){
+      var r=o.el.getBoundingClientRect(),st=vh*.97,en=vh*.55,p=(st-o.i*vh*.04-r.top)/(st-en);
+      p=Math.min(1,Math.max(0,p));var e=ease(p),tx=0,ty=0,sc=1,d=o.d;
+      if(mobil.matches&&(d==='left'||d==='right'))d='up';
+      if(d==='up')ty=(1-e)*50;else if(d==='left')tx=(1-e)*-80;else if(d==='right')tx=(1-e)*80;else if(d==='scale')sc=.9+e*.1;
+      o.el.style.opacity=e;o.el.style.transform='translate('+tx+'px,'+ty+'px) scale('+sc+')';o.el.style.filter=e>.99?'none':'blur('+((1-e)*5)+'px)';
+    });
+  }
+  var t=false;addEventListener('scroll',function(){if(!t){requestAnimationFrame(function(){apply();t=false;});t=true;}},{passive:true});
+  addEventListener('resize',apply);apply();
+})();
+
+/* Sicherheit: Mitte der Sektion schaltet den PC symbolisch aus */
+(function(){
+  var s=document.getElementById('schema'),w=document.getElementById('schutzWrap'),z=document.getElementById('pcZustand');
+  function f(){
+    var r=s.getBoundingClientRect(),aus=r.top<innerHeight*.42;
+    s.classList.toggle('pc-aus',aus);w.classList.toggle('pc-aus-text',aus);z.textContent=aus?'aus':'läuft';
+  }
+  addEventListener('scroll',f,{passive:true});f();
+})();
+
+/* Toepfe-Balken fuellt sich beim Sichtbarwerden */
+(function(){
+  var t=document.getElementById('toepfe');
+  if(!('IntersectionObserver' in window)){t.classList.add('da');return;}
+  var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){t.classList.add('da');io.disconnect();}});},{threshold:.5});
+  io.observe(t);
+})();
+
+/* Grossansicht fuer alle gerahmten Bildschirmfotos */
+(function(){
+  var g=document.getElementById('gross'),gi=g.querySelector('img');
+  document.querySelectorAll('[data-gross]').forEach(function(el){
+    el.addEventListener('click',function(ev){ev.stopPropagation();gi.src=el.getAttribute('data-gross');g.classList.add('auf');});
+  });
+  g.addEventListener('click',function(){g.classList.remove('auf');});
+  addEventListener('keydown',function(e){if(e.key==='Escape')g.classList.remove('auf');});
+})();
+</script>
+<script src="https://chat.kaspareit-trading.com:8443/widget.js" data-bot="ath_verkauf" data-titel="All Time High Assistent" data-gruss="Hi, ich bin der Assistent zu All Time High. Frag mich, was die Software kann, was du daf&uuml;r brauchst oder wie Kauf und Start ablaufen. Ich bin ein KI-Assistent und antworte automatisch. F&uuml;r R&uuml;ckfragen an einen Menschen schreib an info@kaspareit-trading.de." defer></script>
+</body>
+</html>
