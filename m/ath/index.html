@@ -125,9 +125,28 @@ code{font-family:Consolas,monospace;font-size:13.5px;color:var(--gold);backgroun
   .einst b{min-width:0}
   section{padding:64px 0}
 }
+.ath-menue{position:sticky;top:0;z-index:50;background:rgba(10,15,16,.94);border-bottom:1px solid var(--goldline);backdrop-filter:blur(8px)}
+.ath-menue .wrap{display:flex;flex-wrap:wrap;gap:6px 22px;align-items:center;padding-top:12px;padding-bottom:12px}
+.ath-menue b{color:var(--gold);letter-spacing:.12em;font-size:13px;text-transform:uppercase;margin-right:auto}
+.ath-menue a{color:var(--ink);text-decoration:none;font-size:14px}
+.ath-menue a:hover{color:var(--gold)}
+.ath-menue.versteckt,.ath-menue .versteckt{display:none}
 </style>
 </head>
 <body>
+
+<!-- ATH-MENUE (nur reine ATH-Kunden, Entscheidung Alex 26.11.2026): eigenes Menue ohne CFD-Punkte -->
+<nav class="ath-menue nur-ath versteckt" aria-label="All Time High">
+  <div class="wrap">
+    <b>All Time High</b>
+    <a href="#zugang">Mein Zugang</a>
+    <a href="#einrichtung">Einrichtung</a>
+    <a href="#anleitung">Anleitung</a>
+    <a href="https://www.kaspareit-trading.com/hall-of-fame" target="_top" class="versteckt" id="athMenueHof">Hall of Fame</a>
+    <a href="#hilfe" id="athMenueHilfe">Hilfe</a>
+    <a href="https://www.kaspareit-trading.com/logout" target="_top">Abmelden</a>
+  </div>
+</nav>
 
 <!-- HERO -->
 <header class="hero">
@@ -671,7 +690,7 @@ code{font-family:Consolas,monospace;font-size:13.5px;color:var(--gold);backgroun
 <hr class="trenner">
 
 <!-- HILFE -->
-<section>
+<section id="hilfe">
   <div class="wrap">
     <div class="sec-head reveal">
       <div class="kicker">Hilfe</div>
@@ -765,6 +784,7 @@ code{font-family:Consolas,monospace;font-size:13.5px;color:var(--gold);backgroun
     }
     /* Hall of Fame (18.11.2026): Knopf nur, wenn das Backend die Berechtigung meldet (Premium oder Rolle „All Time High“)
        und der Knopf freigegeben ist (KNOPF_AUF_ATH_SEITE in kaspareit-velo/src/backend/hallOfFameDateien.js). */
+    var hofMenue=document.getElementById('athMenueHof'); if(hofMenue) hofMenue.classList.toggle('versteckt',!(nurAth && d.hallOfFame===true));
     if((nurAth||d.stufe==='premium') && d.hallOfFame===true){
       knopf.appendChild(link('https://www.kaspareit-trading.com/hall-of-fame','Hall of Fame','btn-ghost',false));
     }
