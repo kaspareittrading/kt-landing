@@ -255,6 +255,22 @@ section{padding:120px 0}
 .schritt h3{color:var(--ink)}
 .preis.haupt{background:linear-gradient(165deg,rgba(216,174,94,.12),rgba(255,255,255,.015) 60%)}
 .fenster{border-color:var(--goldline)}
+/* Entwurf 26.11.: Kasten „So startest du“ im Preisabschnitt */
+.start-kasten{max-width:760px;margin:56px auto 0;border:1px solid var(--goldline);border-radius:18px;padding:34px 32px;background:linear-gradient(165deg,rgba(216,174,94,.08),rgba(255,255,255,.015) 60%)}
+.start-kasten h3{font-size:clamp(24px,2.6vw,32px);font-weight:300;margin-bottom:10px}
+.start-kern{font-size:16.5px;margin-bottom:18px}
+.start-schritte{list-style:none;counter-reset:s;margin:0}
+.start-schritte li{counter-increment:s;position:relative;padding:12px 70px 12px 40px;border-bottom:1px solid var(--line);color:var(--muted);font-size:15.5px}
+.start-schritte li:before{content:counter(s);position:absolute;left:0;top:12px;width:26px;height:26px;border-radius:50%;border:1px solid var(--gold);color:var(--gold);font-size:13px;font-weight:600;display:flex;align-items:center;justify-content:center}
+.start-schritte .zeit{position:absolute;right:0;top:13px;font-size:13px;color:var(--gold-hell);white-space:nowrap}
+.start-optional{margin-top:16px;font-size:14.5px;color:var(--dim)}
+.start-optional a{color:var(--gold);text-decoration:underline}
+.start-zeit{margin-top:8px;font-size:13px;color:var(--dim)}
+.video-platz{margin-top:22px;border:1px dashed var(--goldline);border-radius:14px;aspect-ratio:16/9;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;background:#0d1314;text-align:center;padding:20px}
+.video-platz span{font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--gold)}
+.video-platz b{font-size:20px;font-weight:300;color:var(--ink)}
+.video-platz small{font-size:13px;color:var(--dim)}
+@media(max-width:900px){.start-kasten{padding:26px 20px}.start-schritte li{padding-right:0}.start-schritte .zeit{position:static;display:block;margin-top:4px}}
 /* 5. Live */
 .live{max-width:760px;margin:0 auto}
 .live h2{font-size:clamp(28px,3.6vw,44px)}
@@ -516,7 +532,7 @@ el.querySelectorAll('a[href="#bwBox"]').forEach(function(a){a.addEventListener('
         <div class="betrag" data-art="jahr">490,- €<small> / 12 Monate</small></div>
         <div class="betrag versteckt" data-art="monat">59,- €<small> / Monat</small></div>
         <div class="preis-info" data-art="jahr">Entspricht rund 41 € im Monat. Monatlich gezahlt wären es 708 € im Jahr.</div>
-        <div class="preis-info versteckt" data-art="monat">Flexibel Monat für Monat. Mit dem Jahrespreis sparst du 218 €.</div>
+        <div class="preis-info versteckt" data-art="monat">Zum Ausprobieren: Starte mit einem Monat für 59 €. Danach verlängert sich das Abo jeweils um einen Monat, bis du kündigst. Kündigen kannst du jederzeit zum Ende des bezahlten Monats.</div>
 <!-- BLACK-WEEK-START (2026): Block schaltet sich per Datum selbst ein und aus, Skript BLACK-WEEK unten -->
 <div class="bw-box" id="bwBox" hidden aria-label="Black Week">
 <div class="bw-kopf"><span class="bw-marke">Black Week</span><span class="bw-nur-aktiv">bis 30.11., 23:59 Uhr</span><span class="bw-nur-vorab">ab Sonntag, 22.11.2026</span></div>
@@ -542,6 +558,8 @@ el.querySelectorAll('a[href="#bwBox"]').forEach(function(a){a.addEventListener('
           <li>Regelmäßige Updates, du entscheidest, wann du installierst</li>
           <li>Support per Ticket und eigener Kanal im Discord</li>
         </ul>
+        <!-- Pflichtzeile Rechtsabteilung 26.11.2026 (Monat ausprobieren), nur in der Monats-Ansicht -->
+        <p class="kasse-hinweis versteckt" data-art="monat" style="margin:18px 0 0;padding:12px 14px;border:1px solid var(--goldline);border-radius:10px;font-size:14.5px;line-height:1.5;color:var(--ink);text-align:center">Wichtig: In der CopeCart-Kasse ist der Jahresplan (490 € für 12 Monate) vorausgewählt. Wenn du erst einen Monat ausprobieren willst, wähle dort „Abonnement 59,00 €/Monatlich“.</p>
         <div style="text-align:center;margin-top:14px"><a class="btn btn-gold" href="https://www.copecart.com/products/fed68880/checkout" rel="noopener">Jetzt Aktien-Trader starten</a></div>
         <p class="nb-hinweis" style="font-size:12.5px;line-height:1.5;color:var(--dim);max-width:640px;margin:14px auto 0;text-align:center">Für die Nutzung der Software gelten zusätzlich unsere <a href="https://start.kaspareit-trading.com/nutzungsbedingungen/" target="_blank" rel="noopener" style="color:var(--teal);text-decoration:underline">Nutzungsbedingungen</a>. Für Kauf, Zahlung, Kündigung und Widerruf gelten die Bedingungen von CopeCart.</p>
         <p class="klein">Preise inkl. USt. Jährlich im Voraus oder Monat für Monat. Das Abo verlängert sich automatisch, bis du kündigst, kündbar über CopeCart.</p>
@@ -549,6 +567,20 @@ el.querySelectorAll('a[href="#bwBox"]').forEach(function(a){a.addEventListener('
       </div>
     </div>
     <p class="preis-vertrauen reveal">Du handelst auf deinem eigenen Konto. Wir verwalten kein Geld und platzieren keine Trades in deinem Namen.</p>
+
+    <!-- ENTWURF 26.11.2026 (Nachtauftrag Vorstand): Kasten „So startest du“, Kernbotschaft von Alex freigegeben 26.11. (Vorstand); Zeitangaben und Video-Platz raus (ungemessen bzw. Video fehlt) -->
+    <div class="start-kasten offen reveal" id="start">
+      <h3>So startest du</h3>
+      <p class="start-kern">Finde Aktien mit System und prüfe deine Strategie an den Kursen der Vergangenheit, bevor du einen Euro einsetzt. <b class="hg">Laden. Nachrechnen. Anpassen.</b></p>
+      <ol class="start-schritte">
+        <li><b>Aktien-Trader kaufen.</b> Erst einmal ausprobieren? Die Kasse wählt den Jahresplan vor. Wähle dort „Abonnement 59,00 €/Monatlich“: 59 € für einen Monat. Danach verlängert sich das Abo jeweils um einen Monat für 59 €, bis du kündigst. Kündigen kannst du jederzeit zum Ende des bezahlten Monats.</li>
+        <li><b>Einmal auf kaspareit-trading.com anmelden,</b> mit der E-Mail-Adresse vom Kauf. Damit wird dein Zugang freigeschaltet.</li>
+        <li><b>All Time High herunterladen</b> aus dem Mitgliederbereich und unter Windows installieren.</li>
+        <li><b>In der App anmelden,</b> mit denselben Zugangsdaten.</li>
+        <li><b>Erste Vorlage laden und nachrechnen.</b> In den Einstellungen die Profi-Einstellung einschalten, eine Vorlage aus der Hall of Fame laden und im Backtester selbst nachrechnen. Beim ersten Mal lädt die App dafür die Kurse, das dauert eine Weile.</li>
+      </ol>
+      <p class="start-optional">Optional, wenn du live handeln willst: dein Konto bei Interactive Brokers verbinden. Mehr dazu unter <a href="technik/">Technik und Live-Handel</a>.</p>
+    </div>
   </div>
 </section>
 
@@ -563,7 +595,7 @@ el.querySelectorAll('a[href="#bwBox"]').forEach(function(a){a.addEventListener('
       <details><summary>Wie genau ist der Backtester?</summary><div class="ans">Der Backtest rechnet mit denselben Kauf- und Verkaufsregeln wie der Bot. Die Ausführung im echten Markt kann davon abweichen. Getestet werden derzeit US-Aktien mit Kursdaten ab 2009, deutsche Titel sind geplant. In den Backtestern für einzelne Aktien, Aktienkörbe und Screening-Strategien sind die Ordergebühren von Interactive Brokers (Tarif „Fixed“) und eine Slippage von 0,05 % je Seite ab Werk eingerechnet, per Schalter kannst du beides abstellen. Zinsen auf Bargeld und Ausschüttungen sind ab Werk nicht eingerechnet. Vergangene Ergebnisse sind kein verlässlicher Hinweis auf künftige Ergebnisse.</div></details>
       <details><summary>Was ist die Hall of Fame?</summary><div class="ans">Eine Sammlung von Strategievorlagen im Mitgliederbereich: 123 Strategie-Familien geprüft, 34 bestanden. Die Vorlagen wurden nach ihren Backtest-Ergebnissen ausgewählt. Alle Zahlen dort sind hypothetische Backtests auf vergangenen Kursdaten, keine echten Handelsergebnisse.</div></details>
       <details><summary>Läuft das auch auf dem Mac oder dem Handy?</summary><div class="ans">Nein, All Time High läuft nur unter Windows. Wenn du einen Mac hast, nimmst du einen Windows-Server oder einen Mini-PC.</div></details>
-      <details><summary>Wie lange läuft der Zugang und wie kündige ich?</summary><div class="ans">Aktien-Trader ist ein Abo. Beim Jahresabo zahlst du einmal im Jahr im Voraus, beim Monatsabo jeden Monat. Beides verlängert sich automatisch, bis du kündigst. Eine kostenlose Testphase gibt es nicht, das Monatsabo ist der einfachste Weg zum Ausprobieren.</div></details>
+      <details><summary>Wie lange läuft der Zugang und wie kündige ich?</summary><div class="ans">Aktien-Trader ist ein Abo. Beim Jahresabo zahlst du einmal im Jahr im Voraus, beim Monatsabo jeden Monat. Beides verlängert sich automatisch, bis du kündigst. Eine kostenlose Testphase gibt es nicht, das Monatsabo ist der einfachste Weg zum Ausprobieren. Das Monatsabo kannst du jederzeit zum Ende des bezahlten Monats kündigen. In der Kasse ist der Jahresplan vorausgewählt, für das Monatsabo wählst du dort den Monatsplan.</div></details>
       <details><summary>Verwaltet ihr mein Geld?</summary><div class="ans">Nein. Du bekommst Software, installierst sie selbst und behältst die volle Verfügungsgewalt über dein Konto. Wir haben keinen Zugriff auf Konto, Zugangsdaten oder Kapital.</div></details>
     </div>
     <p class="reveal" style="text-align:center;margin-top:34px"><a href="#chat" class="btn btn-ghost" data-ktchat>Andere Frage? Frag den Assistenten</a></p>
